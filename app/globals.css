@@ -1,21 +1,171 @@
-@tailwind base;
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i');
+
 @tailwind components;
+@tailwind base;
+
+@layer components {
+  .heading--extra-large {
+    @apply text-heading-extra-large leading-heading-extra-large font-bold;
+  }
+
+  .heading--sub-extra-large {
+    @apply text-heading-sub-extra-large leading-heading-sub-extra-large font-bold;
+  }
+
+  .heading--large {
+    @apply text-heading-large leading-heading-large font-bold;
+  }
+
+  .heading--sub-large {
+    @apply text-heading-sub-large leading-heading-sub-large font-medium;
+  }
+
+  .heading {
+    @apply text-heading leading-heading font-medium;
+  }
+
+  .sub-heading {
+    @apply text-sub-heading leading-sub-heading font-normal;
+  }
+
+  .body {
+    @apply text-body leading-body font-normal;
+  }
+
+  .caption {
+    @apply text-caption leading-caption font-normal;
+  }
+
+  .brutalism-border {
+    @apply border-b-4 border-l border-r-4 border-t;
+  }
+
+  .cancel-hover {
+    @apply tablet:over:text-error1 duration-medium tablet:hover:border-transparent tablet:hover:bg-error40 tablet:hover:shadow-inner;
+  }
+
+  .validate-hover {
+    @apply duration-medium tablet:hover:border-transparent tablet:hover:bg-success40 tablet:hover:text-success1 tablet:hover:shadow-inner;
+  }
+
+  .primary-transparent-hover {
+    @apply duration-fast tablet:hover:scale-[102%] tablet:hover:shadow-primary-medium;
+  }
+
+  .primary-hover {
+    @apply duration-fast tablet:hover:scale-[102%] tablet:hover:shadow-primary-medium tablet:dark:hover:shadow-primary-medium-light;
+  }
+
+  .secondary-hover {
+    @apply duration-fast tablet:hover:scale-[102%] tablet:hover:shadow-secondary-medium;
+  }
+}
+
 @tailwind utilities;
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+:root {
+  --primary-color: theme('colors.primary40');
+  color: theme('colors.neutral80');
 }
 
-@supports (font: -apple-system-body) and (-webkit-appearance: none) {
-  img[loading='lazy'] {
-    clip-path: inset(0.6px);
-  }
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
 }
 
-a,
-input,
-button {
-  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-50 dark:focus-visible:ring-neutral-600 dark:focus-visible:ring-offset-neutral-900;
+html {
+  font-size: 62.5%;
+  font-family: roboto;
+}
+
+.--visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+select {
+  appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23131313%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: right 0.7rem top 50%;
+  background-size: 0.6rem auto;
+}
+
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+}
+
+input:focus {
+  outline: 2px solid black;
+}
+
+textarea:focus {
+  outline: 2px solid black;
+}
+
+input[type='search']:focus {
+  outline: none;
+}
+
+.toggle-switch {
+  display: inline-block;
+  background: #ccc;
+  border-radius: 16px;
+  width: 58px;
+  height: 32px;
+  position: relative;
+  vertical-align: middle;
+  transition: background 0.25s;
+}
+
+.toggle-switch:before,
+.toggle-switch:after {
+  content: '';
+}
+
+.toggle-switch:before {
+  display: block;
+  background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  transition: left 0.25s;
+}
+
+.toggle:hover .toggle-switch:before {
+  background: linear-gradient(to bottom, #fff 0%, #fff 100%);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+}
+
+.toggle-checkbox:checked + .toggle-switch {
+  background: var(--primary-color);
+}
+
+.toggle-checkbox:checked + .toggle-switch:before {
+  left: 30px;
+}
+
+.toggle-checkbox {
+  position: absolute;
+  visibility: hidden;
+}
+
+.toggle-label {
+  margin-left: 5px;
+  position: relative;
+  top: 2px;
 }
