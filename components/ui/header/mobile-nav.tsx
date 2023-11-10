@@ -131,9 +131,11 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
             )}
           </AnimatePresence>
 
-          <div className="absolute left-1/2 -translate-x-1/2 transform">
+          <div
+            onClick={() => setShowMenu(false)}
+            className="absolute left-1/2 -translate-x-1/2 transform"
+          >
             <Logo
-              onClick={() => setShowMenu(false)}
               href="/"
               src={'/asset/aa_logo_white.png'}
               intent={intent}

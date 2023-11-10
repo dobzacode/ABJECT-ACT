@@ -101,6 +101,11 @@ html {
   height: 40%;
 }
 
+.hidden-div {
+  transition-duration: 600ms;
+  opacity: 0;
+}
+
 .--visually-hidden {
   border: 0;
   clip: rect(0 0 0 0);

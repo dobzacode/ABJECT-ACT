@@ -31,7 +31,7 @@ export default function AssaultSection() {
             transition: { type: 'spring', stiffness: 200, damping: 20 }
           });
         }}
-        className="group/parent relative z-10 flex h-1/2 w-full items-center justify-center overflow-hidden"
+        className="group/parent relative z-10 flex h-1/2 w-full items-center justify-center overflow-hidden "
       >
         <Image
           alt="Assault"

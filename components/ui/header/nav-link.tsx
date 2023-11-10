@@ -4,7 +4,7 @@ import { VariantProps, cva } from 'class-variance-authority';
 import { Variants, motion } from 'framer-motion';
 import { cn } from 'lib/utils';
 import Link, { LinkProps } from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { FC } from 'react';
 import { v4 as uuid } from 'uuid';
 
@@ -124,7 +124,7 @@ const NavLink: FC<NavLinkProps> = ({
   ...props
 }: NavLinkProps) => {
   const pathname = usePathname();
-
+  const router = useRouter();
   const isActive = pathname === props.href;
 
   if (!variants)
@@ -141,6 +141,14 @@ const NavLink: FC<NavLinkProps> = ({
               currentNavStyle: isActive ? intent : 'transparent'
             })
           )}
+          onClick={(e: any) => {
+            e.preventDefault();
+            if (pathname === props.href) return;
+            document.querySelector('main')?.classList.add('hidden-div');
+            setTimeout(() => {
+              router.push(props.href as string);
+            }, 1000);
+          }}
           {...props}
         >
           {children}
@@ -168,6 +176,14 @@ const NavLink: FC<NavLinkProps> = ({
             currentNavStyle: isActive ? intent : 'transparent'
           })
         )}
+        onClick={(e: any) => {
+          e.preventDefault();
+          if (pathname === props.href) return;
+          document.querySelector('main')?.classList.add('hidden-div');
+          setTimeout(() => {
+            router.push(props.href as string);
+          }, 1000);
+        }}
         {...props}
       >
         {children}
