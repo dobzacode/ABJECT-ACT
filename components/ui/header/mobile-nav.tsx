@@ -7,7 +7,6 @@ import React, { FC, useState } from 'react';
 
 import { mdiClose, mdiMenu } from '@mdi/js';
 import { AnimatePresence, Variants } from 'framer-motion';
-import { usePathname } from 'next/navigation';
 import { v4 as uuid } from 'uuid';
 import Logo from '../branding/logo';
 import AboutUsBlock from '../footer/about-us-block';
@@ -82,7 +81,6 @@ const footerBlocksVariant: Variants = {
 
 const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps) => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
-  const pathName = usePathname();
 
   const modalOffset = () => {
     switch (size) {
@@ -98,7 +96,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
   return (
     <>
       <header className={className}>
-        <div className="relative flex w-full items-center justify-center">
+        <div className="relative z-30 flex w-full items-center justify-center">
           <AnimatePresence>
             {!showMenu ? (
               <motion.button
@@ -133,20 +131,25 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
             )}
           </AnimatePresence>
 
-          <Logo
-            onClick={() => setShowMenu(false)}
-            href="/"
-            src={'/asset/aa_logo_white.png'}
-            intent={intent}
-            className="duration-slow"
-          ></Logo>
+          <div className="absolute left-1/2 -translate-x-1/2 transform">
+            <Logo
+              onClick={() => setShowMenu(false)}
+              href="/"
+              src={'/asset/aa_logo_white.png'}
+              intent={intent}
+              className=" z-20 duration-slow"
+            ></Logo>
+          </div>
 
           <div />
         </div>
         <AnimatePresence>
           {showMenu && (
             <nav className={cn(' h-full w-full', modalOffset())}>
-              <ul onClick={() => setShowMenu(false)} className={'flex flex-col justify-center '}>
+              <ul
+                onClick={() => setShowMenu(false)}
+                className={'relative z-30 flex flex-col justify-center'}
+              >
                 {navLinks.map((link, i) => {
                   return (
                     <NavLink
@@ -171,18 +174,23 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
           )}
         </AnimatePresence>
       </header>
-      <div
-        className={`fixed left-0 top-0 h-screen w-screen duration-slow ${
-          showMenu ? 'opacity-50' : 'opacity-0'
-        } -z-10 bg-black`}
-      ></div>
+      <AnimatePresence>
+        {showMenu && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.5, transition: { duration: 0.6 } }}
+            exit={{ opacity: 0, transition: { duration: 0.6 } }}
+            className={`fixed left-0 top-0 z-20 h-screen w-screen bg-black duration-slow`}
+          ></motion.div>
+        )}
+      </AnimatePresence>
       <AnimatePresence>
         {showMenu && (
           <>
             <footer
               onClick={() => setShowMenu(false)}
               className={cn(
-                'fixed bottom-0 mb-large mr-large flex h-fit w-[90vw] flex-wrap justify-between text-white',
+                'fixed bottom-0 z-30 mb-large mr-large flex h-fit w-[90vw] flex-wrap justify-between text-white',
                 modalOffset()
               )}
             >

@@ -124,6 +124,7 @@ const NavLink: FC<NavLinkProps> = ({
   ...props
 }: NavLinkProps) => {
   const pathname = usePathname();
+
   const isActive = pathname === props.href;
 
   if (!variants)

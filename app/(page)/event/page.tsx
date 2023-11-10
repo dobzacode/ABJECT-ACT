@@ -1,3 +1,6 @@
+import AssaultSection from 'components/event/assault/assault-section';
+import PulsarSection from 'components/event/pulsar/pulsar-section';
+
 export const runtime = 'edge';
 
 export const metadata = {
@@ -8,5 +11,11 @@ export const metadata = {
 };
 
 export default async function HomePage() {
-  return <></>;
+  return (
+    <main className="h-screen overflow-hidden">
+      <PulsarSection></PulsarSection>
+      <div className="w-full border-2 border-black" />
+      <AssaultSection></AssaultSection>
+    </main>
+  );
 }
