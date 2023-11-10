@@ -106,6 +106,7 @@ interface NavLinkProps extends LinkProps, VariantProps<typeof linkVariants> {
   initial?: string;
   custom?: number;
   exit?: string;
+  customSetter?: Function;
 }
 
 const NavLink: FC<NavLinkProps> = ({
@@ -121,6 +122,7 @@ const NavLink: FC<NavLinkProps> = ({
   animate,
   custom,
   exit,
+  customSetter,
   ...props
 }: NavLinkProps) => {
   const pathname = usePathname();
@@ -143,6 +145,7 @@ const NavLink: FC<NavLinkProps> = ({
           )}
           onClick={(e: any) => {
             e.preventDefault();
+            customSetter ? customSetter() : '';
             if (pathname === props.href) return;
             document.querySelector('main')?.classList.add('hidden-div');
             setTimeout(() => {
@@ -178,6 +181,7 @@ const NavLink: FC<NavLinkProps> = ({
         )}
         onClick={(e: any) => {
           e.preventDefault();
+          customSetter ? customSetter() : '';
           if (pathname === props.href) return;
           document.querySelector('main')?.classList.add('hidden-div');
           setTimeout(() => {

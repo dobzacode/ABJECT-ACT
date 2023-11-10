@@ -14,6 +14,7 @@ interface LogoProps extends LinkProps, VariantProps<typeof textVariants> {
   className?: string;
   children?: React.ReactNode;
   src?: string;
+  customSetter?: Function;
 }
 
 const Logo: FC<LogoProps> = ({
@@ -24,6 +25,7 @@ const Logo: FC<LogoProps> = ({
   hover,
   href = '/',
   src,
+  customSetter,
   ...props
 }) => {
   const router = useRouter();
@@ -34,6 +36,7 @@ const Logo: FC<LogoProps> = ({
       <Link
         onClick={(e: any) => {
           e.preventDefault();
+          customSetter ? customSetter() : '';
           if (pathname === href) return;
 
           document.querySelector('main')?.classList.add('hidden-div');

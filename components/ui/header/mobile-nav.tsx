@@ -3,11 +3,10 @@
 import Icon from '@mdi/react';
 import { motion } from 'framer-motion';
 import { cn } from 'lib/utils';
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useState } from 'react';
 
 import { mdiClose, mdiMenu } from '@mdi/js';
 import { AnimatePresence, Variants } from 'framer-motion';
-import { usePathname } from 'next/navigation';
 import { v4 as uuid } from 'uuid';
 import Logo from '../branding/logo';
 import AboutUsBlock from '../footer/about-us-block';
@@ -82,7 +81,6 @@ const footerBlocksVariant: Variants = {
 
 const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps) => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
-  const pathname = usePathname();
 
   const modalOffset = () => {
     switch (size) {
@@ -94,10 +92,6 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
         return 'top-extra-large';
     }
   };
-
-  useEffect(() => {
-    setShowMenu(false);
-  }, [pathname]);
 
   return (
     <>
@@ -137,11 +131,9 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
             )}
           </AnimatePresence>
 
-          <div
-            onClick={() => setShowMenu(false)}
-            className="absolute left-1/2 -translate-x-1/2 transform"
-          >
+          <div className="absolute left-1/2 -translate-x-1/2 transform">
             <Logo
+              customSetter={() => setShowMenu(false)}
               href="/"
               src={'/asset/aa_logo_white.png'}
               intent={intent}
@@ -154,13 +146,13 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
         <AnimatePresence>
           {showMenu && (
             <nav className={cn(' h-full w-full', modalOffset())}>
-              <ul
-                onClick={() => setShowMenu(false)}
-                className={'relative z-30 flex flex-col justify-center'}
-              >
+              <ul className={'relative z-30 flex flex-col justify-center'}>
                 {navLinks.map((link, i) => {
                   return (
                     <NavLink
+                      customSetter={() => {
+                        setShowMenu(false);
+                      }}
                       exit="exit"
                       variants={navLinksVariant}
                       custom={i}
