@@ -147,7 +147,7 @@ const NavLink: FC<NavLinkProps> = ({
             document.querySelector('main')?.classList.add('hidden-div');
             setTimeout(() => {
               router.push(props.href as string);
-            }, 1000);
+            }, 600);
           }}
           {...props}
         >
@@ -182,7 +182,7 @@ const NavLink: FC<NavLinkProps> = ({
           document.querySelector('main')?.classList.add('hidden-div');
           setTimeout(() => {
             router.push(props.href as string);
-          }, 1000);
+          }, 600);
         }}
         {...props}
       >
