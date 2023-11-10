@@ -134,13 +134,14 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
               </motion.button>
             )}
           </AnimatePresence>
+
           <Logo
             href="/"
             src={'/asset/aa_logo_white.png'}
-            className=" "
             intent={intent}
-            textType="heading--sub-large"
+            className="duration-slow"
           ></Logo>
+
           <div />
         </div>
         <AnimatePresence>
@@ -171,6 +172,11 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
           )}
         </AnimatePresence>
       </header>
+      <div
+        className={`fixed left-0 top-0 h-screen w-screen duration-slow ${
+          showMenu ? 'opacity-50' : 'opacity-0'
+        } -z-10 bg-black`}
+      ></div>
       <AnimatePresence>
         {showMenu && (
           <>

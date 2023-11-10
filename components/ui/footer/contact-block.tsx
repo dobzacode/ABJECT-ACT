@@ -50,6 +50,7 @@ export default function ContactBlock({
               href={socialLink.href}
             >
               <SocialIcon
+                className="opacity-40"
                 size={1.6}
                 href={socialLink.href}
                 mdiPath={socialLink.mdiPath}

@@ -5,14 +5,20 @@ import { FC } from 'react';
 
 interface SocialIconProps extends LinkProps<IconProps> {
   mdiPath: string;
-
+  className?: string;
   size: number;
 }
 
-const SocialIcon: FC<SocialIconProps> = ({ mdiPath, href, size, ...props }: SocialIconProps) => {
+const SocialIcon: FC<SocialIconProps> = ({
+  mdiPath,
+  href,
+  size,
+  className,
+  ...props
+}: SocialIconProps) => {
   return (
     <Link href={href} {...props}>
-      <Icon path={mdiPath} size={size} className="text-white"></Icon>
+      <Icon className={className} path={mdiPath} size={size}></Icon>
     </Link>
   );
 };

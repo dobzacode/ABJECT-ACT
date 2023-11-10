@@ -32,14 +32,6 @@ const Logo: FC<LogoProps> = ({
           width={40}
           height={40}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          // className={cn(
-          //   textVariants({
-          //     className,
-          //     intent,
-          //     textType,
-          //     hover
-          //   })
-          // )}
         ></Image>
       </Link>
     );
