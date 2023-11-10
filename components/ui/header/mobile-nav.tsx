@@ -3,10 +3,11 @@
 import Icon from '@mdi/react';
 import { motion } from 'framer-motion';
 import { cn } from 'lib/utils';
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useState } from 'react';
 
 import { mdiClose, mdiMenu } from '@mdi/js';
 import { AnimatePresence, Variants } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 import { v4 as uuid } from 'uuid';
 import Logo from '../branding/logo';
 import AboutUsBlock from '../footer/about-us-block';
@@ -81,6 +82,7 @@ const footerBlocksVariant: Variants = {
 
 const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps) => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
+  const pathName = usePathname();
 
   const modalOffset = () => {
     switch (size) {
@@ -92,10 +94,6 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
         return 'top-extra-large';
     }
   };
-
-  useEffect(() => {
-    console.log(showMenu);
-  }, [showMenu]);
 
   return (
     <>
@@ -136,6 +134,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
           </AnimatePresence>
 
           <Logo
+            onClick={() => setShowMenu(false)}
             href="/"
             src={'/asset/aa_logo_white.png'}
             intent={intent}
@@ -147,7 +146,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
         <AnimatePresence>
           {showMenu && (
             <nav className={cn(' h-full w-full', modalOffset())}>
-              <ul className={'flex flex-col justify-center '}>
+              <ul onClick={() => setShowMenu(false)} className={'flex flex-col justify-center '}>
                 {navLinks.map((link, i) => {
                   return (
                     <NavLink
@@ -181,6 +180,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
         {showMenu && (
           <>
             <footer
+              onClick={() => setShowMenu(false)}
               className={cn(
                 'fixed bottom-0 mb-large mr-large flex h-fit w-[90vw] flex-wrap justify-between text-white',
                 modalOffset()

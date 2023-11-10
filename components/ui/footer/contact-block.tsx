@@ -25,7 +25,7 @@ export default function ContactBlock({
   intent
 }: FooterBlockProps) {
   const pathname = usePathname();
-  const isActive = pathname.includes('contact');
+  const isActive = pathname.includes('/contact/');
 
   return (
     <motion.div
