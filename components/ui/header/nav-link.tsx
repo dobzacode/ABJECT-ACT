@@ -1,10 +1,12 @@
 'use client';
 
 import { VariantProps, cva } from 'class-variance-authority';
+import { Variants, motion } from 'framer-motion';
 import { cn } from 'lib/utils';
 import Link, { LinkProps } from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FC } from 'react';
+import { v4 as uuid } from 'uuid';
 
 const linkVariants = cva('', {
   variants: {
@@ -22,7 +24,7 @@ const linkVariants = cva('', {
       warning: 'text-warning80 dark:text-warning1',
       info: 'text-info80 dark:text-info1',
       neutral: 'text-neutral80 dark:text-neutral1',
-      white: 'text-white',
+      white: 'text-white opacity-40',
       black: 'text-black'
     },
     currentNavStyle: {
@@ -34,12 +36,12 @@ const linkVariants = cva('', {
       warning: 'bg-warning80 dark:bg-warning1',
       info: 'bg-info80 dark:bg-info1',
       neutral: 'bg-neutral80 dark:bg-neutral1 text-neutral1 dark:text-neutral80',
-      white: 'text-white',
+      white: ' opacity-100',
       black: 'text-black',
       transparent: ''
     },
     hover: {
-      true: 'hover:bg-neutral80 hover:text-primary1 duration-fast ease-in'
+      true: ''
     },
     rounded: {
       small: 'rounded-extra-small',
@@ -53,6 +55,11 @@ const linkVariants = cva('', {
       intent: 'primary',
       hover: true,
       className: ' hover:bg-primary80 hover:text-primary1 duration-fast ease-in'
+    },
+    {
+      intent: 'white',
+      hover: true,
+      className: 'hover:opacity-100   duration-fast ease-in'
     },
     {
       intent: 'secondary',
@@ -94,6 +101,11 @@ const linkVariants = cva('', {
 interface NavLinkProps extends LinkProps, VariantProps<typeof linkVariants> {
   children?: React.ReactNode;
   className?: string;
+  variants?: Variants;
+  animate?: string;
+  initial?: string;
+  custom?: number;
+  exit?: string;
 }
 
 const NavLink: FC<NavLinkProps> = ({
@@ -104,13 +116,25 @@ const NavLink: FC<NavLinkProps> = ({
   intent,
   className,
   currentNavStyle,
+  variants,
+  initial,
+  animate,
+  custom,
+  exit,
   ...props
 }: NavLinkProps) => {
   const pathname = usePathname();
   const isActive = pathname === props.href;
 
   return (
-    <li>
+    <motion.li
+      initial={initial}
+      animate={animate}
+      variants={variants}
+      custom={custom}
+      exit={exit}
+      key={uuid()}
+    >
       <Link
         className={cn(
           linkVariants({
@@ -126,7 +150,7 @@ const NavLink: FC<NavLinkProps> = ({
       >
         {children}
       </Link>
-    </li>
+    </motion.li>
   );
 };
 
