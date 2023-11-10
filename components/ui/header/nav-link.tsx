@@ -126,6 +126,27 @@ const NavLink: FC<NavLinkProps> = ({
   const pathname = usePathname();
   const isActive = pathname === props.href;
 
+  if (!variants)
+    return (
+      <li>
+        <Link
+          className={cn(
+            linkVariants({
+              className,
+              size,
+              rounded,
+              hover,
+              intent,
+              currentNavStyle: isActive ? intent : 'transparent'
+            })
+          )}
+          {...props}
+        >
+          {children}
+        </Link>
+      </li>
+    );
+
   return (
     <motion.li
       initial={initial}

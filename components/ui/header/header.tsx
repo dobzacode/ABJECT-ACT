@@ -45,14 +45,14 @@ interface HeaderProps
 
 function Header({ children, className, size, intent, textColor, ...props }: HeaderProps) {
   return (
-    <header className={cn(sectionVariants({ className, size, intent }))} {...props}>
+    <div className={cn(sectionVariants({ className, size, intent }))} {...props}>
       {children}
       <MobileNav
-        className="relative flex w-full flex-col items-center justify-between gap-large"
+        className="flex w-full flex-col items-center justify-between gap-large"
         linkSize="large"
         intent={textColor}
       ></MobileNav>
-    </header>
+    </div>
   );
 }
 

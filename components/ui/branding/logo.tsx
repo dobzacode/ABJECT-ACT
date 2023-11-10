@@ -29,8 +29,8 @@ const Logo: FC<LogoProps> = ({
         <Image
           alt={`${process.env.SITE_NAME} logo`}
           src={src}
-          width={60}
-          height={60}
+          width={40}
+          height={40}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           // className={cn(
           //   textVariants({

@@ -1,14 +1,17 @@
 'use client';
 
-import { mdiClose, mdiMenu } from '@mdi/js';
 import Icon from '@mdi/react';
 import { motion } from 'framer-motion';
 import { cn } from 'lib/utils';
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
+import { mdiClose, mdiMenu } from '@mdi/js';
 import { AnimatePresence, Variants } from 'framer-motion';
 import { v4 as uuid } from 'uuid';
 import Logo from '../branding/logo';
+import AboutUsBlock from '../footer/about-us-block';
+import ContactBlock from '../footer/contact-block';
+import LegalBlock from '../footer/legal-block';
 import NavLink from './nav-link';
 
 interface NavProps {
@@ -41,6 +44,13 @@ const navLinks = [
   { href: '/label', name: 'LABEL' }
 ];
 
+const footerBlocks = [
+  <AboutUsBlock key={uuid()}></AboutUsBlock>,
+
+  <LegalBlock key={uuid()}></LegalBlock>,
+  <ContactBlock key={uuid()}></ContactBlock>
+];
+
 const navLinksVariant: Variants = {
   hidden: { x: -500 },
   visible: (i: number) => ({
@@ -50,6 +60,20 @@ const navLinksVariant: Variants = {
       stiffness: 100,
       damping: 10,
       delay: i * 0.115
+    }
+  }),
+  exit: { opacity: 0, transition: { duration: 1 } }
+};
+
+const footerBlocksVariant: Variants = {
+  hidden: { y: 500 },
+  visible: (i: number) => ({
+    y: 0,
+    transition: {
+      type: 'spring',
+      stiffness: 100,
+      damping: 15,
+      delay: 1.2 + i * 0.4
     }
   }),
   exit: { opacity: 0, transition: { duration: 1 } }
@@ -69,77 +93,110 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
     }
   };
 
+  useEffect(() => {
+    console.log(showMenu);
+  }, [showMenu]);
+
   return (
-    <nav className={className}>
-      <div className="relative flex w-full items-center justify-center">
-        {!showMenu ? (
-          <motion.button
-            key={uuid()}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1, transition: { duration: 2 } }}
-            exit={{ opacity: 0, transition: { duration: 2 } }}
-            className="absolute left-0 h-fit w-fit"
-            onClick={() => setShowMenu(!showMenu)}
-          >
-            <Icon
-              path={mdiMenu}
-              className=" text-white duration-fast hover:scale-105"
-              size={3.5}
-            ></Icon>
-          </motion.button>
-        ) : (
-          <motion.button
-            key={uuid()}
-            initial={{ opacity: 0, rotate: 360 }}
-            animate={{ opacity: 1, rotate: 0, transition: { duration: 1, ease: 'easeOut' } }}
-            exit={{ opacity: 0, transition: { duration: 1 } }}
-            className="absolute left-0 h-fit w-fit"
-            onClick={() => setShowMenu(!showMenu)}
-          >
-            <Icon
-              path={mdiClose}
-              className=" text-white duration-fast hover:scale-105"
-              size={3.5}
-            ></Icon>
-          </motion.button>
-        )}
-        <Logo
-          href="/"
-          src={'/asset/aa_logo_white.png'}
-          className=" "
-          intent={intent}
-          textType="heading--sub-large"
-        ></Logo>
-        <div />
-      </div>
+    <>
+      <header className={className}>
+        <div className="relative flex w-full items-center justify-center">
+          <AnimatePresence>
+            {!showMenu ? (
+              <motion.button
+                key={uuid()}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1, transition: { duration: 1 } }}
+                exit={{ opacity: 0 }}
+                className="absolute left-0 h-fit w-fit"
+                onClick={() => setShowMenu(true)}
+              >
+                <Icon
+                  path={mdiMenu}
+                  className=" text-white duration-fast hover:scale-105"
+                  size={2.5}
+                ></Icon>
+              </motion.button>
+            ) : (
+              <motion.button
+                key={uuid()}
+                initial={{ opacity: 0, rotate: 360 }}
+                animate={{ opacity: 1, rotate: 0, transition: { duration: 1, ease: 'easeOut' } }}
+                exit={{ opacity: 0, transition: { duration: 0.4 } }}
+                className="absolute left-0 h-fit w-fit"
+                onClick={() => setShowMenu(false)}
+              >
+                <Icon
+                  path={mdiClose}
+                  className=" text-white duration-fast hover:scale-105"
+                  size={2.5}
+                ></Icon>
+              </motion.button>
+            )}
+          </AnimatePresence>
+          <Logo
+            href="/"
+            src={'/asset/aa_logo_white.png'}
+            className=" "
+            intent={intent}
+            textType="heading--sub-large"
+          ></Logo>
+          <div />
+        </div>
+        <AnimatePresence>
+          {showMenu && (
+            <nav className={cn(' h-full w-full', modalOffset())}>
+              <ul className={'flex flex-col justify-center '}>
+                {navLinks.map((link, i) => {
+                  return (
+                    <NavLink
+                      exit="exit"
+                      variants={navLinksVariant}
+                      custom={i}
+                      initial="hidden"
+                      animate="visible"
+                      key={uuid()}
+                      hover={true}
+                      size={linkSize}
+                      intent={intent}
+                      currentNavStyle={intent}
+                      href={link.href}
+                    >
+                      {link.name}
+                    </NavLink>
+                  );
+                })}
+              </ul>
+            </nav>
+          )}
+        </AnimatePresence>
+      </header>
       <AnimatePresence>
         {showMenu && (
-          <div className={cn(' h-full w-full', modalOffset())}>
-            <ul className={'flex flex-col justify-center  gap-sub-large '}>
-              {navLinks.map((link, i) => {
-                return (
-                  <NavLink
-                    exit="exit"
-                    variants={navLinksVariant}
-                    custom={i}
-                    initial="hidden"
-                    animate="visible"
-                    key={uuid()}
-                    hover={true}
-                    size={linkSize}
-                    intent={intent}
-                    currentNavStyle={intent}
-                    href={link.href}
-                  >
-                    {link.name}
-                  </NavLink>
-                );
+          <>
+            <footer
+              className={cn(
+                'fixed bottom-0 mb-large mr-large flex h-fit w-[90vw] flex-wrap justify-between text-white',
+                modalOffset()
+              )}
+            >
+              {footerBlocks.map((block, i) => {
+                return React.cloneElement(block, {
+                  key: uuid(),
+                  custom: i,
+                  initial: 'hidden',
+                  animate: 'visible',
+                  exit: 'exit',
+                  variants: footerBlocksVariant,
+                  intent: intent,
+                  currentNavStyle: intent
+                });
               })}
-            </ul>
-          </div>
+            </footer>
+          </>
         )}
       </AnimatePresence>
-    </nav>
+    </>
   );
 };
 
