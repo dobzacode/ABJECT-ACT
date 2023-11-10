@@ -8,9 +8,5 @@ export const metadata = {
 };
 
 export default async function HomePage() {
-  return (
-    <>
-      <h1>XD</h1>
-    </>
-  );
+  return <></>;
 }

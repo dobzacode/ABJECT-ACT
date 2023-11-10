@@ -1,39 +1,39 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600&display=swap');
 
 @tailwind components;
 @tailwind base;
 
 @layer components {
   .heading--extra-large {
-    @apply text-heading-extra-large leading-heading-extra-large font-bold;
+    @apply text-heading-extra-large font-light leading-heading-extra-large;
   }
 
   .heading--sub-extra-large {
-    @apply text-heading-sub-extra-large leading-heading-sub-extra-large font-bold;
+    @apply text-heading-sub-extra-large font-semibold leading-heading-sub-extra-large;
   }
 
   .heading--large {
-    @apply text-heading-large leading-heading-large font-bold;
+    @apply text-heading-large font-light leading-heading-large;
   }
 
   .heading--sub-large {
-    @apply text-heading-sub-large leading-heading-sub-large font-medium;
+    @apply font-normal text-heading-sub-large leading-heading-sub-large;
   }
 
   .heading {
-    @apply text-heading leading-heading font-medium;
+    @apply text-heading font-semibold leading-heading;
   }
 
   .sub-heading {
-    @apply text-sub-heading leading-sub-heading font-normal;
+    @apply font-normal text-sub-heading leading-sub-heading;
   }
 
   .body {
-    @apply text-body leading-body font-normal;
+    @apply text-body font-light leading-body;
   }
 
   .caption {
-    @apply text-caption leading-caption font-normal;
+    @apply text-caption font-light leading-caption;
   }
 
   .brutalism-border {
@@ -76,7 +76,7 @@
 
 html {
   font-size: 62.5%;
-  font-family: roboto;
+  font-family: oswald;
 }
 
 .--visually-hidden {

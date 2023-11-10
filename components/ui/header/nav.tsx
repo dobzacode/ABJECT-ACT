@@ -16,6 +16,8 @@ interface NavProps extends HTMLProps<HTMLElement> {
     | 'warning'
     | 'info'
     | 'neutral'
+    | 'black'
+    | 'white'
     | null
     | undefined;
 }
@@ -31,7 +33,7 @@ const Nav: FC<NavProps> = ({ className, linkSize, intent }) => {
       >
         DESIGN SYSTEM
       </Logo>
-      <ul className="laptopL:gap-large laptop:gap-sub-large tablet:gap-small flex justify-center">
+      <ul className="laptopL:gap-large flex justify-center tablet:gap-small laptop:gap-sub-large">
         <NavLink
           rounded="small"
           hover={true}

@@ -4,6 +4,7 @@ import { mdiMenu } from '@mdi/js';
 import Icon from '@mdi/react';
 import { cn } from 'lib/utils';
 import React, { FC, useState } from 'react';
+
 import Logo from '../branding/logo';
 import NavLink from './nav-link';
 
@@ -19,6 +20,8 @@ interface NavProps {
     | 'warning'
     | 'info'
     | 'neutral'
+    | 'white'
+    | 'black'
     | null
     | undefined;
   linkSize: 'small' | 'medium' | 'large' | null | undefined;
@@ -41,55 +44,92 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
 
   return (
     <nav className={className}>
-      <Logo
-        href="/"
-        className="font-bold tracking-widest"
-        intent={intent}
-        textType="heading--sub-large"
-      >
-        DESIGN SYSTEM
-      </Logo>
-      <button onClick={() => setShowMenu(!showMenu)}>
-        <Icon path={mdiMenu} size={3.5}></Icon>
-      </button>
+      <div className="flex w-full justify-between">
+        <button onClick={() => setShowMenu(!showMenu)}>
+          <Icon path={mdiMenu} className="text-white" size={3.5}></Icon>
+        </button>
+        <Logo
+          href="/"
+          src={'/asset/aa_logo_white.png'}
+          className=" "
+          intent={intent}
+          textType="heading--sub-large"
+        ></Logo>
+        <div />
+      </div>
+
       <div
         className={cn(
-          'h-screen w-screen bg-white duration-700',
-          'absolute z-10',
-          showMenu ? 'left-0' : '-left-[768px] ',
+          'h-full w-full duration-700',
+
+          showMenu ? 'opacity-100' : 'opacity-0 ',
           modalOffset()
         )}
       >
-        <ul className={'mt-sub-large flex flex-col justify-center  gap-large pl-8'}>
+        <ul className={'flex flex-col justify-center  gap-sub-large '}>
           <NavLink
-            rounded="small"
             hover={true}
             size={linkSize}
             intent={intent}
             currentNavStyle={intent}
-            href="/color"
+            href="/event"
           >
-            Color
+            EVENT
           </NavLink>
           <NavLink
-            rounded="small"
             hover={true}
             size={linkSize}
             intent={intent}
             currentNavStyle={intent}
-            href="/typography"
+            href="/artists"
           >
-            Typography
+            ARTISTS
+          </NavLink>
+
+          <NavLink
+            hover={true}
+            size={linkSize}
+            intent={intent}
+            currentNavStyle={intent}
+            href="/values"
+          >
+            VALUES
           </NavLink>
           <NavLink
-            rounded="small"
             hover={true}
             size={linkSize}
             intent={intent}
             currentNavStyle={intent}
-            href="/component"
+            href="/shop"
           >
-            Component
+            SHOP
+          </NavLink>
+          <NavLink
+            hover={true}
+            size={linkSize}
+            intent={intent}
+            currentNavStyle={intent}
+            href="/contact"
+          >
+            CONTACT
+          </NavLink>
+          <NavLink
+            hover={true}
+            size={linkSize}
+            intent={intent}
+            currentNavStyle={intent}
+            href="/media"
+          >
+            MEDIA
+          </NavLink>
+          <NavLink
+            hover={true}
+            size={linkSize}
+            intent={intent}
+            currentNavStyle={intent}
+            href="/label"
+          >
+            LABEL
           </NavLink>
         </ul>
       </div>

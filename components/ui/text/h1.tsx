@@ -21,7 +21,9 @@ const textVariants = cva('', {
       error: 'text-error80 dark:text-error1',
       warning: 'text-warning80 dark:text-warning1',
       info: 'text-info80 dark:text-info1',
-      neutral: 'text-neutral80 dark:text-neutral1'
+      neutral: 'text-neutral80 dark:text-neutral1',
+      black: 'text-black',
+      white: 'text-white'
     },
     hover: {
       true: 'duration-fast hover:scale-[102%]'

@@ -9,9 +9,9 @@ import { FC } from 'react';
 const linkVariants = cva('', {
   variants: {
     size: {
-      small: 'py-small px-sub-large body leading-body font-medium',
-      medium: 'py-sub-medium px-sub-large sub-heading',
-      large: 'py-small px-sub-large heading'
+      small: 'body leading-body font-medium',
+      medium: 'sub-heading',
+      large: 'heading--large'
     },
     intent: {
       primary: 'text-primary80 dark:text-primary1',
@@ -21,7 +21,9 @@ const linkVariants = cva('', {
       error: 'text-error80 dark:text-error1',
       warning: 'text-warning80 dark:text-warning1',
       info: 'text-info80 dark:text-info1',
-      neutral: 'text-neutral80 dark:text-neutral1'
+      neutral: 'text-neutral80 dark:text-neutral1',
+      white: 'text-white',
+      black: 'text-black'
     },
     currentNavStyle: {
       primary: 'bg-primary80 dark:bg-primary1 text-primary1 dark:text-primary80',
@@ -32,6 +34,8 @@ const linkVariants = cva('', {
       warning: 'bg-warning80 dark:bg-warning1',
       info: 'bg-info80 dark:bg-info1',
       neutral: 'bg-neutral80 dark:bg-neutral1 text-neutral1 dark:text-neutral80',
+      white: 'text-white',
+      black: 'text-black',
       transparent: ''
     },
     hover: {
@@ -108,9 +112,6 @@ const NavLink: FC<NavLinkProps> = ({
   return (
     <li>
       <Link
-        // className={`${hover} ${
-        //   isActive && currentNavStyle
-        // } rounded-lg px-8 py-4  `}
         className={cn(
           linkVariants({
             className,

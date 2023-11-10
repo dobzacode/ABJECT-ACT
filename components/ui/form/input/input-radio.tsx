@@ -3,7 +3,7 @@
 import { VariantProps } from 'class-variance-authority';
 import { FC, InputHTMLAttributes, forwardRef } from 'react';
 
-import { inputVariants } from '../Input';
+import { inputVariants } from '../input';
 import Label from '../label';
 
 interface RadioProps
