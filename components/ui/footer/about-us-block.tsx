@@ -12,6 +12,7 @@ export interface FooterBlockProps {
   initial?: string;
   custom?: number;
   exit?: string;
+  customSetter?: Function;
   currentNavStyle?:
     | 'primary'
     | 'secondary'
@@ -56,7 +57,8 @@ export default function AboutUsBlock({
   custom,
   exit,
   currentNavStyle,
-  intent
+  intent,
+  customSetter
 }: FooterBlockProps) {
   const pathname = usePathname();
   const isActive = pathname.includes('about');
@@ -68,7 +70,7 @@ export default function AboutUsBlock({
       variants={variants}
       custom={custom}
       exit={exit}
-      key={v4()}
+      key={'about-block'}
       className="flex flex-col gap-small"
     >
       <H3 textType="sub-heading" className={`${isActive ? 'opacity-100' : 'opacity-40'}`}>
@@ -78,6 +80,7 @@ export default function AboutUsBlock({
         {links.map((link) => {
           return (
             <NavLink
+              customSetter={customSetter}
               hover={true}
               currentNavStyle={currentNavStyle}
               intent={intent}

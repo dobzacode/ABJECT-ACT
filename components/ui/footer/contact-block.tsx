@@ -34,7 +34,7 @@ export default function ContactBlock({
       variants={variants}
       custom={custom}
       exit={exit}
-      key={v4()}
+      key={'contact-block'}
       className="flex flex-col gap-small"
     >
       <H3 className={`${isActive ? 'opacity-100' : 'opacity-40'}`} textType="sub-heading">

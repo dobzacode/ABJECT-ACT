@@ -3,7 +3,7 @@
 import Icon from '@mdi/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { cn } from 'lib/utils';
-import React, { FC, useState } from 'react';
+import React, { FC, useRef, useState } from 'react';
 
 import { mdiClose, mdiMenu } from '@mdi/js';
 import { Variants } from 'framer-motion';
@@ -82,6 +82,9 @@ const footerBlocksVariant: Variants = {
 const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps) => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
 
+  const navRef = useRef();
+  const footerRef = useRef();
+
   const modalOffset = () => {
     switch (size) {
       case 'small':
@@ -146,8 +149,8 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
           <div />
         </div>
 
-        <CSSTransition timeout={500} unmountOnExit classNames="fade" in={showMenu}>
-          <nav key="navbar" className={cn(' h-full w-full', modalOffset())}>
+        <CSSTransition nodeRef={navRef} timeout={600} unmountOnExit classNames="fade" in={showMenu}>
+          <nav ref={navRef as any} key="navbar" className={cn(' h-full w-full', modalOffset())}>
             <ul className={'relative z-30 flex flex-col justify-center'}>
               {navLinks.map((link, i) => {
                 return (
@@ -186,9 +189,15 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
           ></motion.div>
         )}
       </AnimatePresence>
-
-      {showMenu && (
+      <CSSTransition
+        timeout={600}
+        unmountOnExit
+        classNames="fade"
+        in={showMenu as boolean}
+        nodeRef={footerRef}
+      >
         <footer
+          ref={footerRef as any}
           key="footer"
           onClick={() => setShowMenu(false)}
           className={cn(
@@ -204,11 +213,12 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
               exit: 'exit',
               variants: footerBlocksVariant,
               intent: intent,
-              currentNavStyle: intent
+              currentNavStyle: intent,
+              customSetter: () => setShowMenu(false)
             });
           })}
         </footer>
-      )}
+      </CSSTransition>
     </>
   );
 };

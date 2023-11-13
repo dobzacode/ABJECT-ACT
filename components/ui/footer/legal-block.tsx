@@ -30,7 +30,7 @@ export default function LegalBlock({
       variants={variants}
       custom={custom}
       exit={exit}
-      key={v4()}
+      key={'legal-block'}
       className="flex flex-col gap-small"
     >
       <H3 className={`${isActive ? 'opacity-100' : 'opacity-40'}`} textType="sub-heading">
