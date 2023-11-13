@@ -42,21 +42,20 @@ export default function ContactBlock({
       </H3>
       <ul className="body flex gap-medium">
         {socialLinks.map((socialLink) => (
-          <li key={v4()}>
-            <NavLink
-              hover={true}
-              intent={intent}
-              currentNavStyle={currentNavStyle}
+          <NavLink
+            key={v4()}
+            hover={true}
+            intent={intent}
+            currentNavStyle={currentNavStyle}
+            href={socialLink.href}
+          >
+            <SocialIcon
+              className="opacity-40"
+              size={1.6}
               href={socialLink.href}
-            >
-              <SocialIcon
-                className="opacity-40"
-                size={1.6}
-                href={socialLink.href}
-                mdiPath={socialLink.mdiPath}
-              ></SocialIcon>
-            </NavLink>
-          </li>
+              mdiPath={socialLink.mdiPath}
+            ></SocialIcon>
+          </NavLink>
         ))}
       </ul>
     </motion.div>

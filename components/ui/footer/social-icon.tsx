@@ -1,6 +1,6 @@
 import Icon from '@mdi/react';
 import { IconProps } from '@mdi/react/dist/IconProps';
-import Link, { LinkProps } from 'next/link';
+import { LinkProps } from 'next/link';
 import { FC } from 'react';
 
 interface SocialIconProps extends LinkProps<IconProps> {
@@ -9,17 +9,11 @@ interface SocialIconProps extends LinkProps<IconProps> {
   size: number;
 }
 
-const SocialIcon: FC<SocialIconProps> = ({
-  mdiPath,
-  href,
-  size,
-  className,
-  ...props
-}: SocialIconProps) => {
+const SocialIcon: FC<SocialIconProps> = ({ mdiPath, size, className }: SocialIconProps) => {
   return (
-    <Link href={href} {...props}>
+    <>
       <Icon className={className} path={mdiPath} size={size}></Icon>
-    </Link>
+    </>
   );
 };
 

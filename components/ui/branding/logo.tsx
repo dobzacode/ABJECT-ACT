@@ -48,7 +48,7 @@ const Logo: FC<LogoProps> = ({
         {...props}
       >
         <Image
-          alt={`${process.env.SITE_NAME} logo`}
+          alt={`Abject act logo`}
           src={src}
           width={40}
           height={40}

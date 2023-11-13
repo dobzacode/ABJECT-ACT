@@ -5,8 +5,7 @@ import { Variants, motion } from 'framer-motion';
 import { cn } from 'lib/utils';
 import Link, { LinkProps } from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { FC } from 'react';
-import { v4 as uuid } from 'uuid';
+import React, { FC } from 'react';
 
 const linkVariants = cva('', {
   variants: {
@@ -109,30 +108,73 @@ interface NavLinkProps extends LinkProps, VariantProps<typeof linkVariants> {
   customSetter?: Function;
 }
 
-const NavLink: FC<NavLinkProps> = ({
-  children,
-  hover,
-  rounded,
-  size,
-  intent,
-  className,
-  currentNavStyle,
-  variants,
-  initial,
-  animate,
-  custom,
-  exit,
-  customSetter,
-  ...props
-}: NavLinkProps) => {
-  const pathname = usePathname();
-  const router = useRouter();
-  const isActive = pathname === props.href;
+const NavLink: FC<NavLinkProps> = React.forwardRef<HTMLLIElement, NavLinkProps>(
+  (
+    {
+      children,
+      hover,
+      rounded,
+      size,
+      intent,
+      className,
+      currentNavStyle,
+      variants,
+      initial,
+      animate,
+      custom,
+      exit,
+      customSetter,
+      ...props
+    }: NavLinkProps,
+    ref
+  ) => {
+    const pathname = usePathname();
+    const router = useRouter();
+    const isActive = pathname === props.href;
 
-  if (!variants)
+    if (!variants)
+      return (
+        <li ref={ref}>
+          <Link
+            className={cn(
+              linkVariants({
+                className,
+                size,
+                rounded,
+                hover,
+                intent,
+                currentNavStyle: isActive ? intent : 'transparent'
+              })
+            )}
+            onClick={(e: any) => {
+              e.stopPropagation();
+              e.preventDefault();
+              customSetter ? customSetter() : '';
+              if (pathname === props.href) return;
+              document.querySelector('main')?.classList.add('hidden-div');
+              setTimeout(() => {
+                router.push(props.href as string);
+              }, 600);
+            }}
+            {...props}
+          >
+            {children}
+          </Link>
+        </li>
+      );
+
     return (
-      <li>
+      <motion.li
+        ref={ref}
+        initial={initial}
+        animate={animate}
+        exit={exit}
+        variants={variants}
+        custom={custom}
+        key={children as string}
+      >
         <Link
+          passHref
           className={cn(
             linkVariants({
               className,
@@ -145,6 +187,8 @@ const NavLink: FC<NavLinkProps> = ({
           )}
           onClick={(e: any) => {
             e.preventDefault();
+            e.stopPropagation();
+            console.log(customSetter);
             customSetter ? customSetter() : '';
             if (pathname === props.href) return;
             document.querySelector('main')?.classList.add('hidden-div');
@@ -156,44 +200,11 @@ const NavLink: FC<NavLinkProps> = ({
         >
           {children}
         </Link>
-      </li>
+      </motion.li>
     );
+  }
+);
 
-  return (
-    <motion.li
-      initial={initial}
-      animate={animate}
-      variants={variants}
-      custom={custom}
-      exit={exit}
-      key={uuid()}
-    >
-      <Link
-        className={cn(
-          linkVariants({
-            className,
-            size,
-            rounded,
-            hover,
-            intent,
-            currentNavStyle: isActive ? intent : 'transparent'
-          })
-        )}
-        onClick={(e: any) => {
-          e.preventDefault();
-          customSetter ? customSetter() : '';
-          if (pathname === props.href) return;
-          document.querySelector('main')?.classList.add('hidden-div');
-          setTimeout(() => {
-            router.push(props.href as string);
-          }, 600);
-        }}
-        {...props}
-      >
-        {children}
-      </Link>
-    </motion.li>
-  );
-};
+NavLink.displayName = 'NavLink';
 
 export default NavLink;

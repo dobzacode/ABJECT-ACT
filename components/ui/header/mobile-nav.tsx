@@ -1,12 +1,13 @@
 'use client';
 
 import Icon from '@mdi/react';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { cn } from 'lib/utils';
 import React, { FC, useState } from 'react';
 
 import { mdiClose, mdiMenu } from '@mdi/js';
-import { AnimatePresence, Variants } from 'framer-motion';
+import { Variants } from 'framer-motion';
+import { CSSTransition } from 'react-transition-group';
 import { v4 as uuid } from 'uuid';
 import Logo from '../branding/logo';
 import AboutUsBlock from '../footer/about-us-block';
@@ -45,10 +46,9 @@ const navLinks = [
 ];
 
 const footerBlocks = [
-  <AboutUsBlock key={uuid()}></AboutUsBlock>,
-
-  <LegalBlock key={uuid()}></LegalBlock>,
-  <ContactBlock key={uuid()}></ContactBlock>
+  <AboutUsBlock key="aboutus"></AboutUsBlock>,
+  <LegalBlock key="legal"></LegalBlock>,
+  <ContactBlock key="contact"></ContactBlock>
 ];
 
 const navLinksVariant: Variants = {
@@ -93,6 +93,8 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
     }
   };
 
+  console.log(uuid());
+
   return (
     <>
       <header className={className}>
@@ -100,7 +102,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
           <AnimatePresence>
             {!showMenu ? (
               <motion.button
-                key={uuid()}
+                key="menu"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1, transition: { duration: 1 } }}
                 exit={{ opacity: 0 }}
@@ -115,7 +117,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
               </motion.button>
             ) : (
               <motion.button
-                key={uuid()}
+                key="close"
                 initial={{ opacity: 0, rotate: 360 }}
                 animate={{ opacity: 1, rotate: 0, transition: { duration: 1, ease: 'easeOut' } }}
                 exit={{ opacity: 0, transition: { duration: 0.4 } }}
@@ -143,40 +145,40 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
 
           <div />
         </div>
-        <AnimatePresence>
-          {showMenu && (
-            <nav className={cn(' h-full w-full', modalOffset())}>
-              <ul className={'relative z-30 flex flex-col justify-center'}>
-                {navLinks.map((link, i) => {
-                  return (
-                    <NavLink
-                      customSetter={() => {
-                        setShowMenu(false);
-                      }}
-                      exit="exit"
-                      variants={navLinksVariant}
-                      custom={i}
-                      initial="hidden"
-                      animate="visible"
-                      key={uuid()}
-                      hover={true}
-                      size={linkSize}
-                      intent={intent}
-                      currentNavStyle={intent}
-                      href={link.href}
-                    >
-                      {link.name}
-                    </NavLink>
-                  );
-                })}
-              </ul>
-            </nav>
-          )}
-        </AnimatePresence>
+
+        <CSSTransition timeout={500} unmountOnExit classNames="fade" in={showMenu}>
+          <nav key="navbar" className={cn(' h-full w-full', modalOffset())}>
+            <ul className={'relative z-30 flex flex-col justify-center'}>
+              {navLinks.map((link, i) => {
+                return (
+                  <NavLink
+                    customSetter={() => {
+                      setShowMenu(false);
+                    }}
+                    exit="exit"
+                    variants={navLinksVariant}
+                    custom={i}
+                    initial="hidden"
+                    animate="visible"
+                    key={link.name}
+                    hover={true}
+                    size={linkSize}
+                    intent={intent}
+                    currentNavStyle={intent}
+                    href={link.href}
+                  >
+                    {link.name}
+                  </NavLink>
+                );
+              })}
+            </ul>
+          </nav>
+        </CSSTransition>
       </header>
       <AnimatePresence>
         {showMenu && (
           <motion.div
+            key="backdrop"
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.5, transition: { duration: 0.6 } }}
             exit={{ opacity: 0, transition: { duration: 0.6 } }}
@@ -184,32 +186,29 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
           ></motion.div>
         )}
       </AnimatePresence>
-      <AnimatePresence>
-        {showMenu && (
-          <>
-            <footer
-              onClick={() => setShowMenu(false)}
-              className={cn(
-                'fixed bottom-0 z-30 mb-large mr-large flex h-fit w-[90vw] flex-wrap justify-between text-white',
-                modalOffset()
-              )}
-            >
-              {footerBlocks.map((block, i) => {
-                return React.cloneElement(block, {
-                  key: uuid(),
-                  custom: i,
-                  initial: 'hidden',
-                  animate: 'visible',
-                  exit: 'exit',
-                  variants: footerBlocksVariant,
-                  intent: intent,
-                  currentNavStyle: intent
-                });
-              })}
-            </footer>
-          </>
-        )}
-      </AnimatePresence>
+
+      {showMenu && (
+        <footer
+          key="footer"
+          onClick={() => setShowMenu(false)}
+          className={cn(
+            'fixed bottom-0 z-30 mb-large mr-large flex h-fit w-[90vw] flex-wrap justify-between text-white',
+            modalOffset()
+          )}
+        >
+          {footerBlocks.map((block, i) => {
+            return React.cloneElement(block, {
+              custom: i,
+              initial: 'hidden',
+              animate: 'visible',
+              exit: 'exit',
+              variants: footerBlocksVariant,
+              intent: intent,
+              currentNavStyle: intent
+            });
+          })}
+        </footer>
+      )}
     </>
   );
 };
