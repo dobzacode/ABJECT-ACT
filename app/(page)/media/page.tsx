@@ -1,3 +1,6 @@
+import MusicSection from 'components/media/music/music-section';
+import PhotoVideoSection from 'components/media/photo-video/photo-video-section';
+
 export const runtime = 'edge';
 
 export const metadata = {
@@ -8,5 +11,11 @@ export const metadata = {
 };
 
 export default async function HomePage() {
-  return <></>;
+  return (
+    <main className="h-screen overflow-hidden">
+      <MusicSection></MusicSection>
+      <div className="w-full border-2 border-black" />
+      <PhotoVideoSection></PhotoVideoSection>
+    </main>
+  );
 }

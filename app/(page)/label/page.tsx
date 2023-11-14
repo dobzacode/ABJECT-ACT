@@ -1,3 +1,5 @@
+import ImageSlider from 'components/ui/div/image-slider/image-slider';
+
 export const runtime = 'edge';
 
 export const metadata = {
@@ -8,5 +10,9 @@ export const metadata = {
 };
 
 export default async function HomePage() {
-  return <></>;
+  return (
+    <>
+      <ImageSlider imageFolder="/asset/event/media/pulsar-lulu"></ImageSlider>
+    </>
+  );
 }

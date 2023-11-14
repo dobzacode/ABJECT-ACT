@@ -79,26 +79,16 @@ html {
   font-family: oswald;
 }
 
-.fade::before {
+.overlay::before {
   content: '';
   position: absolute;
   top: 0;
   right: 0;
   left: 0;
-  height: 40%;
+  z-index: 20;
+  height: 200%;
   background: linear-gradient(to bottom, black, transparent);
   pointer-events: none;
-}
-
-.fade::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: linear-gradient(to top, black, transparent);
-  pointer-events: none;
-  height: 40%;
 }
 
 .hidden-div {
@@ -201,9 +191,13 @@ input[type='search']:focus {
   opacity: 1;
 }
 
+.fade-exit-done {
+  opacity: 0;
+}
+
 .fade-exit-active {
   opacity: 0;
-  transition: opacity 500ms ease-in;
+  transition: opacity 600ms ease-in;
 }
 
 .fade-enter {
@@ -212,5 +206,58 @@ input[type='search']:focus {
 
 .fade-enter-active {
   opacity: 1;
-  transition: opacity 500ms ease-in;
+  transition: opacity 600ms ease-in;
+}
+
+/* styles.css */
+.video-glitch-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.glitch-video {
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  opacity: 0.2;
+  filter: grayscale(100);
+  mix-blend-mode: difference;
+}
+
+.glitch-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #000, #fff);
+  mix-blend-mode: screen;
+  opacity: 0.1;
+  z-index: 2;
+}
+
+.vjs-tech {
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+@media screen and (max-with: 1024px) {
+  .vjs-tech {
+    width: full;
+  }
+  .vjs-control-bar {
+    border-radius: 0;
+  }
+}
+
+.vjs-control-bar {
+  border-radius: 0px 0px 16px 16px;
+}
+
+.image-gallery {
+  position: fixed;
+  top: 0;
+  z-index: 50;
 }

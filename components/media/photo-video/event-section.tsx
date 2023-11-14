@@ -1,0 +1,21 @@
+import H2 from 'components/ui/text/h2';
+import MediaPortion from './media-portion';
+
+export interface EventSectionProps {
+  title: string;
+  videoSrc: string;
+  imageFolder: string;
+}
+
+export default function EventSection({ title, videoSrc, imageFolder }: EventSectionProps) {
+  return (
+    <section className="relative flex w-full flex-col gap-medium laptop:h-1/3 laptop:gap-large">
+      <div className="mx-medium flex justify-between laptop:ml-extra-large">
+        <H2 textType={'heading--large'} className=" text-white">
+          {title}
+        </H2>
+      </div>
+      <MediaPortion videoSrc={videoSrc} imageFolder={imageFolder}></MediaPortion>
+    </section>
+  );
+}

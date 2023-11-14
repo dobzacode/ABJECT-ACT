@@ -100,8 +100,8 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
 
   return (
     <>
-      <header className={className}>
-        <div className="relative z-30 flex w-full items-center justify-center">
+      <header className={cn(className, 'overlay')}>
+        <div className=" relative z-30 flex w-full items-center justify-center">
           <AnimatePresence>
             {!showMenu ? (
               <motion.button
@@ -150,8 +150,8 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
         </div>
 
         <CSSTransition nodeRef={navRef} timeout={600} unmountOnExit classNames="fade" in={showMenu}>
-          <nav ref={navRef as any} key="navbar" className={cn(' h-full w-full', modalOffset())}>
-            <ul className={'relative z-30 flex flex-col justify-center'}>
+          <nav ref={navRef as any} className={cn(' relative z-40 h-full w-full ', modalOffset())}>
+            <ul className={'flex flex-col justify-center'}>
               {navLinks.map((link, i) => {
                 return (
                   <NavLink
