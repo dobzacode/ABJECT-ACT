@@ -9,8 +9,8 @@ export interface EventSectionProps {
 
 export default function EventSection({ title, videoSrc, imageFolder }: EventSectionProps) {
   return (
-    <section className="relative flex w-full flex-col gap-medium laptop:h-1/3 laptop:gap-large">
-      <div className="mx-medium flex justify-between laptop:ml-[21rem]">
+    <section className="glassmorphism-bg relative flex h-full   w-10/12 flex-col gap-medium  pb-sub-extra-large pt-sub-large laptop:gap-medium">
+      <div className="mx-medium flex justify-between laptop:mx-large">
         <H2 textType={'heading--large'} className=" text-white">
           {title}
         </H2>

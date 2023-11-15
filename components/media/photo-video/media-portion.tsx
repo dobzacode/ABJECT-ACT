@@ -52,13 +52,10 @@ export default function MediaPortion({ videoSrc, imageFolder }: MediaPortionProp
       ) : null}
 
       {isBiggerThanLaptop && (
-        <div className="relative flex  h-[40rem] w-full justify-center gap-large px-large">
+        <div className="relative flex  h-[40rem] w-full justify-center gap-medium px-large">
           <ImageSlider imageFolder={imageFolder}></ImageSlider>
-          <div className="w-full max-w-[40%]">
-            <VideoPlayer
-              sources={[{ src: videoSrc, type: 'video/mp4' }]}
-              className="rounded-small"
-            ></VideoPlayer>
+          <div className="w-full">
+            <VideoPlayer sources={[{ src: videoSrc, type: 'video/mp4' }]}></VideoPlayer>
           </div>
         </div>
       )}

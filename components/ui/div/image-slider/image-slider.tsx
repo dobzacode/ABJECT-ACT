@@ -64,24 +64,18 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ imageFolder, fullWidth }) => 
 
   return (
     <>
-      <Slider
-        {...settings}
-        className={cn(
-          ' h-fit cursor-pointer rounded-small ',
-          !fullWidth ? 'w-full max-w-[40%]' : 'w-full '
-        )}
-      >
+      <Slider {...settings} className={cn(' h-fit cursor-pointer laptop:w-1/2 ')}>
         {images.map((image, index) => (
           <div
             key={index}
-            className="relative z-40 h-[40rem] w-[20rem]  laptop:rounded-small"
+            className="relative z-40 h-[40rem] w-[20rem]  "
             onClick={() => {
               console.log(lightboxIsOpen);
               openLightbox(index);
             }}
           >
             <Image
-              className={cn('object-cover', !fullWidth && 'rounded-small')}
+              className={cn('rounded-small object-cover')}
               fill
               src={image.thumbnail}
               alt={image.description}

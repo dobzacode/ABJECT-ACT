@@ -183,7 +183,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
           <motion.div
             key="backdrop"
             initial={{ opacity: 0 }}
-            animate={{ opacity: 0.5, transition: { duration: 0.6 } }}
+            animate={{ opacity: 0.8, transition: { duration: 0.6 } }}
             exit={{ opacity: 0, transition: { duration: 0.6 } }}
             className={`fixed left-0 top-0 z-20 h-screen w-screen bg-black duration-slow`}
           ></motion.div>
