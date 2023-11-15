@@ -52,6 +52,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ imageFolder, fullWidth }) => 
 
   const settings = {
     dots: !fullWidth ? true : false,
+    fade: !fullWidth ? true : false,
     infinite: true,
     arrows: false,
     speed: !fullWidth ? 500 : 2000,
