@@ -12,12 +12,12 @@ export const metadata = {
 export default async function GalleryPage() {
   return (
     <div className="flex w-full flex-col items-center ">
-      <nav className="flex h-[40rem] w-full ">
+      <nav className="z-0 flex h-[40rem] w-full flex-col laptop:flex-row">
         <PulsarSection fullWidth={false}></PulsarSection>
         <div className="border-2 border-black"></div>
         <AssaultSection fullWidth={false}></AssaultSection>
       </nav>
-      <main className="flex h-[200rem] w-full flex-col items-center gap-large">
+      <main className="flex w-full flex-col items-center gap-large">
         <ContentSection></ContentSection>
       </main>
     </div>

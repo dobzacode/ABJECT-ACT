@@ -65,7 +65,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ imageFolder, fullWidth }) => 
 
   return (
     <>
-      <Slider {...settings} className={cn(' h-fit cursor-pointer laptop:w-1/2 ')}>
+      <Slider {...settings} className={cn(' h-[40rem] cursor-pointer laptop:w-1/2 ')}>
         {images.map((image, index) => (
           <div
             key={index}
@@ -76,7 +76,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ imageFolder, fullWidth }) => 
             }}
           >
             <Image
-              className={cn('rounded-small object-cover')}
+              className={cn('object-cover laptop:rounded-small')}
               fill
               src={image.thumbnail}
               alt={image.description}

@@ -6,7 +6,6 @@ import EventSection from './event-section';
 export default function PulsarBlock({}) {
   const searchParams = useSearchParams();
   const [triggerFade, setTriggerFade] = useState<boolean>(false);
-  const [isPulsar] = useState<boolean | null>(searchParams.get('event') === 'pulsar');
 
   useEffect(() => {
     if (searchParams.get('event') === 'pulsar') return;
@@ -22,7 +21,7 @@ export default function PulsarBlock({}) {
     <div
       key="pulsarBlock"
       className={cn(
-        'flex h-[200rem] w-full flex-col items-center gap-large py-large',
+        'flex h-[200rem] w-full flex-col items-center gap-large py-large text-primary5',
         triggerFade ? 'hidden-div' : ''
       )}
     >

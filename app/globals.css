@@ -245,6 +245,10 @@ input[type='search']:focus {
   z-index: 50;
 }
 
+.vjs-tech {
+  object-fit: cover;
+}
+
 @media screen and (min-width: 1024px) {
   .slick-slide,
   .slick-list {
@@ -255,13 +259,13 @@ input[type='search']:focus {
   }
   .vjs-tech {
     border-radius: 16px;
-    object-fit: cover;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .video-js {
-    height: fit-content;
+    height: 40rem !important;
+    width: 100%;
   }
 }
 

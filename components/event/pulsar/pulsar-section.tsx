@@ -27,15 +27,21 @@ export default function PulsarSection({ fullWidth = true }: { fullWidth?: boolea
       animate={{ y: 0, transition: { duration: 1 }, x: 0 }}
       exit={{ y: fullWidth ? -500 : 0, x: fullWidth ? 0 : -2000 }}
       onHoverStart={() => {
-        h2Controls.start({ x: fullWidth ? -1500 : 0, transition: { duration: 0 } }).then(() =>
-          h2Controls.start({
-            opacity: 1,
-            x: 0,
-            y: 0,
-            scale: 1,
-            transition: { type: 'spring', stiffness: 100, damping: 20 }
+        h2Controls
+          .start({
+            x: fullWidth ? -1500 : 0,
+            transition: { duration: 0 },
+            scale: fullWidth ? 1 : 0.6
           })
-        );
+          .then(() =>
+            h2Controls.start({
+              opacity: 1,
+              x: 0,
+              y: 0,
+              scale: 1,
+              transition: { type: 'spring', stiffness: 100, damping: 20 }
+            })
+          );
       }}
       onHoverEnd={() => {
         h2Controls.start({
@@ -48,7 +54,7 @@ export default function PulsarSection({ fullWidth = true }: { fullWidth?: boolea
       className={cn(
         `group/parent relative z-10 flex  items-center justify-center overflow-hidden`,
         !isReady ? 'pointer-events-none' : 'cursor-pointer',
-        fullWidth ? 'h-1/2 w-full' : 'h-full w-1/2'
+        fullWidth ? 'h-1/2 w-full' : 'mt-extra-large h-full w-full laptop:mt-0 laptop:w-1/2'
       )}
     >
       <Image
@@ -71,7 +77,10 @@ export default function PulsarSection({ fullWidth = true }: { fullWidth?: boolea
           scale: 0.6
         }}
         animate={h2Controls}
-        className="heading--extra-large z-10 h-fit w-fit cursor-pointer bg-transparent text-white"
+        className={cn(
+          'heading--extra-large z-10 h-fit w-fit cursor-pointer bg-transparent text-white',
+          !fullWidth && 'pointer-events-none'
+        )}
       >
         PULSAR
       </motion.h2>

@@ -142,7 +142,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
               href="/"
               src={'/asset/aa_logo_white.png'}
               intent={intent}
-              className=" z-20 duration-slow"
+              className=" z-50 duration-slow"
             ></Logo>
           </div>
 
