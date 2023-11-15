@@ -6,8 +6,12 @@ import AssaultBlock from './assault-block';
 import PulsarBlock from './pulsar-block';
 
 export default function ContentSection({}) {
-  const [sectionToShow, setSectionToShow] = useState<'pulsar' | 'assault'>('pulsar');
   const searchParams = useSearchParams();
+  const [sectionToShow, setSectionToShow] = useState<'pulsar' | 'assault'>(
+    searchParams.get('event') === 'pulsar' || 'assault'
+      ? (searchParams.get('event') as 'pulsar' | 'assault')
+      : 'pulsar'
+  );
 
   useEffect(() => {
     const event =
@@ -19,12 +23,6 @@ export default function ContentSection({}) {
   }, [searchParams]);
 
   return (
-    <>
-      {sectionToShow !== 'pulsar' ? (
-        <AssaultBlock></AssaultBlock>
-      ) : (
-        <PulsarBlock></PulsarBlock>
-      )}
-    </>
+    <>{sectionToShow !== 'pulsar' ? <AssaultBlock></AssaultBlock> : <PulsarBlock></PulsarBlock>}</>
   );
 }

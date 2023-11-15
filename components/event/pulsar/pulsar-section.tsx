@@ -61,7 +61,7 @@ export default function PulsarSection({ fullWidth = true }: { fullWidth?: boolea
         alt="Pulsar"
         className={cn(
           '-z-10 object-cover object-center grayscale duration-slowest group-hover/parent:grayscale-0',
-          searchParams.get('event') === 'pulsar' && 'grayscale-0'
+          searchParams.get('event') === 'pulsar' || !searchParams.get('event') ? 'grayscale-0' : ''
         )}
         fill
         src={'/asset/event/pulsarph.jpg'}
