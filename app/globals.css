@@ -81,14 +81,15 @@ html {
 
 .overlay::before {
   content: '';
-  position: absolute;
-  top: 0;
+  position: fixed;
+  top: -64px;
   right: 0;
-  left: 0;
-  z-index: 20;
-  height: 200%;
+  left: -64px;
+  z-index: 30;
+  height: 30%;
   background: linear-gradient(to bottom, black, transparent);
   pointer-events: none;
+  width: full;
 }
 
 .hidden-div {
@@ -238,26 +239,35 @@ input[type='search']:focus {
   z-index: 2;
 }
 
-.vjs-tech {
-  border-radius: 16px;
-  object-fit: cover;
-}
-
-@media screen and (max-with: 1024px) {
-  .vjs-tech {
-    width: full;
-  }
-  .vjs-control-bar {
-    border-radius: 0;
-  }
-}
-
-.vjs-control-bar {
-  border-radius: 0px 0px 16px 16px;
-}
-
 .image-gallery {
   position: fixed;
   top: 0;
   z-index: 50;
+}
+
+@media screen and (min-width: 1024px) {
+  .slick-slide,
+  .slick-list {
+    border-radius: 16px;
+  }
+  .vjs-control-bar {
+    border-radius: 0px 0px 16px 16px;
+  }
+  .vjs-tech {
+    border-radius: 16px;
+    object-fit: cover;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .video-js {
+    height: fit-content;
+  }
+}
+
+.slick-dots li button::before {
+  background-color: white;
+  border-radius: 16px;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }

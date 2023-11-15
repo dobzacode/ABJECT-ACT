@@ -48,7 +48,7 @@ function Header({ children, className, size, intent, textColor, ...props }: Head
     <div className={cn(sectionVariants({ className, size, intent }))} {...props}>
       {children}
       <MobileNav
-        className="flex w-full flex-col items-center justify-between gap-large"
+        className="fixed z-40 flex w-full flex-col items-center justify-between gap-large"
         linkSize="large"
         intent={textColor}
       ></MobileNav>

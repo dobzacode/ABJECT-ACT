@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import { isImageFitCover, isImageSlide, useLightboxProps } from 'yet-another-react-lightbox';
 
-function isNextJsImage(slide) {
+function isNextJsImage(slide: any) {
   return isImageSlide(slide) && typeof slide.width === 'number' && typeof slide.height === 'number';
 }
 
-export default function NextJsImage({ slide, rect }) {
+export default function NextJsImage({ slide, rect }: {slide: any, rect:any}) {
   const { imageFit } = useLightboxProps().carousel;
   const cover = isImageSlide(slide) && isImageFitCover(slide, imageFit);
 

@@ -130,7 +130,9 @@ const NavLink: FC<NavLinkProps> = React.forwardRef<HTMLLIElement, NavLinkProps>(
   ) => {
     const pathname = usePathname();
     const router = useRouter();
-    const isActive = pathname === props.href;
+    const isActive = pathname === props.href || pathname.includes(props.href as string);
+
+    console.log(pathname, props.href);
 
     if (!variants)
       return (

@@ -51,28 +51,30 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ imageFolder, fullWidth }) => 
   }));
 
   const settings = {
-    dots: false,
+    dots: !fullWidth ? true : false,
     infinite: true,
+    arrows: false,
     speed: !fullWidth ? 500 : 2000,
     slidesToShow: !fullWidth ? 1 : 3,
     slidesToScroll: 1,
-    autoplay: !fullWidth ? false : true,
+    autoplay: true,
+    swipeToSlide: true,
     autoplaySpeed: 3000
   };
 
   return (
     <>
       <Slider
+        {...settings}
         className={cn(
-          ' h-fit cursor-pointer rounded-small',
+          ' h-fit cursor-pointer rounded-small ',
           !fullWidth ? 'w-full max-w-[40%]' : 'w-full '
         )}
-        {...settings}
       >
         {images.map((image, index) => (
           <div
             key={index}
-            className="relative z-40 h-[40rem] w-[20rem] "
+            className="relative z-40 h-[40rem] w-[20rem]  laptop:rounded-small"
             onClick={() => {
               console.log(lightboxIsOpen);
               openLightbox(index);

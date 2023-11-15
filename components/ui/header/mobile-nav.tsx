@@ -100,7 +100,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
 
   return (
     <>
-      <header className={cn(className, 'overlay')}>
+      <header className={cn(className)}>
         <div className=" relative z-30 flex w-full items-center justify-center">
           <AnimatePresence>
             {!showMenu ? (
