@@ -1,9 +1,9 @@
 'use client';
 
-import { AnimatePresence } from 'framer-motion';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import EventSection from './event-section';
+import AssaultBlock from './assault-block';
+import PulsarBlock from './pulsar-block';
 
 export default function ContentSection({}) {
   const [sectionToShow, setSectionToShow] = useState<'pulsar' | 'assault'>('pulsar');
@@ -12,54 +12,19 @@ export default function ContentSection({}) {
   useEffect(() => {
     const event =
       searchParams.get('event') === 'pulsar' || !searchParams.get('event') ? 'pulsar' : 'assault';
-    setSectionToShow(event);
+
+    setTimeout(() => {
+      setSectionToShow(event);
+    }, 600);
   }, [searchParams]);
 
   return (
-    <AnimatePresence>
-      {sectionToShow === 'pulsar' ? (
-        <>
-          <EventSection
-            imageFolder="/asset/event/media/pulsar-lulu"
-            videoSrc="/asset/background/video/1089037097-preview.mp4"
-            title="Abject Act : Pulsar w/ LULU, Resonance"
-            direction="right"
-          ></EventSection>
-          <EventSection
-            imageFolder="/asset/event/media/pulsar-lulu"
-            videoSrc="/asset/background/video/1089037097-preview.mp4"
-            title="Abject Act : Pulsar w/ LULU, Resonance"
-            direction="left"
-          ></EventSection>
-          <EventSection
-            imageFolder="/asset/event/media/pulsar-lulu"
-            videoSrc="/asset/background/video/1089037097-preview.mp4"
-            title="Abject Act : Pulsar w/ LULU, Resonance"
-            direction="right"
-          ></EventSection>
-        </>
+    <>
+      {sectionToShow !== 'pulsar' ? (
+        <AssaultBlock></AssaultBlock>
       ) : (
-        <>
-          <EventSection
-            imageFolder="/asset/event/media/pulsar-lulu"
-            videoSrc="/asset/background/video/1089037097-preview.mp4"
-            title="Abject Act : Assault w/ LULU, Resonance"
-            direction="right"
-          ></EventSection>
-          <EventSection
-            imageFolder="/asset/event/media/pulsar-lulu"
-            videoSrc="/asset/background/video/1089037097-preview.mp4"
-            title="Abject Act : Assault w/ LULU, Resonance"
-            direction="left"
-          ></EventSection>
-          <EventSection
-            imageFolder="/asset/event/media/pulsar-lulu"
-            videoSrc="/asset/background/video/1089037097-preview.mp4"
-            title="Abject Act : Assault w/ LULU, Resonance"
-            direction="right"
-          ></EventSection>
-        </>
+        <PulsarBlock></PulsarBlock>
       )}
-    </AnimatePresence>
+    </>
   );
 }

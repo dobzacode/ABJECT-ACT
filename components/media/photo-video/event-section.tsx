@@ -23,7 +23,6 @@ export default function EventSection({
     <motion.section
       initial={{ x: value }}
       animate={{ x: 0, transition: { duration: 1 } }}
-      exit={{ x: value }}
       className="glassmorphism-bg relative flex h-full   w-10/12 flex-col gap-medium  pb-sub-extra-large pt-sub-large laptop:gap-sub-large"
     >
       <div className="mx-medium flex justify-between laptop:mx-large">

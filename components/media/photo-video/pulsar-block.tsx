@@ -1,0 +1,49 @@
+import { cn } from 'lib/utils';
+import { useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import EventSection from './event-section';
+
+export default function PulsarBlock({}) {
+  const searchParams = useSearchParams();
+  const [triggerFade, setTriggerFade] = useState<boolean>(false);
+  const [isPulsar] = useState<boolean | null>(searchParams.get('event') === 'pulsar');
+
+  useEffect(() => {
+    if (searchParams.get('event') === 'pulsar') return;
+    setTriggerFade(true);
+    setTimeout(() => {
+      setTriggerFade(false);
+    }, 1000);
+  }, [searchParams]);
+
+  console.log(triggerFade);
+
+  return (
+    <div
+      key="pulsarBlock"
+      className={cn(
+        'flex h-[200rem] w-full flex-col items-center gap-large py-large',
+        triggerFade ? 'hidden-div' : ''
+      )}
+    >
+      <EventSection
+        imageFolder="/asset/event/media/pulsar-lulu"
+        videoSrc="/asset/background/video/1089037097-preview.mp4"
+        title="Abject Act : Pulsar w/ LULU, Resonance"
+        direction="right"
+      ></EventSection>
+      <EventSection
+        imageFolder="/asset/event/media/pulsar-lulu"
+        videoSrc="/asset/background/video/1089037097-preview.mp4"
+        title="Abject Act : Pulsar w/ LULU, Resonance"
+        direction="left"
+      ></EventSection>
+      <EventSection
+        imageFolder="/asset/event/media/pulsar-lulu"
+        videoSrc="/asset/background/video/1089037097-preview.mp4"
+        title="Abject Act : Pulsar w/ LULU, Resonance"
+        direction="right"
+      ></EventSection>
+    </div>
+  );
+}

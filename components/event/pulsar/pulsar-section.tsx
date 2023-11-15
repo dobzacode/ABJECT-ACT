@@ -18,7 +18,8 @@ export default function PulsarSection({ fullWidth = true }: { fullWidth?: boolea
   return (
     <motion.section
       onClick={async () => {
-        if (fullWidth) return;
+        if (fullWidth || searchParams.get('event') === 'pulsar' || !searchParams.get('event'))
+          return;
         await router.replace(`/media/gallery?event=pulsar`);
         console.log('xd');
       }}

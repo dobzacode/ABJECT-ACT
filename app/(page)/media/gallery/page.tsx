@@ -17,7 +17,7 @@ export default async function GalleryPage() {
         <div className="border-2 border-black"></div>
         <AssaultSection fullWidth={false}></AssaultSection>
       </nav>
-      <main className="flex h-[200rem] w-full flex-col items-center gap-large py-large">
+      <main className="flex h-[200rem] w-full flex-col items-center gap-large">
         <ContentSection></ContentSection>
       </main>
     </div>

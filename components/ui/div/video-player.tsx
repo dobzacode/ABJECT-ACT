@@ -14,8 +14,6 @@ interface VideoPlayerProps {
 const VideoPlayer: FunctionComponent<VideoPlayerProps> = ({ sources, className, fullWidth }) => {
   const videoNode = useRef<HTMLVideoElement | null>(null);
 
-  console.log(fullWidth);
-
   useEffect(() => {
     const options = {
       autoplay: false,

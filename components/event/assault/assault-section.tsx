@@ -18,7 +18,7 @@ export default function AssaultSection({ fullWidth = true }: { fullWidth?: boole
   return (
     <motion.section
       onClick={async () => {
-        if (fullWidth) return;
+        if (fullWidth || searchParams.get('event') === 'assault') return;
         await router.replace(`/media/gallery?event=assault`);
         console.log('xd');
       }}
