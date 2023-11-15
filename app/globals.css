@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;600&display=swap');
 
 @tailwind components;
 @tailwind base;
@@ -25,11 +25,11 @@
   }
 
   .sub-heading {
-    @apply text-sub-heading font-normal leading-sub-heading;
+    @apply text-sub-heading font-extralight leading-sub-heading tracking-wider;
   }
 
   .body {
-    @apply text-body font-light leading-body;
+    @apply text-body font-light leading-body tracking-wide;
   }
 
   .caption {
@@ -285,4 +285,19 @@ input[type='search']:focus {
   backdrop-filter: blur(2.9px);
   -webkit-backdrop-filter: blur(2.9px);
   border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.slideInFromLeft {
+  animation: slideIn 1s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-1500px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }

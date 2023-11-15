@@ -38,7 +38,7 @@ export default function MorsureSection() {
       }`}
     >
       <Image
-        alt="Pulsar"
+        alt="Morsure"
         className="-z-10 object-cover object-[25%,35%] grayscale duration-slowest group-hover/parent:grayscale-0"
         fill
         src={'/asset/artist/morsure.jpg'}

@@ -38,7 +38,7 @@ export default function KraussSection() {
       }`}
     >
       <Image
-        alt="Pulsar"
+        alt="Krauss"
         className="-z-10 object-cover object-[10%,40%] grayscale duration-slowest group-hover/parent:grayscale-0"
         fill
         src={'/asset/artist/black_larsen.jpg'}
