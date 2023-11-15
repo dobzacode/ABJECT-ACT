@@ -12,7 +12,7 @@ export default async function GalleryPage() {
     <div className="flex w-full flex-col items-center gap-large">
       <nav className="h-[40rem]"></nav>
       <main
-        className="flex w-full flex-col items-center gap-large py-large"
+        className="flex h-[200rem] w-full flex-col items-center gap-large py-large"
         style={{
           backgroundImage: 'url("/asset/background/pulsar-bg.jpg")',
           backgroundSize: 'cover'
@@ -22,16 +22,19 @@ export default async function GalleryPage() {
           imageFolder="/asset/event/media/pulsar-lulu"
           videoSrc="/asset/background/video/1089037097-preview.mp4"
           title="Abject Act : Pulsar w/ LULU, Resonance"
+          direction="right"
         ></EventSection>
         <EventSection
           imageFolder="/asset/event/media/pulsar-lulu"
           videoSrc="/asset/background/video/1089037097-preview.mp4"
           title="Abject Act : Pulsar w/ LULU, Resonance"
+          direction="left"
         ></EventSection>
         <EventSection
           imageFolder="/asset/event/media/pulsar-lulu"
           videoSrc="/asset/background/video/1089037097-preview.mp4"
           title="Abject Act : Pulsar w/ LULU, Resonance"
+          direction="right"
         ></EventSection>
       </main>
     </div>
