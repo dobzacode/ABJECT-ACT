@@ -21,7 +21,7 @@
   }
 
   .heading {
-    @apply text-heading font-semibold leading-heading;
+    @apply text-heading font-light leading-heading;
   }
 
   .sub-heading {
@@ -29,7 +29,7 @@
   }
 
   .body {
-    @apply text-body font-light leading-body tracking-wide;
+    @apply text-body font-light leading-body tracking-widest;
   }
 
   .caption {
@@ -287,17 +287,28 @@ input[type='search']:focus {
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+.fadeIn {
+  animation: fadeIn 600ms ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .slideInFromLeft {
-  animation: slideIn 1s ease-out;
+  animation: slideIn 600ms ease-out;
 }
 
 @keyframes slideIn {
   from {
     transform: translateX(-1500px);
-    opacity: 0;
   }
   to {
     transform: translateX(0);
-    opacity: 1;
   }
 }

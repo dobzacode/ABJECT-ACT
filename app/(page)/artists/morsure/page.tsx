@@ -1,5 +1,6 @@
 import { mdiEmail, mdiFacebook, mdiInstagram, mdiSoundcloud } from '@mdi/js';
 import ArtistCard from 'components/artists/artist-card';
+import NextEventCard from 'components/artists/next-event-card';
 import Image from 'next/image';
 
 export const runtime = 'edge';
@@ -16,14 +17,21 @@ export default async function HomePage() {
     <main className="flex h-screen items-center justify-center overflow-x-hidden">
       <Image
         alt="Abject event picture"
-        className="-z-10 object-cover object-[25%,35%] duration-slowest"
+        className="fadeIn -z-10 object-cover object-[25%,35%] transition "
         fill
         src={'/asset/background/pulsar-bg.jpg'}
       ></Image>
-      <section>
+      <section className="flex flex-wrap justify-around gap-medium">
+        <div className="relative h-[30rem] w-full rounded-small">
+          <Image
+            className="rounded-small object-cover"
+            fill
+            src={'/asset/artist/morsure.jpg'}
+            alt={`morsure picture`}
+          ></Image>
+        </div>
         <ArtistCard
           artist="Morsure"
-          artistSrc="/asset/artist/morsure.jpg"
           socials={[
             { mdiPath: mdiInstagram, link: 'https://www.instagram.com/morsure_music/' },
             { mdiPath: mdiFacebook, link: 'https://www.facebook.com/morsuremusic/' },
@@ -31,6 +39,28 @@ export default async function HomePage() {
             { mdiPath: mdiSoundcloud, link: 'https://soundcloud.com/morsureofc' }
           ]}
         ></ArtistCard>
+        <NextEventCard
+          eventList={[
+            {
+              date: '02/04/2024',
+              name: "La foire à l'oignon",
+              place: 'Schwindratzheim',
+              eventLink: 'https://schwindratzheim.com'
+            },
+            {
+              date: '02/04/2024',
+              name: "La foire à l'oignon",
+              place: 'Schwindratzheim',
+              eventLink: 'https://schwindratzheim.com'
+            },
+            {
+              date: '02/04/2024',
+              name: "La foire à l'oignon",
+              place: 'Schwindratzheim',
+              eventLink: 'https://schwindratzheim.com'
+            }
+          ]}
+        ></NextEventCard>
       </section>
     </main>
   );
