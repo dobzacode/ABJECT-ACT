@@ -99,9 +99,9 @@ module.exports = {
   content: ['./components/**/*.{js,ts,jsx,tsx,mdx}', './app/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     screens: {
-      'mobile-medium': '370px',
+      'mobile-medium': '400px',
       'mobile-small': '320px',
-      'mobile-large': '425px',
+      'mobile-large': '500px',
       tablet: '768px',
       laptop: '1024px',
       'laptop-large': '1440px'

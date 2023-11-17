@@ -47,8 +47,8 @@ const navLinks = [
 
 const footerBlocks = [
   <AboutUsBlock key="aboutus"></AboutUsBlock>,
-  <LegalBlock key="legal"></LegalBlock>,
-  <ContactBlock key="contact"></ContactBlock>
+  <ContactBlock key="contact"></ContactBlock>,
+  <LegalBlock key="legal"></LegalBlock>
 ];
 
 const navLinksVariant: Variants = {
@@ -201,7 +201,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
           key="footer"
           onClick={() => setShowMenu(false)}
           className={cn(
-            'fixed bottom-0 z-30 mb-large mr-large flex h-fit w-[90vw] flex-wrap justify-between text-white',
+            'fixed bottom-0 left-small z-30 mb-sub-large mr-large flex h-1/3 w-[90vw]  flex-col justify-end gap-sub-large text-white mobile-large:left-14  tablet:mt-large tablet:h-fit tablet:flex-row tablet:flex-wrap tablet:justify-between tablet:gap-sub-large laptop:left-auto',
             modalOffset()
           )}
         >

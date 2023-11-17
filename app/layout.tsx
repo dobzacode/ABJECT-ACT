@@ -38,7 +38,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
         <Header
           size={'medium'}
           textColor={'white'}
-          className="overlay absolute w-full max-w-full px-large pt-large"
+          className="overlay  relative w-full max-w-full px-sub-large pt-large tablet:absolute tablet:px-large"
         ></Header>
         {children}
       </body>

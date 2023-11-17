@@ -13,7 +13,7 @@
   }
 
   .heading--large {
-    @apply text-heading-large font-light leading-heading-large;
+    @apply text-heading-sub-large font-light leading-heading-sub-large tablet:text-heading-large tablet:leading-heading-large;
   }
 
   .heading--sub-large {
@@ -301,12 +301,51 @@ input[type='search']:focus {
 }
 
 .slideInFromLeft {
-  animation: slideIn 600ms ease-out;
+  animation: slideInFromLeft 600ms ease-out;
 }
 
-@keyframes slideIn {
+@keyframes slideInFromLeft {
   from {
     transform: translateX(-1500px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.slideInFromRight {
+  animation: slideInFromRight 600ms ease-out;
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(1500px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.slideInFromBottom {
+  animation: slideInFromBottom 600ms ease-out;
+}
+
+@keyframes slideInFromBottom {
+  from {
+    transform: translateY(1500px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.slideInFromTop {
+  animation: slideInFromTop 600ms ease-out;
+}
+
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-1500px);
   }
   to {
     transform: translateX(0);
