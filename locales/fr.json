@@ -1,0 +1,24 @@
+{
+  "navigation": {
+    "primaryNavigation": {
+      "event": "evenements",
+      "artists": "artistes",
+      "values": "valeurs",
+      "shop": "boutique",
+      "contact": "contact",
+      "media": "media",
+      "label": "label"
+    },
+    "secondaryNavigation": {
+      "about us": "A propos",
+      "abject act": "Abject Act",
+      "newsletter": "Newsletter",
+      "join us": "Rejoins-nous",
+      "partnership": "Partenariat",
+      "sizing": "Guide des Tailles",
+      "terms & conditions": "Termes & Conditions",
+      "legal": "Légal",
+      "privacy": "Confidentialité"
+    }
+  }
+}

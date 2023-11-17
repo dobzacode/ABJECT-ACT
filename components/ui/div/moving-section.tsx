@@ -71,7 +71,7 @@ export default function MovingSection({
         ></Image>
         <h2
           className={cn(
-            'growText heading--extra-large z-10 h-fit w-fit cursor-pointer bg-transparent text-center text-white opacity-100 duration-slowest group-hover/parent:scale-100 group-hover/parent:opacity-100   max-tablet:text-heading-large max-tablet:leading-heading-large  tablet:scale-50 tablet:opacity-0',
+            ' heading--extra-large z-10 h-fit w-fit cursor-pointer bg-transparent text-center text-white opacity-100 duration-slowest  group-hover/parent:scale-100 group-hover/parent:opacity-100   max-tablet:text-heading-large max-tablet:leading-heading-large  tablet:scale-50 tablet:opacity-0',
             textAnimation()
           )}
         >

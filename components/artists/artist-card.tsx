@@ -2,8 +2,8 @@ import Icon from '@mdi/react';
 import { H1 } from 'components/ui/text/h1';
 import P from 'components/ui/text/p';
 import { cn } from 'lib/utils';
+import { Link } from 'navigation';
 import Image from 'next/image';
-import Link from 'next/link';
 import { v4 } from 'uuid';
 
 interface ArtistCardProps {

@@ -1,6 +1,7 @@
 'use client';
 
 import { Variants, motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
 import { v4 } from 'uuid';
 import NavLink from '../header/nav-link';
@@ -43,11 +44,11 @@ export interface FooterBlockProps {
 }
 
 const links = [
-  { href: '/about/abject-act', name: 'Abject Act' },
-  { href: '/about/newsletter', name: 'Newsletter' },
-  { href: '/about/join-us', name: 'Join us' },
-  { href: '/about/partnership', name: 'Partnership' },
-  { href: '/about/sizing', name: 'Sizing' }
+  { href: '/about/abject-act', name: 'abject act' },
+  { href: '/about/newsletter', name: 'newsletter' },
+  { href: '/about/join-us', name: 'join us' },
+  { href: '/about/partnership', name: 'partnership' },
+  { href: '/about/sizing', name: 'sizing' }
 ];
 
 export default function AboutUsBlock({
@@ -62,6 +63,7 @@ export default function AboutUsBlock({
 }: FooterBlockProps) {
   const pathname = usePathname();
   const isActive = pathname.includes('about');
+  const t = useTranslations('navigation.secondaryNavigation');
 
   return (
     <motion.div
@@ -79,7 +81,7 @@ export default function AboutUsBlock({
           isActive ? 'opacity-100' : 'opacity-40'
         } max-mobile-medium:text-body max-mobile-medium:font-medium`}
       >
-        ABOUT US
+        {t('about us')}
       </H3>
       <ul className="body flex flex-wrap gap-extra-small  mobile-medium:gap-small mobile-large:gap-medium">
         {links.map((link) => {
@@ -92,7 +94,7 @@ export default function AboutUsBlock({
               key={v4()}
               href={link.href}
             >
-              {link.name}
+              {t(link.name)}
             </NavLink>
           );
         })}

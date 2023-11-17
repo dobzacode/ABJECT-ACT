@@ -1,5 +1,5 @@
 import { getCollectionProducts } from 'lib/shopify';
-import Link from 'next/link';
+import { Link } from 'navigation';
 import { GridTileImage } from './grid/tile';
 
 export async function Carousel() {
@@ -17,9 +17,9 @@ export async function Carousel() {
         {carouselProducts.map((product, i) => (
           <li
             key={`${product.handle}${i}`}
-            className="relative aspect-square h-[30vh] max-h-[275px] w-2/3 max-w-[475px] flex-none md:w-1/3"
+            className="md:w-1/3 relative aspect-square h-[30vh] max-h-[275px] w-2/3 max-w-[475px] flex-none"
           >
-            <Link href={`/product/${product.handle}`} className="relative h-full w-full">
+            <Link href={`/product/${product.handle}` as any} className="relative h-full w-full">
               <GridTileImage
                 alt={product.title}
                 label={{

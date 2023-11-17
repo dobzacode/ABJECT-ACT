@@ -1,18 +1,23 @@
 'use client';
 
-import Link from 'next/link';
+import { Link } from 'navigation';
 import { useRouter } from 'next/navigation';
-import { ReactNode } from 'react';
+import { ReactNode, useRef } from 'react';
 
 export default function CustomLink({ href, children }: { href: string; children: ReactNode }) {
   const router = useRouter();
+  const ref = useRef() as React.MutableRefObject<HTMLAnchorElement | null>;
 
   return (
     <Link
-      href={href}
+      ref={ref}
+      href={href as any}
       onClick={(e: any) => {
-        e.stopPropagation();
         e.preventDefault();
+        e.stopPropagation();
+        if (!ref.current) return;
+        const href = ref.current.getAttribute('href');
+        console.log(href);
         document.querySelector('main')?.classList.add('hidden-div');
         setTimeout(() => {
           router.push(href as string);

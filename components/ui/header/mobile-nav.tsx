@@ -3,6 +3,7 @@
 import Icon from '@mdi/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { cn } from 'lib/utils';
+import { useTranslations } from 'next-intl';
 import React, { FC, useRef, useState } from 'react';
 
 import { mdiClose, mdiMenu } from '@mdi/js';
@@ -36,13 +37,13 @@ interface NavProps {
 }
 
 const navLinks = [
-  { href: '/event', name: 'EVENT' },
-  { href: '/artists', name: 'ARTISTS' },
-  { href: '/values', name: 'VALUES' },
-  { href: '/shop', name: 'SHOP' },
-  { href: '/contact', name: 'CONTACT' },
-  { href: '/media', name: 'MEDIA' },
-  { href: '/label', name: 'LABEL' }
+  { href: '/event', name: 'event' },
+  { href: '/artists', name: 'artists' },
+  { href: '/values', name: 'values' },
+  { href: '/shop', name: 'shop' },
+  { href: '/contact', name: 'contact' },
+  { href: '/media', name: 'media' },
+  { href: '/label', name: 'label' }
 ];
 
 const footerBlocks = [
@@ -81,6 +82,8 @@ const footerBlocksVariant: Variants = {
 
 const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps) => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
+
+  const t = useTranslations('navigation.primaryNavigation');
 
   const navRef = useRef();
   const footerRef = useRef();
@@ -150,7 +153,13 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
         </div>
 
         <CSSTransition nodeRef={navRef} timeout={600} unmountOnExit classNames="fade" in={showMenu}>
-          <nav ref={navRef as any} className={cn(' relative z-40 h-full w-full ', modalOffset())}>
+          <nav
+            ref={navRef as any}
+            className={cn(
+              ' relative z-40 h-full w-full pt-medium mobile-large:pt-large tablet:pt-0',
+              modalOffset()
+            )}
+          >
             <ul className={'flex flex-col justify-center'}>
               {navLinks.map((link, i) => {
                 return (
@@ -171,7 +180,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
                     currentNavStyle={intent}
                     href={link.href}
                   >
-                    {link.name}
+                    {t(link.name).toUpperCase()}
                   </NavLink>
                 );
               })}

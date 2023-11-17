@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
+
+const withNextIntl = require('next-intl/plugin')();
+
+module.exports = withNextIntl({
   reactStrictMode: false,
   eslint: {
     // Disabling on production builds because we're running checks on PRs via GitHub Actions.
@@ -24,4 +27,4 @@ module.exports = {
       }
     ];
   }
-};
+});

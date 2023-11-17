@@ -1,6 +1,6 @@
 'use client';
 
-import { mdiEmail, mdiFacebook, mdiInstagram } from '@mdi/js';
+import { mdiEmail, mdiFacebook, mdiInstagram, mdiSoundcloud } from '@mdi/js';
 import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { v4 } from 'uuid';
@@ -10,9 +10,10 @@ import { FooterBlockProps } from './about-us-block';
 import SocialIcon from './social-icon';
 
 const socialLinks = [
-  { href: '/', mdiPath: mdiEmail },
-  { href: '/', mdiPath: mdiFacebook },
-  { href: '/', mdiPath: mdiInstagram }
+  { href: 'mailto:abject.act@gmail.com', mdiPath: mdiEmail },
+  { href: 'https://www.facebook.com/AbjectAct?locale=fr_FR', mdiPath: mdiFacebook },
+  { href: 'https://www.instagram.com/abject_act/', mdiPath: mdiInstagram },
+  { href: 'https://soundcloud.com/abject-act', mdiPath: mdiSoundcloud }
 ];
 
 export default function ContactBlock({
@@ -55,7 +56,7 @@ export default function ContactBlock({
             href={socialLink.href}
           >
             <SocialIcon
-              className="opacity-40"
+              className=""
               size={1.6}
               href={socialLink.href}
               mdiPath={socialLink.mdiPath}

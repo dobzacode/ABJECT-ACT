@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
 import { v4 } from 'uuid';
 import NavLink from '../header/nav-link';
@@ -6,9 +7,9 @@ import H3 from '../text/h3';
 import { FooterBlockProps } from './about-us-block';
 
 const links = [
-  { href: '/legal/terms', name: 'Terms & Conditions' },
-  { href: '/legal/informations', name: 'Legal Informations' },
-  { href: '/legal/privacy', name: 'Privacy Policy' }
+  { href: '/legal/terms', name: 'terms & conditions' },
+  { href: '/legal/informations', name: 'legal' },
+  { href: '/legal/privacy', name: 'privacy' }
 ];
 
 export default function LegalBlock({
@@ -22,6 +23,8 @@ export default function LegalBlock({
 }: FooterBlockProps) {
   const pathname = usePathname();
   const isActive = pathname.includes('legal');
+
+  const t = useTranslations('navigation.secondaryNavigation');
 
   return (
     <motion.div
@@ -51,7 +54,7 @@ export default function LegalBlock({
               key={v4()}
               href={link.href}
             >
-              {link.name}
+              {t(link.name)}
             </NavLink>
           ) : (
             <NavLink
@@ -61,7 +64,7 @@ export default function LegalBlock({
               key={v4()}
               href={link.href}
             >
-              {link.name.split(' ')[0]}
+              {t(link.name.split(' ')[0])}
               <span className="hidden mobile-medium:block">
                 {link.name.split('`').slice(1).join(' ')}
               </span>

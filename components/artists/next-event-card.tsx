@@ -2,7 +2,7 @@ import { H1 } from 'components/ui/text/h1';
 import H2 from 'components/ui/text/h2';
 import P from 'components/ui/text/p';
 import { cn } from 'lib/utils';
-import Link from 'next/link';
+import { Link } from 'navigation';
 import { v4 } from 'uuid';
 
 interface NextEventCardProps {

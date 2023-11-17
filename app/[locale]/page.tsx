@@ -9,7 +9,8 @@ export const metadata = {
   }
 };
 
-export default async function HomePage() {
+export default async function HomePage({ params }: { params: { lang: string; country: string } }) {
+  console.log(params, 'prout');
   return (
     <main>
       <VideoBackground src={'/asset/background/video/1089037097-preview.mp4'}></VideoBackground>

@@ -3,9 +3,10 @@
 import { VariantProps, cva } from 'class-variance-authority';
 import { Variants, motion } from 'framer-motion';
 import { cn } from 'lib/utils';
-import Link, { LinkProps } from 'next/link';
+import { Link } from 'navigation';
+import { LinkProps } from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import React, { FC } from 'react';
+import React, { FC, useRef } from 'react';
 
 const linkVariants = cva('', {
   variants: {
@@ -131,13 +132,14 @@ const NavLink: FC<NavLinkProps> = React.forwardRef<HTMLLIElement, NavLinkProps>(
     const pathname = usePathname();
     const router = useRouter();
     const isActive = pathname === props.href || pathname.includes(props.href as string);
-
-    console.log(pathname, props.href);
+    const linkRef = useRef() as React.MutableRefObject<HTMLAnchorElement | null>;
+    const linkRefWithoutVariants = useRef() as React.MutableRefObject<HTMLAnchorElement | null>;
 
     if (!variants)
       return (
         <li ref={ref}>
           <Link
+            ref={linkRefWithoutVariants}
             className={cn(
               linkVariants({
                 size,
@@ -149,16 +151,18 @@ const NavLink: FC<NavLinkProps> = React.forwardRef<HTMLLIElement, NavLinkProps>(
               })
             )}
             onClick={(e: any) => {
-              e.stopPropagation();
               e.preventDefault();
+              e.stopPropagation();
               customSetter ? customSetter() : '';
-              if (pathname === props.href) return;
+              if (!linkRefWithoutVariants.current) return;
+              const href = linkRefWithoutVariants.current.getAttribute('href');
+              if (pathname === href) return;
               document.querySelector('main')?.classList.add('hidden-div');
               setTimeout(() => {
-                router.push(props.href as string);
+                router.push(href as string);
               }, 600);
             }}
-            {...props}
+            {...(props as any)}
           >
             {children}
           </Link>
@@ -176,6 +180,7 @@ const NavLink: FC<NavLinkProps> = React.forwardRef<HTMLLIElement, NavLinkProps>(
         key={children as string}
       >
         <Link
+          ref={linkRef}
           passHref
           className={cn(
             linkVariants({
@@ -190,15 +195,16 @@ const NavLink: FC<NavLinkProps> = React.forwardRef<HTMLLIElement, NavLinkProps>(
           onClick={(e: any) => {
             e.preventDefault();
             e.stopPropagation();
-            console.log(customSetter);
             customSetter ? customSetter() : '';
-            if (pathname === props.href) return;
+            if (!linkRef.current) return;
+            const href = linkRef.current.getAttribute('href');
+            if (pathname === href) return;
             document.querySelector('main')?.classList.add('hidden-div');
             setTimeout(() => {
-              router.push(props.href as string);
+              router.push(href as string);
             }, 600);
           }}
-          {...props}
+          {...(props as any)}
         >
           {children}
         </Link>
