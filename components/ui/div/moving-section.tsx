@@ -51,7 +51,7 @@ export default function MovingSection({
     <CustomLink href={link}>
       <section
         className={cn(
-          `group/parent relative z-10 flex h-1/2 w-full items-center justify-center overflow-hidden `,
+          `group/parent  relative z-10 flex h-1/2 w-full items-center justify-center overflow-hidden`,
           comingFromAnimationBlock(),
           className
         )}
@@ -59,18 +59,19 @@ export default function MovingSection({
         <Image
           alt={alt}
           className={cn(
-            '-z-10 object-cover object-center duration-slowest group-hover/parent:grayscale-0 tablet:grayscale',
+            '-z-10 object-cover  object-center  blur-[2px] duration-slowest group-hover/parent:grayscale-0 tablet:blur-0 tablet:grayscale  tablet:group-hover/parent:blur-[2px]',
             imageCSS
           )}
           sizes="(max-width: 768px) 50vw, 100vw"
           placeholder="blur"
           blurDataURL={imageSrc}
           fill
+          priority={true}
           src={imageSrc}
         ></Image>
         <h2
           className={cn(
-            'growText heading--extra-large z-10 h-fit w-fit cursor-pointer bg-transparent text-white opacity-100 duration-slowest   group-hover/parent:scale-100 group-hover/parent:opacity-100  tablet:scale-50 tablet:opacity-0',
+            'growText heading--extra-large z-10 h-fit w-fit cursor-pointer bg-transparent text-center text-white opacity-100 duration-slowest group-hover/parent:scale-100 group-hover/parent:opacity-100   max-tablet:text-heading-large max-tablet:leading-heading-large  tablet:scale-50 tablet:opacity-0',
             textAnimation()
           )}
         >

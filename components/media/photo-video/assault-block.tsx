@@ -18,7 +18,7 @@ export default function AssaultBlock({}) {
   return (
     <div
       className={cn(
-        'flex  w-full flex-col items-center gap-large py-large text-secondary5',
+        'flex  w-full flex-col items-center gap-large px-small py-large  text-secondary5',
         triggerFade && 'hidden-div'
       )}
     >

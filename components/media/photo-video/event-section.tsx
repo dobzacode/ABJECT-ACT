@@ -18,7 +18,7 @@ export default function EventSection({
   return (
     <section
       className={cn(
-        'glassmorphism-bg relative flex h-full w-full  flex-col gap-medium pt-sub-large  max-laptop:rounded-none laptop:w-10/12 laptop:gap-sub-large laptop:pb-sub-extra-large',
+        'glassmorphism-bg relative flex h-full w-full  flex-col gap-medium pt-sub-large   laptop:w-10/12 laptop:gap-sub-large laptop:pb-sub-extra-large',
         direction === 'right' ? 'slideInFromRight' : 'slideInFromLeft'
       )}
     >
