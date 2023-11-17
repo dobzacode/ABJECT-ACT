@@ -52,7 +52,7 @@ const Logo: FC<LogoProps> = ({
           src={src}
           width={40}
           height={40}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          sizes="(max-width: 768px) 20vw, (max-width: 1200px) 20vw, 20vw"
         ></Image>
       </Link>
     );

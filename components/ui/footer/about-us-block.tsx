@@ -71,7 +71,7 @@ export default function AboutUsBlock({
       custom={custom}
       exit={exit}
       key={'about-block'}
-      className="flex flex-col gap-small mobile-large:gap-extra-small"
+      className="flex flex-col gap-small tablet:gap-medium"
     >
       <H3
         textType="sub-heading"

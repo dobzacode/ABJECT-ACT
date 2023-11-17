@@ -31,7 +31,7 @@ export default function LegalBlock({
       custom={custom}
       exit={exit}
       key={'legal-block'}
-      className="flex flex-col gap-small mobile-large:gap-extra-small"
+      className="flex flex-col gap-small tablet:gap-medium"
     >
       <H3
         className={`${
@@ -41,7 +41,7 @@ export default function LegalBlock({
       >
         LEGAL
       </H3>
-      <ul className="body flex gap-extra-small  mobile-medium:gap-small mobile-large:gap-medium">
+      <ul className="body flex gap-extra-small  mobile-medium:gap-small tablet:gap-medium">
         {links.map((link, index) =>
           index === 0 ? (
             <NavLink

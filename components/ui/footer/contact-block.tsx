@@ -35,7 +35,7 @@ export default function ContactBlock({
       custom={custom}
       exit={exit}
       key={'contact-block'}
-      className="flex flex-col gap-small mobile-large:gap-extra-small tablet:-order-none"
+      className="flex flex-col gap-small tablet:-order-none tablet:gap-medium"
     >
       <H3
         className={`${

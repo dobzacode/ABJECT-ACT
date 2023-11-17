@@ -1,8 +1,4 @@
-import BlackLarsenSection from 'components/artists/black-larsen/black-larsen-section';
-import KraussSection from 'components/artists/krauss/krauss-section';
-import MorsureSection from 'components/artists/morsure/morsure-section';
-import SporeSection from 'components/artists/spore/spore-section';
-import CustomLink from 'components/ui/header/custom-link';
+import MovingSection from 'components/ui/div/moving-section';
 
 export const runtime = 'edge';
 
@@ -16,21 +12,45 @@ export const metadata = {
 export default async function HomePage() {
   return (
     <main className="h-screen overflow-x-hidden">
-      <CustomLink href="/artists/morsure">
-        <MorsureSection></MorsureSection>
-      </CustomLink>
+      <MovingSection
+        alt="Morsure"
+        imageSrc="/asset/artist/morsure.jpg"
+        comingFrom="left"
+        link="/artists/morsure"
+        title="MORSURE"
+        className="h-1/3"
+        imageCSS="object-[10%,40%]"
+      ></MovingSection>
       <div className="w-full border-2 border-black" />
-      <CustomLink href="/artists/blacklarsen">
-        <BlackLarsenSection></BlackLarsenSection>
-      </CustomLink>
+      <MovingSection
+        alt="Black Larsen"
+        imageSrc="/asset/artist/black_larsen.jpg"
+        comingFrom="right"
+        link="/artists/blacklarsen"
+        title="BLACK LARSEN"
+        className="h-1/3"
+        imageCSS="object-[10%,30%]"
+      ></MovingSection>
       <div className="w-full border-2 border-black" />
-      <CustomLink href="/artists/spore">
-        <SporeSection></SporeSection>
-      </CustomLink>
+      <MovingSection
+        alt="Spore"
+        imageSrc="/asset/artist/spore.jpg"
+        comingFrom="left"
+        link="/artists/spore"
+        title="SPORE"
+        className="h-1/3"
+        imageCSS=" object-[25%,35%]"
+      ></MovingSection>
       <div className="w-full border-2 border-black" />
-      <CustomLink href="/artists/krauss">
-        <KraussSection></KraussSection>
-      </CustomLink>
+      <MovingSection
+        alt="Krauss"
+        imageSrc="/asset/artist/black_larsen.jpg"
+        comingFrom="right"
+        link="/artists/krauss"
+        title="KRAUSS"
+        className="h-1/3"
+        imageCSS=" object-[25%,35%]"
+      ></MovingSection>
     </main>
   );
 }

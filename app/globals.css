@@ -86,7 +86,7 @@ html {
   right: 0;
   left: -64px;
   z-index: 30;
-  height: 30%;
+  height: 300px;
   background: linear-gradient(to bottom, black, transparent);
   pointer-events: none;
   width: full;
@@ -277,7 +277,7 @@ input[type='search']:focus {
 }
 
 .fadeIn {
-  animation: fadeIn 600ms ease-out;
+  animation: fadeIn 2000ms ease-out;
 }
 
 @keyframes fadeIn {
@@ -290,12 +290,12 @@ input[type='search']:focus {
 }
 
 .slideInFromLeft {
-  animation: slideInFromLeft 600ms ease-out;
+  animation: slideInFromLeft 2000ms ease-out;
 }
 
 @keyframes slideInFromLeft {
   from {
-    transform: translateX(-1500px);
+    transform: translateX(-3000px);
   }
   to {
     transform: translateX(0);
@@ -303,12 +303,12 @@ input[type='search']:focus {
 }
 
 .slideInFromRight {
-  animation: slideInFromRight 600ms ease-out;
+  animation: slideInFromRight 2000ms ease-out;
 }
 
 @keyframes slideInFromRight {
   from {
-    transform: translateX(1500px);
+    transform: translateX(3000px);
   }
   to {
     transform: translateX(0);
@@ -316,7 +316,7 @@ input[type='search']:focus {
 }
 
 .slideInFromBottom {
-  animation: slideInFromBottom 600ms ease-out;
+  animation: slideInFromBottom 2000ms ease-out;
 }
 
 @keyframes slideInFromBottom {
@@ -329,7 +329,7 @@ input[type='search']:focus {
 }
 
 .slideInFromTop {
-  animation: slideInFromTop 600ms ease-out;
+  animation: slideInFromTop 2000ms ease-out;
 }
 
 @keyframes slideInFromTop {
@@ -338,5 +338,21 @@ input[type='search']:focus {
   }
   to {
     transform: translateX(0);
+  }
+}
+
+.growText:hover {
+  animation: growText 2s ease-in-out infinite;
+}
+
+@keyframes growText {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
   }
 }

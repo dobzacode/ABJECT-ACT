@@ -1,5 +1,4 @@
-import MusicSection from 'components/media/music/music-section';
-import PhotoVideoSection from 'components/media/photo-video/photo-video-section';
+import MovingSection from 'components/ui/div/moving-section';
 
 export const runtime = 'edge';
 
@@ -13,9 +12,21 @@ export const metadata = {
 export default async function HomePage() {
   return (
     <main className="h-screen overflow-hidden">
-      <MusicSection></MusicSection>
+      <MovingSection
+        link="/media/music"
+        imageSrc={'/asset/event/assaultph.jpg'}
+        alt={'Music'}
+        title="MUSIC"
+        comingFrom="top"
+      ></MovingSection>
       <div className="w-full border-2 border-black" />
-      <PhotoVideoSection></PhotoVideoSection>
+      <MovingSection
+        imageSrc={'/asset/event/pulsarph.jpg'}
+        link="/media/gallery"
+        alt={'Gallery'}
+        title="GALLERY"
+        comingFrom="bottom"
+      ></MovingSection>
     </main>
   );
 }

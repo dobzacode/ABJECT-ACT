@@ -136,7 +136,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
             )}
           </AnimatePresence>
 
-          <div className="fadeIn absolute left-1/2  -translate-x-1/2 transform duration-1000">
+          <div className="absolute left-1/2  -translate-x-1/2 transform ">
             <Logo
               customSetter={() => setShowMenu(false)}
               href="/"

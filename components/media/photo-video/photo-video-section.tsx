@@ -1,62 +1,23 @@
-'use client';
 import CustomLink from 'components/ui/header/custom-link';
-import { easeInOut, motion, useAnimation } from 'framer-motion';
+
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
 
-export default function PhotoVideoSection() {
-  const h2Controls = useAnimation();
-  const [isReady, setIsReady] = useState<boolean>(false);
-
-  useEffect(() => {
-    setTimeout(() => setIsReady(true), 1000);
-  }, []);
-
+export default function GallerySection() {
   return (
     <CustomLink href="/media/gallery">
-      <motion.section
-        initial={{ y: 500 }}
-        animate={{ y: 0, transition: { duration: 1 } }}
-        exit={{ y: 500 }}
-        onHoverStart={() => {
-          h2Controls.start({ x: 1500, transition: { duration: 0 } }).then(() =>
-            h2Controls.start({
-              opacity: 1,
-              x: 0,
-              scale: 1,
-              transition: { type: 'spring', stiffness: 100, damping: 20 }
-            })
-          );
-        }}
-        onHoverEnd={() => {
-          h2Controls.start({
-            opacity: 0,
-            x: -1000,
-            transition: { type: 'spring', stiffness: 200, damping: 20 }
-          });
-        }}
-        className={`group/parent relative z-10 flex h-1/2 w-full items-center justify-center overflow-hidden ${
-          !isReady ? 'pointer-events-none' : ''
-        }`}
+      <section
+        className={`group/parent slideInFromBottom relative z-10 flex h-1/2 w-full items-center justify-center overflow-hidden `}
       >
         <Image
-          alt="Pulsar"
-          className="-z-10 object-cover object-center grayscale duration-slowest group-hover/parent:grayscale-0"
+          alt="Gallery"
+          className="-z-10 object-cover object-center duration-slowest group-hover/parent:grayscale-0 tablet:grayscale"
           fill
           src={'/asset/event/assaultph.jpg'}
         ></Image>
-        <motion.h2
-          whileHover={{
-            scale: [1, 1.1, 1],
-            transition: { repeat: Infinity, duration: 2, ease: easeInOut }
-          }}
-          initial={{ x: 1500 }}
-          animate={h2Controls}
-          className="heading--extra-large z-10 h-fit w-fit cursor-pointer  bg-transparent text-white"
-        >
+        <h2 className="growText heading--extra-large z-10 h-fit w-fit cursor-pointer bg-transparent text-white opacity-100 duration-slowest group-hover/parent:translate-x-0 group-hover/parent:scale-100 group-hover/parent:opacity-100 tablet:translate-x-[2000px] tablet:scale-50 tablet:opacity-0">
           GALLERY
-        </motion.h2>
-      </motion.section>
+        </h2>
+      </section>
     </CustomLink>
   );
 }
