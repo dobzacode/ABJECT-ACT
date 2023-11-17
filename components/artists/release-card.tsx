@@ -1,15 +1,17 @@
 'use client';
 
 import { H1 } from 'components/ui/text/h1';
+import { cn } from 'lib/utils';
 import { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player/soundcloud';
 import { v4 } from 'uuid';
 
 interface ReleaseCardProps {
   releaseList: { name?: string; label?: string; link: string }[];
+  className?: string;
 }
 
-export default function LastReleaseCard({ releaseList }: ReleaseCardProps) {
+export default function LastReleaseCard({ releaseList, className }: ReleaseCardProps) {
   const [hasWindow, setHasWindow] = useState(false);
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -20,9 +22,14 @@ export default function LastReleaseCard({ releaseList }: ReleaseCardProps) {
   if (!hasWindow) return;
 
   return (
-    <div className="slideInFromBottom glassmorphism-bg flex h-fit w-full flex-col gap-sub-large overflow-hidden pt-medium">
+    <div
+      className={cn(
+        'slideInFromBottom glassmorphism-bg flex h-fit w-full flex-col gap-sub-large overflow-hidden pt-medium',
+        className
+      )}
+    >
       <H1
-        className="mx-small flex w-[40rem] flex-col gap-medium text-white"
+        className="mx-small flex w-[40rem] flex-col  gap-medium text-white max-mobile-large:w-full"
         textType={'heading--large'}
       >
         Last Release

@@ -1,5 +1,4 @@
 'use client';
-import VideoGlitchEffect from 'components/ui/div/video-glitcheffect';
 import CustomLink from 'components/ui/header/custom-link';
 import { easeInOut, motion, useAnimation } from 'framer-motion';
 import Image from 'next/image';
@@ -40,14 +39,12 @@ export default function PhotoVideoSection() {
           !isReady ? 'pointer-events-none' : ''
         }`}
       >
-        <VideoGlitchEffect videoSrc="/asset/background/video/glitch_overlay.mp4">
-          <Image
-            alt="Abject act event"
-            className="-z-10 object-cover object-center grayscale duration-slowest group-hover/parent:grayscale-0"
-            fill
-            src={'/asset/background/scene_asset1.jpg'}
-          ></Image>
-        </VideoGlitchEffect>
+        <Image
+          alt="Pulsar"
+          className="-z-10 object-cover object-center grayscale duration-slowest group-hover/parent:grayscale-0"
+          fill
+          src={'/asset/event/assaultph.jpg'}
+        ></Image>
         <motion.h2
           whileHover={{
             scale: [1, 1.1, 1],

@@ -1,5 +1,4 @@
 import { Header } from 'components/ui/header/header';
-import { GeistSans } from 'geist/font';
 import { ensureStartsWith } from 'lib/utils';
 import { ReactNode } from 'react';
 import './globals.css';
@@ -33,12 +32,12 @@ export const metadata = {
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={GeistSans.variable}>
-      <body className="relative  h-full w-full overflow-x-hidden bg-black">
+    <html lang="en">
+      <body className="relative  h-full w-full overflow-x-hidden bg-black ">
         <Header
           size={'medium'}
           textColor={'white'}
-          className="overlay  relative w-full max-w-full px-sub-large pt-large tablet:absolute tablet:px-large"
+          className="overlay  absolute  w-full max-w-full px-sub-large pt-large tablet:px-large"
         ></Header>
         {children}
       </body>

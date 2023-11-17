@@ -136,13 +136,13 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
             )}
           </AnimatePresence>
 
-          <div className="absolute left-1/2 -translate-x-1/2 transform">
+          <div className="fadeIn absolute left-1/2  -translate-x-1/2 transform duration-1000">
             <Logo
               customSetter={() => setShowMenu(false)}
               href="/"
               src={'/asset/aa_logo_white.png'}
               intent={intent}
-              className=" z-50 duration-slow"
+              className=" relative z-[100] duration-slow"
             ></Logo>
           </div>
 

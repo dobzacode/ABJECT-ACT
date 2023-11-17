@@ -1,17 +1,24 @@
 import { H1 } from 'components/ui/text/h1';
 import H2 from 'components/ui/text/h2';
 import P from 'components/ui/text/p';
+import { cn } from 'lib/utils';
 import Link from 'next/link';
 import { v4 } from 'uuid';
 
 interface NextEventCardProps {
   eventList: { eventLink: string; name: string; place: string; date: string }[];
+  className?: string;
 }
 
-export default function NextEventCard({ eventList }: NextEventCardProps) {
+export default function NextEventCard({ eventList, className }: NextEventCardProps) {
   return (
-    <div className="slideInFromRight glassmorphism-bg flex h-fit w-fit flex-col gap-medium overflow-hidden py-medium">
-      <div className="mx-small flex w-[40rem] flex-col gap-medium text-white">
+    <div
+      className={cn(
+        'slideInFromRight glassmorphism-bg flex h-fit w-fit flex-col gap-medium overflow-hidden px-small py-medium',
+        className
+      )}
+    >
+      <div className=" flex w-full flex-col gap-medium text-white">
         <H1 textType={'heading--large'}>Next Event</H1>
 
         <div className="flex w-full flex-col gap-small">
@@ -19,7 +26,7 @@ export default function NextEventCard({ eventList }: NextEventCardProps) {
             return (
               <Link className="flex flex-col gap-extra-small" key={v4()} href={eventLink}>
                 <H2 textType={'heading'}>{name}</H2>
-                <div className="flex flex-wrap items-end justify-between">
+                <div className="flex flex-wrap items-end justify-between gap-small">
                   <P textType="sub-heading">{place}</P>
                   <P textType="body">{date}</P>
                 </div>

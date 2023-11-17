@@ -5,7 +5,7 @@
 
 @layer components {
   .heading--extra-large {
-    @apply text-heading-extra-large font-light leading-heading-extra-large;
+    @apply text-heading-sub-extra-large font-light leading-heading-sub-extra-large tablet:text-heading-extra-large tablet:leading-heading-extra-large;
   }
 
   .heading--sub-extra-large {
@@ -214,17 +214,6 @@ input[type='search']:focus {
 .video-glitch-effect {
   position: relative;
   overflow: hidden;
-}
-
-.glitch-video {
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  opacity: 0.2;
-  filter: grayscale(100);
-  mix-blend-mode: difference;
 }
 
 .glitch-overlay {

@@ -41,6 +41,7 @@ export default function MorsureSection() {
         alt="Morsure"
         className="-z-10 object-cover object-[25%,35%] grayscale duration-slowest group-hover/parent:grayscale-0"
         fill
+        sizes="(max-width: 768px) 100vw, 33vw"
         src={'/asset/artist/morsure.jpg'}
       ></Image>
       <motion.h2
