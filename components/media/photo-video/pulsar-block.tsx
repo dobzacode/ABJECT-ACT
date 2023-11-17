@@ -19,9 +19,8 @@ export default function PulsarBlock({}) {
 
   return (
     <div
-      key="pulsarBlock"
       className={cn(
-        'flex w-full flex-col items-center gap-large px-small py-large  text-primary5',
+        'flex w-full flex-col items-center gap-large overflow-x-hidden px-small py-large  text-primary5',
         triggerFade && searchParams.get('event') ? 'hidden-div' : ''
       )}
     >
