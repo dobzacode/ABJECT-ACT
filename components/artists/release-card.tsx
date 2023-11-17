@@ -9,9 +9,10 @@ import { v4 } from 'uuid';
 interface ReleaseCardProps {
   releaseList: { name?: string; label?: string; link: string }[];
   className?: string;
+  isMix?: boolean;
 }
 
-export default function LastReleaseCard({ releaseList, className }: ReleaseCardProps) {
+export default function LastReleaseCard({ releaseList, className, isMix }: ReleaseCardProps) {
   const [hasWindow, setHasWindow] = useState(false);
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -32,7 +33,7 @@ export default function LastReleaseCard({ releaseList, className }: ReleaseCardP
         className="mx-small flex w-[40rem] flex-col  gap-medium text-white max-mobile-large:w-full"
         textType={'heading--large'}
       >
-        Last Release
+        {`Last ${!isMix ? 'Release' : 'Mix'}`}
       </H1>
 
       <div className="flex w-full flex-col rounded-b-small">

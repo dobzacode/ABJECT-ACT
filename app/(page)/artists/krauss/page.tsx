@@ -1,4 +1,4 @@
-import { mdiEmail, mdiFacebook, mdiInstagram, mdiSoundcloud, mdiSpotify } from '@mdi/js';
+import { mdiFacebook, mdiInstagram, mdiSoundcloud, mdiSpotify } from '@mdi/js';
 import ArtistCard from 'components/artists/artist-card';
 import NextEventCard from 'components/artists/next-event-card';
 import PastEventCard from 'components/artists/past-event-card';
@@ -19,18 +19,18 @@ export default async function HomePage() {
       <section className=" relative flex h-fit flex-col gap-medium max-[630px]:grid-cols-2 mobile-large:grid   min-[630px]:mb-[315px] tablet:grid-cols-none tablet:grid-rows-none">
         <ArtistCard
           className="max-[630px]:col-span-2 max-mobile-large:w-full min-[630px]:row-span-2 min-[630px]:w-[112%] tablet:w-auto"
-          artistSrc="/asset/artist/morsure.jpg"
-          artist="Morsure"
+          artistSrc="/asset/artist/krauss.jpg"
+          artist="Krauss"
           socials={[
-            { mdiPath: mdiInstagram, link: 'https://www.instagram.com/morsure_music/' },
-            { mdiPath: mdiFacebook, link: 'https://www.facebook.com/morsuremusic/' },
-            { mdiPath: mdiEmail, link: 'mailto:contact.morsure@gmail.com' },
-            { mdiPath: mdiSoundcloud, link: 'https://soundcloud.com/morsureofc' },
+            { mdiPath: mdiInstagram, link: 'https://www.instagram.com/krauss_music/?hl=fr' },
+            { mdiPath: mdiFacebook, link: 'https://www.facebook.com/krausstekno?fref=ts' },
+
+            { mdiPath: mdiSoundcloud, link: 'https://soundcloud.com/krausssss' },
             {
               mdiPath: mdiSpotify,
-              link: 'https://open.spotify.com/intl-fr/artist/7i2NAgDUSGr7whcVn5Azja'
+              link: 'https://open.spotify.com/intl-fr/artist/2yW301v7rO5F5TWplXjanF'
             },
-            { mdiPath: 'bandcamp', link: 'https://morsureofc.bandcamp.com/' }
+            { mdiPath: 'bandcamp', link: 'https://technokrauss.bandcamp.com/' }
           ]}
         ></ArtistCard>
 
@@ -84,9 +84,13 @@ export default async function HomePage() {
         <LastReleaseCard
           className="-z-10 row-start-3 max-[630px]:col-span-2 max-mobile-large:w-full min-[630px]:absolute   min-[630px]:-bottom-[315px] tablet:col-span-2 tablet:mt-0"
           releaseList={[
-            { link: 'https://soundcloud.com/morsureofc/morsure-resleeved-1' },
-            { link: 'https://soundcloud.com/morsureofc/morsure-mind-surge' },
-            { link: 'https://soundcloud.com/morsureofc/kozlov-x-morsure-2auvage-1' }
+            {
+              link: 'https://soundcloud.com/berylliumproject/krauss-nm2?in=krausssss/sets/releases'
+            },
+            { link: 'https://soundcloud.com/berylliumproject/flood-2?in=krausssss/sets/releases' },
+            {
+              link: 'https://soundcloud.com/berylliumproject/24-june-33?in=krausssss/sets/releases'
+            }
           ]}
         ></LastReleaseCard>
       </section>

@@ -19,18 +19,17 @@ export default async function HomePage() {
       <section className=" relative flex h-fit flex-col gap-medium max-[630px]:grid-cols-2 mobile-large:grid   min-[630px]:mb-[315px] tablet:grid-cols-none tablet:grid-rows-none">
         <ArtistCard
           className="max-[630px]:col-span-2 max-mobile-large:w-full min-[630px]:row-span-2 min-[630px]:w-[112%] tablet:w-auto"
-          artistSrc="/asset/artist/morsure.jpg"
-          artist="Morsure"
+          artistSrc="/asset/artist/spore.jpg"
+          artist="Spore"
           socials={[
-            { mdiPath: mdiInstagram, link: 'https://www.instagram.com/morsure_music/' },
-            { mdiPath: mdiFacebook, link: 'https://www.facebook.com/morsuremusic/' },
-            { mdiPath: mdiEmail, link: 'mailto:contact.morsure@gmail.com' },
-            { mdiPath: mdiSoundcloud, link: 'https://soundcloud.com/morsureofc' },
+            { mdiPath: mdiInstagram, link: 'https://www.instagram.com/spore.abject/' },
+            { mdiPath: mdiFacebook, link: 'https://www.facebook.com/Spore.Abject' },
+            { mdiPath: mdiEmail, link: 'mailto:contact.sporemc@gmail.com' },
+            { mdiPath: mdiSoundcloud, link: 'https://soundcloud.com/sporemc' },
             {
               mdiPath: mdiSpotify,
-              link: 'https://open.spotify.com/intl-fr/artist/7i2NAgDUSGr7whcVn5Azja'
-            },
-            { mdiPath: 'bandcamp', link: 'https://morsureofc.bandcamp.com/' }
+              link: 'https://open.spotify.com/intl-fr/artist/4ikPhgKSlQLR1VQgQuqP5n'
+            }
           ]}
         ></ArtistCard>
 
@@ -84,9 +83,9 @@ export default async function HomePage() {
         <LastReleaseCard
           className="-z-10 row-start-3 max-[630px]:col-span-2 max-mobile-large:w-full min-[630px]:absolute   min-[630px]:-bottom-[315px] tablet:col-span-2 tablet:mt-0"
           releaseList={[
-            { link: 'https://soundcloud.com/morsureofc/morsure-resleeved-1' },
-            { link: 'https://soundcloud.com/morsureofc/morsure-mind-surge' },
-            { link: 'https://soundcloud.com/morsureofc/kozlov-x-morsure-2auvage-1' }
+            { link: 'https://soundcloud.com/sporemc/spore-exploring-horizons' },
+            { link: 'https://soundcloud.com/sporemc/strike-them-harder' },
+            { link: 'https://soundcloud.com/sporemc/spore-ame' }
           ]}
         ></LastReleaseCard>
       </section>

@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { v4 } from 'uuid';
 
 interface ArtistCardProps {
-  artist: 'Morsure' | 'Spore' | 'Krauss' | 'Black larsen';
+  artist: 'Morsure' | 'Spore' | 'Krauss' | 'Black Larsen';
   artistSrc: string;
   socials: { link: string; mdiPath: string }[];
   className?: string;
