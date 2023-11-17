@@ -31,7 +31,7 @@ export default function LegalBlock({
       custom={custom}
       exit={exit}
       key={'legal-block'}
-      className="flex flex-col gap-medium mobile-large:gap-small"
+      className="flex flex-col gap-small mobile-large:gap-extra-small"
     >
       <H3 className={`${isActive ? 'opacity-100' : 'opacity-40'}`} textType="sub-heading">
         LEGAL

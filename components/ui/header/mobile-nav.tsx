@@ -155,6 +155,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
               {navLinks.map((link, i) => {
                 return (
                   <NavLink
+                    className="max-mobile-medium:text-heading max-mobile-small:text-body"
                     customSetter={() => {
                       setShowMenu(false);
                     }}
@@ -183,7 +184,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
           <motion.div
             key="backdrop"
             initial={{ opacity: 0 }}
-            animate={{ opacity: 0.8, transition: { duration: 0.6 } }}
+            animate={{ opacity: 0.9, transition: { duration: 0.6 } }}
             exit={{ opacity: 0, transition: { duration: 0.6 } }}
             className={`fixed left-0 top-0 z-20 h-screen w-screen bg-black duration-slow`}
           ></motion.div>
@@ -201,7 +202,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
           key="footer"
           onClick={() => setShowMenu(false)}
           className={cn(
-            'fixed bottom-0 left-small z-30 mb-sub-large mr-large flex h-1/3 w-[90vw]  flex-col justify-end gap-sub-large text-white mobile-large:left-14  tablet:mt-large tablet:h-fit tablet:flex-row tablet:flex-wrap tablet:justify-between tablet:gap-sub-large laptop:left-auto',
+            'fixed bottom-0 left-small z-30 mb-small mr-large flex h-1/5 w-[90vw] flex-col justify-end  gap-medium text-white mobile-large:left-14  tablet:mb-sub-large  tablet:mt-large tablet:h-fit tablet:flex-row tablet:flex-wrap tablet:justify-between tablet:gap-sub-large laptop:left-auto',
             modalOffset()
           )}
         >

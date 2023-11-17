@@ -12,7 +12,7 @@ const linkVariants = cva('', {
     size: {
       small: 'body leading-body font-medium',
       medium: 'sub-heading',
-      large: 'heading--large'
+      large: 'heading--large '
     },
     intent: {
       primary: 'text-primary80 dark:text-primary1',
@@ -140,12 +140,12 @@ const NavLink: FC<NavLinkProps> = React.forwardRef<HTMLLIElement, NavLinkProps>(
           <Link
             className={cn(
               linkVariants({
-                className,
                 size,
                 rounded,
                 hover,
                 intent,
-                currentNavStyle: isActive ? intent : 'transparent'
+                currentNavStyle: isActive ? intent : 'transparent',
+                className
               })
             )}
             onClick={(e: any) => {
@@ -179,12 +179,12 @@ const NavLink: FC<NavLinkProps> = React.forwardRef<HTMLLIElement, NavLinkProps>(
           passHref
           className={cn(
             linkVariants({
-              className,
               size,
               rounded,
               hover,
               intent,
-              currentNavStyle: isActive ? intent : 'transparent'
+              currentNavStyle: isActive ? intent : 'transparent',
+              className
             })
           )}
           onClick={(e: any) => {

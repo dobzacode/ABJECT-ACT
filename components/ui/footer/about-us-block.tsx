@@ -71,7 +71,7 @@ export default function AboutUsBlock({
       custom={custom}
       exit={exit}
       key={'about-block'}
-      className="flex flex-col gap-medium mobile-large:gap-small"
+      className="flex flex-col gap-small mobile-large:gap-extra-small"
     >
       <H3 textType="sub-heading" className={`${isActive ? 'opacity-100' : 'opacity-40'}`}>
         ABOUT US
