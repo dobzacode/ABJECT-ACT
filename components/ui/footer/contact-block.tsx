@@ -35,12 +35,17 @@ export default function ContactBlock({
       custom={custom}
       exit={exit}
       key={'contact-block'}
-      className="order-last flex flex-col gap-small mobile-large:gap-extra-small tablet:-order-none"
+      className="flex flex-col gap-small mobile-large:gap-extra-small tablet:-order-none"
     >
-      <H3 className={`${isActive ? 'opacity-100' : 'opacity-40'}`} textType="sub-heading">
+      <H3
+        className={`${
+          isActive ? 'opacity-100' : 'opacity-40'
+        } max-mobile-medium:text-body max-mobile-medium:font-medium`}
+        textType="sub-heading"
+      >
         Contact
       </H3>
-      <ul className="body flex gap-medium">
+      <ul className="body flex gap-extra-small  mobile-medium:gap-small mobile-large:gap-medium">
         {socialLinks.map((socialLink) => (
           <NavLink
             key={v4()}

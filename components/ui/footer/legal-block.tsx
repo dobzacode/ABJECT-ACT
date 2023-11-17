@@ -33,21 +33,41 @@ export default function LegalBlock({
       key={'legal-block'}
       className="flex flex-col gap-small mobile-large:gap-extra-small"
     >
-      <H3 className={`${isActive ? 'opacity-100' : 'opacity-40'}`} textType="sub-heading">
+      <H3
+        className={`${
+          isActive ? 'opacity-100' : 'opacity-40'
+        } max-mobile-medium:text-body max-mobile-medium:font-medium`}
+        textType="sub-heading"
+      >
         LEGAL
       </H3>
-      <ul className="body flex gap-medium">
-        {links.map((link) => (
-          <NavLink
-            hover={true}
-            intent={intent}
-            currentNavStyle={currentNavStyle}
-            key={v4()}
-            href={link.href}
-          >
-            {link.name}
-          </NavLink>
-        ))}
+      <ul className="body flex gap-extra-small  mobile-medium:gap-small mobile-large:gap-medium">
+        {links.map((link, index) =>
+          index === 0 ? (
+            <NavLink
+              hover={true}
+              intent={intent}
+              currentNavStyle={currentNavStyle}
+              key={v4()}
+              href={link.href}
+            >
+              {link.name}
+            </NavLink>
+          ) : (
+            <NavLink
+              hover={true}
+              intent={intent}
+              currentNavStyle={currentNavStyle}
+              key={v4()}
+              href={link.href}
+            >
+              {link.name.split(' ')[0]}
+              <span className="hidden mobile-medium:block">
+                {link.name.split('`').slice(1).join(' ')}
+              </span>
+            </NavLink>
+          )
+        )}
       </ul>
     </motion.div>
   );

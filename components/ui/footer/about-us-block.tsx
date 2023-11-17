@@ -73,10 +73,15 @@ export default function AboutUsBlock({
       key={'about-block'}
       className="flex flex-col gap-small mobile-large:gap-extra-small"
     >
-      <H3 textType="sub-heading" className={`${isActive ? 'opacity-100' : 'opacity-40'}`}>
+      <H3
+        textType="sub-heading"
+        className={`${
+          isActive ? 'opacity-100' : 'opacity-40'
+        } max-mobile-medium:text-body max-mobile-medium:font-medium`}
+      >
         ABOUT US
       </H3>
-      <ul className="body flex flex-wrap gap-small mobile-large:gap-medium">
+      <ul className="body flex flex-wrap gap-extra-small  mobile-medium:gap-small mobile-large:gap-medium">
         {links.map((link) => {
           return (
             <NavLink
