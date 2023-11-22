@@ -5,7 +5,7 @@ import { FormEventHandler, ReactNode } from 'react';
 interface ContactFormProps {
   children: ReactNode;
   // eslint-disable-next-line no-unused-vars
-  action?: (formData: FormData) => Promise<void>;
+  action?: (payload: FormData) => void;
   onSubmit?: FormEventHandler<HTMLFormElement>;
   classname: string;
 }

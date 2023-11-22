@@ -25,6 +25,8 @@
     "firstname": "Firstname",
     "lastname": "Lastname",
     "subject": "Subject",
-    "submit": "Submit"
+    "submit": "Submit",
+    "success": "Your submission has been sent !",
+    "error": "An error occured, please try again later."
   }
 }

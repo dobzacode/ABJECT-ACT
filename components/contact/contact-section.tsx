@@ -2,13 +2,21 @@
 
 import { joinUsAction } from 'app/_action';
 import Input from 'components/ui/form/input';
+import P from 'components/ui/text/p';
 import { useTranslations } from 'next-intl';
 import { usePathname, useRouter } from 'next/navigation';
 import { ChangeEvent, useEffect, useState } from 'react';
+import { useFormState } from 'react-dom';
 import ContactForm from './contact-form';
 
 export default function ContactSection({}) {
   const [selectedOption, setSelectedOption] = useState('');
+  const [state, formAction] = useFormState(update, '');
+
+  async function update(previousState: string, formData: FormData) {
+    previousState = await joinUsAction(formData);
+    return previousState;
+  }
 
   const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
     setSelectedOption(event.target.value);
@@ -35,7 +43,15 @@ export default function ContactSection({}) {
         className="bg-white text-black"
         hiddenlabel="true"
       ></Input>
-      <ContactForm classname="flex flex-col gap-small" action={joinUsAction}>
+      <ContactForm classname="flex flex-col gap-small" action={formAction}>
+        {state && (
+          <P
+            textType={'body'}
+            className={`${state === tForm('success') ? 'text-success50' : 'text-error50'}`}
+          >
+            {state}
+          </P>
+        )}
         <div className="flex flex-col justify-between gap-small tablet:flex-row">
           <Input
             minLength={2}

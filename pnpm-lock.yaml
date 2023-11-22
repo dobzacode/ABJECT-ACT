@@ -65,6 +65,9 @@ dependencies:
   react-slick:
     specifier: ^0.29.0
     version: 0.29.0(react-dom@18.2.0)(react@18.2.0)
+  react-spinners:
+    specifier: ^0.13.8
+    version: 0.13.8(react-dom@18.2.0)(react@18.2.0)
   react-transition-group:
     specifier: ^4.4.5
     version: 4.4.5(react-dom@18.2.0)(react@18.2.0)
@@ -91,6 +94,9 @@ devDependencies:
   '@tailwindcss/typography':
     specifier: ^0.5.10
     version: 0.5.10(tailwindcss@3.3.5)
+  '@types/gapi':
+    specifier: ^0.0.47
+    version: 0.0.47
   '@types/node':
     specifier: 20.8.9
     version: 20.8.9
@@ -521,6 +527,10 @@ packages:
       lodash.merge: 4.6.2
       postcss-selector-parser: 6.0.10
       tailwindcss: 3.3.5
+    dev: true
+
+  /@types/gapi@0.0.47:
+    resolution: {integrity: sha512-/ZsLuq6BffMgbKMtZyDZ8vwQvTyKhKQ1G2K6VyWCgtHHhfSSXbk4+4JwImZiTjWNXfI2q1ZStAwFFHSkNoTkHA==}
     dev: true
 
   /@types/hoist-non-react-statics@3.3.5:
@@ -3319,6 +3329,16 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       resize-observer-polyfill: 1.5.1
+    dev: false
+
+  /react-spinners@0.13.8(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-3e+k56lUkPj0vb5NDXPVFAOkPC//XyhKPJjvcGjyMNPWsBKpplfeyialP74G7H7+It7KzhtET+MvGqbKgAqpZA==}
+    peerDependencies:
+      react: ^16.0.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /react-transition-group@4.4.5(react-dom@18.2.0)(react@18.2.0):

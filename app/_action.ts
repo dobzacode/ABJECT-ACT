@@ -30,7 +30,7 @@ export async function joinUsAction(formData: FormData) {
 
   try {
     if (!spreadsheetId) throw new Error();
-    const response = await sheets.spreadsheets.values.append({
+    await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.JOIN_US_SPREADSHEET_ID,
       range: 'sheet1',
       valueInputOption: 'RAW',
@@ -40,8 +40,8 @@ export async function joinUsAction(formData: FormData) {
       }
     });
 
-    console.log(response.data);
+    return t('success');
   } catch (error) {
-    console.error(error);
+    return t('error');
   }
 }
