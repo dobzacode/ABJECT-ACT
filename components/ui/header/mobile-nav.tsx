@@ -13,6 +13,7 @@ import Logo from '../branding/logo';
 import AboutUsBlock from '../footer/about-us-block';
 import ContactBlock from '../footer/contact-block';
 import LegalBlock from '../footer/legal-block';
+import LangageSwitch from './langage-switch';
 import NavLink from './nav-link';
 
 interface NavProps {
@@ -101,7 +102,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
   return (
     <>
       <header className={cn(className)}>
-        <div className=" relative z-30 flex w-full items-center justify-center">
+        <div className=" relative z-30 flex w-full items-center justify-between">
           <AnimatePresence>
             {!showMenu ? (
               <motion.button
@@ -109,7 +110,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1, transition: { duration: 1 } }}
                 exit={{ opacity: 0 }}
-                className="absolute left-0 h-fit w-fit"
+                className="relative h-fit w-fit"
                 onClick={() => setShowMenu(true)}
               >
                 <Icon
@@ -124,7 +125,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
                 initial={{ opacity: 0, rotate: 360 }}
                 animate={{ opacity: 1, rotate: 0, transition: { duration: 1, ease: 'easeOut' } }}
                 exit={{ opacity: 0, transition: { duration: 0.4 } }}
-                className="absolute left-0 h-fit w-fit"
+                className="relative h-fit w-fit"
                 onClick={() => setShowMenu(false)}
               >
                 <Icon
@@ -146,7 +147,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
             ></Logo>
           </div>
 
-          <div />
+          <LangageSwitch></LangageSwitch>
         </div>
 
         <CSSTransition nodeRef={navRef} timeout={600} unmountOnExit classNames="fade" in={showMenu}>
