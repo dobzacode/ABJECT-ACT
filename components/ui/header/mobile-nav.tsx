@@ -42,7 +42,7 @@ const navLinks = [
   { href: '/values', name: 'values' },
   { href: '/shop', name: 'shop' },
   { href: '/contact', name: 'contact' },
-  { href: '/media', name: 'media' },
+  { href: '/gallery', name: 'gallery' },
   { href: '/label', name: 'label' }
 ];
 

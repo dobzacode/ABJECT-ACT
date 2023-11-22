@@ -2,7 +2,7 @@
 
 import { cn } from 'lib/utils';
 import Image from 'next/image';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import AssaultBlock from './assault-block';
 import PulsarBlock from './pulsar-block';
@@ -15,6 +15,7 @@ export default function ContentSection({}) {
       : 'pulsar'
   );
   const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     const event =
@@ -31,7 +32,7 @@ export default function ContentSection({}) {
         <button
           onClick={() => {
             if (searchParams.get('event') === 'pulsar' || !searchParams.get('event')) return;
-            router.replace('/media/gallery?event=pulsar');
+            router.replace(`${pathname}?event=pulsar`);
           }}
           className="group/parent slideInFromLeft relative flex w-full items-center justify-center overflow-hidden tablet:w-1/2"
         >
@@ -64,7 +65,7 @@ export default function ContentSection({}) {
         <button
           onClick={() => {
             if (searchParams.get('event') === 'assault') return;
-            router.replace('/media/gallery?event=assault');
+            router.replace(`${pathname}?event=assault`);
           }}
           className="group/parent slideInFromRight relative flex w-full items-center justify-center overflow-hidden tablet:w-1/2"
         >

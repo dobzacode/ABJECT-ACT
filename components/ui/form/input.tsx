@@ -49,7 +49,7 @@ interface InputProps
   extends InputHTMLAttributes<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
     VariantProps<typeof inputVariants> {
   children?: React.ReactNode;
-  hiddenLabel?: boolean;
+  hiddenlabel?: 'true' | 'false';
   choices?: string[];
   customText?: string[];
   loader?: JSX.Element;
@@ -109,6 +109,7 @@ const Input: FC<InputProps> = forwardRef<HTMLInputElement, InputProps>(
                 })
               )}
               onChange={onChange as ChangeEventHandler<HTMLInputElement>}
+              type={type}
               {...props}
             ></InputText>
           );
@@ -179,8 +180,12 @@ const Input: FC<InputProps> = forwardRef<HTMLInputElement, InputProps>(
       <>
         {renderInput()}
         {type !== 'radio' ? (
-          <Label className="text-90 body font-medium" isHidden={true} htmlFor={props.id}></Label>
-        ) : null}{' '}
+          <Label
+            className="text-90 body font-medium"
+            isHidden={true}
+            htmlFor={props.placeholder}
+          ></Label>
+        ) : null}
       </>
     );
   }

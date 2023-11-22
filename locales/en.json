@@ -6,7 +6,7 @@
       "values": "values",
       "shop": "shop",
       "contact": "contact",
-      "media": "media",
+      "gallery": "gallery",
       "label": "label"
     },
     "secondaryNavigation": {
@@ -20,5 +20,11 @@
       "legal": "Legal",
       "privacy": "Privacy"
     }
+  },
+  "form": {
+    "firstname": "Firstname",
+    "lastname": "Lastname",
+    "subject": "Subject",
+    "submit": "Submit"
   }
 }

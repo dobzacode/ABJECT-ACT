@@ -6,7 +6,7 @@
       "values": "valeurs",
       "shop": "boutique",
       "contact": "contact",
-      "media": "media",
+      "gallery": "galerie",
       "label": "label"
     },
     "secondaryNavigation": {
@@ -20,5 +20,11 @@
       "legal": "Légal",
       "privacy": "Confidentialité"
     }
+  },
+  "form": {
+    "firstname": "Prénom",
+    "lastname": "Nom",
+    "subject": "Sujet",
+    "submit": "Envoyer"
   }
 }

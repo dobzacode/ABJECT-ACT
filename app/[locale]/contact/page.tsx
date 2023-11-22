@@ -1,3 +1,5 @@
+import ContactSection from 'components/contact/contact-section';
+
 export const runtime = 'edge';
 
 export const metadata = {
@@ -8,5 +10,9 @@ export const metadata = {
 };
 
 export default async function HomePage() {
-  return <></>;
+  return (
+    <main className="flex min-h-screen items-center justify-center">
+      <ContactSection></ContactSection>
+    </main>
+  );
 }

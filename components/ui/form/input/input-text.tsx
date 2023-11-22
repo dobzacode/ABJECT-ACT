@@ -11,6 +11,7 @@ interface TextProps
 
 const InputText: FC<TextProps> = forwardRef<HTMLInputElement, TextProps>(
   ({ className, id, ...props }, ref) => {
+    console.log(props.type);
     return (
       <input
         ref={ref}

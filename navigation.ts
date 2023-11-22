@@ -65,12 +65,11 @@ export const pathnames = {
     fr: '/legal/confidentialite'
   },
 
-  '/media': '/media',
-  '/media/gallery': {
-    en: '/media/gallery',
-    fr: '/media/galerie'
+  '/gallery': {
+    en: '/gallery',
+    fr: '/galerie'
   },
-  '/media/music': '/media/music',
+
   '/shop': {
     en: '/shop',
     fr: '/boutique'
