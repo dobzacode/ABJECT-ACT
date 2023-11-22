@@ -10,7 +10,7 @@ interface ContactFormProps {
   classname: string;
 }
 
-export default function ContactForm({ children, action, classname, onSubmit }: ContactFormProps) {
+export default function GenericForm({ children, action, classname, onSubmit }: ContactFormProps) {
   return (
     <form onSubmit={onSubmit} action={action} className={cn(classname)}>
       {children}

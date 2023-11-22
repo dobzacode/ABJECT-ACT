@@ -1,39 +1,32 @@
 'use client';
 
-import { joinUsAction } from 'app/_action';
 import Input from 'components/ui/form/input';
-import P from 'components/ui/text/p';
 import { useTranslations } from 'next-intl';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { ChangeEvent, useEffect, useState } from 'react';
-import { useFormState } from 'react-dom';
-import ContactForm from './contact-form';
+import ContactForm from './contact/contact-form';
+import JoinUsForm from './join-us/join-us-form';
+import PartnershipForm from './partnership/partnership-form';
 
 export default function ContactSection({}) {
   const [selectedOption, setSelectedOption] = useState('');
-  const [state, formAction] = useFormState(update, '');
-
-  async function update(previousState: string, formData: FormData) {
-    previousState = await joinUsAction(formData);
-    return previousState;
-  }
 
   const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
     setSelectedOption(event.target.value);
   };
 
-  const tForm = useTranslations('form');
   const t = useTranslations('navigation.secondaryNavigation');
 
   const pathname = usePathname();
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     router.replace(`${pathname}?type=${selectedOption.toLowerCase().replace(/ /g, '-')}`);
   }, [selectedOption, pathname, router]);
 
   return (
-    <section className="flex w-[24rem] flex-col gap-small rounded-small bg-white p-small mobile-large:w-1/2 tablet:w-fit">
+    <section className="mx-small flex w-full flex-col gap-small rounded-small bg-white p-small mobile-large:mx-0 mobile-large:w-2/3 tablet:w-fit">
       <Input
         onChange={handleSelectChange}
         id={'formType'}
@@ -43,57 +36,14 @@ export default function ContactSection({}) {
         className="bg-white text-black"
         hiddenlabel="true"
       ></Input>
-      <ContactForm classname="flex flex-col gap-small" action={formAction}>
-        {state && (
-          <P
-            textType={'body'}
-            className={`${state === tForm('success') ? 'text-success50' : 'text-error50'}`}
-          >
-            {state}
-          </P>
-        )}
-        <div className="flex flex-col justify-between gap-small tablet:flex-row">
-          <Input
-            minLength={2}
-            maxLength={30}
-            required
-            type="text"
-            id={tForm('firstname')}
-            placeholder={tForm('firstname')}
-            hiddenlabel="true"
-          ></Input>
-          <Input
-            minLength={2}
-            maxLength={30}
-            required
-            type="text"
-            id={tForm('lastname')}
-            placeholder={tForm('lastname')}
-            hiddenlabel="true"
-          ></Input>
-        </div>
-        <Input required type="email" id={'email'} placeholder={'Email'} hiddenlabel="true"></Input>
-        <Input
-          minLength={2}
-          maxLength={30}
-          required
-          type="text"
-          id={tForm('subject')}
-          placeholder={tForm('subject')}
-          hiddenlabel="true"
-        ></Input>
-        <Input
-          minLength={10}
-          maxLength={500}
-          required
-          type="textarea"
-          id={'message'}
-          placeholder={'Message'}
-          rows={5}
-          cols={3}
-          hiddenlabel="true"
-        ></Input>
-      </ContactForm>
+      {searchParams.get('type') === t('join us').toLowerCase().replace(/ /g, '-') ||
+      !searchParams.get('type') ? (
+        <JoinUsForm></JoinUsForm>
+      ) : null}
+      {searchParams.get('type') === t('partnership').toLowerCase().replace(/ /g, '-') ? (
+        <PartnershipForm></PartnershipForm>
+      ) : null}
+      {searchParams.get('type') === 'contact' ? <ContactForm></ContactForm> : null}
     </section>
   );
 }
