@@ -9,7 +9,7 @@ export default function ContactForm({
   executeRecaptcha
 }: {
   // eslint-disable-next-line no-unused-vars
-  executeRecaptcha: (_: string) => Promise<string>;
+  executeRecaptcha: (action: string | undefined) => Promise<string>;
 }) {
   async function updateStatus(previousState: string, formData: FormData) {
     if (!executeRecaptcha) {

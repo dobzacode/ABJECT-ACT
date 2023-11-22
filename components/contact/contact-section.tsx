@@ -26,11 +26,10 @@ export default function ContactSection({}) {
 
   useEffect(() => {
     router.replace(`${pathname}?type=${selectedOption.toLowerCase().replace(/ /g, '-')}`);
-    console.log(executeRecaptcha);
   }, [selectedOption, pathname, router]);
 
   return (
-    <section className="mx-small flex w-full flex-col gap-small rounded-small bg-white p-small mobile-large:mx-0 mobile-large:w-2/3 tablet:w-fit">
+    <section className="slideInFromBottom mx-small flex w-full flex-col gap-small rounded-small bg-white p-small mobile-large:mx-0 mobile-large:w-2/3 tablet:w-fit">
       <Input
         onChange={handleSelectChange}
         id={'formType'}
@@ -42,12 +41,14 @@ export default function ContactSection({}) {
       ></Input>
       {searchParams.get('type') === t('join us').toLowerCase().replace(/ /g, '-') ||
       !searchParams.get('type') ? (
-        <JoinUsForm executeRecaptcha={executeRecaptcha}></JoinUsForm>
+        <JoinUsForm executeRecaptcha={executeRecaptcha as any}></JoinUsForm>
       ) : null}
       {searchParams.get('type') === t('partnership').toLowerCase().replace(/ /g, '-') ? (
-        <PartnershipForm executeRecaptcha={executeRecaptcha}></PartnershipForm>
+        <PartnershipForm executeRecaptcha={executeRecaptcha as any}></PartnershipForm>
       ) : null}
-      {searchParams.get('type') === 'contact' ? <ContactForm executeRecaptcha={executeRecaptcha}></ContactForm> : null}
+      {searchParams.get('type') === 'contact' ? (
+        <ContactForm executeRecaptcha={executeRecaptcha as any}></ContactForm>
+      ) : null}
     </section>
   );
 }

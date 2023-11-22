@@ -10,7 +10,7 @@ export const metadata = {
 
 export default async function HomePage() {
   return (
-    <main className="flex min-h-screen items-center justify-center">
+    <main className="flex h-screen items-center justify-center overflow-hidden">
       <Providers>
         <ContactSection></ContactSection>
       </Providers>
