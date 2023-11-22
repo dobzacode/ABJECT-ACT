@@ -65,6 +65,9 @@ dependencies:
   react-player:
     specifier: ^2.13.0
     version: 2.13.0(react@18.2.0)
+  react-scroll-parallax:
+    specifier: ^3.4.4
+    version: 3.4.4(react-dom@18.2.0)(react@18.2.0)
   react-slick:
     specifier: ^0.29.0
     version: 0.29.0(react-dom@18.2.0)(react@18.2.0)
@@ -945,6 +948,10 @@ packages:
 
   /base64-js@1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
+    dev: false
+
+  /bezier-easing@2.1.0:
+    resolution: {integrity: sha512-gbIqZ/eslnUFC1tjEvtz0sgx+xTK20wDnYMIA27VA04R7w6xxXQPZDbibjA9DTWZRA2CXtwHykkVzlCaAJAZig==}
     dev: false
 
   /bignumber.js@9.1.2:
@@ -3016,6 +3023,13 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
+  /parallax-controller@1.7.0:
+    resolution: {integrity: sha512-tIU/LgH9oIrvC6o+rvGQis8/NXxsHNuF5LODmcc5TjvEDUi2qiR/iisFmyaqI9LImQ3psdAv28k2ZEAnFekiig==}
+    engines: {node: '>=12'}
+    dependencies:
+      bezier-easing: 2.1.0
+    dev: false
+
   /parent-module@1.0.1:
     resolution: {integrity: sha512-GQ2EWRpQV8/o+Aw8YqtfZZPfNRWZYkbidE9k5rpl/hC3vtHHBfGm2Ifi6qWV+coDGkrUKZAxE3Lot5kcsRlh+g==}
     engines: {node: '>=6'}
@@ -3328,6 +3342,18 @@ packages:
       prop-types: 15.8.1
       react: 18.2.0
       react-fast-compare: 3.2.2
+    dev: false
+
+  /react-scroll-parallax@3.4.4(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-uwcWsSL3MDQCK5E5DnPb5SA7iNzWkqWYX69IAKjbdnDUCwOvg+hSwhz6gXIjewQIX+S6oKIzbDBzJS5B+rCeXQ==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: ^16.8.0-0 || >=17.0.1 || ^18.0.0
+      react-dom: ^16.8.0-0 || >=17.0.1 || ^18.0.0
+    dependencies:
+      parallax-controller: 1.7.0
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /react-slick@0.29.0(react-dom@18.2.0)(react@18.2.0):

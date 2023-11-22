@@ -69,13 +69,15 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ imageFolder, fullWidth }) => 
         {images.map((image, index) => (
           <div
             key={index}
-            className="relative z-40 h-[40rem] w-[20rem]  "
+            className="relative z-40 h-[40rem] w-[20rem]  bg-white laptop:rounded-small"
             onClick={() => {
               console.log(lightboxIsOpen);
               openLightbox(index);
             }}
           >
             <Image
+              placeholder="blur"
+              blurDataURL={image.thumbnail}
               className={cn('object-cover laptop:rounded-small')}
               fill
               src={image.thumbnail}

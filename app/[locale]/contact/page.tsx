@@ -1,5 +1,5 @@
 import ContactSection from 'components/contact/contact-section';
-import Providers from 'components/providers';
+import RecaptchaProvider from 'components/providers/recaptcha-provider';
 
 export const metadata = {
   description: 'High-performance ecommerce store built with Next.js, Vercel, and Shopify.',
@@ -11,9 +11,9 @@ export const metadata = {
 export default async function HomePage() {
   return (
     <main className="flex h-screen items-center justify-center overflow-hidden">
-      <Providers>
+      <RecaptchaProvider>
         <ContactSection></ContactSection>
-      </Providers>
+      </RecaptchaProvider>
     </main>
   );
 }

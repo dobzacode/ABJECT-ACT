@@ -9,7 +9,7 @@ export const metadata = {
 
 export default async function GalleryPage() {
   return (
-    <main className="flex h-full w-full flex-col items-center pt-extra-large tablet:pt-0">
+    <main className="relative flex h-full min-h-screen w-full flex-col items-center pt-extra-large tablet:pt-0">
       <ContentSection></ContentSection>
     </main>
   );

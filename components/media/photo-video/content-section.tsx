@@ -1,34 +1,31 @@
 'use client';
 
-import { cn } from 'lib/utils';
-import Image from 'next/image';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { ParallaxProvider } from 'react-scroll-parallax';
+import ParallaxBackground from '../parallax-background';
 import AssaultBlock from './assault-block';
-import PulsarBlock from './pulsar-block';
 
 export default function ContentSection({}) {
-  const searchParams = useSearchParams();
-  const [sectionToShow, setSectionToShow] = useState<'pulsar' | 'assault'>(
-    searchParams.get('event') === 'pulsar' || 'assault'
-      ? (searchParams.get('event') as 'pulsar' | 'assault')
-      : 'pulsar'
-  );
-  const router = useRouter();
-  const pathname = usePathname();
+  // const [sectionToShow, setSectionToShow] = useState<'pulsar' | 'assault'>(
+  //   searchParams.get('event') === 'pulsar' || 'assault'
+  //     ? (searchParams.get('event') as 'pulsar' | 'assault')
+  //     : 'pulsar'
+  // );
+  // // const router = useRouter();
+  // // const pathname = usePathname();
 
-  useEffect(() => {
-    const event =
-      searchParams.get('event') === 'pulsar' || !searchParams.get('event') ? 'pulsar' : 'assault';
+  // useEffect(() => {
+  //   const event =
+  //     searchParams.get('event') === 'pulsar' || !searchParams.get('event') ? 'pulsar' : 'assault';
 
-    setTimeout(() => {
-      setSectionToShow(event);
-    }, 600);
-  }, [searchParams]);
+  //   setTimeout(() => {
+  //     setSectionToShow(event);
+  //   }, 600);
+  // }, [searchParams]);
 
   return (
-    <>
-      <nav className="z-0 flex h-full w-full flex-col tablet:h-[30rem] tablet:flex-row">
+    <ParallaxProvider>
+      <ParallaxBackground></ParallaxBackground>
+      {/* <nav className="z-0 flex h-full w-full flex-col tablet:h-[30rem] tablet:flex-row">
         <button
           onClick={() => {
             if (searchParams.get('event') === 'pulsar' || !searchParams.get('event')) return;
@@ -90,8 +87,8 @@ export default function ContentSection({}) {
             ASSAULT
           </h2>
         </button>
-      </nav>
-      {sectionToShow !== 'pulsar' ? <AssaultBlock></AssaultBlock> : <PulsarBlock></PulsarBlock>}
-    </>
+      </nav> */}
+      <AssaultBlock></AssaultBlock>
+    </ParallaxProvider>
   );
 }
