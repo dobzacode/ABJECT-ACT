@@ -10,8 +10,6 @@ export function SubmitButton() {
 
   const t = useTranslations('form');
 
-  console.log(pending);
-
   return (
     <Button
       className={`relative overflow-hidden border bg-white text-black shadow-inner`}

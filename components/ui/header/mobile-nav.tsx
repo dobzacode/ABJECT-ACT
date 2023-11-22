@@ -9,7 +9,6 @@ import React, { FC, useRef, useState } from 'react';
 import { mdiClose, mdiMenu } from '@mdi/js';
 import { Variants } from 'framer-motion';
 import { CSSTransition } from 'react-transition-group';
-import { v4 as uuid } from 'uuid';
 import Logo from '../branding/logo';
 import AboutUsBlock from '../footer/about-us-block';
 import ContactBlock from '../footer/contact-block';
@@ -98,8 +97,6 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
         return 'top-extra-large';
     }
   };
-
-  console.log(uuid());
 
   return (
     <>

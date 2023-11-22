@@ -28,5 +28,14 @@
     "submit": "Envoyer",
     "success": "Votre message a bien été envoyé !",
     "error": "Une erreur est survenue, veuillez réessayer plus tard."
+  },
+  "reCaptcha": {
+    "formPhrase": {
+      "1": "Ce site est protégé par reCAPTCHA, les ",
+      "2": "règles de confidentialité ",
+      "3": "et les ",
+      "4": "conditions d'utilisation ",
+      "5": "s'y appliquent."
+    }
   }
 }

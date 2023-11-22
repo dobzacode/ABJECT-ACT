@@ -1,12 +1,30 @@
-import { joinUsAction } from 'app/_action';
+import { joinUsAction, verifyCaptchaAction } from 'app/_action';
 import Input from 'components/ui/form/input';
 import P from 'components/ui/text/p';
 import { useTranslations } from 'next-intl';
 import { useFormState } from 'react-dom';
 import GenericForm from '../generic-form';
 
-export default function JoinUsForm() {
+export default function JoinUsForm({
+  executeRecaptcha
+}: {
+  // eslint-disable-next-line no-unused-vars
+  executeRecaptcha: (_: string) => Promise<string>;
+}) {
   async function updateStatus(previousState: string, formData: FormData) {
+    if (!executeRecaptcha) {
+      previousState = tForm('error');
+      return previousState;
+    }
+
+    const token = await executeRecaptcha('onSubmit');
+
+    const verified = await verifyCaptchaAction(token);
+
+    if (!verified) {
+      previousState = tForm('error');
+      return previousState;
+    }
     previousState = await joinUsAction(formData);
     return previousState;
   }

@@ -341,4 +341,6 @@ input[type='search']:focus {
   }
 }
 
-
+.grecaptcha-badge {
+  visibility: hidden;
+}

@@ -1,4 +1,5 @@
 import ContactSection from 'components/contact/contact-section';
+import Providers from 'components/providers';
 
 export const metadata = {
   description: 'High-performance ecommerce store built with Next.js, Vercel, and Shopify.',
@@ -10,7 +11,9 @@ export const metadata = {
 export default async function HomePage() {
   return (
     <main className="flex min-h-screen items-center justify-center">
-      <ContactSection></ContactSection>
+      <Providers>
+        <ContactSection></ContactSection>
+      </Providers>
     </main>
   );
 }

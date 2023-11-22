@@ -28,5 +28,14 @@
     "submit": "Submit",
     "success": "Your submission has been sent !",
     "error": "An error occured, please try again later."
+  },
+  "reCaptcha": {
+    "formPhrase": {
+      "1": "This site is protected by reCAPTCHA and the Google ",
+      "2": "Privacy Policy ",
+      "3": "and ",
+      "4": "Terms of Service ",
+      "5": "apply."
+    }
   }
 }

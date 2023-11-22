@@ -4,6 +4,7 @@ import Input from 'components/ui/form/input';
 import { useTranslations } from 'next-intl';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { ChangeEvent, useEffect, useState } from 'react';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import ContactForm from './contact/contact-form';
 import JoinUsForm from './join-us/join-us-form';
 import PartnershipForm from './partnership/partnership-form';
@@ -15,6 +16,8 @@ export default function ContactSection({}) {
     setSelectedOption(event.target.value);
   };
 
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
   const t = useTranslations('navigation.secondaryNavigation');
 
   const pathname = usePathname();
@@ -23,6 +26,7 @@ export default function ContactSection({}) {
 
   useEffect(() => {
     router.replace(`${pathname}?type=${selectedOption.toLowerCase().replace(/ /g, '-')}`);
+    console.log(executeRecaptcha);
   }, [selectedOption, pathname, router]);
 
   return (
@@ -38,12 +42,12 @@ export default function ContactSection({}) {
       ></Input>
       {searchParams.get('type') === t('join us').toLowerCase().replace(/ /g, '-') ||
       !searchParams.get('type') ? (
-        <JoinUsForm></JoinUsForm>
+        <JoinUsForm executeRecaptcha={executeRecaptcha}></JoinUsForm>
       ) : null}
       {searchParams.get('type') === t('partnership').toLowerCase().replace(/ /g, '-') ? (
-        <PartnershipForm></PartnershipForm>
+        <PartnershipForm executeRecaptcha={executeRecaptcha}></PartnershipForm>
       ) : null}
-      {searchParams.get('type') === 'contact' ? <ContactForm></ContactForm> : null}
+      {searchParams.get('type') === 'contact' ? <ContactForm executeRecaptcha={executeRecaptcha}></ContactForm> : null}
     </section>
   );
 }

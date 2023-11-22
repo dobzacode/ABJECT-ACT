@@ -131,3 +131,22 @@ export async function contactAction(formData: FormData) {
     return t('error');
   }
 }
+
+export async function verifyCaptchaAction(token: string) {
+  console.log(process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY, token);
+  const res = await fetch(`https://www.google.com/recaptcha/api/siteverify`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    body: `secret=${process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY}&response=${token}`
+  });
+
+  const data = await res.json();
+
+  if (data.score > 0.5) {
+    return true;
+  } else {
+    return false;
+  }
+}
