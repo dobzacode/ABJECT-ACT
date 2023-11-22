@@ -3,13 +3,15 @@
 import { google } from 'googleapis';
 import { getLocale, getTranslations } from 'next-intl/server';
 
-export default async function joinUsAction(formData: FormData) {
+export async function joinUsAction(formData: FormData) {
   const locale = await getLocale();
   const t = await getTranslations('form');
 
-  const values = [
+  console.log(formData);
+
+  const values: (FormDataEntryValue | null)[][] = [
     [
-      locale === 'fr' ? formData.get(t('firstname')) : formData.get('firstname'),
+      locale === 'fr' ? formData.get('PrÃ©nom') : formData.get('firstname'),
       locale === 'fr' ? formData.get(t('lastname')) : formData.get('lastname'),
       formData.get('email'),
       locale === 'fr' ? formData.get(t('subject')) : formData.get('subject'),
@@ -17,15 +19,25 @@ export default async function joinUsAction(formData: FormData) {
     ]
   ];
 
+  console.log(values);
+
   const auth = await google.auth.getClient({
     scopes: ['https://www.googleapis.com/auth/spreadsheets']
   });
   const sheets = google.sheets({ version: 'v4', auth });
 
+  const spreadsheetId = process.env.JOIN_US_SPREADSHEET_ID;
+
   try {
-    // Ajout des données à la feuille de calcul
+    if (!spreadsheetId) throw new Error();
     const response = await sheets.spreadsheets.values.append({
-      spreadsheetId: process.env.JOIN_US_SPREADSHEET_ID
+      spreadsheetId: process.env.JOIN_US_SPREADSHEET_ID,
+      range: 'sheet1',
+      valueInputOption: 'RAW',
+      insertDataOption: 'INSERT_ROWS',
+      requestBody: {
+        values: values
+      }
     });
 
     console.log(response.data);

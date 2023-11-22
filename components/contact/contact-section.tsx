@@ -1,11 +1,11 @@
 'use client';
 
+import { joinUsAction } from 'app/_action';
 import Input from 'components/ui/form/input';
 import { useTranslations } from 'next-intl';
 import { usePathname, useRouter } from 'next/navigation';
 import { ChangeEvent, useEffect, useState } from 'react';
 import ContactForm from './contact-form';
-import joinUsAction from './join-us/join-us-action';
 
 export default function ContactSection({}) {
   const [selectedOption, setSelectedOption] = useState('');

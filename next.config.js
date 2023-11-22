@@ -3,7 +3,8 @@
 const withNextIntl = require('next-intl/plugin')();
 
 module.exports = withNextIntl({
-  reactStrictMode: false,
+  reactStrictMode: true,
+
   eslint: {
     // Disabling on production builds because we're running checks on PRs via GitHub Actions.
     ignoreDuringBuilds: true
@@ -17,14 +18,5 @@ module.exports = withNextIntl({
         pathname: '/s/files/**'
       }
     ]
-  },
-  async redirects() {
-    return [
-      {
-        source: '/password',
-        destination: '/',
-        permanent: true
-      }
-    ];
   }
 });
