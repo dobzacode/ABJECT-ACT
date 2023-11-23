@@ -35,7 +35,7 @@ const VideoPlayer: FunctionComponent<VideoPlayerProps> = ({ sources, className, 
     return undefined;
   }, [sources, fullWidth]);
 
-  console.log(fullWidth);
+
 
   return (
     <div

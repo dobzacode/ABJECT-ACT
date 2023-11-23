@@ -137,6 +137,9 @@ export async function verifyCaptchaAction(token: string) {
     process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY,
     'process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY'
   );
+  console.log(
+    `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY}&response=${token}`
+  );
   const res = await fetch(`https://www.google.com/recaptcha/api/siteverify`, {
     method: 'POST',
     headers: {

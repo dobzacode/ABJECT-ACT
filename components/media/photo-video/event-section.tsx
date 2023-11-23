@@ -1,7 +1,7 @@
 import H2 from 'components/ui/text/h2';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { cn } from 'lib/utils';
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import MediaPortion from './media-portion';
 
 export interface EventSectionProps {
@@ -43,14 +43,15 @@ const EventSection: React.FC<EventSectionProps> = ({
 
   const opacityValue = useTransform(scrollYProgress2, [0, 1], [1, 0.8]);
 
-  const inView = useInView(ref, { margin: '25% 0%', once: true });
+  const inView = useInView(ref, { margin: '25% 0%' });
 
-  useEffect(() => {
-    console.log(inView);
-  }, [inView]);
+  const defineOpacity = () => {
+    return inView ? scrollYProgress : opacityValue;
+  };
 
   return (
     <motion.section
+      initial={{ opacity: 0 }}
       ref={ref}
       className={cn(
         'glassmorphism-bg relative flex h-full w-full  flex-col gap-medium overflow-hidden  pt-sub-large laptop:w-10/12 laptop:gap-sub-large  laptop:pb-sub-extra-large',
@@ -58,7 +59,7 @@ const EventSection: React.FC<EventSectionProps> = ({
       )}
       style={{
         translateX: directionValue,
-        opacity: inView ? scrollYProgress : opacityValue,
+        opacity: defineOpacity(),
         scale: inView ? 1 : opacityValue
       }}
       {...props}
