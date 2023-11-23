@@ -19,7 +19,7 @@ const InputRadio: FC<RadioProps> = forwardRef<HTMLInputElement, RadioProps>(
         <input
           className={`${className}`}
           type="radio"
-          id={choice}
+          id={choice.toLowerCase()}
           value={choice}
           checked={value === choice}
           name={name}

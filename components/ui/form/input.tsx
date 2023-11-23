@@ -183,7 +183,7 @@ const Input: FC<InputProps> = forwardRef<HTMLInputElement, InputProps>(
           <Label
             className="text-90 body font-medium"
             isHidden={true}
-            htmlFor={props.placeholder}
+            htmlFor={props.placeholder?.toLowerCase()}
           ></Label>
         ) : null}
       </>

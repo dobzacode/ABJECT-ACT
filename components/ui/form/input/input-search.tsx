@@ -24,6 +24,7 @@ const InputSearch: FC<SearchProps> = forwardRef<HTMLInputElement, SearchProps>(
           type="search"
           name={props.id}
           ref={ref}
+          id={props.id?.toLowerCase()}
           {...props}
         ></input>
       </div>

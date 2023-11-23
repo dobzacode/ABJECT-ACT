@@ -11,7 +11,6 @@ interface TextProps
 
 const InputText: FC<TextProps> = forwardRef<HTMLInputElement, TextProps>(
   ({ className, id, ...props }, ref) => {
-
     return (
       <input
         ref={ref}
@@ -20,7 +19,7 @@ const InputText: FC<TextProps> = forwardRef<HTMLInputElement, TextProps>(
           className
         )}
         name={id}
-        id={id}
+        id={id?.toLowerCase()}
         {...props}
       ></input>
     );
