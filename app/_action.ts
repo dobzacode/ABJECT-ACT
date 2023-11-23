@@ -7,8 +7,6 @@ export async function joinUsAction(formData: FormData) {
   const locale = await getLocale();
   const t = await getTranslations('form');
 
-  console.log(formData);
-
   const values: (FormDataEntryValue | null)[][] = [
     [
       locale === 'fr' ? formData.get('PrÃ©nom') : formData.get('Firstname'),
@@ -19,12 +17,16 @@ export async function joinUsAction(formData: FormData) {
     ]
   ];
 
-  console.log(values);
+  const config = {
+    email: process.env.GOOGLE_CLIENT_EMAIL ?? '',
+    key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n') ?? ''
+  };
 
-  const auth = await google.auth.getClient({
-    scopes: ['https://www.googleapis.com/auth/spreadsheets']
-  });
-  const sheets = google.sheets({ version: 'v4', auth });
+  const client = new google.auth.JWT(config.email, null || '', config.key, [
+    'https://www.googleapis.com/auth/spreadsheets'
+  ]);
+
+  const sheets = google.sheets({ version: 'v4', auth: client });
 
   const spreadsheetId = process.env.JOIN_US_SPREADSHEET_ID;
 
@@ -42,6 +44,7 @@ export async function joinUsAction(formData: FormData) {
 
     return t('success');
   } catch (error) {
+    console.log(error);
     return t('error');
   }
 }
@@ -64,10 +67,16 @@ export async function partnershipAction(formData: FormData) {
 
   console.log(values);
 
-  const auth = await google.auth.getClient({
-    scopes: ['https://www.googleapis.com/auth/spreadsheets']
-  });
-  const sheets = google.sheets({ version: 'v4', auth });
+  const config = {
+    email: process.env.GOOGLE_CLIENT_EMAIL ?? '',
+    key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n') ?? ''
+  };
+
+  const client = new google.auth.JWT(config.email, null || '', config.key, [
+    'https://www.googleapis.com/auth/spreadsheets'
+  ]);
+
+  const sheets = google.sheets({ version: 'v4', auth: client });
 
   const spreadsheetId = process.env.JOIN_US_SPREADSHEET_ID;
 
@@ -105,12 +114,16 @@ export async function contactAction(formData: FormData) {
     ]
   ];
 
-  console.log(values);
+  const config = {
+    email: process.env.GOOGLE_CLIENT_EMAIL ?? '',
+    key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n') ?? ''
+  };
 
-  const auth = await google.auth.getClient({
-    scopes: ['https://www.googleapis.com/auth/spreadsheets']
-  });
-  const sheets = google.sheets({ version: 'v4', auth });
+  const client = new google.auth.JWT(config.email, null || '', config.key, [
+    'https://www.googleapis.com/auth/spreadsheets'
+  ]);
+
+  const sheets = google.sheets({ version: 'v4', auth: client });
 
   const spreadsheetId = process.env.JOIN_US_SPREADSHEET_ID;
 
@@ -133,13 +146,6 @@ export async function contactAction(formData: FormData) {
 }
 
 export async function verifyCaptchaAction(token: string) {
-  console.log(
-    process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY,
-    'process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY'
-  );
-  console.log(
-    `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY}&response=${token}`
-  );
   const res = await fetch(`https://www.google.com/recaptcha/api/siteverify`, {
     method: 'POST',
     headers: {
@@ -149,8 +155,6 @@ export async function verifyCaptchaAction(token: string) {
   });
 
   const data = await res.json();
-
-  console.log(data);
 
   if (data.score > 0.5) {
     return true;

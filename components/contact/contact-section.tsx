@@ -1,6 +1,7 @@
 'use client';
 
 import Input from 'components/ui/form/input';
+import { cn } from 'lib/utils';
 import { useTranslations } from 'next-intl';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { ChangeEvent, useEffect, useState } from 'react';
@@ -29,26 +30,32 @@ export default function ContactSection({}) {
   }, [selectedOption, pathname, router]);
 
   return (
-    <section className="slideInFromBottom mx-small flex w-full flex-col gap-small rounded-small bg-white p-small mobile-large:mx-0 mobile-large:w-2/3 tablet:w-fit">
-      <Input
-        onChange={handleSelectChange}
-        id={'formType'}
-        value={selectedOption}
-        choices={[t('join us'), t('partnership'), 'Contact']}
-        type="select"
-        className="bg-white text-black"
-        hiddenlabel="true"
-      ></Input>
-      {searchParams.get('type') === t('join us').toLowerCase().replace(/ /g, '-') ||
-      !searchParams.get('type') ? (
-        <JoinUsForm executeRecaptcha={executeRecaptcha as any}></JoinUsForm>
-      ) : null}
-      {searchParams.get('type') === t('partnership').toLowerCase().replace(/ /g, '-') ? (
-        <PartnershipForm executeRecaptcha={executeRecaptcha as any}></PartnershipForm>
-      ) : null}
-      {searchParams.get('type') === 'contact' ? (
-        <ContactForm executeRecaptcha={executeRecaptcha as any}></ContactForm>
-      ) : null}
-    </section>
+    <>
+      <section
+        className={cn(
+          'mx-small flex w-full flex-col gap-small rounded-small bg-white p-small mobile-large:mx-0 mobile-large:w-2/3 tablet:w-fit'
+        )}
+      >
+        <Input
+          onChange={handleSelectChange}
+          id={'formType'}
+          value={selectedOption}
+          choices={[t('join us'), t('partnership'), 'Contact']}
+          type="select"
+          className="bg-white text-black"
+          hiddenlabel="true"
+        ></Input>
+        {searchParams.get('type') === t('join us').toLowerCase().replace(/ /g, '-') ||
+        !searchParams.get('type') ? (
+          <JoinUsForm executeRecaptcha={executeRecaptcha as any}></JoinUsForm>
+        ) : null}
+        {searchParams.get('type') === t('partnership').toLowerCase().replace(/ /g, '-') ? (
+          <PartnershipForm executeRecaptcha={executeRecaptcha as any}></PartnershipForm>
+        ) : null}
+        {searchParams.get('type') === 'contact' ? (
+          <ContactForm executeRecaptcha={executeRecaptcha as any}></ContactForm>
+        ) : null}
+      </section>
+    </>
   );
 }

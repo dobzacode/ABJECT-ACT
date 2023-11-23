@@ -12,8 +12,6 @@ export default function JoinUsForm({
   executeRecaptcha: (_: string) => Promise<string>;
 }) {
   async function updateStatus(previousState: string, formData: FormData) {
-    console.log(executeRecaptcha, 'executeRecaptcha');
-
     if (!executeRecaptcha) {
       previousState = tForm('error');
       return previousState;
@@ -21,11 +19,7 @@ export default function JoinUsForm({
 
     const token = await executeRecaptcha('onSubmit');
 
-    console.log(token, 'token');
-
     const verified = await verifyCaptchaAction(token);
-
-    console.log(verified, 'verified');
 
     if (!verified) {
       previousState = tForm('error');
