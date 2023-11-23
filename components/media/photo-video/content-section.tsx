@@ -24,7 +24,7 @@ export default function ContentSection({}) {
 
   return (
     <ParallaxProvider>
-      <ParallaxBackground></ParallaxBackground>
+      <ParallaxBackground src="/asset/background/concert_bg.jpg"></ParallaxBackground>
       {/* <nav className="z-0 flex h-full w-full flex-col tablet:h-[30rem] tablet:flex-row">
         <button
           onClick={() => {

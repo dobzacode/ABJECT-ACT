@@ -8,7 +8,11 @@ import VideoPlayer from 'components/ui/div/video-player';
 import { useState } from 'react';
 import { EventSectionProps } from './event-section';
 
-interface MediaPortionProps extends Omit<EventSectionProps, 'title' | 'direction'> {}
+interface MediaPortionProps
+  extends Omit<
+    EventSectionProps,
+    'title' | 'direction' | 'scrollYProgress' | 'index' | 'eventArr'
+  > {}
 
 export default function MediaPortion({ videoSrc, imageFolder }: MediaPortionProps) {
   const [mediaType, setMediaType] = useState<'photo' | 'video'>('photo');

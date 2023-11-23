@@ -5,9 +5,9 @@ import Image from 'next/image';
 import { Ref } from 'react';
 import { useParallax } from 'react-scroll-parallax';
 
-export default function ParallaxBackground() {
+export default function ParallaxBackground({ src }: { src: string }) {
   const parallax = useParallax({
-    translateY: [-20, 20]
+    translateY: [-20, 30]
   });
 
   return (
@@ -16,10 +16,10 @@ export default function ParallaxBackground() {
       alt={''}
       className={cn('object-cover')}
       placeholder="blur"
-      blurDataURL={'/asset/artist/spore.jpg'}
+      blurDataURL={src}
       fill
       priority={true}
-      src={'/asset/artist/spore.jpg'}
+      src={src}
     ></Image>
   );
 }

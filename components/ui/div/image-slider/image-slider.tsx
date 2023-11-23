@@ -69,7 +69,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ imageFolder, fullWidth }) => 
         {images.map((image, index) => (
           <div
             key={index}
-            className="relative z-40 h-[40rem] w-[20rem]  bg-white laptop:rounded-small"
+            className="relative z-40 h-[40rem] w-[20rem]   laptop:rounded-small"
             onClick={() => {
               console.log(lightboxIsOpen);
               openLightbox(index);
