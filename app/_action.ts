@@ -102,8 +102,6 @@ export async function contactAction(formData: FormData) {
   const locale = await getLocale();
   const t = await getTranslations('form');
 
-  console.log(formData);
-
   const values: (FormDataEntryValue | null)[][] = [
     [
       locale === 'fr' ? formData.get('PrÃ©nom') : formData.get('Firstname'),
