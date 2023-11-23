@@ -1,7 +1,6 @@
 import { cn } from 'lib/utils';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import EventSection from './event-section';
 
 export default function PulsarBlock({}) {
   const searchParams = useSearchParams();
@@ -24,7 +23,7 @@ export default function PulsarBlock({}) {
         triggerFade && searchParams.get('event') ? 'hidden-div' : ''
       )}
     >
-      <EventSection
+      {/* <EventSection
         imageFolder="/asset/event/media/pulsar-lulu"
         videoSrc="/asset/background/video/1089037097-preview.mp4"
         title="Abject Act : Pulsar w/ LULU, Resonance"
@@ -41,7 +40,7 @@ export default function PulsarBlock({}) {
         videoSrc="/asset/background/video/1089037097-preview.mp4"
         title="Abject Act : Pulsar w/ LULU, Resonance"
         direction="right"
-      ></EventSection>
+      ></EventSection> */}
     </div>
   );
 }
