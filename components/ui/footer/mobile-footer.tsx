@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import { v4 } from 'uuid';
@@ -8,13 +9,26 @@ import { socialLinks } from './contact-block';
 import { legalLinks } from './legal-block';
 import SocialIcon from './social-icon';
 
-export default function MobileFooter({ currentNavStyle, intent, customSetter }: FooterBlockProps) {
+export default function MobileFooter({
+  currentNavStyle,
+  intent,
+  customSetter,
+  variants,
+  custom
+}: FooterBlockProps) {
   const [isActive, setIsActive] = useState<'contact' | 'about us' | 'legal'>('about us');
 
   const t = useTranslations('navigation.secondaryNavigation');
 
   return (
-    <div className="flex flex-col gap-small">
+    <motion.div
+      custom={custom}
+      variants={variants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      className="flex flex-col gap-small"
+    >
       <div className="flex justify-between">
         <Button
           onClick={() => setIsActive('about us')}
@@ -96,6 +110,6 @@ export default function MobileFooter({ currentNavStyle, intent, customSetter }: 
             )
           )}
       </ul>
-    </div>
+    </motion.div>
   );
 }

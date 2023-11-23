@@ -114,7 +114,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1, transition: { duration: 1 } }}
                 exit={{ opacity: 0 }}
-                className="relative h-fit w-fit"
+                className="absolute left-0 h-fit w-fit"
                 onClick={() => setShowMenu(true)}
               >
                 <Icon
@@ -129,7 +129,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
                 initial={{ opacity: 0, rotate: 360 }}
                 animate={{ opacity: 1, rotate: 0, transition: { duration: 1, ease: 'easeOut' } }}
                 exit={{ opacity: 0, transition: { duration: 0.4 } }}
-                className="relative h-fit w-fit"
+                className="absolute left-0 h-fit w-fit"
                 onClick={() => setShowMenu(false)}
               >
                 <Icon
@@ -150,7 +150,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
               className=" relative z-[100] duration-slow"
             ></Logo>
           </div>
-
+          <div />
           <LangageSwitch></LangageSwitch>
         </div>
 
@@ -241,6 +241,8 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
             )}
           >
             <MobileFooter
+              custom={0.4}
+              variants={footerBlocksVariant}
               intent={intent}
               currentNavStyle={intent}
               customSetter={() => setShowMenu(false)}
