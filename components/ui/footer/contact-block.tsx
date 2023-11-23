@@ -9,7 +9,7 @@ import H3 from '../text/h3';
 import { FooterBlockProps } from './about-us-block';
 import SocialIcon from './social-icon';
 
-const socialLinks = [
+export const socialLinks = [
   { href: 'mailto:abject.act@gmail.com', mdiPath: mdiEmail },
   { href: 'https://www.facebook.com/AbjectAct?locale=fr_FR', mdiPath: mdiFacebook },
   { href: 'https://www.instagram.com/abject_act/', mdiPath: mdiInstagram },

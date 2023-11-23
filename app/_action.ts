@@ -133,7 +133,10 @@ export async function contactAction(formData: FormData) {
 }
 
 export async function verifyCaptchaAction(token: string) {
-  console.log(process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY, token);
+  console.log(
+    process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY,
+    'process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY'
+  );
   const res = await fetch(`https://www.google.com/recaptcha/api/siteverify`, {
     method: 'POST',
     headers: {

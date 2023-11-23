@@ -7,12 +7,14 @@ import { useTranslations } from 'next-intl';
 import React, { FC, useRef, useState } from 'react';
 
 import { mdiClose, mdiMenu } from '@mdi/js';
+import useBetterMediaQuery from 'components/hooks/use-better-media-query';
 import { Variants } from 'framer-motion';
 import { CSSTransition } from 'react-transition-group';
 import Logo from '../branding/logo';
 import AboutUsBlock from '../footer/about-us-block';
 import ContactBlock from '../footer/contact-block';
 import LegalBlock from '../footer/legal-block';
+import MobileFooter from '../footer/mobile-footer';
 import LangageSwitch from './langage-switch';
 import NavLink from './nav-link';
 
@@ -81,6 +83,8 @@ const footerBlocksVariant: Variants = {
 };
 
 const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps) => {
+  const isMobileLargePlus = useBetterMediaQuery('(min-width: 500px)');
+
   const [showMenu, setShowMenu] = useState<boolean>(false);
 
   const t = useTranslations('navigation.primaryNavigation');
@@ -204,28 +208,45 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
         in={showMenu as boolean}
         nodeRef={footerRef}
       >
-        <footer
-          ref={footerRef as any}
-          key="footer"
-          onClick={() => setShowMenu(false)}
-          className={cn(
-            'fixed bottom-0 left-small z-30 mb-small mr-large flex h-1/5 w-[90vw] flex-col justify-end  gap-medium text-white mobile-large:left-14  tablet:mb-sub-large  tablet:mt-large tablet:h-fit tablet:flex-row tablet:flex-wrap tablet:justify-between tablet:gap-sub-large laptop:left-auto',
-            modalOffset()
-          )}
-        >
-          {footerBlocks.map((block, i) => {
-            return React.cloneElement(block, {
-              custom: i,
-              initial: 'hidden',
-              animate: 'visible',
-              exit: 'exit',
-              variants: footerBlocksVariant,
-              intent: intent,
-              currentNavStyle: intent,
-              customSetter: () => setShowMenu(false)
-            });
-          })}
-        </footer>
+        {isMobileLargePlus ? (
+          <footer
+            ref={footerRef as any}
+            key="footer"
+            onClick={() => setShowMenu(false)}
+            className={cn(
+              'fixed bottom-0 left-small z-30 mb-small mr-large flex h-1/5 w-[90vw] flex-col justify-end  gap-medium text-white mobile-large:left-14  tablet:mb-sub-large  tablet:mt-large tablet:h-fit tablet:flex-row tablet:flex-wrap tablet:justify-between tablet:gap-sub-large laptop:left-auto',
+              modalOffset()
+            )}
+          >
+            {footerBlocks.map((block, i) => {
+              return React.cloneElement(block, {
+                custom: i,
+                initial: 'hidden',
+                animate: 'visible',
+                exit: 'exit',
+                variants: footerBlocksVariant,
+                intent: intent,
+                currentNavStyle: intent,
+                customSetter: () => setShowMenu(false)
+              });
+            })}
+          </footer>
+        ) : (
+          <footer
+            ref={footerRef as any}
+            key="footer"
+            className={cn(
+              'fixed bottom-0 left-small z-30 mb-small mr-large flex h-1/5 w-[90vw] flex-col justify-end  gap-medium text-white mobile-large:left-14  tablet:mb-sub-large  tablet:mt-large tablet:h-fit tablet:flex-row tablet:flex-wrap tablet:justify-between tablet:gap-sub-large laptop:left-auto',
+              modalOffset()
+            )}
+          >
+            <MobileFooter
+              intent={intent}
+              currentNavStyle={intent}
+              customSetter={() => setShowMenu(false)}
+            ></MobileFooter>
+          </footer>
+        )}
       </CSSTransition>
     </>
   );

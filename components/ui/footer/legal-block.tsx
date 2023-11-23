@@ -6,7 +6,7 @@ import NavLink from '../header/nav-link';
 import H3 from '../text/h3';
 import { FooterBlockProps } from './about-us-block';
 
-const links = [
+export const legalLinks = [
   { href: '/legal/terms', name: 'terms & conditions' },
   { href: '/legal/informations', name: 'legal' },
   { href: '/legal/privacy', name: 'privacy' }
@@ -42,10 +42,10 @@ export default function LegalBlock({
         } max-mobile-medium:text-body max-mobile-medium:font-medium`}
         textType="sub-heading"
       >
-        LEGAL
+        {t('legal')}
       </H3>
       <ul className="body flex gap-extra-small  mobile-medium:gap-small tablet:gap-medium">
-        {links.map((link, index) =>
+        {legalLinks.map((link, index) =>
           index === 0 ? (
             <NavLink
               hover={true}
