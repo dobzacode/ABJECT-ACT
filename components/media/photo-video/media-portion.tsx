@@ -22,47 +22,31 @@ export default function MediaPortion({ videoSrc, imageFolder }: MediaPortionProp
 
   return (
     <>
-      {!isBiggerThanLaptop && (
-        <div className="right-large top-medium mx-medium flex gap-small pb-sub-large laptop:pb-0">
-          <button
-            onClick={() => setMediaType('photo')}
-            className={`${
-              mediaType === 'photo' ? 'opacity-100' : 'opacity-20'
-            } duration-medium hover:opacity-100`}
-          >
-            <Icon color="white" path={mdiImageMultiple} size={3} />
-          </button>
-          <button
-            onClick={() => setMediaType('video')}
-            className={`${
-              mediaType === 'video' ? 'opacity-100' : 'opacity-20'
-            } duration-medium hover:opacity-100`}
-          >
-            <Icon color="white" path={mdiCamera} size={3} />
-          </button>
-        </div>
-      )}
+      <div className="right-large top-medium mx-medium flex gap-small  ">
+        <button
+          onClick={() => setMediaType('photo')}
+          className={`${
+            mediaType === 'photo' ? 'opacity-100' : 'opacity-20'
+          } duration-medium hover:opacity-100`}
+        >
+          <Icon color="white" path={mdiImageMultiple} size={2} />
+        </button>
+        <button
+          onClick={() => setMediaType('video')}
+          className={`${
+            mediaType === 'video' ? 'opacity-100' : 'opacity-20'
+          } duration-medium hover:opacity-100`}
+        >
+          <Icon color="white" path={mdiCamera} size={2} />
+        </button>
+      </div>
 
-      {mediaType === 'photo' && !isBiggerThanLaptop ? (
-        <ImageSlider fullWidth={true} imageFolder={imageFolder}></ImageSlider>
-      ) : null}
-      {mediaType === 'video' && !isBiggerThanLaptop ? (
+      {mediaType === 'photo' ? <ImageSlider imageFolder={imageFolder}></ImageSlider> : null}
+      {mediaType === 'video' ? (
         <div className="flex h-[40rem] w-full justify-center">
-          <VideoPlayer
-            fullWidth={true}
-            sources={[{ src: videoSrc, type: 'video/mp4' }]}
-          ></VideoPlayer>
+          <VideoPlayer sources={[{ src: videoSrc, type: 'video/mp4' }]}></VideoPlayer>
         </div>
       ) : null}
-
-      {isBiggerThanLaptop && (
-        <div className="relative flex  h-[40rem] w-full justify-center gap-medium px-large">
-          <ImageSlider imageFolder={imageFolder}></ImageSlider>
-          <div className="w-full">
-            <VideoPlayer sources={[{ src: videoSrc, type: 'video/mp4' }]}></VideoPlayer>
-          </div>
-        </div>
-      )}
     </>
   );
 }

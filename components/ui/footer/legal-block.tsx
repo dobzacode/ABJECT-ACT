@@ -24,7 +24,7 @@ export default function LegalBlock({
   const pathname = usePathname();
   const isActive = pathname.includes('legal');
 
-  const t = useTranslations('navigation.secondaryNavigation');
+  const t = useTranslations('navigation.primaryNavigation');
 
   return (
     <motion.div

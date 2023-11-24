@@ -25,7 +25,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
-      <body className="relative  h-full w-full overflow-x-hidden bg-black ">
+      <body className="relative h-full  w-full overflow-x-hidden bg-black ">
         <NextIntlClientProvider messages={messages}>
           <Header
             size={'medium'}

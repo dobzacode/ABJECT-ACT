@@ -40,10 +40,10 @@ const H1: FC<H1Props> = ({ children, className, textType, intent, hover, ...prop
     <h1
       className={cn(
         textVariants({
-          className,
           intent,
           textType,
-          hover
+          hover,
+          className
         })
       )}
       {...props}

@@ -18,7 +18,7 @@ export default function ArtistCard({ artist, socials, artistSrc, className }: Ar
   return (
     <div
       className={cn(
-        'slideInFromLeft glassmorphism-bg flex h-fit w-fit flex-col justify-between gap-medium overflow-hidden pb-medium',
+        'slideInFromLeft bg-black95 shadow-medium-light flex h-fit w-fit flex-col justify-between gap-medium overflow-hidden rounded-small pb-medium',
         className
       )}
     >
@@ -26,12 +26,15 @@ export default function ArtistCard({ artist, socials, artistSrc, className }: Ar
         <Image className="l object-cover" fill src={artistSrc} alt={`morsure picture`}></Image>
       </div>
       <div className="mx-small flex flex-col gap-medium text-white tablet:w-[40rem]">
-        <H1 textType={'heading--large'}>{artist}</H1>
-        <P intent="white" textType={'sub-heading'} className="pr-small font-extralight">
+        <H1 className="font-extralight" textType={'heading--large'}>
+          {artist}
+        </H1>
+        <P intent="white" textType={'body'} className="pr-small font-extralight">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
           ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
           ullamco laboris
         </P>
+
         <div className="flex flex-wrap gap-small">
           {socials?.map(({ link, mdiPath }) => {
             switch (mdiPath) {
@@ -55,7 +58,7 @@ export default function ArtistCard({ artist, socials, artistSrc, className }: Ar
               default:
                 return (
                   <Link key={v4()} href={link}>
-                    <Icon path={mdiPath} size={2} color="white"></Icon>
+                    <Icon path={mdiPath} size={1.5} color="white"></Icon>
                   </Link>
                 );
             }

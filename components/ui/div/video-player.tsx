@@ -19,7 +19,7 @@ const VideoPlayer: FunctionComponent<VideoPlayerProps> = ({ sources, className, 
       autoplay: false,
       controls: true,
       sources,
-      fill: fullWidth ? false : true
+      fill: true
     };
 
     if (videoNode.current) {
@@ -33,19 +33,14 @@ const VideoPlayer: FunctionComponent<VideoPlayerProps> = ({ sources, className, 
     }
 
     return undefined;
-  }, [sources, fullWidth]);
-
-
+  }, [sources]);
 
   return (
-    <div
-      className="relative h-full w-full cursor-pointer rounded-small laptop:w-small"
-      data-vjs-player
-    >
+    <div className="relative h-full w-full cursor-pointer rounded-small " data-vjs-player>
       <video
         ref={videoNode}
         className={cn(
-          'video-js vjs-big-play-centered w-full cursor-pointer rounded-small laptop:w-small',
+          'video-js vjs-big-play-centered w-full cursor-pointer rounded-small ',
           className
         )}
       />

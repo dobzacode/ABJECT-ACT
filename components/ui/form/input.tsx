@@ -25,6 +25,8 @@ import Label from './label';
 const inputVariants = cva('', {
   variants: {
     intent: {
+      black:
+        'bg-black90 placeholder:text-black5/[.4] text-black1 border-black10/[.2] outline-white/[.2] dark:bg-black90 dark:text-black1 dark:placeholder:text-black10/[.4] dark:border-black10/[.2] dark:outline-black10/[.2]',
       primary:
         'bg-primary5 placeholder:text-primary90/[.4] text-primary90 border-primary90/[.2] outline-primary90/[.2] dark:bg-primary90 dark:text-primary1 dark:placeholder:text-primary10/[.4] dark:border-primary10/[.2] dark:outline-primary10/[.2]',
 

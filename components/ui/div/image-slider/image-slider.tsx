@@ -13,10 +13,9 @@ import NextJsImage from './nextjs-image';
 
 interface ImageSliderProps {
   imageFolder: string;
-  fullWidth?: boolean;
 }
 
-const ImageSlider: React.FC<ImageSliderProps> = ({ imageFolder, fullWidth }) => {
+const ImageSlider: React.FC<ImageSliderProps> = ({ imageFolder }) => {
   const [lightboxIsOpen, setLightboxIsOpen] = useState<boolean>(false);
   const [currentImage, setCurrentImage] = useState<number>(0);
 
@@ -51,12 +50,10 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ imageFolder, fullWidth }) => 
   }));
 
   const settings = {
-    dots: !fullWidth ? true : false,
-    fade: !fullWidth ? true : false,
     infinite: true,
     arrows: false,
-    speed: !fullWidth ? 500 : 2000,
-    slidesToShow: !fullWidth ? 1 : 3,
+    speed: 2000,
+    slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
     swipeToSlide: true,
@@ -65,11 +62,11 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ imageFolder, fullWidth }) => 
 
   return (
     <>
-      <Slider {...settings} className={cn(' h-[40rem] cursor-pointer laptop:w-1/2 ')}>
+      <Slider {...settings} className={cn(' h-[40rem] cursor-pointer ')}>
         {images.map((image, index) => (
           <div
             key={index}
-            className="relative z-40 h-[40rem] w-[20rem]   laptop:rounded-small"
+            className="relative z-40 flex h-[40rem]   w-[20rem] "
             onClick={() => {
               console.log(lightboxIsOpen);
               openLightbox(index);
@@ -78,7 +75,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ imageFolder, fullWidth }) => 
             <Image
               placeholder="blur"
               blurDataURL={image.thumbnail}
-              className={cn('object-cover laptop:rounded-small')}
+              className={cn('object-cover ')}
               fill
               src={image.thumbnail}
               alt={image.description}

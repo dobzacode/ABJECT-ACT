@@ -1,7 +1,6 @@
 'use client';
 
 import { ParallaxProvider } from 'react-scroll-parallax';
-import ParallaxBackground from '../parallax-background';
 import AssaultBlock from './assault-block';
 
 export default function ContentSection({}) {
@@ -24,7 +23,7 @@ export default function ContentSection({}) {
 
   return (
     <ParallaxProvider>
-      <ParallaxBackground src="/asset/background/concert_bg.jpg"></ParallaxBackground>
+      {/* <ParallaxBackground src="/asset/background/concert_bg.jpg"></ParallaxBackground> */}
       {/* <nav className="z-0 flex h-full w-full flex-col tablet:h-[30rem] tablet:flex-row">
         <button
           onClick={() => {

@@ -63,7 +63,7 @@ export default function AboutUsBlock({
 }: FooterBlockProps) {
   const pathname = usePathname();
   const isActive = pathname.includes('about');
-  const t = useTranslations('navigation.secondaryNavigation');
+  const t = useTranslations('navigation.primaryNavigation');
 
   return (
     <motion.div

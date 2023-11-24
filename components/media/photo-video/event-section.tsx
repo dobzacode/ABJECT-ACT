@@ -1,7 +1,7 @@
 import H2 from 'components/ui/text/h2';
-import { motion, useInView, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { cn } from 'lib/utils';
-import React, { useRef } from 'react';
+import React from 'react';
 import MediaPortion from './media-portion';
 
 export interface EventSectionProps {
@@ -24,48 +24,20 @@ const EventSection: React.FC<EventSectionProps> = ({
   eventArr,
   ...props
 }) => {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['end end', 'center']
-  });
-
-  const { scrollYProgress: scrollYProgress2 } = useScroll({
-    target: ref,
-    offset: ['center center', '40%']
-  });
-
-  const directionValue = useTransform(
-    scrollYProgress,
-    [1, 0],
-    [0, direction === 'right' ? 300 : -300]
-  );
-
-  const opacityValue = useTransform(scrollYProgress2, [0, 1], [1, 0.8]);
-
-  const inView = useInView(ref, { margin: '25% 0%' });
-
-  const defineOpacity = () => {
-    return inView ? scrollYProgress : opacityValue;
-  };
-
   return (
     <motion.section
-      initial={{ opacity: 0 }}
-      ref={ref}
+      initial={{ opacity: 0, translateX: direction === 'left' ? '-10%' : '10%' }}
+      whileInView={{ opacity: 1, translateX: 0, transition: { type: 'spring' } }}
+      viewport={{ margin: '-50% 0px -20% 0px' }}
       className={cn(
-        'glassmorphism-bg relative flex h-full w-full  flex-col gap-medium overflow-hidden  pt-sub-large laptop:w-10/12 laptop:gap-sub-large  laptop:pb-sub-extra-large',
-        index === 0 && 'slideInFromLeft'
+        'bg-black95 shadow-medium-light relative flex h-full w-full flex-col  gap-medium overflow-hidden rounded-small  pt-sub-large laptop:w-10/12 laptop:gap-sub-large  '
       )}
-      style={{
-        translateX: directionValue,
-        opacity: defineOpacity(),
-        scale: inView ? 1 : opacityValue
-      }}
       {...props}
     >
-      <div className="mx-medium flex justify-between laptop:mx-large">
-        <H2 textType={'heading--large'}>{title}</H2>
+      <div className="mx-medium flex justify-between ">
+        <H2 className="font-extralight" textType={'heading--large'}>
+          {title}
+        </H2>
       </div>
       <MediaPortion videoSrc={videoSrc} imageFolder={imageFolder}></MediaPortion>
     </motion.section>

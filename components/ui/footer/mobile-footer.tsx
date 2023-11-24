@@ -18,7 +18,7 @@ export default function MobileFooter({
 }: FooterBlockProps) {
   const [isActive, setIsActive] = useState<'contact' | 'about us' | 'legal'>('about us');
 
-  const t = useTranslations('navigation.secondaryNavigation');
+  const t = useTranslations('navigation.primaryNavigation');
 
   return (
     <motion.div

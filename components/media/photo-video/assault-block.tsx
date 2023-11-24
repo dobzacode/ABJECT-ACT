@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { cn } from 'lib/utils';
 import { v4 } from 'uuid';
 import EventSection from './event-section';
@@ -19,33 +18,33 @@ export default function AssaultBlock({}) {
     {
       imageFolder: '/asset/event/media/pulsar-lulu',
       videoSrc: '/asset/background/video/1089037097-preview.mp4',
-      title: 'Abject Act : Assault w/ LULU, Resonance',
+      title: 'Assault w/ LULU, Resonance',
       direction: 'left'
     },
     {
       imageFolder: '/asset/event/media/pulsar-lulu',
       videoSrc: '/asset/background/video/1089037097-preview.mp4',
-      title: 'Abject Act : Assault w/ LULU, Resonance',
+      title: 'Assault w/ LULU, Resonance',
       direction: 'right'
     },
     {
       imageFolder: '/asset/event/media/pulsar-lulu',
       videoSrc: '/asset/background/video/1089037097-preview.mp4',
-      title: 'Abject Act : Assault w/ LULU, Resonance',
+      title: 'Assault w/ LULU, Resonance',
       direction: 'left'
     },
     {
       imageFolder: '/asset/event/media/pulsar-lulu',
       videoSrc: '/asset/background/video/1089037097-preview.mp4',
-      title: 'Abject Act : Assault w/ LULU, Resonance',
+      title: 'Assault w/ LULU, Resonance',
       direction: 'right'
     }
   ];
 
   return (
-    <motion.div
+    <div
       className={cn(
-        '  mt-large flex min-h-screen w-full flex-col items-center gap-small overflow-x-hidden   px-small text-secondary5'
+        '  mt-large flex min-h-screen w-full max-w-5xl flex-col items-center gap-large px-extra-small  text-secondary5  mobile-large:px-medium  laptop:max-w-[100rem] laptop:px-small'
       )}
     >
       {eventArr.map(({ imageFolder, videoSrc, title, direction }, index: number) => {
@@ -61,6 +60,6 @@ export default function AssaultBlock({}) {
           ></EventSection>
         );
       })}
-    </motion.div>
+    </div>
   );
 }

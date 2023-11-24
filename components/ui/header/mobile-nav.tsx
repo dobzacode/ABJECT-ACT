@@ -158,7 +158,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
           <nav
             ref={navRef as any}
             className={cn(
-              ' relative z-40 h-full w-full pt-medium mobile-large:pt-large tablet:pt-0',
+              ' relative z-40 h-full w-fit self-start pt-medium mobile-large:pt-large tablet:pt-0',
               modalOffset()
             )}
           >
@@ -166,6 +166,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
               {navLinks.map((link, i) => {
                 return (
                   <NavLink
+                    isPrimaryNav={true}
                     className="max-tablet:text-[4rem] max-tablet:leading-[4rem] "
                     customSetter={() => {
                       setShowMenu(false);
@@ -193,6 +194,10 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
       <AnimatePresence>
         {showMenu && (
           <motion.div
+            onClick={() => {
+              console.log('c');
+              setShowMenu(false);
+            }}
             key="backdrop"
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.9, transition: { duration: 0.6 } }}

@@ -19,7 +19,7 @@ const InputSelect: FC<SelectProps> = forwardRef<HTMLInputElement, SelectProps>(
         {!loader ? (
           <select
             className={cn(
-              'body placeholder:body box-border cursor-pointer rounded-lg border px-extra-small py-[1.1rem] shadow-inner',
+              'body placeholder:body box-border cursor-pointer rounded-lg border px-extra-small py-[1.1rem] shadow-inner focus:outline-black',
               className
             )}
             name={props.id}

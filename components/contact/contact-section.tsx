@@ -19,7 +19,7 @@ export default function ContactSection({}) {
 
   const { executeRecaptcha } = useGoogleReCaptcha();
 
-  const t = useTranslations('navigation.secondaryNavigation');
+  const t = useTranslations('navigation.primaryNavigation');
 
   const pathname = usePathname();
   const router = useRouter();
@@ -33,16 +33,16 @@ export default function ContactSection({}) {
     <>
       <section
         className={cn(
-          'mx-small flex w-full flex-col gap-small rounded-small bg-white p-small mobile-large:mx-0 mobile-large:w-2/3 tablet:w-fit'
+          'bg-black95 text-black1 border-black70 mx-small flex w-full flex-col gap-small rounded-small border p-small mobile-large:mx-0 mobile-large:w-2/3 tablet:w-fit'
         )}
       >
         <Input
           onChange={handleSelectChange}
           id={'formType'}
           value={selectedOption}
+          intent="black"
           choices={[t('join us'), t('partnership'), 'Contact']}
           type="select"
-          className="bg-white text-black"
           hiddenlabel="true"
         ></Input>
         {searchParams.get('type') === t('join us').toLowerCase().replace(/ /g, '-') ||

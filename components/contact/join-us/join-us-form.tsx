@@ -45,6 +45,7 @@ export default function JoinUsForm({
       )}
       <div className="flex w-full flex-col justify-between  gap-small mobile-large:flex-row">
         <Input
+          intent="black"
           className="mobile-large:w-1/2"
           minLength={2}
           maxLength={30}
@@ -55,6 +56,7 @@ export default function JoinUsForm({
           hiddenlabel="true"
         ></Input>
         <Input
+          intent="black"
           className="mobile-large:w-1/2"
           minLength={2}
           maxLength={30}
@@ -65,8 +67,16 @@ export default function JoinUsForm({
           hiddenlabel="true"
         ></Input>
       </div>
-      <Input required type="email" id={'email'} placeholder={'Email'} hiddenlabel="true"></Input>
       <Input
+        intent="black"
+        required
+        type="email"
+        id={'email'}
+        placeholder={'Email'}
+        hiddenlabel="true"
+      ></Input>
+      <Input
+        intent="black"
         minLength={2}
         maxLength={30}
         required
@@ -76,6 +86,7 @@ export default function JoinUsForm({
         hiddenlabel="true"
       ></Input>
       <Input
+        intent="black"
         minLength={10}
         maxLength={500}
         required

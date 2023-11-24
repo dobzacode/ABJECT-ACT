@@ -29,7 +29,7 @@
   }
 
   .body {
-    @apply text-body font-light leading-body tracking-widest;
+    @apply text-body font-light leading-[2rem] tracking-[0.15em];
   }
 
   .caption {
@@ -110,7 +110,8 @@ html {
 
 select {
   appearance: none;
-  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23131313%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+  background-color: white;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
   background-repeat: no-repeat;
   background-position: right 0.7rem top 50%;
   background-size: 0.6rem auto;
@@ -238,42 +239,28 @@ input[type='search']:focus {
   object-fit: cover;
 }
 
-@media screen and (min-width: 1024px) {
-  .slick-slide,
-  .slick-list {
-    border-radius: 16px;
-  }
-  .vjs-control-bar {
-    border-radius: 0px 0px 16px 16px;
-  }
-  .vjs-tech {
-    border-radius: 16px;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .video-js {
-    height: 40rem !important;
-    width: 100%;
-  }
+.video-js {
+  height: 40rem !important;
+  width: 100%;
 }
 
 .slick-dots li button::before {
   background-color: white;
   border-radius: 16px;
-  margin-top: 16px;
-  margin-bottom: 16px;
 }
 
-.glassmorphism-bg {
-  /* From https://css.glass */
-  /* From https://css.glass */
-  background: rgba(255, 255, 255, 0.04);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(2.9px);
-  -webkit-backdrop-filter: blur(2.9px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+.slick-dots {
+  bottom: 16px !important;
+}
+
+.slick-prev {
+  left: 8px !important;
+  z-index: 50 !important;
+}
+
+.slick-next {
+  right: 8px !important;
+  z-index: 50 !important;
 }
 
 .fadeIn {

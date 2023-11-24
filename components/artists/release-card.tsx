@@ -1,6 +1,6 @@
 'use client';
 
-import { H1 } from 'components/ui/text/h1';
+import H2 from 'components/ui/text/h2';
 import { cn } from 'lib/utils';
 import { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player/soundcloud';
@@ -25,18 +25,18 @@ export default function LastReleaseCard({ releaseList, className, isMix }: Relea
   return (
     <div
       className={cn(
-        'slideInFromBottom glassmorphism-bg flex h-fit w-full flex-col gap-sub-large overflow-hidden pt-medium',
+        'slideInFromBottom bg-black95 shadow-medium-light flex h-fit w-full flex-col gap-sub-large overflow-hidden rounded-small pt-medium',
         className
       )}
     >
-      <H1
-        className="mx-small flex w-[40rem] flex-col  gap-medium text-white max-mobile-large:w-full"
+      <H2
+        className="mx-small flex w-[40rem] flex-col  gap-medium font-extralight text-white max-mobile-large:w-full"
         textType={'heading--large'}
       >
         {`Last ${!isMix ? 'Release' : 'Mix'}`}
-      </H1>
+      </H2>
 
-      <div className="flex w-full flex-col rounded-b-small">
+      <div className="relative flex w-full flex-col rounded-b-small">
         {releaseList?.map(({ link }) => {
           return <ReactPlayer height={100} width={'100%'} key={v4()} url={link}></ReactPlayer>;
         })}

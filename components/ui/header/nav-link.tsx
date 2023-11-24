@@ -4,6 +4,7 @@ import { VariantProps, cva } from 'class-variance-authority';
 import { Variants, motion } from 'framer-motion';
 import { cn } from 'lib/utils';
 import { Link } from 'navigation';
+import { useTranslations } from 'next-intl';
 import { LinkProps } from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import React, { FC, useRef } from 'react';
@@ -106,6 +107,7 @@ interface NavLinkProps extends LinkProps, VariantProps<typeof linkVariants> {
   initial?: string;
   custom?: number;
   exit?: string;
+  isPrimaryNav?: boolean;
   customSetter?: Function;
 }
 
@@ -125,13 +127,24 @@ const NavLink: FC<NavLinkProps> = React.forwardRef<HTMLLIElement, NavLinkProps>(
       custom,
       exit,
       customSetter,
+      isPrimaryNav,
       ...props
     }: NavLinkProps,
     ref
   ) => {
+    console.log(props.href);
+
+    const t = useTranslations('navigation');
+
     const pathname = usePathname();
     const router = useRouter();
-    const isActive = pathname === props.href || pathname.includes(props.href as string);
+    let isActive;
+    if (isPrimaryNav) {
+      isActive =
+        pathname === props.href ||
+        pathname.includes(t(`primaryNavigation.${(props.href as string).replace(/\//g, '')}`));
+    }
+
     const linkRef = useRef() as React.MutableRefObject<HTMLAnchorElement | null>;
     const linkRefWithoutVariants = useRef() as React.MutableRefObject<HTMLAnchorElement | null>;
 

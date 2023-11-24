@@ -57,11 +57,11 @@ function lowShadow(color) {
 }
 
 function mediumShadow(color) {
-  return `0.8px 0.6px 1px hsl(${color} / 0.37),
-  1.7px 1.3px 2.1px -0.9px hsl(${color} / 0.33),
-  3.5px 2.6px 4.2px -1.8px hsl(${color} / 0.28),
-  7.8px 5.8px 9.4px -2.7px hsl(${color} / 0.24),
-  15.9px 11.8px 19.2px -3.5px hsl(${color} / 0.2)`;
+  console.log(color);
+  return `0 0.6px 3px hsl(${color} / 0.37),
+  0 1.3px 2.1px 0.9px hsl(${color} / 0.33),
+  0 2.6px 4.2px 3px hsl(${color} / 0.28),
+  0 -2.6px 9.4px 5px hsl(${color} / 0.24)`;
 }
 
 // function mediumLight(color) {
@@ -131,6 +131,21 @@ module.exports = {
         blink: 'blink 1.4s both infinite'
       },
       colors: {
+        black1: `hsl(0, 0%, 99% )`,
+        black5: `hsl(0, 0%, 95%)`,
+        black10: `hsl(0, 0%, 90%)`,
+        black20: `hsl(0, 0%, 80%)`,
+        black30: `hsl(0, 0%, 70%)`,
+        black40: `hsl(0, 0%, 60%)`,
+        black50: `hsl(0, 0%, 50%)`,
+        black60: `hsl(0, 0%, 40%)`,
+        black70: `hsl(0, 0%, 30%)`,
+        black80: `hsl(0, 0%, 20%)`,
+        black90: `hsl(0, 0%, 10%)`,
+        black95: `hsl(0, 0%, 5%)`,
+        black99: `hsl(0, 0%, 1%)`,
+        black100: `hsl(0, 0%, 0%)`,
+
         primary1: `hsl(${PRIMARY_COLOR_HSL}, 99% )`,
         primary5: `hsl(${PRIMARY_COLOR_HSL}, 95%)`,
         primary10: `hsl(${PRIMARY_COLOR_HSL}, 90%)`,
@@ -276,6 +291,7 @@ module.exports = {
         'extra-small': parseFloat(SUBHEADING_SIZE) - 1.6 + 'rem'
       },
       boxShadow: {
+        'medium-light': mediumShadow('0deg 0% 50%'),
         'primary-low': lowShadow(PRIMARY_COLOR_SHADOW),
         'primary-medium': mediumShadow(PRIMARY_COLOR_SHADOW),
         'primary-medium-light': mediumShadow(PRIMARY_COLOR_LIGHT),
