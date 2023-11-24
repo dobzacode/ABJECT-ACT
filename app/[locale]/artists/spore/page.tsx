@@ -16,7 +16,7 @@ export const metadata = {
 export default async function HomePage() {
   return (
     <>
-      <section className=" relative flex h-fit flex-col gap-medium max-[630px]:grid-cols-2 mobile-large:grid   min-[630px]:mb-[315px] tablet:grid-cols-none tablet:grid-rows-none">
+      <section className=" relative flex h-fit flex-col gap-medium max-[630px]:grid-cols-2 mobile-large:grid   min-[630px]:mb-[400px] tablet:grid-cols-none tablet:grid-rows-none">
         <ArtistCard
           className="max-[630px]:col-span-2 max-mobile-large:w-full min-[630px]:row-span-2 min-[630px]:w-[112%] tablet:w-auto"
           artistSrc="/asset/artist/spore.jpg"
@@ -81,7 +81,7 @@ export default async function HomePage() {
         ></PastEventCard>
 
         <LastReleaseCard
-          className="-z-10 row-start-3 max-[630px]:col-span-2 max-mobile-large:w-full min-[630px]:absolute   min-[630px]:-bottom-[315px] tablet:col-span-2 tablet:mt-0"
+          className="-z-10 row-start-3 max-[630px]:col-span-2 max-mobile-large:w-full min-[630px]:absolute   min-[630px]:-bottom-[290px] tablet:col-span-2 tablet:mt-0"
           releaseList={[
             { link: 'https://soundcloud.com/sporemc/spore-exploring-horizons' },
             { link: 'https://soundcloud.com/sporemc/strike-them-harder' },

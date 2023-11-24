@@ -46,6 +46,7 @@ export default function PartnershipForm({
       )}
       <div className="flex w-full flex-col justify-between  gap-small mobile-large:flex-row">
         <Input
+          intent="neutral"
           className="mobile-large:w-1/2"
           minLength={2}
           maxLength={30}
@@ -56,6 +57,7 @@ export default function PartnershipForm({
           hiddenlabel="true"
         ></Input>
         <Input
+          intent="neutral"
           className="mobile-large:w-1/2"
           minLength={2}
           maxLength={30}
@@ -66,8 +68,16 @@ export default function PartnershipForm({
           hiddenlabel="true"
         ></Input>
       </div>
-      <Input required type="email" id={'email'} placeholder={'Email'} hiddenlabel="true"></Input>
       <Input
+        intent="neutral"
+        required
+        type="email"
+        id={'email'}
+        placeholder={'Email'}
+        hiddenlabel="true"
+      ></Input>
+      <Input
+        intent="neutral"
         minLength={2}
         maxLength={30}
         required
@@ -77,6 +87,7 @@ export default function PartnershipForm({
         hiddenlabel="true"
       ></Input>
       <Input
+        intent="neutral"
         minLength={10}
         maxLength={500}
         required

@@ -8,10 +8,9 @@ import 'video.js/dist/video-js.css';
 interface VideoPlayerProps {
   sources: { src: string; type: string }[];
   className?: string;
-  fullWidth?: boolean;
 }
 
-const VideoPlayer: FunctionComponent<VideoPlayerProps> = ({ sources, className, fullWidth }) => {
+const VideoPlayer: FunctionComponent<VideoPlayerProps> = ({ sources, className }) => {
   const videoNode = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {

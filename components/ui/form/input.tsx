@@ -26,7 +26,7 @@ const inputVariants = cva('', {
   variants: {
     intent: {
       black:
-        'bg-black90 placeholder:text-black5/[.4] text-black1 border-black10/[.2] outline-white/[.2] dark:bg-black90 dark:text-black1 dark:placeholder:text-black10/[.4] dark:border-black10/[.2] dark:outline-black10/[.2]',
+        'bg-black95 placeholder:text-black5/[.4] text-black1 border-black10/[.2] outline-white/[.2] shadow-inner dark:bg-black90 dark:text-black1 dark:placeholder:text-black10/[.4] dark:border-black10/[.2] dark:outline-black10/[.2]',
       primary:
         'bg-primary5 placeholder:text-primary90/[.4] text-primary90 border-primary90/[.2] outline-primary90/[.2] dark:bg-primary90 dark:text-primary1 dark:placeholder:text-primary10/[.4] dark:border-primary10/[.2] dark:outline-primary10/[.2]',
 
@@ -42,7 +42,7 @@ const inputVariants = cva('', {
         ' bg-warning5 placeholder:text-warning90/[.4] text-warning90 border-warning90/[.2] outline-warning90/[.2]',
       info: 'bg-info5 placeholder:text-info90/[.4] text-info90 border-info90/[.2] outline-info90/[.2]',
       neutral:
-        'bg-${color}5 placeholder:text-${color}90/[.4] text-${color}90 border-${color}90/[.2] outline-${color}90/[.2]'
+        'bg-neutral1 shadow-neutral-low placeholder:text-neutral90/[.4] text-neutral90 border-neutral90/[.2] outline-neutral90/[.5]'
     }
   }
 });

@@ -12,10 +12,11 @@ export function SubmitButton() {
 
   return (
     <Button
-      className={`relative overflow-hidden border bg-white text-black shadow-inner`}
+      className={`border border-info60 shadow-info-low`}
       size="small"
       rounded="small"
       type="submit"
+      intent="info"
       aria-disabled={pending}
     >
       {t('submit')}
