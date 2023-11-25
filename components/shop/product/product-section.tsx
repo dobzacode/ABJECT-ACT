@@ -2,6 +2,7 @@ import Button from 'components/ui/button/button';
 import H2 from 'components/ui/text/h2';
 import P from 'components/ui/text/p';
 import { cn } from 'lib/utils';
+import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 
 interface ProductSectionProps {
@@ -14,7 +15,7 @@ interface ProductSectionProps {
   link: string;
 }
 
-export default function ProductSection({
+export default async function ProductSection({
   className,
   name,
   description,
@@ -23,6 +24,7 @@ export default function ProductSection({
   src,
   link
 }: ProductSectionProps) {
+  const t = await getTranslations('shop');
   return (
     <section>
       <div
@@ -63,13 +65,13 @@ export default function ProductSection({
 
           <a href={link} className="absolute -bottom-[9rem]">
             <Button
-              className={`shadow-info-medium-light  border border-info60`}
+              className={`shadow-info-medium-light  border border-info60 duration-medium hover:scale-110`}
               size="small"
               rounded="small"
               type="submit"
               intent="info"
             >
-              ORDER NOW
+              {t('order')}
             </Button>
           </a>
         </div>

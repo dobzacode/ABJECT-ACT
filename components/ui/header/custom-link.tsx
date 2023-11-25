@@ -17,7 +17,7 @@ export default function CustomLink({ href, children }: { href: string; children:
         e.stopPropagation();
         if (!ref.current) return;
         const href = ref.current.getAttribute('href');
-        console.log(href);
+
         document.querySelector('main')?.classList.add('hidden-div');
         setTimeout(() => {
           router.push(href as string);

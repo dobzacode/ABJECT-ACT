@@ -33,7 +33,7 @@ export default function ContactSection({}) {
     <>
       <section
         className={cn(
-          'shadow-medium-light border-black70 mx-small flex w-full flex-col gap-small rounded-small border bg-neutral5 p-small text-neutral90 mobile-large:mx-0 mobile-large:w-2/3 tablet:w-fit'
+          'mx-small flex w-full flex-col gap-small rounded-small border border-black70 bg-neutral5 p-small text-neutral90 shadow-medium-light mobile-large:mx-0 mobile-large:w-2/3 tablet:w-fit'
         )}
       >
         <Input

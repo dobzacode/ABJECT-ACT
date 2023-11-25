@@ -58,11 +58,10 @@ function lowShadow(color) {
 }
 
 function mediumShadow(color) {
-  console.log(color);
   return `0 0.6px 3px hsl(${color} / 0.37),
   0 1.3px 2.1px 0.9px hsl(${color} / 0.33),
   0 2.6px 4.2px 3px hsl(${color} / 0.28),
-  0 -2.6px 9.4px 5px hsl(${color} / 0.24)`;
+  0 5.8px 9.4px -2.7px hsl(${color} / 0.24)`;
 }
 
 // function mediumLight(color) {

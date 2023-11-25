@@ -52,8 +52,20 @@ export default function MobileFooter({
       <ul className="body flex h-sub-large flex-wrap items-start gap-extra-small">
         {isActive === 'about us' &&
           aboutUsLinks.map((link) => {
-            return (
+            return !link.param ? (
               <NavLink
+                customSetter={customSetter}
+                hover={true}
+                currentNavStyle={currentNavStyle}
+                intent={intent}
+                key={v4()}
+                href={link.href}
+              >
+                {t(link.name)}
+              </NavLink>
+            ) : (
+              <NavLink
+                param={t(link.param).toLowerCase()}
                 customSetter={customSetter}
                 hover={true}
                 currentNavStyle={currentNavStyle}

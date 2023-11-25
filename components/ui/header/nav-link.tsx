@@ -109,6 +109,7 @@ interface NavLinkProps extends LinkProps, VariantProps<typeof linkVariants> {
   exit?: string;
   isPrimaryNav?: boolean;
   customSetter?: Function;
+  param?: string;
 }
 
 const NavLink: FC<NavLinkProps> = React.forwardRef<HTMLLIElement, NavLinkProps>(
@@ -128,12 +129,11 @@ const NavLink: FC<NavLinkProps> = React.forwardRef<HTMLLIElement, NavLinkProps>(
       exit,
       customSetter,
       isPrimaryNav,
+      param,
       ...props
     }: NavLinkProps,
     ref
   ) => {
-    console.log(props.href);
-
     const t = useTranslations('navigation');
 
     const pathname = usePathname();
@@ -166,13 +166,19 @@ const NavLink: FC<NavLinkProps> = React.forwardRef<HTMLLIElement, NavLinkProps>(
             onClick={(e: any) => {
               e.preventDefault();
               e.stopPropagation();
+
               customSetter ? customSetter() : '';
               if (!linkRefWithoutVariants.current) return;
               const href = linkRefWithoutVariants.current.getAttribute('href');
+              console.log(`${href}?type=${param}`);
               if (pathname === href) return;
               document.querySelector('main')?.classList.add('hidden-div');
               setTimeout(() => {
-                router.push(href as string);
+                if (param) {
+                  return router.push(`${href}?type=${param}`);
+                } else {
+                  router.push(href as string);
+                }
               }, 600);
             }}
             {...(props as any)}

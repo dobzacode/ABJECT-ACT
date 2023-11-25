@@ -46,8 +46,8 @@ export interface FooterBlockProps {
 export const aboutUsLinks = [
   { href: '/about/abject-act', name: 'abject act' },
   { href: '/about/newsletter', name: 'newsletter' },
-  { href: '/about/join-us', name: 'join us' },
-  { href: '/about/partnership', name: 'partnership' }
+  { href: '/contact', name: 'join us', param: 'join us' },
+  { href: '/contact', name: 'partnership', param: 'partnership' }
   // { href: '/about/sizing', name: 'sizing' }
 ];
 
@@ -85,8 +85,20 @@ export default function AboutUsBlock({
       </H3>
       <ul className="body flex flex-wrap gap-extra-small  mobile-medium:gap-small mobile-large:gap-medium">
         {aboutUsLinks.map((link) => {
-          return (
+          return !link.param ? (
             <NavLink
+              customSetter={customSetter}
+              hover={true}
+              currentNavStyle={currentNavStyle}
+              intent={intent}
+              key={v4()}
+              href={link.href}
+            >
+              {t(link.name)}
+            </NavLink>
+          ) : (
+            <NavLink
+              param={t(link.param).toLowerCase()}
               customSetter={customSetter}
               hover={true}
               currentNavStyle={currentNavStyle}
