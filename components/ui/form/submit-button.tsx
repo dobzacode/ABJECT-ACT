@@ -12,7 +12,7 @@ export function SubmitButton() {
 
   return (
     <Button
-      className={`border border-info60 shadow-info-low`}
+      className={`border-b-2 border-info10 `}
       size="small"
       rounded="small"
       type="submit"

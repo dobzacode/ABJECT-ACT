@@ -35,7 +35,7 @@ export default function ContactSection({ isJoinUs = false }: { isJoinUs?: boolea
     <>
       <section
         className={cn(
-          'slideInFromBottom mx-small flex w-full flex-col gap-small rounded-small border border-black70 bg-neutral5 p-small text-neutral90 shadow-medium-light mobile-large:mx-0 mobile-large:w-2/3 tablet:w-fit'
+          'slideInFromBottom mx-small flex w-full flex-col gap-small rounded-small border border-black70 bg-black90/60 p-small text-black5 shadow-medium-light mobile-large:mx-0 mobile-large:w-2/3 tablet:w-fit'
         )}
       >
         {!isJoinUs ? (
@@ -44,7 +44,7 @@ export default function ContactSection({ isJoinUs = false }: { isJoinUs?: boolea
               onChange={handleSelectChange}
               id={'formType'}
               value={selectedOption}
-              intent="neutral"
+              intent="black"
               choices={['Contact', t('partnership')]}
               type="select"
               hiddenlabel="true"

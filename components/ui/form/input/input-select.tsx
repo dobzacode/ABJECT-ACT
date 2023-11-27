@@ -19,8 +19,8 @@ const InputSelect: FC<SelectProps> = forwardRef<HTMLInputElement, SelectProps>(
         {!loader ? (
           <select
             className={cn(
-              'body placeholder:body box-border cursor-pointer rounded-lg border px-extra-small py-[1.1rem] shadow-inner focus:outline-black',
-              className
+              className,
+              'body placeholder:body cursor-pointer rounded-lg  px-extra-small py-[1.1rem] '
             )}
             name={props.id}
             aria-label={props.id}
