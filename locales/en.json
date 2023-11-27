@@ -26,7 +26,9 @@
     "subject": "Subject",
     "submit": "Submit",
     "success": "Your submission has been sent !",
-    "error": "An error occured, please try again later."
+    "error": "An error occured, please try again later.",
+    "subscribe": "Subscribe",
+    "newsletterSuccess": "You have been successfully subscribed to our newsletter !"
   },
   "reCaptcha": {
     "formPhrase": {
@@ -225,5 +227,10 @@
       "content3": "No personal information of the user of the abjectact.com website is published without the user's knowledge, exchanged, transferred, sold on any medium to third parties.",
       "content4": "The abjectact.com website complies with the GDPR."
     }
+  },
+
+  "newsletter": {
+    "heading": "Subscribe to our Newsletter!",
+    "content": "To not miss any of our events and stay updated on the latest from our label."
   }
 }

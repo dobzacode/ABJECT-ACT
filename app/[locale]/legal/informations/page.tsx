@@ -14,7 +14,6 @@ export default async function HomePage() {
   const t = await getTranslations('legal');
   return (
     <main className="flex flex-col gap-sub-large px-small py-extra-large text-white mobile-large:px-large">
-      {' '}
       <H1 textType={'heading--extra-large'} className=" text-center">
         {t('title').toUpperCase()}
       </H1>

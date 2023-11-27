@@ -25,8 +25,10 @@
     "lastname": "Nom",
     "subject": "Sujet",
     "submit": "Envoyer",
+    "subscribe": "S'abonner",
     "success": "Votre message a bien été envoyé !",
-    "error": "Une erreur est survenue, veuillez réessayer plus tard."
+    "error": "Une erreur est survenue, veuillez réessayer plus tard.",
+    "newsletterSuccess": "Vous êtes bien abonné à notre newsletter !"
   },
   "reCaptcha": {
     "formPhrase": {
@@ -216,5 +218,9 @@
         "3": "- 38 rue du bassin d'Austerlitz 67100"
       }
     }
+  },
+  "newsletter": {
+    "heading": "Abonnez-vous à notre Newsletter !",
+    "content": "Afin de nous louper aucun de nos événéments ainsi que les nouveautés de notre label"
   }
 }

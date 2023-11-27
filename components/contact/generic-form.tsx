@@ -13,19 +13,26 @@ interface ContactFormProps {
   action?: (payload: FormData) => void;
   onSubmit?: FormEventHandler<HTMLFormElement>;
   classname: string;
+  isEmail?: boolean;
 }
 
-export default function GenericForm({ children, action, classname, onSubmit }: ContactFormProps) {
+export default function GenericForm({
+  children,
+  action,
+  classname,
+  onSubmit,
+  isEmail
+}: ContactFormProps) {
   const t = useTranslations('reCaptcha');
 
   return (
     <>
       <form onSubmit={onSubmit} action={action} className={cn(classname)}>
         {children}
-        <SubmitButton></SubmitButton>
+        <SubmitButton isEmail={isEmail}></SubmitButton>
       </form>
       {t && (
-        <P className="caption text-start">
+        <P className={`caption  ${isEmail ? 'text-center' : 'text-start'}`}>
           {t('formPhrase.1')}
           <a className="text-info50" href="https://policies.google.com/privacy">
             {t('formPhrase.2')}

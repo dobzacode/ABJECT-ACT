@@ -98,6 +98,46 @@ export async function partnershipAction(formData: FormData) {
   }
 }
 
+export async function newsletterAction(formData: FormData) {
+  const t = await getTranslations('form');
+
+  console.log(formData);
+
+  const values: (FormDataEntryValue | null)[][] = [[formData.get('email')]];
+
+  console.log(values);
+
+  const config = {
+    email: process.env.GOOGLE_CLIENT_EMAIL ?? '',
+    key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n') ?? ''
+  };
+
+  const client = new google.auth.JWT(config.email, null || '', config.key, [
+    'https://www.googleapis.com/auth/spreadsheets'
+  ]);
+
+  const sheets = google.sheets({ version: 'v4', auth: client });
+
+  const spreadsheetId = process.env.JOIN_US_SPREADSHEET_ID;
+
+  try {
+    if (!spreadsheetId) throw new Error();
+    await sheets.spreadsheets.values.append({
+      spreadsheetId: process.env.JOIN_US_SPREADSHEET_ID,
+      range: 'Newsletter',
+      valueInputOption: 'RAW',
+      insertDataOption: 'INSERT_ROWS',
+      requestBody: {
+        values: values
+      }
+    });
+
+    return t('newsletterSuccess');
+  } catch (error) {
+    return t('error');
+  }
+}
+
 export async function contactAction(formData: FormData) {
   const locale = await getLocale();
   const t = await getTranslations('form');

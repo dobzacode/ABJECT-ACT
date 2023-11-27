@@ -5,25 +5,27 @@ import { useFormStatus } from 'react-dom';
 import { BarLoader } from 'react-spinners';
 import Button from '../button/button';
 
-export function SubmitButton() {
+export function SubmitButton({ isEmail = false }: { isEmail?: boolean }) {
   const { pending } = useFormStatus();
 
   const t = useTranslations('form');
 
+  console.log(pending);
+
   return (
     <Button
-      className={`border-b-2 border-info10 `}
+      className={`relative border-b-2 border-info10 `}
       size="small"
       rounded="small"
       type="submit"
       intent="info"
       aria-disabled={pending}
     >
-      {t('submit')}
+      {!isEmail ? t('submit') : t('subscribe')}
       {pending && (
         <BarLoader
-          color="black"
-          height="2px"
+          className="bg-info80"
+          height="4px"
           cssOverride={{ width: '100%', position: 'absolute', bottom: '0' }}
         ></BarLoader>
       )}
