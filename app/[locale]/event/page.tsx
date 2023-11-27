@@ -1,7 +1,5 @@
 import MovingSection from 'components/ui/div/moving-section';
 
-export const runtime = 'edge';
-
 export const metadata = {
   description: 'High-performance ecommerce store built with Next.js, Vercel, and Shopify.',
   openGraph: {

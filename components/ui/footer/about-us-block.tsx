@@ -46,8 +46,8 @@ export interface FooterBlockProps {
 export const aboutUsLinks = [
   { href: '/about/abject-act', name: 'abject act' },
   { href: '/about/newsletter', name: 'newsletter' },
-  { href: '/contact', name: 'join us', param: 'join us' },
-  { href: '/contact', name: 'partnership', param: 'partnership' }
+  { href: '/join-us', name: 'join us', param: 'join us' }
+
   // { href: '/about/sizing', name: 'sizing' }
 ];
 

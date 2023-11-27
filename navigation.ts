@@ -47,6 +47,11 @@ export const pathnames = {
 
   '/contact': '/contact',
 
+  '/join-us': {
+    en: '/join-us',
+    fr: '/rejoins-nous'
+  },
+
   '/event': {
     en: '/event',
     fr: '/concert'

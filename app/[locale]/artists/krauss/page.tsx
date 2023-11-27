@@ -4,8 +4,6 @@ import NextEventCard from 'components/artists/next-event-card';
 import PastEventCard from 'components/artists/past-event-card';
 import LastReleaseCard from 'components/artists/release-card';
 
-export const runtime = 'edge';
-
 export const metadata = {
   description: 'High-performance ecommerce store built with Next.js, Vercel, and Shopify.',
   openGraph: {

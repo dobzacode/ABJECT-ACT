@@ -7,8 +7,7 @@ import H3 from '../text/h3';
 import { FooterBlockProps } from './about-us-block';
 
 export const legalLinks = [
-  { href: '/legal/terms', name: 'terms & conditions' },
-  { href: '/legal/informations', name: 'legal' },
+  { href: '/legal/informations', name: 'legal-mention' },
   { href: '/legal/privacy', name: 'privacy' }
 ];
 

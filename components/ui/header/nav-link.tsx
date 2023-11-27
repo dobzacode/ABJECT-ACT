@@ -170,15 +170,11 @@ const NavLink: FC<NavLinkProps> = React.forwardRef<HTMLLIElement, NavLinkProps>(
               customSetter ? customSetter() : '';
               if (!linkRefWithoutVariants.current) return;
               const href = linkRefWithoutVariants.current.getAttribute('href');
-              console.log(`${href}?type=${param}`);
+
               if (pathname === href) return;
               document.querySelector('main')?.classList.add('hidden-div');
               setTimeout(() => {
-                if (param) {
-                  return router.push(`${href}?type=${param}`);
-                } else {
-                  router.push(href as string);
-                }
+                router.push(href as string);
               }, 600);
             }}
             {...(props as any)}

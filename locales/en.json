@@ -16,6 +16,7 @@
       "sizing": "Sizing",
       "terms & conditions": "Terms & Conditions",
       "legal": "Legal",
+      "legal-mention": "Legal",
       "privacy": "Privacy"
     }
   },
@@ -38,5 +39,9 @@
   },
   "shop": {
     "order": "ORDER NOW"
+  },
+
+  "consent": {
+    "cookie": " This website use a cookie to enhance the concent localization. By continuing to browse the site you are agreeing to our use of this cookie."
   }
 }

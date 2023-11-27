@@ -10,7 +10,7 @@ import ContactForm from './contact/contact-form';
 import JoinUsForm from './join-us/join-us-form';
 import PartnershipForm from './partnership/partnership-form';
 
-export default function ContactSection({}) {
+export default function ContactSection({ isJoinUs = false }: { isJoinUs?: boolean }) {
   const [selectedOption, setSelectedOption] = useState('');
 
   const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -26,35 +26,39 @@ export default function ContactSection({}) {
   const searchParams = useSearchParams();
 
   useEffect(() => {
+    if (isJoinUs) return;
+    console.log('xd');
     router.replace(`${pathname}?type=${selectedOption.toLowerCase().replace(/ /g, '-')}`);
-  }, [selectedOption, pathname, router]);
+  }, [selectedOption, pathname, router, isJoinUs]);
 
   return (
     <>
       <section
         className={cn(
-          'mx-small flex w-full flex-col gap-small rounded-small border border-black70 bg-neutral5 p-small text-neutral90 shadow-medium-light mobile-large:mx-0 mobile-large:w-2/3 tablet:w-fit'
+          'slideInFromBottom mx-small flex w-full flex-col gap-small rounded-small border border-black70 bg-neutral5 p-small text-neutral90 shadow-medium-light mobile-large:mx-0 mobile-large:w-2/3 tablet:w-fit'
         )}
       >
-        <Input
-          onChange={handleSelectChange}
-          id={'formType'}
-          value={selectedOption}
-          intent="neutral"
-          choices={[t('join us'), t('partnership'), 'Contact']}
-          type="select"
-          hiddenlabel="true"
-        ></Input>
-        {searchParams.get('type') === t('join us').toLowerCase().replace(/ /g, '-') ||
-        !searchParams.get('type') ? (
+        {!isJoinUs ? (
+          <>
+            <Input
+              onChange={handleSelectChange}
+              id={'formType'}
+              value={selectedOption}
+              intent="neutral"
+              choices={['Contact', t('partnership')]}
+              type="select"
+              hiddenlabel="true"
+            ></Input>
+            {searchParams.get('type') === t('partnership').toLowerCase().replace(/ /g, '-') ? (
+              <PartnershipForm executeRecaptcha={executeRecaptcha as any}></PartnershipForm>
+            ) : null}
+            {searchParams.get('type') === 'contact' || !searchParams.get('type') ? (
+              <ContactForm executeRecaptcha={executeRecaptcha as any}></ContactForm>
+            ) : null}
+          </>
+        ) : (
           <JoinUsForm executeRecaptcha={executeRecaptcha as any}></JoinUsForm>
-        ) : null}
-        {searchParams.get('type') === t('partnership').toLowerCase().replace(/ /g, '-') ? (
-          <PartnershipForm executeRecaptcha={executeRecaptcha as any}></PartnershipForm>
-        ) : null}
-        {searchParams.get('type') === 'contact' ? (
-          <ContactForm executeRecaptcha={executeRecaptcha as any}></ContactForm>
-        ) : null}
+        )}
       </section>
     </>
   );

@@ -16,6 +16,7 @@
       "sizing": "Guide des Tailles",
       "terms & conditions": "Termes & Conditions",
       "legal": "Légal",
+      "legal-mention": "Mentions légales",
       "privacy": "Confidentialité"
     }
   },
@@ -38,5 +39,8 @@
   },
   "shop": {
     "order": "ACHETER MAINTENANT"
+  },
+  "consent": {
+    "cookie": "Ce site internet utilise un cookie afin d'améliorer l'internationalisation du contenu. En naviguant sur ce site, vous acceptez l'utilisation de ce cookie."
   }
 }

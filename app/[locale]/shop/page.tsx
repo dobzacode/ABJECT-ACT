@@ -1,8 +1,6 @@
 import ProductSection from 'components/shop/product/product-section';
 import { v4 } from 'uuid';
 
-export const runtime = 'edge';
-
 export const metadata = {
   description: 'High-performance ecommerce store built with Next.js, Vercel, and Shopify.',
   openGraph: {
