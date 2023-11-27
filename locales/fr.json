@@ -42,5 +42,179 @@
   },
   "consent": {
     "cookie": "Ce site internet utilise un cookie afin d'améliorer l'internationalisation du contenu. En naviguant sur ce site, vous acceptez l'utilisation de ce cookie."
+  },
+  "legal": {
+    "title": "Mentions légales",
+    "law": "Conformément aux directives des articles 6-III et 19 de la Loi numero 2004-575 du 21 juin 2004 pour la Confiance de l'économie numérique, dite L.C.E.N., nous informons les visiteurs du site web : abjectact.com ",
+    "law2": "Les données ci-jointe :",
+    "legalInformation": {
+      "heading": "1. Informations légales :",
+      "content": "Le site abjectact.com est la propriété exclusive de Association de droit local ABJECT ACT, qui le propose.",
+      "content2": "Association de droit local ABJECT ACT - Numero de téléphone : 0606060606",
+      "content3": "38 rue du bassin d'Austerlitz 67100 Strasbourg référencée au Registre du Commerce et des Sociétés(RCS) au numéro 90439277600020",
+      "content4": "Numéro de TVA Intracommunautaire : FR70904392776",
+      "content5": "Adresse de messagerie mail : abject.act@gmail.com",
+      "webmaster": "Le Concepteur et Webmaster du site est : Kittel Corentin",
+      "webmasterEmail": "Adresse de messagerie mail : abject.act@gmail.com",
+      "hosting1": "Hebergeur du site web : Vercel Inc",
+      "hosting2": "Foreign Business Corporation",
+      "hosting3": "Siège Sociale de l'hébergeur : 650 CALIFORNIA ST, FLOOR 7, Suite 06-104 SAN FRANCISCO, 94108, CA, United State"
+    },
+    "principles": {
+      "heading": "2. Présentation et principe :",
+      "content": "Tout internaute se connectant et utilisant le site internet : abjectact.com est considéré comme utilisateur du site web. Le site suivant abjectact.com regroupe différents services, en l'état, mis à la disposition des utilisateur. Il est ici précisé que ces derniers doivent rester honnête et faire preuve de bonne foi tant envers les différents usagés qu'envers le réalisateur du site abjectact.com. Kittel Corentin s'efforce d'indiqué sur le site abjectact.com des informations les plus précises possibles (sous réserve de modifications apportées depuis leur mise en ligne), mais ne saurait attester l'exactitude, la finitude et l'actualité des informations diffusées sur son site internet, qu'elles soient ou non de son fait. En répercussion, l'utilisateur reconnaît se servir des informations données (à titre indicatif, non exhaustives et susceptibles d'évoluer) sous sa responsabilité exclusive."
+    },
+    "accessibility": {
+      "heading": "3. Accessibilité :",
+      "content": "Le site internet abjectact.com est par principe accessible aux utilisateurs 24/24h, 7/7j, excepté en cas de maintenance, programmée ou pas, pour les besoins de sa maintenance ou en cas de force majeure. En cas d'impossibilité d'accès au service, abjectact.com s'engage à faire de son mieux afin de rétablir l'accès au site suivant et tentera alors d'informer au préalable aux utilisateurs Dates & heures de l'intervention. N'étant asservi qu'à une servitude de moyen, abjectact.com ne saurait être designé comme responsable des dommages, quelle qu'en soit la nature."
+    },
+    "property": {
+      "heading": "4. Droit de propriété intellectuelle :",
+      "content": "Abject Act est le propriétaire exclusif de l'intégralité des droits de propriété intellectuelle ou détient les droits et autorisations d'usage sur tous les éléments accessibles sur le site web, tant sur la structure que sur les articles et textes, images, graphismes, icônes, sons, logiciels… Toute reproduction totale ou partielle du site suivant abjectact.com, affichage, modification, mis à jour totalement ou partiellement de l'un quelconque de ces éléments, peu importe le moyen ou le procédé utilisé, est formellement interdite, sauf autorisation écrite préalable de Abject Act, directeur du site même partielle du site abjectact.com, affichage, edition, mis à jour totalement ou partiellement de l'un quelconque de ces éléments, quel que soit le moyen ou la technique utilisé, est interdite, sauf autorisation écrite préalable de Abject Act, propriétaire du site web au mail suivant : abject.act@gmail.com, sinon elle sera considérée de la même manière qu'une contrefaçon et passible de poursuite conformément aux dispositions des multiples articles L.335-2 et suivants du Code de Propriété Intellectuelle."
+    },
+    "cookies": {
+      "heading": "5. Cookies & Liens Hypertextes :",
+      "content": "Le site web abjectact.com contient différents URL cliquable vers d'autres sites (partenariats, sites sources .) mis en ligne suite à la validation de Kittel Corentin. Cependant, Kittel Corentin n'a pas la possibilité de controler l'ensemble des élements des différents sites visités et décline donc toute responsabilité de ce fait quand aux eventuels risques de contenus illicites. L'usager est avisé que au cours de ses navigation sur le site abjectact.com, un ou plusieurs cookies peuvent s'installer de façon automatique sur son par l'intermédiaire de son logiciel informatique de navigation. Un cookie c'est un assemblage de donnée qui ne permettra pas de savoir qui est l'utilisateur, en revanche qui sauvegarde des informations relatives à la navigation de l'utilisateur sur le site suivant. Le paramétrage du programme de navigation permet de renseigner de la compagnie de cookie et éventuellement, de la contester de la procédure décrite à l' adresse : www.abjectact.com. La mise en place à la possibilité toutefois de régler le navigateur de son pc afin de refuser la mise en place des cookies, en sachant que le refus de la mise en place d'un cookie pourrait entraîner l'incapacité d'avoir accès à plusieurs secteurs. Pour tout blocage des cookies, cherchez dans le moteur de recherche : blocage des cookies et suivez les consignes en lien avec votre version de navigateur."
+    },
+    "protection": {
+      "heading": "6. Protection des personnes et des biens - Maniement des données personnelles :",
+      "content": "En France, les données personnelles sont notamment protégées par la loi n° 78-87 du 6 janvier 1978 ainsi que la loi n° 2004-801 du 6 août 2004, l'article L. 226-13 du Code pénal ainsi que la Directive Européenne du 24 octobre 1995.",
+      "content2": "Sur le site suivant abjectact.com, Abject Act ne collecte pas d'informations personnelles ( suivant l'article 4 loi n°78-17 du 06 janvier 1978) relatives à l'usager que pour la nécéssité de certains services offerts par le site suivant abjectact.com. L'usager offre les informations en pleine conscience de cause, notamment lorsqu'il procède par lui-même à leur saisie. Il est donc précisé à l'usagé du site interne abjectact.com le devoir ou non de mentionner ces données. En conformité avec les dispositifs des articles 38 et autres de la loi 78-17 du 6 janvier 1978 concernant l'informatique, aux fichiers et aux différentes libertés, tout utilisateur possède un droit d'accès , de rectification, de suppression et d'opposition aux informations personnelles le concernant. Pour l'utiliser, adressez une demande par mail : abject.act@gmail.com ou alors par lettre manuscrite dûement signée, jointe d'une copie du titre d'identité avec signature du titulaire du document, en précisant l'adresse à laquelle une réponse devra être retournée.",
+      "content3": "Aucune information personnelle de l'utilisateur du site web abjectact.com n'est publiée à l'insu de l'utilisateur, échangée, transférée, vendue sur n'importe quel support à des tiers.",
+      "content4": "Le site web abjectact.com est en conformité avec le RGPD"
+    }
+  },
+  "privacy": {
+    "title": "Politique de confidentialité",
+    "objectives": {
+      "heading": "1. Objectif de la politique de confidentialité :",
+      "listInfo": "L'objectif de la politique de confidentialité est de vous informer sur la manière dont nous traitons vos données personnelles ainsi que les informations suivantes :",
+      "list": {
+        "1": "Les données personnelles que nous recueillerons",
+        "2": "L'utilisation des données recueillis",
+        "3": "Qui a accès aux données recueillies",
+        "4": "Les droits des utilisateurs du site",
+        "5": "La politique des cookies du site"
+      },
+      "additionalInfo": "Cette politique de confidentialité fonctionne parallèlement aux conditions générales d'utilisation de notre site."
+    },
+    "applicabilityLaws": {
+      "heading": "2 .Lois applicables",
+      "content": "Conformément à la RGPD, cette politique de confidentialité est conforme aux règlements suivants.",
+      "data": "Les données à caractère personnel doivent être :",
+      "list": {
+        "1": "- Traitées de manière licite, loyale et transparente au regard de la personne concerné (licéité, loyauté, transparence)",
+        "2": "- Collectées pour des finalités déterminées, explicites et légitimes, et ne pas être traitées ultérieurement d'une manière incompatible avec ces finalités; le traitement ultérieur à des fins archivistiques dans l'intérêt public, à des fins de recherche scientifique ou historique ou à des fins statistiques n'est pas considéré, conformément à l'article 89, paragraphe 1, comme incompatible avec les finalités initiales (limitation des finalités)",
+        "3": "- Adéquates, pertinentes et limitées à ce qui est nécessaire au regard des finalités pour lesquelles elles sont traitées (minimisation des données)",
+        "4": "- Exactes et, si nécessaire, tenues à jour; toutes les mesures raisonnables doivent être prises pour que les données à caractère personnel qui sont inexactes, eu égard aux finalités pour lesquelles elles sont traitées, soient effacées ou rectifiées sans tarder (exactitude)",
+        "5": "- Conservées sous une forme permettant l'identification des personnes concernées pendant une durée n'excédant pas celle nécessaire au regard des finalités pour lesquelles elles sont traitées; les données à caractère personnel peuvent être conservées pour des durées plus longues dans la mesure où elles seront traitées exclusivement à des fins archivistiques dans l'intérêt public, à des fins de recherche scientifique ou historique ou à des fins statistiques conformément à l'article 89, paragraphe 1, pour autant que soient mises en œuvre les mesures techniques et organisationnelles appropriées requises par le règlement afin de garantir les droits et libertés de la personne concernée (limitation de la conservation)",
+        "6": "- Traitées de façon à garantir une sécurité appropriée des données à caractère personnel, y compris la protection contre le traitement non autorisé ou illicite et contre la perte, la destruction ou les degâts d'origine accidentelle, à l'aide de mesures techniques ou organisationnelles appropriées (intégrité et confidentialité)"
+      }
+    },
+    "lawfulBasis": {
+      "listCaption": "Le traitement n'est licite que si, et dans la mesure où, au moins une des conditions suivantes est remplie :",
+      "list": {
+        "1": "- La personne concernée a consenti au traitement de ses données à caractère personnel pour une ou plusieurs finalités spécifiques",
+        "2": "- Le traitement est nécessaire à l'exécution d'un contrat auquel la personne concernée est partie ou à l'exécution de mesures précontractuelles prises à la demande de celle-ci",
+        "3": "- Le traitement est nécessaire à la sauvegarde des intérêts vitaux de la personne concernée ou d'une autre personne physique",
+        "4": "- Le traitement est nécessaire à l'exécution d'une mission d'intérêt public ou relevant de l'exercice de l'autorité publique dont est investi le responsable du traitement",
+        "5": "- Le traitement est nécessaire aux fins des intérêts légitimes poursuivis par le responsable du traitement ou par un tiers, à moins que ne prévalent les intérêts ou les libertés et droits fondamentaux de la personne concernée qui exigent une protection des données à caractère personnel, notamment lorsque la personne concernée est un enfant."
+      }
+    },
+    "californiaResidentsInfo": "Pour les résidents de l'État de Californie, cette politique de confidentialité vise à se conformer à la California Consumer Privacy Act (CCPA). S'il y a des incohérences entre ce document et la CCPA, la législation de l'État s'appliquera. Si nous constatons des incohérences, nous modifierons notre politique pour nous conformer à la loi pertinente.",
+    "consent": {
+      "heading": "3. Consentement",
+      "content": "Les utilisateurs conviennent qu'en utilisant notre site, ils consentent à :",
+      "list": {
+        "1": "- Les conditions énoncées dans la présente politique de confidentialité",
+        "2": "- La collecte, l'utilisation et le traitement de leurs données personnelles"
+      }
+    },
+    "automaticDataCollection": {
+      "heading": "4. Données collectées automatiquement",
+      "content": "Lorsque vous visitez et utilisez notre site, nous pouvons automatiquement recueillir et conserver les renseignements suivants :",
+      "list": "- Pays dans lequel se trouve le visiteur"
+    },
+    "nonAutomaticDataCollection": {
+      "heading": "5. Données recueillies de manière non automatique",
+      "content": "Nous pouvons également collecter les données suivantes lorsque vous effectuez certaines fonctions sur notre site :",
+      "list": { "1": "- Prénom et nom", "2": "- Email" },
+      "additionalInfo": "Ces données peuvent être recueillies au moyen des formulaires de contact présents sur notre site. Veuillez noter que nous ne collectons que les données qui nous aident à atteindre l'objectif énoncé dans cette politique de confidentialité. Nous ne recueillerons pas de données supplémentaires sans vous en informer au préalable.",
+      "additionalInfo2": "Veuillez noter que nous ne collectons que les données qui nous aident à atteindre l'objectif énoncé dans cette politique de confidentialité. Nous ne recueillerons pas de données supplémentaires sans vous en informer au préalable."
+    },
+    "dataUsage": {
+      "heading": "6. Utilisation des données personnelles",
+      "automaticDataUsage": "Les données personnelles recueillies sur notre site seront utilisées uniquement aux fins précisées dans la présente politique ou indiquées sur les pages pertinentes de notre site. Nous n'utiliserons pas vos données au-delà de ce que nous divulguerons.",
+      "automaticDataUsage2": "Les données que nous recueillons automatiquement sont utilisées aux fins suivantes :",
+      "automaticDataUsageList": "- Traduction du contenu",
+      "nonAutomaticDataUsage": "Les données que nous recueillons lorsque l'utilisateur exécute certaines fonctions peuvent être utilisées aux fins suivantes :",
+      "nonAutomaticDataUsageList": "- Contact à des buts commerciaux ou de bénévolats"
+    },
+    "dataAccess": {
+      "heading": "7. Qui a accès aux données recueillies ?",
+      "members": "Les membres",
+      "membersAccess": "Nous pouvons divulguer à tout membre de notre organisation les données utilisateur dont il a raisonnablement besoin pour réaliser les objectifs énoncés dans la présente politique.",
+      "disclosures": "Autres divulgations",
+      "otherDisclosures": "Nous ne vendrons ni ne partagerons vos données avec des tiers, sauf dans les cas suivants :",
+      "otherDisclosuresList": {
+        "1": "- Si la loi l'exige",
+        "2": "- Si cela est nécessaire pour toute procédure judiciaire",
+        "3": "- Pour prouver ou protéger nos droits légaux"
+      },
+      "disclaimer": "Si vous suivez des hyperliens de notre site vers un autre site, veuillez noter que nous ne sommes pas responsables et n'avons pas de contrôle sur leurs politiques et pratiques de confidentialité."
+    },
+    "dataStorageDuration": {
+      "heading": "8. Durée de stockage des données personnelles",
+      "content": "Nous ne conservons pas les données des utilisateurs au-delà de ce qui est nécessaire pour atteindre les fins pour lesquelles elles sont recueillies."
+    },
+    "dataSecurity": {
+      "heading": "9. Dispositif garantissant la sécurité des données personnelles",
+      "content": "Afin d'assurer la protection de votre sécurité, nous utilisons le protocole de sécurité de la couche transport pour transmettre des renseignements personnels dans notre système.      ",
+      "content2": "Toutes les données stockées dans notre système sont bien sécurisées et ne sont accessibles qu'à nos membres. Nos membres sont liés par des accords de confidentialité stricts et une violation de cet accord entraînerait la radiation du membre.",
+      "content3": "Alors que nous prenons toutes les précautions raisonnables pour nous assurer que nos données d'utilisateur sont sécurisées et que les utilisateurs sont protégés, il reste toujours du risque de préjudice. L'Internet en sa totalité peut être, parfois, peu sûr et donc nous sommes incapables de garantir la sécurité des données des utilisateurs au-delà de ce qui est raisonnablement pratique. Mineurs"
+    },
+    "minors": {
+      "heading": "10. Mineurs ?",
+      "content": "Le RGPD précise que les personnes de moins de 15 ans sont considérées comme des mineurs aux fins de la collecte de données. Les mineurs doivent avoir le consentement d'un représentant légal pour que leurs données soient recueillies, traitées et utilisées."
+    },
+    "userRights": {
+      "heading": "11. Droits des utilisateurs",
+      "content": "En vertu du RGPD, les utilisateurs ont les droits suivants en tant que personnes concernées :",
+      "userRightsList": {
+        "1": "- Droit d'accès",
+        "2": "- Droit de rectification",
+        "3": "- Droit à l'effacement",
+        "4": "- Droit de restreindre le traitement",
+        "5": "- Droit de s'opposer au traitement",
+        "6": "- Droit à la portabilité des données",
+        "7": "- Droit de déposer une plainte"
+      },
+      "additionalInfo": "Vous trouverez de plus amples informations sur ces droits au chapitre 3 (art 12-23) du RGPD."
+    },
+    "modifyDeleteData": {
+      "heading": "12. Comment modifier, supprimer ou contester les données recueillies",
+      "content": "Si vous souhaitez que vos renseignements soient supprimés ou modifiés d'une façon ou d'une autre, veuillez communiquer avec notre agent de protection de la vie privée ici :",
+      "list": { "1": "- Louis Koerner", "2": "- abject.act@gmail.com", "3": "- 0606060606" }
+    },
+    "cookiePolicy": {
+      "heading": "13. Politique sur les cookies",
+      "content": "Un cookie est un petit fichier, stocké sur le disque dur d'un utilisateur par le site Web. Son but est de recueillir des données relatives aux habitudes de navigation de l'utilisateur.",
+      "content2": "Nous utilisons les types de cookies suivants sur notre site :",
+      "list": "Cookies fonctionnels : Nous les utilisons pour mémoriser toutes les sélections que vous faites sur notre site afin qu'elles soient sauvegardées pour vos prochaines visites.",
+      "additionalInfo": "Vous pouvez choisir d'être averti chaque fois qu'un cookie est transmis. Vous pouvez également choisir de désactiver les cookies entièrement dans votre navigateur Internet, mais cela peut diminuer la qualité de votre expérience d'utilisation."
+    },
+    "changes": {
+      "heading": "14. Modifications",
+      "content": "Cette politique de confidentialité peut être modifiée à l'occasion afin de maintenir la conformité avec la loi et de tenir compte de tout changement à notre processus de collecte de données. Nous recommandons à nos utilisateurs de vérifier notre politique de temps à autre pour s'assurer qu'ils soient informés de toute mise à jour. Au besoin, nous pouvons informer les utilisateurs par courriel des changements apportés à cette politique."
+    },
+    "contact": {
+      "heading": "15. Contact",
+      "content": "Si vous avez des questions à nous poser, n'hésitez pas à communiquer avec nous en utilisant ce qui suit :",
+      "contactInfo": {
+        "1": "- 0606060606",
+        "2": "- abject.act@gmail.com",
+        "3": "- 38 rue du bassin d'Austerlitz 67100"
+      }
+    }
   }
 }

@@ -1,6 +1,7 @@
 'use client';
 
 import Input from 'components/ui/form/input';
+import P from 'components/ui/text/p';
 import { cn } from 'lib/utils';
 import { useTranslations } from 'next-intl';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
@@ -27,7 +28,7 @@ export default function ContactSection({ isJoinUs = false }: { isJoinUs?: boolea
 
   useEffect(() => {
     if (isJoinUs) return;
-    console.log('xd');
+
     router.replace(`${pathname}?type=${selectedOption.toLowerCase().replace(/ /g, '-')}`);
   }, [selectedOption, pathname, router, isJoinUs]);
 
@@ -35,9 +36,19 @@ export default function ContactSection({ isJoinUs = false }: { isJoinUs?: boolea
     <>
       <section
         className={cn(
-          'slideInFromBottom mx-small flex w-full flex-col gap-small rounded-small border border-black70 bg-black90/60 p-small text-black5 shadow-medium-light mobile-large:mx-0 mobile-large:w-2/3 tablet:w-fit'
+          'slideInFromBottom mx-small flex w-full flex-col gap-small rounded-small border border-black70 bg-black90/60 p-small pt-0 text-black5 shadow-medium-light mobile-large:mx-0 mobile-large:w-2/3 tablet:w-fit'
         )}
       >
+        {isJoinUs && (
+          <div className="flex  justify-center">
+            <P
+              className="py- text-black-5 w-1/2 rounded-extra-small rounded-t-none border-b border-black50 bg-black p-extra-small text-center "
+              textType={'body'}
+            >
+              {t('join us').toUpperCase()}
+            </P>
+          </div>
+        )}
         {!isJoinUs ? (
           <>
             <Input

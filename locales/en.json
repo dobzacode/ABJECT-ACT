@@ -43,5 +43,187 @@
 
   "consent": {
     "cookie": " This website use a cookie to enhance the concent localization. By continuing to browse the site you are agreeing to our use of this cookie."
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "objectives": {
+      "heading": "1. Purpose of the Privacy Policy:",
+      "listInfo": "The purpose of the privacy policy is to inform you about how we process your personal data and the following information:",
+      "list": {
+        "1": "The personal data we will collect",
+        "2": "The use of the collected data",
+        "3": "Who has access to the collected data",
+        "4": "User rights on the site",
+        "5": "The site's cookie policy"
+      },
+      "additionalInfo": "This privacy policy operates in conjunction with the general terms of use of our site."
+    },
+    "applicabilityLaws": {
+      "heading": "2. Applicable Laws",
+      "content": "In accordance with the GDPR, this privacy policy complies with the following regulations.",
+      "data": "Personal data must be:",
+      "list": {
+        "1": "- Processed lawfully, fairly, and transparently with respect to the data subject (lawfulness, fairness, transparency)",
+        "2": "- Collected for specified, explicit, and legitimate purposes and not further processed in a manner incompatible with those purposes; further processing for archiving purposes in the public interest, scientific or historical research purposes, or statistical purposes is not considered incompatible with the initial purposes, in accordance with Article 89, paragraph 1 (limitation of purposes)",
+        "3": "- Adequate, relevant, and limited to what is necessary in relation to the purposes for which they are processed (data minimization)",
+        "4": "- Accurate and, if necessary, kept up to date; every reasonable step must be taken to ensure that personal data that is inaccurate, considering the purposes for which it is processed, is erased or rectified without delay (accuracy)",
+        "5": "- Stored in a form that permits the identification of data subjects for no longer than is necessary for the purposes for which the personal data is processed; personal data may be stored for longer periods insofar as the data will be processed solely for archiving purposes in the public interest, scientific or historical research purposes, or statistical purposes, in accordance with Article 89, paragraph 1, provided that appropriate technical and organizational measures are implemented to safeguard the rights and freedoms of the data subject (limitation of storage)",
+        "6": "- Processed in a manner that ensures appropriate security of personal data, including protection against unauthorized or unlawful processing and against accidental loss, destruction, or damage, using appropriate technical or organizational measures (integrity and confidentiality)"
+      }
+    },
+    "lawfulBasis": {
+      "listCaption": "Processing is lawful only if, and to the extent that, at least one of the following conditions is met:",
+      "list": {
+        "1": "- The data subject has given consent to the processing of their personal data for one or more specific purposes",
+        "2": "- Processing is necessary for the performance of a contract to which the data subject is a party or in order to take steps at the request of the data subject prior to entering into a contract",
+        "3": "- Processing is necessary for the protection of the vital interests of the data subject or another natural person",
+        "4": "- Processing is necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the controller",
+        "5": "- Processing is necessary for the purposes of the legitimate interests pursued by the controller or by a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject which require protection of personal data, in particular where the data subject is a child."
+      }
+    },
+    "californiaResidentsInfo": "For residents of the State of California, this privacy policy aims to comply with the California Consumer Privacy Act (CCPA). In case of inconsistencies between this document and the CCPA, the state legislation will apply. If inconsistencies are identified, we will amend our policy to comply with the relevant law.",
+    "consent": {
+      "heading": "3. Consent",
+      "content": "Users agree that by using our site, they consent to:",
+      "list": {
+        "1": "- The conditions stated in this privacy policy",
+        "2": "- The collection, use, and processing of their personal data"
+      }
+    },
+    "automaticDataCollection": {
+      "heading": "4. Automatically Collected Data",
+      "content": "When you visit and use our site, we may automatically collect and store the following information:",
+      "list": "- Country in which the visitor is located"
+    },
+    "nonAutomaticDataCollection": {
+      "heading": "5. Non-Automatically Collected Data",
+      "content": "We may also collect the following data when you perform certain functions on our site:",
+      "list": {
+        "1": "- First name and last name",
+        "2": "- Email"
+      },
+      "additionalInfo": "This data may be collected through the contact forms on our site. Please note that we only collect data that helps us achieve the goal stated in this privacy policy. We will not collect additional data without informing you in advance.",
+      "additionalInfo2": "Please note that we only collect data that helps us achieve the goal stated in this privacy policy. We will not collect additional data without informing you in advance."
+    },
+    "dataUsage": {
+      "heading": "6. Use of Personal Data",
+      "automaticDataUsage": "Personal data collected on our site will be used only for the purposes specified in this policy or indicated on the relevant pages of our site. We will not use your data beyond what we disclose.",
+      "automaticDataUsage2": "The data we collect automatically is used for the following purposes:",
+      "automaticDataUsageList": "- Translation of content",
+      "nonAutomaticDataUsage": "The data we collect when the user performs certain functions may be used for the following purposes:",
+      "nonAutomaticDataUsageList": "- Contact for business or volunteer purposes"
+    },
+    "dataAccess": {
+      "heading": "7. Who Has Access to the Collected Data?",
+      "members": "Members",
+      "membersAccess": "We may disclose to any member of our organization the user data they reasonably need to achieve the objectives stated in this policy.",
+      "disclosures": "Other Disclosures",
+      "otherDisclosures": "We will not sell or share your data with third parties, except in the following cases:",
+      "otherDisclosuresList": {
+        "1": "- If the law requires it",
+        "2": "- If it is necessary for any legal proceeding",
+        "3": "- To prove or protect our legal rights"
+      },
+      "disclaimer": "If you follow hyperlinks from our site to another site, please note that we are not responsible and do not have control over their privacy policies and practices."
+    },
+    "dataStorageDuration": {
+      "heading": "8. Duration of Storage of Personal Data",
+      "content": "We do not retain user data beyond what is necessary to achieve the purposes for which it is collected."
+    },
+    "dataSecurity": {
+      "heading": "9. Device Ensuring the Security of Personal Data",
+      "content": "To ensure the protection of your security, we use the Transport Layer Security protocol to transmit personal information in our system.",
+      "content2": "All data stored in our system is securely protected and is only accessible to our members. Our members are bound by strict confidentiality agreements, and a breach of this agreement would result in the removal of the member.",
+      "content3": "While we take all reasonable precautions to ensure that our user data is secure and that users are protected, there is always a risk of harm. The Internet as a whole can be, at times, insecure, and therefore we are unable to guarantee the security of user data beyond what is reasonably practical. Minors"
+    },
+    "minors": {
+      "heading": "10. Minors?",
+      "content": "The GDPR specifies that individuals under 15 years of age are considered minors for the purpose of data collection. Minors must have the consent of a legal representative for their data to be collected, processed, and used."
+    },
+    "userRights": {
+      "heading": "11. User Rights",
+      "content": "Under the GDPR, users have the following rights as data subjects:",
+      "userRightsList": {
+        "1": "- Right of access",
+        "2": "- Right to rectification",
+        "3": "- Right to erasure",
+        "4": "- Right to restrict processing",
+        "5": "- Right to object to processing",
+        "6": "- Right to data portability",
+        "7": "- Right to lodge a complaint"
+      },
+      "additionalInfo": "Further information on these rights can be found in Chapter 3 (Articles 12-23) of the GDPR."
+    },
+    "modifyDeleteData": {
+      "heading": "12. How to Modify, Delete, or Contest Collected Data",
+      "content": "If you wish for your information to be deleted or modified in any way, please contact our privacy officer here:",
+      "list": {
+        "1": "- Louis Koerner",
+        "2": "- abject.act@gmail.com",
+        "3": "- 0606060606"
+      }
+    },
+    "cookiePolicy": {
+      "heading": "13. Cookie Policy",
+      "content": "A cookie is a small file stored on a user's hard drive by the website. Its purpose is to collect data about the user's browsing habits.",
+      "content2": "We use the following types of cookies on our site:",
+      "list": "Functional cookies: We use them to remember any selections you make on our site so that they are saved for your next visits.",
+      "additionalInfo": "You can choose to be notified each time a cookie is transmitted. You can also choose to disable cookies entirely in your internet browser, but this may decrease the quality of your user experience."
+    },
+    "changes": {
+      "heading": "14. Changes",
+      "content": "This privacy policy may be amended from time to time to maintain compliance with the law and to account for any changes in our data collection process. We recommend our users to check our policy from time to time to ensure they are informed of any updates. If necessary, we may inform users by email of changes to this policy."
+    },
+    "contact": {
+      "heading": "15. Contact",
+      "content": "If you have any questions to ask us, feel free to contact us using the following:",
+      "contactInfo": {
+        "1": "- 0606060606",
+        "2": "- abject.act@gmail.com",
+        "3": "- 38 rue du bassin d'Austerlitz 67100"
+      }
+    }
+  },
+
+  "legal": {
+    "title": "Legal Notice",
+    "law": "In accordance with the provisions of articles 6-III and 19 of Law number 2004-575 of June 21, 2004, for Trust in the Digital Economy, known as the L.C.E.N., we inform visitors to the website: abjectact.com",
+    "law2": "The attached data:",
+    "legalInformation": {
+      "heading": "1. Legal Information:",
+      "content": "The abjectact.com website is the exclusive property of the Association de droit local ABJECT ACT, which owns it.",
+      "content2": "Association de droit local ABJECT ACT - Phone number: 0606060606",
+      "content3": "38 rue du bassin d'Austerlitz 67100 Strasbourg registered with the Registry of Commerce and Companies (RCS) under number 90439277600020",
+      "content4": "VAT identification number: FR70904392776",
+      "content5": "Email address: abject.act@gmail.com",
+      "webmaster": "The Designer and Webmaster of the site is: Kittel Corentin",
+      "webmasterEmail": "Email address: abject.act@gmail.com",
+      "hosting1": "Web hosting: Vercel Inc",
+      "hosting2": "Foreign Business Corporation",
+      "hosting3": "Registered office of the hosting provider: 650 CALIFORNIA ST, FLOOR 7, Suite 06-104 SAN FRANCISCO, 94108, CA, United States"
+    },
+    "principles": {
+      "heading": "2. Presentation and Principle:",
+      "content": "Any internet user connecting to and using the abjectact.com website is considered a user of the website. The abjectact.com website brings together various services, as is, made available to users. It is specified here that users must remain honest and act in good faith towards other users and the creator of the abjectact.com site. Kittel Corentin strives to provide the most accurate information on the abjectact.com site (subject to changes made since it was posted), but cannot attest to the accuracy, completeness, and timeliness of the information disseminated on its website, whether or not it is his own. As a result, the user acknowledges using the information provided (for indicative purposes, not exhaustive, and subject to change) under his exclusive responsibility."
+    },
+    "accessibility": {
+      "heading": "3. Accessibility:",
+      "content": "The abjectact.com website is, in principle, accessible to users 24/24, 7/7, except in the case of maintenance, programmed or not, for the needs of its maintenance or in case of force majeure. In the event of impossibility of access to the service, abjectact.com undertakes to do its best to restore access to the following site and will then attempt to inform users in advance of the intervention dates and times. Being subject only to a means servitude, abjectact.com cannot be designated as responsible for damages, of any nature whatsoever."
+    },
+    "property": {
+      "heading": "4. Intellectual Property Right:",
+      "content": "Abject Act is the exclusive owner of all intellectual property rights or holds the rights and permissions to use all elements accessible on the website, both on the structure and on the articles and texts, images, graphics, icons, sounds, software... Any total or partial reproduction of the abjectact.com site, display, modification, update in whole or in part of any of these elements, regardless of the means or process used, is strictly prohibited, unless prior written authorization from Abject Act, director of the site, even partial of the abjectact.com site, display, editing, update in whole or in part of any of these elements, whatever the means or technique used, is prohibited, unless prior written authorization from Abject Act, owner of the website at the following email: abject.act@gmail.com, otherwise it will be considered in the same way as counterfeiting and liable to prosecution in accordance with the provisions of multiple articles L.335-2 and following of the Intellectual Property Code."
+    },
+    "cookies": {
+      "heading": "5. Cookies & Hypertext Links:",
+      "content": "The abjectact.com website contains various clickable URLs to other sites (partnerships, source sites...) posted following validation by Kittel Corentin. However, Kittel Corentin does not have the ability to control all the elements of the different sites visited and therefore declines any responsibility for any risks of illicit content. The user is advised that during his navigation on the abjectact.com site, one or more cookies may be installed automatically on his computer by his computer navigation software. A cookie is an assembly of data that will not allow knowing who the user is, on the other hand, it saves information relating to the user's navigation on the following site. The setting of the navigation program makes it possible to inform the company of cookies and possibly, to contest the procedure described at the address: www.abjectact.com. However, setting up the possibility of setting the browser on his computer to refuse the installation of cookies, knowing that refusing the installation of a cookie could result in the inability to access several sectors. For any blocking of cookies, search in the search engine: blocking cookies and follow the instructions related to your browser version."
+    },
+    "protection": {
+      "heading": "6. Protection of Persons and Property - Handling of Personal Data:",
+      "content": "In France, personal data is notably protected by Law No. 78-87 of January 6, 1978, as well as Law No. 2004-801 of August 6, 2004, Article L. 226-13 of the Penal Code and Directive European of October 24, 1995.",
+      "content2": "On the abjectact.com website, Abject Act does not collect personal information (according to Article 4 of Law No. 78-17 of January 6, 1978) relating to the user only for the necessity of certain services offered by the abjectact.com website. The user provides the information knowingly, especially when entering it himself. It is therefore specified to the user of the abjectact.com internal website the duty or not to mention this data. In accordance with the provisions of Articles 38 and others of Law 78-17 of January 6, 1978 concerning data processing, files, and various freedoms, any user has a right of access, rectification, deletion, and opposition to personal information concerning him. To use it, send a request by email: abject.act@gmail.com or by handwritten letter duly signed, attached with a copy of the identity document with the signature of the document holder, specifying the address to which a response should be returned.",
+      "content3": "No personal information of the user of the abjectact.com website is published without the user's knowledge, exchanged, transferred, sold on any medium to third parties.",
+      "content4": "The abjectact.com website complies with the GDPR."
+    }
   }
 }

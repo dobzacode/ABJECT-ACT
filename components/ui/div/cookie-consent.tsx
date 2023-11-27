@@ -21,7 +21,6 @@ const CookieConsent = () => {
 
   const declineCookie = () => {
     setShowConsent(true);
-
     deleteCookie('NEXT_LOCALE');
   };
 
