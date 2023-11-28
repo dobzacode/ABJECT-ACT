@@ -1,4 +1,4 @@
-import ContentSection from 'components/event/contect-section';
+import ContentSection from 'components/event/content-section';
 import { H1 } from 'components/ui/text/h1';
 
 export const metadata = {
@@ -11,8 +11,8 @@ export const metadata = {
 export default async function HomePage() {
   return (
     <main
-      className="slideInFromRight overflox-x-hidden relative flex
- h-full min-h-screen w-full flex-col items-center justify-center gap-large px-small py-extra-large"
+      className="slideInFromRight relative flex h-full
+ min-h-screen w-screen flex-col items-center justify-center gap-large overflow-x-hidden px-small py-extra-large"
     >
       <H1
         textType={'heading--extra-large'}

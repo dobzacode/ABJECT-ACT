@@ -162,12 +162,12 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
               modalOffset()
             )}
           >
-            <ul className={'flex flex-col justify-center'}>
+            <ul className={'flex w-fit flex-col justify-center '}>
               {navLinks.map((link, i) => {
                 return (
                   <NavLink
                     isPrimaryNav={true}
-                    className="max-tablet:text-[4rem] max-tablet:leading-[4rem] "
+                    className="max-tablet:text-[5rem] max-tablet:leading-[5rem] "
                     customSetter={() => {
                       setShowMenu(false);
                     }}
