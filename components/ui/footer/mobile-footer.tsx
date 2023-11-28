@@ -7,7 +7,6 @@ import NavLink from '../header/nav-link';
 import { FooterBlockProps, aboutUsLinks } from './about-us-block';
 import { socialLinks } from './contact-block';
 import { legalLinks } from './legal-block';
-import SocialIcon from './social-icon';
 
 export default function MobileFooter({
   currentNavStyle,
@@ -49,7 +48,11 @@ export default function MobileFooter({
           {t('legal')}
         </Button>
       </div>
-      <ul className="body flex h-sub-large flex-wrap items-start gap-extra-small">
+      <ul
+        className={`body flex h-sub-large flex-wrap items-start  ${
+          isActive === 'legal' ? 'justify-center gap-large' : 'justify-between gap-extra-small'
+        }`}
+      >
         {isActive === 'about us' &&
           aboutUsLinks.map((link) => {
             return !link.param ? (
@@ -82,22 +85,19 @@ export default function MobileFooter({
             <NavLink
               key={v4()}
               hover={true}
+              customSetter={customSetter}
               intent={intent}
               currentNavStyle={currentNavStyle}
               href={socialLink.href}
             >
-              <SocialIcon
-                className=""
-                size={1.6}
-                href={socialLink.href}
-                mdiPath={socialLink.mdiPath}
-              ></SocialIcon>
+              {socialLink.name}
             </NavLink>
           ))}
         {isActive === 'legal' &&
           legalLinks.map((link, index) =>
             index === 0 ? (
               <NavLink
+                customSetter={customSetter}
                 hover={true}
                 intent={intent}
                 currentNavStyle={currentNavStyle}
@@ -108,6 +108,7 @@ export default function MobileFooter({
               </NavLink>
             ) : (
               <NavLink
+                customSetter={customSetter}
                 hover={true}
                 intent={intent}
                 currentNavStyle={currentNavStyle}

@@ -1,4 +1,6 @@
 import ProductSection from 'components/shop/product/product-section';
+import { H1 } from 'components/ui/text/h1';
+import { getTranslations } from 'next-intl/server';
 import { v4 } from 'uuid';
 
 export const metadata = {
@@ -20,8 +22,15 @@ const productArr = [
 ];
 
 export default async function HomePage() {
+  const t = await getTranslations('navigation.primaryNavigation');
   return (
-    <main className="flex h-full min-h-screen w-full items-center justify-center overflow-hidden pt-extra-large">
+    <main className="relative flex h-screen flex-col items-center gap-sub-large overflow-hidden pt-extra-large">
+      <H1
+        textType={'heading--extra-large'}
+        className="slideInFromTop relative z-10 mb-[16rem] text-center text-black5 max-mobile-large:text-heading-large max-mobile-large:leading-heading-large tablet:mt-small"
+      >
+        {t('shop').toUpperCase()}
+      </H1>
       {productArr.map((product) => {
         return (
           <ProductSection

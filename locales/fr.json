@@ -6,6 +6,7 @@
       "values": "valeurs",
       "shop": "boutique",
       "contact": "contact",
+
       "gallery": "galerie",
       "label": "label",
       "about us": "A propos",
@@ -224,5 +225,9 @@
   "newsletter": {
     "heading": "Abonnez-vous à notre Newsletter !",
     "content": "Afin de nous louper aucun de nos événéments ainsi que les nouveautés de notre label"
+  },
+  "title": {
+    "contact-us": "Nous contacter",
+    "gallery": "Galerie"
   }
 }

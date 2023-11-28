@@ -234,5 +234,9 @@
   "newsletter": {
     "heading": "Subscribe to our Newsletter!",
     "content": "To not miss any of our events and stay updated on the latest from our label."
+  },
+  "title": {
+    "contact-us": "Contact us",
+    "gallery": "Gallery"
   }
 }

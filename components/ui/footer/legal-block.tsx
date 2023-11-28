@@ -18,7 +18,8 @@ export default function LegalBlock({
   custom,
   exit,
   currentNavStyle,
-  intent
+  intent,
+  customSetter
 }: FooterBlockProps) {
   const pathname = usePathname();
   const isActive = pathname.includes('legal');
@@ -47,6 +48,7 @@ export default function LegalBlock({
         {legalLinks.map((link, index) =>
           index === 0 ? (
             <NavLink
+              customSetter={customSetter}
               hover={true}
               intent={intent}
               currentNavStyle={currentNavStyle}
@@ -57,6 +59,7 @@ export default function LegalBlock({
             </NavLink>
           ) : (
             <NavLink
+              customSetter={customSetter}
               hover={true}
               intent={intent}
               currentNavStyle={currentNavStyle}

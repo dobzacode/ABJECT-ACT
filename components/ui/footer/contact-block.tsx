@@ -10,10 +10,14 @@ import { FooterBlockProps } from './about-us-block';
 import SocialIcon from './social-icon';
 
 export const socialLinks = [
-  { href: 'mailto:abject.act@gmail.com', mdiPath: mdiEmail },
-  { href: 'https://www.facebook.com/AbjectAct?locale=fr_FR', mdiPath: mdiFacebook },
-  { href: 'https://www.instagram.com/abject_act/', mdiPath: mdiInstagram },
-  { href: 'https://soundcloud.com/abject-act', mdiPath: mdiSoundcloud }
+  { href: 'mailto:abject.act@gmail.com', mdiPath: mdiEmail, name: 'Email' },
+  {
+    href: 'https://www.facebook.com/AbjectAct?locale=fr_FR',
+    mdiPath: mdiFacebook,
+    name: 'Facebook'
+  },
+  { href: 'https://www.instagram.com/abject_act/', mdiPath: mdiInstagram, name: 'Instagram' },
+  { href: 'https://soundcloud.com/abject-act', mdiPath: mdiSoundcloud, name: 'Soundcloud' }
 ];
 
 export default function ContactBlock({
