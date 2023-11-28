@@ -50,7 +50,7 @@ export default function MobileFooter({
       </div>
       <ul
         className={`body flex h-sub-large flex-wrap items-start  ${
-          isActive === 'legal' ? 'justify-center gap-large' : 'justify-between gap-extra-small'
+          isActive === 'legal' ? 'justify-center gap-small' : 'justify-between gap-extra-small'
         }`}
       >
         {isActive === 'about us' &&
