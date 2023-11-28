@@ -13,7 +13,7 @@ export const metadata = {
 
 export default async function HomePage() {
   return (
-    <main className="relative flex min-h-screen flex-col items-center gap-sub-extra-large overflow-x-hidden px-small py-extra-large tablet:px-0">
+    <main className="relative flex min-h-screen flex-col items-center gap-large overflow-x-hidden px-small py-extra-large tablet:px-0">
       <section className="relative flex flex-col ">
         <H1
           textType={'heading--extra-large'}
@@ -21,7 +21,7 @@ export default async function HomePage() {
         >
           LABEL
         </H1>
-        <div className="slideInFromBottom flex h-fit w-fit max-w-[600px] flex-col justify-between gap-medium overflow-hidden rounded-small bg-black95 p-medium pt-[8rem] text-center text-black5 shadow-medium-light">
+        <div className="slideInFromBottom relative -z-10 flex h-fit w-fit max-w-[600px] flex-col justify-between gap-medium overflow-hidden rounded-small bg-black95 p-medium pt-[8rem] text-center text-black5 shadow-medium-light">
           <P intent="white" textType={'body'} className="pr-small font-extralight">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
@@ -29,7 +29,10 @@ export default async function HomePage() {
           </P>
         </div>
       </section>
-      <div className="flex max-w-[1100px] flex-wrap items-center justify-center gap-extra-large px-small">
+      <div
+        className="flex max-w-[1100px] flex-wrap items-center justify-center
+      gap-large px-small"
+      >
         {releases.map(({ link, pictureSrc, name }, index) => {
           return (
             <ReleaseCard

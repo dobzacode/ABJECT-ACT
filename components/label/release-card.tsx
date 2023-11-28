@@ -19,9 +19,9 @@ export default function ReleaseCard({
   return (
     <section
       className={cn(
-        'relative flex h-fit  w-fit justify-end  gap-medium   overflow-hidden  rounded-small bg-black95 text-black5  shadow-medium-light laptop:gap-sub-large',
+        'relative mx-small flex  h-fit w-fit  justify-end   gap-medium  overflow-hidden rounded-small bg-black95  text-black5 shadow-medium-light mobile-large:mx-0 laptop:gap-sub-large',
         direction === 'left'
-          ? 'slideInFromLeft transition-delay-1000'
+          ? 'slideInFromLeft transition-delay-1000 '
           : 'slideInFromRight transition-delay-1000'
       )}
       {...props}
@@ -34,7 +34,11 @@ export default function ReleaseCard({
           {name}
         </P>
       </a>
-      <div className={cn('relative  h-[40rem]   w-[40rem]  ')}>
+      <div
+        className={cn(
+          'relative  h-[28.4rem] w-[28.4rem]   mobile-large:h-[40rem] mobile-large:w-[40rem]  '
+        )}
+      >
         <Image
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           fill
