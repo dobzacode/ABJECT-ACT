@@ -1,4 +1,6 @@
-import MovingSection from 'components/ui/div/moving-section';
+import ContentSection from 'components/event/contect-section';
+import { H1 } from 'components/ui/text/h1';
+import { getTranslations } from 'next-intl/server';
 
 export const metadata = {
   description: 'High-performance ecommerce store built with Next.js, Vercel, and Shopify.',
@@ -8,25 +10,20 @@ export const metadata = {
 };
 
 export default async function HomePage() {
+  const t = await getTranslations('navigation.primaryNavigation');
+
   return (
-    <main className="h-screen overflow-hidden">
-      <MovingSection
-        alt="Pulsar"
-        imageSrc="/asset/event/pulsarph.jpg"
-        comingFrom="top"
-        link="/event/pulsar"
-        title="PULSAR"
-        className="h-1/2"
-      ></MovingSection>
-      <div className="w-full border-2 border-black" />
-      <MovingSection
-        alt="Assault"
-        imageSrc="/asset/event/assaultph.jpg"
-        comingFrom="bottom"
-        link="/event/assault"
-        title="ASSAULT"
-        className="h-1/2"
-      ></MovingSection>
+    <main
+      className="slideInFromRight overflox-x-hidden relative flex
+ h-full min-h-screen w-full flex-col items-center justify-center gap-large py-extra-large"
+    >
+      <H1
+        textType={'heading--extra-large'}
+        className="relative z-10 -mb-medium text-black5   tablet:mt-small"
+      >
+        {t('event').toUpperCase()}
+      </H1>
+      <ContentSection></ContentSection>
     </main>
   );
 }
