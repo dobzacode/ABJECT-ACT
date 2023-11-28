@@ -1,11 +1,14 @@
 import VideoBackground from 'components/ui/div/background-video';
+import { getTranslations } from 'next-intl/server';
 
-export const metadata = {
-  description: 'High-performance ecommerce store built with Next.js, Vercel, and Shopify.',
-  openGraph: {
-    type: 'website'
-  }
-};
+export async function generateMetadata() {
+  const t = await getTranslations('metadata.landing');
+
+  return {
+    title: t('title'),
+    description: t('description')
+  };
+}
 
 export default async function HomePage({}: { params: { lang: string; country: string } }) {
   return (

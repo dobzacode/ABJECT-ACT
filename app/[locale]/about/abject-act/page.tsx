@@ -2,10 +2,8 @@ import { H1 } from 'components/ui/text/h1';
 import P from 'components/ui/text/p';
 
 export const metadata = {
-  description: 'High-performance ecommerce store built with Next.js, Vercel, and Shopify.',
-  openGraph: {
-    type: 'website'
-  }
+  title: 'Abject Act',
+  description: 'Lorem ipsum'
 };
 
 export default async function HomePage() {

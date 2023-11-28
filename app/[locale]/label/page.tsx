@@ -2,14 +2,17 @@ import ReleaseCard from 'components/label/release-card';
 import releases from 'components/label/release.json';
 import { H1 } from 'components/ui/text/h1';
 import P from 'components/ui/text/p';
+import { getTranslations } from 'next-intl/server';
 import { v4 } from 'uuid';
 
-export const metadata = {
-  description: 'High-performance ecommerce store built with Next.js, Vercel, and Shopify.',
-  openGraph: {
-    type: 'website'
-  }
-};
+export async function generateMetadata() {
+  const t = await getTranslations('metadata.label');
+
+  return {
+    title: t('title'),
+    description: t('description')
+  };
+}
 
 export default async function HomePage() {
   return (

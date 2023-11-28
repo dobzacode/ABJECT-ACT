@@ -3,12 +3,14 @@ import RecaptchaProvider from 'components/providers/recaptcha-provider';
 import { H1 } from 'components/ui/text/h1';
 import { getTranslations } from 'next-intl/server';
 
-export const metadata = {
-  description: 'High-performance ecommerce store built with Next.js, Vercel, and Shopify.',
-  openGraph: {
-    type: 'website'
-  }
-};
+export async function generateMetadata() {
+  const t = await getTranslations('metadata.contact');
+
+  return {
+    title: t('title'),
+    description: t('description')
+  };
+}
 
 export default async function HomePage() {
   const t = await getTranslations('title');

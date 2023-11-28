@@ -2,12 +2,14 @@ import ContentSection from 'components/media/photo-video/content-section';
 import { H1 } from 'components/ui/text/h1';
 import { getTranslations } from 'next-intl/server';
 
-export const metadata = {
-  description: 'High-performance ecommerce store built with Next.js, Vercel, and Shopify.',
-  openGraph: {
-    type: 'website'
-  }
-};
+export async function generateMetadata() {
+  const t = await getTranslations('metadata.gallery');
+
+  return {
+    title: t('title'),
+    description: t('description')
+  };
+}
 
 export default async function GalleryPage() {
   const t = await getTranslations('title');

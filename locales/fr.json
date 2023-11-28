@@ -232,5 +232,75 @@
   },
   "values": {
     "risk-reduction": "réduction des risques"
+  },
+  "metadata": {
+    "abject-act": {
+      "title": "Abject Act",
+      "description": "lorem ipsum"
+    },
+    "join-us": {
+      "title": "Rejoins-nous",
+      "description": "Devenez bénévole en remplissant notre formulaire de contact et participez à la création de soirées techno inoubliables. En rejoignant notre équipe, vous contribuerez à faire vibrer la scène musicale locale et à offrir des expériences uniques à notre communauté. Remplissez le formulaire dès maintenant pour faire partie de l'aventure Abject Act."
+    },
+    "newsletter": {
+      "title": "Newsletter",
+      "description": "Découvrez en avant-première les prochains événements et les dernières nouveautés du label Abject Act. Ne manquez rien de l'expérience Abject Act, abonnez-vous dès maintenant."
+    },
+    "blacklarsen": {
+      "title": "Black Larsen",
+      "description": "lorem ipsum"
+    },
+    "morsure": {
+      "title": "Morsure",
+      "description": "lorem ipsum"
+    },
+    "spore": {
+      "title": "Spore",
+      "description": "lorem ipsum"
+    },
+    "krauss": {
+      "title": "Krauss",
+      "description": "lorem ipsum"
+    },
+    "artists": {
+      "title": "Nos Artistes",
+      "description": "Pénétrez l'univers captivant des artistes Abject Act. Explorez la créativité sans limites de nos producteurs et DJs. Découvrez le son distinctif qui définit notre label. Rencontrez les talents qui façonnent notre identité musicale."
+    },
+    "contact": {
+      "title": "Nous Contacter",
+      "description": "Contactez-nous pour ouvrir de nouvelles opportunités. Utilisez notre formulaire de contact pour soumettre vos demandes de partenariat ou pour toute autre question. Nous sommes ouverts aux collaborations inspirantes et aux échanges variés. Laissez-nous savoir comment nous pouvons travailler ensemble et élargir nos horizons. Votre message compte, et nous sommes impatients de vous entendre."
+    },
+    "event": {
+      "title": "Evénements",
+      "description": "Explorez notre calendrier d'événements pour découvrir les soirées passées et les prochains rendez-vous à ne pas manquer."
+    },
+    "gallery": {
+      "title": "Galerie",
+      "description": "Découvrez l'atmosphère captivante de nos événements à travers notre galerie. Parcourez des photos saisissantes et des aftermovies qui capturent l'énergie unique de chaque soirée. Plongez dans l'esthétique visuelle d'Abject Act et revivez les moments mémorables. Explorez notre galerie dès maintenant et imprégnez-vous de l'essence de notre expérience musicale."
+    },
+    "label": {
+      "title": "Label",
+      "description": "Explorez la richesse de notre catalogue musical sur la page label. Découvrez toutes nos releases techno, des créations sonores uniques qui définissent l'identité d'Abject Act. Plongez dans notre galerie de releases pour un aperçu complet de notre évolution musicale. Vivez l'expérience Abject Act à travers notre collection musicale soigneusement sélectionnée."
+    },
+    "legalinformation": {
+      "title": "Mentions légales",
+      "description": "Consultez nos mentions légales pour une transparence totale. Découvrez les informations juridiques et réglementaires qui encadrent notre plateforme. Chez Abject Act, nous nous engageons à respecter toutes les normes en vigueur. Accédez à notre page mentions légales pour obtenir des détails clairs et précis sur notre cadre juridique."
+    },
+    "privacy": {
+      "title": "Politique de confidentialité",
+      "description": "Protéger votre vie privée est notre priorité. Consultez notre politique de confidentialité pour comprendre comment nous traitons vos données. Chez Abject Act, nous nous engageons à garantir la sécurité et la transparence dans la gestion de vos informations personnelles. Visitez notre page de politique de confidentialité pour en savoir plus sur nos pratiques et vos droits."
+    },
+    "shop": {
+      "title": "Boutique",
+      "description": "Découvrez l'univers Abject Act à travers notre boutique en ligne "
+    },
+    "values": {
+      "title": "Valeurs",
+      "description": "xplorez les fondements d'Abject Act à travers notre page dédiée aux valeurs. Découvrez les principes qui guident notre engagement, de l'intégrité à l'innovation. Nous croyons en la puissance de la musique pour inspirer le changement et favoriser l'inclusion. Plongez dans nos valeurs fondamentales et rejoignez-nous dans la création d'une communauté unie par la passion musicale et la conviction partagée."
+    },
+    "landing": {
+      "title": "Abject Act",
+      "description": "Découvrez l'univers sonore d'Abject Act. Plongez dans une expérience musicale immersive, explorez nos événements captivants, parcourez notre galerie visuelle, et explorez notre boutique pour du merch exclusif. Rejoignez-nous dans notre engagement pour des valeurs fortes. "
+    }
   }
 }

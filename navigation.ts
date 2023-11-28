@@ -3,8 +3,6 @@ import { createLocalizedPathnamesNavigation, Pathnames } from 'next-intl/navigat
 export const locales = ['en', 'fr'] as const;
 
 export const pathnames = {
-  // If locales use different paths, you can
-  // specify each external path per locale.
   '/about': {
     en: '/about',
     fr: '/a-propos'
@@ -15,13 +13,10 @@ export const pathnames = {
     fr: '/a-propos/rejoins-nous'
   },
   '/about/newsletter': { en: '/about/newsletter', fr: '/a-propos/newsletter' },
+
   '/about/partnership': {
     en: '/about/partnership',
     fr: '/a-propos/partenariat'
-  },
-  '/about/sizing': {
-    en: '/about/sizing',
-    fr: '/a-propos/guide-des-tailles'
   },
 
   '/artists': {
@@ -47,11 +42,6 @@ export const pathnames = {
 
   '/contact': '/contact',
 
-  '/join-us': {
-    en: '/join-us',
-    fr: '/rejoins-nous'
-  },
-
   '/event': {
     en: '/event',
     fr: '/concert'
@@ -61,10 +51,7 @@ export const pathnames = {
 
   '/legal': 'legal',
   '/legal/informations': '/legal/informations',
-  '/legal/terms': {
-    en: '/legal/terms',
-    fr: '/legal/termes'
-  },
+
   '/legal/privacy': {
     en: '/legal/privacy',
     fr: '/legal/confidentialite'
@@ -79,6 +66,7 @@ export const pathnames = {
     en: '/shop',
     fr: '/boutique'
   },
+
   '/values': {
     en: '/values',
     fr: '/valeurs'

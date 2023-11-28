@@ -3,12 +3,14 @@ import P from 'components/ui/text/p';
 import DynamicSection from 'components/values/dynamic-section';
 import { getTranslations } from 'next-intl/server';
 
-export const metadata = {
-  description: 'High-performance ecommerce store built with Next.js, Vercel, and Shopify.',
-  openGraph: {
-    type: 'website'
-  }
-};
+export async function generateMetadata() {
+  const t = await getTranslations('metadata.values');
+
+  return {
+    title: t('title'),
+    description: t('description')
+  };
+}
 
 export default async function HomePage() {
   const t = await getTranslations('navigation.primaryNavigation');

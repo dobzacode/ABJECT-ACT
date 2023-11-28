@@ -1,13 +1,14 @@
 import MovingSection from 'components/ui/div/moving-section';
+import { getTranslations } from 'next-intl/server';
 
-export const runtime = 'edge';
+export async function generateMetadata() {
+  const t = await getTranslations('metadata.artists');
 
-export const metadata = {
-  description: 'High-performance ecommerce store built with Next.js, Vercel, and Shopify.',
-  openGraph: {
-    type: 'website'
-  }
-};
+  return {
+    title: t('title'),
+    description: t('description')
+  };
+}
 
 export default async function HomePage() {
   return (
