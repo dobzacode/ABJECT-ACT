@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import { v4 } from 'uuid';
 import Button from '../button/button';
 import NavLink from '../header/nav-link';
@@ -18,6 +19,34 @@ export default function MobileFooter({
   const [isActive, setIsActive] = useState<'contact' | 'about us' | 'legal'>('about us');
 
   const t = useTranslations('navigation.primaryNavigation');
+
+  const pathname = usePathname();
+
+  useEffect(() => {
+    if (pathname.includes(t('about us'))) {
+      return setIsActive('about us');
+    }
+    if (pathname.includes('contact')) {
+      return setIsActive('contact');
+    }
+    if (
+      pathname.includes(
+        t('legal')
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '')
+          .toLowerCase()
+      )
+    ) {
+      return setIsActive('legal');
+    }
+  }, [pathname, t]);
+
+  console.log(
+    t('legal')
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+  );
 
   return (
     <motion.div
