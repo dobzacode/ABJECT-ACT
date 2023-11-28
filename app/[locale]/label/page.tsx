@@ -17,11 +17,11 @@ export default async function HomePage() {
       <section className="relative flex flex-col ">
         <H1
           textType={'heading--extra-large'}
-          className="slideInFromTop relative z-10 -mb-large text-center text-black5 max-mobile-large:text-heading-large max-mobile-large:leading-heading-large tablet:mt-small"
+          className="slideInFromTop relative z-10 -mb-[4rem] text-center text-black5 max-mobile-large:text-heading-sub-extra-large  tablet:-mb-large tablet:mt-small"
         >
           LABEL
         </H1>
-        <div className="slideInFromBottom relative -z-10 flex h-fit w-fit max-w-[600px] flex-col justify-between gap-medium overflow-hidden rounded-small bg-black95 p-medium pt-[8rem] text-center text-black5 shadow-medium-light">
+        <div className="slideInFromBottom flex h-fit w-fit max-w-[600px] flex-col justify-between gap-medium overflow-hidden rounded-small bg-black95 p-medium pt-[6rem]  text-center text-black5 shadow-medium-light tablet:pt-[8rem]">
           <P intent="white" textType={'body'} className="pr-small font-extralight">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
