@@ -43,7 +43,9 @@
     "order": "ACHETER MAINTENANT"
   },
   "consent": {
-    "cookie": "Ce site internet utilise un cookie afin d'améliorer l'internationalisation du contenu. En naviguant sur ce site, vous acceptez l'utilisation de ce cookie."
+    "cookie": "Ce site internet utilise un cookie afin d'améliorer l'internationalisation du contenu. En naviguant sur ce site, vous acceptez l'utilisation de ce cookie.",
+    "accept": "Accepter",
+    "deny": "Refuser"
   },
   "legal": {
     "title": "Mentions légales",

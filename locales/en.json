@@ -44,7 +44,9 @@
   },
 
   "consent": {
-    "cookie": " This website use a cookie to enhance the concent localization. By continuing to browse the site you are agreeing to our use of this cookie."
+    "cookie": " This website use a cookie to enhance the concent localization. By continuing to browse the site you are agreeing to our use of this cookie.",
+    "accept": "Accept",
+    "deny": "Decline"
   },
   "privacy": {
     "title": "Privacy Policy",

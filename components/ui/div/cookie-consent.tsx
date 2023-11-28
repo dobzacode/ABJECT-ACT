@@ -29,15 +29,25 @@ const CookieConsent = () => {
   }
 
   return (
-    <div className="fixed inset-0 bg-slate-700 bg-opacity-70">
-      <div className="fixed bottom-0 left-0 right-0 flex items-center justify-between bg-black pl-extra-small text-white ">
-        <P className="body mr-16">{t('cookie')}</P>
-        <div>
-          <Button size="small" intent="error" onClick={() => declineCookie()}>
-            Decline
+    <div className="fixed inset-0 z-[100] h-full bg-black bg-opacity-40">
+      <div className="fixed bottom-0 left-0 right-0 flex h-fit items-center justify-between bg-black bg-opacity-40   text-white max-mobile-large:flex-col">
+        <P className="body mr-16 py-extra-small pl-extra-small">{t('cookie')}</P>
+        <div className="items flex flex-wrap max-mobile-large:w-full    mobile-large:h-full tablet:whitespace-nowrap min-[800px]:flex-nowrap">
+          <Button
+            className="w-full min-[800px]:h-large min-[1451px]:h-auto"
+            size="small"
+            intent="error"
+            onClick={() => declineCookie()}
+          >
+            {t('deny')}
           </Button>
-          <Button size="small" intent="success" onClick={() => acceptCookie()}>
-            Accept
+          <Button
+            className=" w-full min-[800px]:h-large min-[1451px]:h-auto"
+            size="small"
+            intent="success"
+            onClick={() => acceptCookie()}
+          >
+            {t('accept')}
           </Button>
         </div>
       </div>
