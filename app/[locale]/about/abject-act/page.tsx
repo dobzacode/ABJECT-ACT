@@ -17,7 +17,7 @@ export default async function HomePage() {
       >
         ABJECT ACT
       </H1>
-      <div className="flex flex-col gap-small">
+      <div className="slideInFromLeft flex flex-col gap-small px-small tablet:px-0">
         <P textType={'sub-heading'} className="slideInLeft max-w-[600px] text-center text-black5">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
           ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation

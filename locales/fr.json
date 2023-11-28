@@ -229,5 +229,8 @@
   "title": {
     "contact-us": "Nous contacter",
     "gallery": "Galerie"
+  },
+  "values": {
+    "risk-reduction": "réduction des risques"
   }
 }

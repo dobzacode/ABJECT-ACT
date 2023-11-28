@@ -16,7 +16,7 @@ export default async function HomePage() {
     <main className="relative flex h-screen flex-col items-center gap-sub-large overflow-hidden pt-extra-large">
       <H1
         textType={'heading--extra-large'}
-        className="relative z-10 text-center text-black5 max-mobile-large:text-heading-large max-mobile-large:leading-heading-large tablet:mt-small"
+        className="slideInFromTop relative z-10 text-center text-black5 max-mobile-large:text-heading-large max-mobile-large:leading-heading-large tablet:mt-small"
       >
         {t('contact-us').toUpperCase()}
       </H1>

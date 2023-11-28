@@ -14,7 +14,7 @@ export default async function GalleryPage() {
   return (
     <main
       className="slideInFromRight overflox-x-hidden relative flex
-     h-full min-h-screen w-full flex-col items-center justify-center pt-extra-large"
+     h-full min-h-screen w-full flex-col items-center justify-center py-extra-large"
     >
       <H1
         textType={'heading--extra-large'}

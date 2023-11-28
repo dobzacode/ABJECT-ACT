@@ -30,7 +30,7 @@ const EventSection: React.FC<EventSectionProps> = ({
       whileInView={{ opacity: 1, translateX: 0, transition: { type: 'spring' } }}
       viewport={{ margin: '-50% 0px -20% 0px' }}
       className={cn(
-        'bg-black95 shadow-medium-light relative flex h-full w-full flex-col  gap-medium overflow-hidden rounded-small  pt-sub-large laptop:w-10/12 laptop:gap-sub-large  '
+        'relative flex h-full w-full flex-col gap-medium overflow-hidden  rounded-small bg-black95 pt-sub-large  shadow-medium-light laptop:w-10/12 laptop:gap-sub-large  '
       )}
       {...props}
     >
