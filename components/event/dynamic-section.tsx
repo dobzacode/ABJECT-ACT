@@ -33,9 +33,9 @@ const DynamicSection: React.FC<DynamicSectionProps> = ({
   const format = useFormatter();
   const dateTime = new Date(date);
   const today = new Date();
-  const isOlder = dateTime.toDateString() > today.toDateString();
+  const isOlder = dateTime > today;
 
-  console.log(isOlder);
+  console.log(dateTime.toDateString(), today.toDateString());
 
   return (
     <motion.section
