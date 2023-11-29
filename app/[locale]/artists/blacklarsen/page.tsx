@@ -3,7 +3,7 @@ import ArtistCard from 'components/artists/artist-card';
 import NextEventCard from 'components/artists/next-event-card';
 import PastEventCard from 'components/artists/past-event-card';
 import LastReleaseCard from 'components/artists/release-card';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
 export async function generateMetadata() {
   const t = await getTranslations('metadata.blacklarsen');

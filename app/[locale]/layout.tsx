@@ -1,7 +1,6 @@
 import { Header } from 'components/ui/header/header';
 
 import CookieConsent from 'components/ui/div/cookie-consent';
-import { locales } from 'navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { unstable_setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -9,7 +8,7 @@ import { ReactNode } from 'react';
 import './globals.css';
 
 export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
+  return [{ locale: 'en' }, { locale: 'fr' }];
 }
 
 export default async function RootLayout({
@@ -17,7 +16,7 @@ export default async function RootLayout({
   params: { locale }
 }: {
   children: ReactNode;
-  params: { locale: 'fr' | 'en' | string };
+  params: { locale: 'en' | string };
 }) {
   let messages;
   try {
