@@ -66,8 +66,8 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ imageFolder }) => {
   if (!images)
     return (
       <div className="flex">
-        <div className="relative z-40 flex h-[30rem] w-[30rem] animate-pulse border-r  border-black bg-black80 mobile-large:h-[40rem]"></div>
-        <div className="relative z-40 flex h-[30rem] w-[30rem] animate-pulse border-r  border-black bg-black80 mobile-large:h-[40rem]"></div>
+        <div className="relative z-40 flex h-[30rem] w-[30rem] animate-pulse border-r border-black border-opacity-40 bg-black80 mobile-large:h-[40rem]"></div>
+        <div className="relative z-40 flex h-[30rem] w-[30rem] animate-pulse border-r  border-black border-opacity-40 bg-black80 mobile-large:h-[40rem]"></div>
         <div className="relative z-40 flex h-[30rem] w-[30rem] animate-pulse   border-black bg-black80 mobile-large:h-[40rem]"></div>
       </div>
     );
@@ -91,7 +91,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ imageFolder }) => {
         {images.map((image, index) => (
           <div
             key={index}
-            className="relative z-40 flex h-[30rem]  w-[20rem] border-x  border-black mobile-large:h-[40rem] "
+            className="relative z-40 flex h-[30rem]  w-[20rem] border-r border-black  border-opacity-40 mobile-large:h-[40rem] "
             onClick={() => {
               console.log(lightboxIsOpen);
               openLightbox(index);
