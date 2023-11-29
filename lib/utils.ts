@@ -22,7 +22,9 @@ export function delay(URL: Url) {
 }
 
 export const baseUrl =
-  process.env.NODE_ENV === 'development' ? 'http://localhost:3000/' : process.env.VERCEL_URL;
+  process.env.NODE_ENV === 'development'
+    ? 'http://localhost:3000/'
+    : 'https://abject-act.vercel.app';
 
 export async function dynamicBlurDataUrl(url: string) {
   const base64str = await fetch(`${baseUrl}/_next/image?url=${url}&w=16&q=75`).then(async (res) =>
