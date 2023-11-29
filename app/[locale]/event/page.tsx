@@ -14,12 +14,12 @@ export default async function HomePage({ params: { locale } }: { params: { local
   unstable_setRequestLocale(locale);
   return (
     <main
-      className="slideInFromRight relative flex h-full
+      className=" relative flex h-full
  min-h-screen w-screen flex-col items-center justify-center gap-large overflow-x-hidden px-small py-extra-large"
     >
       <H1
         textType={'heading--extra-large'}
-        className="relative z-10 -mb-medium text-black5   tablet:mt-small"
+        className="slideInFromRight relative z-10 -mb-medium   text-black5 tablet:mt-small"
       >
         EVENT
       </H1>

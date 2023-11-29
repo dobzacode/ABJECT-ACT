@@ -4,11 +4,12 @@ import Icon from '@mdi/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { cn } from 'lib/utils';
 import { useTranslations } from 'next-intl';
-import React, { FC, useRef, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 
 import { mdiClose, mdiMenu } from '@mdi/js';
 import useBetterMediaQuery from 'components/hooks/use-better-media-query';
 import { Variants } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 import { CSSTransition } from 'react-transition-group';
 import Logo from '../branding/logo';
 import AboutUsBlock from '../footer/about-us-block';
@@ -87,6 +88,21 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
 
   const [showMenu, setShowMenu] = useState<boolean>(false);
 
+  const [triggerClass, setTriggerClass] = useState(false);
+
+  const pathname = usePathname();
+
+  useEffect(() => {
+    console.log('xd');
+    setTriggerClass(true);
+
+    const timeoutId = setTimeout(() => {
+      setTriggerClass(false);
+    }, 2000);
+
+    return () => clearTimeout(timeoutId);
+  }, [pathname]);
+
   const t = useTranslations('navigation.primaryNavigation');
 
   const navRef = useRef();
@@ -106,7 +122,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
   return (
     <>
       <header className={cn(className)}>
-        <div className=" relative z-30 flex w-full items-center justify-between">
+        <div className=" absolute top-0 z-30 flex w-full items-center justify-between">
           <AnimatePresence>
             {!showMenu ? (
               <motion.button
@@ -114,7 +130,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1, transition: { duration: 1 } }}
                 exit={{ opacity: 0 }}
-                className="absolute left-0 h-fit w-fit"
+                className="absolute left-small h-fit w-fit  laptop:left-large"
                 onClick={() => setShowMenu(true)}
               >
                 <Icon
@@ -129,7 +145,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
                 initial={{ opacity: 0, rotate: 360 }}
                 animate={{ opacity: 1, rotate: 0, transition: { duration: 1, ease: 'easeOut' } }}
                 exit={{ opacity: 0, transition: { duration: 0.4 } }}
-                className="absolute left-0 h-fit w-fit"
+                className="absolute left-small h-fit w-fit  laptop:left-large"
                 onClick={() => setShowMenu(false)}
               >
                 <Icon
@@ -141,7 +157,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
             )}
           </AnimatePresence>
 
-          <div className="fadeIn absolute  left-1/2 -translate-x-1/2 transform">
+          <div className={'fadeIn absolute  left-1/2 -translate-x-1/2 transform'}>
             <Logo
               customSetter={() => setShowMenu(false)}
               href="/"

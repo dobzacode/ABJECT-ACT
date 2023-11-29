@@ -16,12 +16,12 @@ export default async function GalleryPage({ params: { locale } }: { params: { lo
   const t = await getTranslations('title');
   return (
     <main
-      className="slideInFromRight overflox-x-hidden relative flex
-     h-full min-h-screen w-screen flex-col items-center justify-center py-extra-large"
+      className=" relative flex h-full
+     min-h-screen w-screen flex-col items-center justify-center overflow-x-hidden py-extra-large"
     >
       <H1
         textType={'heading--extra-large'}
-        className="relative z-10 -mb-medium text-black5   tablet:mt-small"
+        className="slideInFromRight relative z-10 -mb-medium text-black5   tablet:mt-small"
       >
         {t('gallery').toUpperCase()}
       </H1>

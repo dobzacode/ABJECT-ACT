@@ -48,6 +48,9 @@ const Logo: FC<LogoProps> = ({
         {...props}
       >
         <Image
+          className={className}
+          placeholder="blur"
+          blurDataURL={src}
           alt={`Abject act logo`}
           src={src}
           width={40}

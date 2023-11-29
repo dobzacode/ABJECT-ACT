@@ -16,7 +16,7 @@ export default function LangageSwitch() {
   };
 
   return (
-    <div className="fadeIn absolute -top-extra-small right-extra-small flex items-center gap-extra-small laptop:right-large ">
+    <div className="fadeIn absolute right-extra-small flex items-center gap-extra-small laptop:right-large ">
       <Icon path={mdiWeb} color="white" size={1.5}></Icon>
       <span className="body flex gap-2 text-white">
         <Button
