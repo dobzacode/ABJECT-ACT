@@ -1,7 +1,7 @@
 import { H1 } from 'components/ui/text/h1';
 import P from 'components/ui/text/p';
 import DynamicSection from 'components/values/dynamic-section';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
 export async function generateMetadata() {
   const t = await getTranslations('metadata.values');
@@ -12,7 +12,8 @@ export async function generateMetadata() {
   };
 }
 
-export default async function HomePage() {
+export default async function HomePage({ params: { locale } }: { params: { locale: string } }) {
+  unstable_setRequestLocale(locale);
   const t = await getTranslations('navigation.primaryNavigation');
   const tContent = await getTranslations('values');
 

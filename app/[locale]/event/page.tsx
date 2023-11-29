@@ -1,6 +1,6 @@
 import ContentSection from 'components/event/content-section';
 import { H1 } from 'components/ui/text/h1';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
 export async function generateMetadata() {
   const t = await getTranslations('metadata.event');
@@ -10,7 +10,8 @@ export async function generateMetadata() {
     description: t('description')
   };
 }
-export default async function HomePage() {
+export default async function HomePage({ params: { locale } }: { params: { locale: string } }) {
+  unstable_setRequestLocale(locale);
   return (
     <main
       className="slideInFromRight relative flex h-full

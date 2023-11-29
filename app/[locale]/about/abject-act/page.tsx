@@ -1,12 +1,14 @@
 import { H1 } from 'components/ui/text/h1';
 import P from 'components/ui/text/p';
+import { unstable_setRequestLocale } from 'next-intl/server';
 
 export const metadata = {
   title: 'Abject Act',
   description: 'Lorem ipsum'
 };
 
-export default async function HomePage() {
+export default async function HomePage({ params: { locale } }: { params: { locale: string } }) {
+  unstable_setRequestLocale(locale);
   return (
     <main className="relative flex h-screen flex-col items-center gap-sub-large overflow-hidden pt-extra-large">
       <H1

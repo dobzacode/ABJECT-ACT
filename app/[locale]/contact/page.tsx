@@ -1,7 +1,7 @@
 import ContactSection from 'components/contact/contact-section';
 import RecaptchaProvider from 'components/providers/recaptcha-provider';
 import { H1 } from 'components/ui/text/h1';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
 export async function generateMetadata() {
   const t = await getTranslations('metadata.contact');
@@ -12,7 +12,8 @@ export async function generateMetadata() {
   };
 }
 
-export default async function HomePage() {
+export default async function HomePage({ params: { locale } }: { params: { locale: string } }) {
+  unstable_setRequestLocale(locale);
   const t = await getTranslations('title');
   return (
     <main className="relative flex h-screen flex-col items-center gap-sub-large overflow-hidden pt-extra-large">

@@ -1,6 +1,6 @@
 import ContentSection from 'components/media/photo-video/content-section';
 import { H1 } from 'components/ui/text/h1';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
 export async function generateMetadata() {
   const t = await getTranslations('metadata.gallery');
@@ -11,7 +11,8 @@ export async function generateMetadata() {
   };
 }
 
-export default async function GalleryPage() {
+export default async function GalleryPage({ params: { locale } }: { params: { locale: string } }) {
+  unstable_setRequestLocale(locale);
   const t = await getTranslations('title');
   return (
     <main

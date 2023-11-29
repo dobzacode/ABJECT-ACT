@@ -1,5 +1,5 @@
 import VideoBackground from 'components/ui/div/background-video';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
 export async function generateMetadata() {
   const t = await getTranslations('metadata.landing');
@@ -10,7 +10,8 @@ export async function generateMetadata() {
   };
 }
 
-export default async function HomePage({}: { params: { lang: string; country: string } }) {
+export default async function HomePage({ params: { locale } }: { params: { locale: string } }) {
+  unstable_setRequestLocale(locale);
   return (
     <main>
       <VideoBackground src={'/asset/background/video/1089037097-preview.mp4'}></VideoBackground>

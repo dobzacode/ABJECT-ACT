@@ -13,7 +13,8 @@ export async function generateMetadata() {
   };
 }
 
-export default async function HomePage() {
+export default async function HomePage({ params: { locale } }: { params: { locale: string } }) {
+  unstable_setRequestLocale(locale);
   return (
     <>
       <section className=" relative flex h-fit flex-col gap-medium max-[630px]:grid-cols-2 mobile-large:grid   min-[630px]:mb-[400px] tablet:grid-cols-none tablet:grid-rows-none">

@@ -1,7 +1,7 @@
 import { H1 } from 'components/ui/text/h1';
 import H2 from 'components/ui/text/h2';
 import P from 'components/ui/text/p';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
 export async function generateMetadata() {
   const t = await getTranslations('metadata.legalinformation');
@@ -12,7 +12,8 @@ export async function generateMetadata() {
   };
 }
 
-export default async function HomePage() {
+export default async function HomePage({ params: { locale } }: { params: { locale: string } }) {
+  unstable_setRequestLocale(locale);
   const t = await getTranslations('legal');
   return (
     <main className="slideInFromBottom flex flex-col gap-sub-large px-small py-extra-large text-white mobile-large:px-large">

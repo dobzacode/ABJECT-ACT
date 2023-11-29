@@ -1,5 +1,5 @@
 import MovingSection from 'components/ui/div/moving-section';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
 export async function generateMetadata() {
   const t = await getTranslations('metadata.artists');
@@ -10,7 +10,8 @@ export async function generateMetadata() {
   };
 }
 
-export default async function HomePage() {
+export default async function HomePage({ params: { locale } }: { params: { locale: string } }) {
+  unstable_setRequestLocale(locale);
   return (
     <main className="h-screen overflow-x-hidden">
       <MovingSection

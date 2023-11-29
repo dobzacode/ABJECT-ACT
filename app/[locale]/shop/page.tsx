@@ -1,6 +1,6 @@
 import ProductSection from 'components/shop/product/product-section';
 import { H1 } from 'components/ui/text/h1';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import { v4 } from 'uuid';
 
 export async function generateMetadata() {
@@ -23,7 +23,8 @@ const productArr = [
   }
 ];
 
-export default async function HomePage() {
+export default async function HomePage({ params: { locale } }: { params: { locale: string } }) {
+  unstable_setRequestLocale(locale);
   const t = await getTranslations('navigation.primaryNavigation');
   return (
     <main className="relative flex h-screen flex-col items-center gap-sub-large overflow-hidden pt-extra-large">
