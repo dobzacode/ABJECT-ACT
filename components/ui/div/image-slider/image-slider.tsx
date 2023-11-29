@@ -65,7 +65,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ imageFolder }) => {
 
   if (!images)
     return (
-      <div className="relative z-40 flex h-[30rem]   w-[20rem] animate-pulse mobile-large:h-[40rem]"></div>
+      <div className="relative z-40 flex h-[30rem] w-full  animate-pulse bg-black70 mobile-large:h-[40rem]"></div>
     );
 
   const slides = images.map((item) => ({
