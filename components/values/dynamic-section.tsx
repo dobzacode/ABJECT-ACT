@@ -34,6 +34,8 @@ const DynamicSection: React.FC<DynamicSectionProps> = ({
         )}
       >
         <Image
+          placeholder="blur"
+          blurDataURL="/asset/additional-icon/bandcamp-button-circle-whiteblack-128.png"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           fill
           className="object-contain"

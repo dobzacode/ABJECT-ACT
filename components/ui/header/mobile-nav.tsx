@@ -241,7 +241,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
             ref={footerRef as any}
             key="footer"
             className={cn(
-              'fixed bottom-large left-small z-30 mb-small mr-large flex h-1/5 w-[90vw] flex-col justify-end  gap-medium text-white mobile-large:left-14  tablet:mb-sub-large  tablet:mt-large tablet:h-fit tablet:flex-row tablet:flex-wrap tablet:justify-between tablet:gap-sub-large laptop:left-auto',
+              'fixed bottom-small left-small z-30 mb-small mr-large flex h-1/5 w-[90vw] flex-col justify-end  gap-medium text-white mobile-large:left-14  tablet:mb-sub-large  tablet:mt-large tablet:h-fit tablet:flex-row tablet:flex-wrap tablet:justify-between tablet:gap-sub-large laptop:left-auto',
               modalOffset()
             )}
           >

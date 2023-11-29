@@ -38,7 +38,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
           <br />
           <br /> {t('legalInformation.content2')}
           <br /> {t('legalInformation.content3')}
-          <br /> {t('legalInformation.content4')} <br></br> {t('legalInformations.content5')}
+          <br /> {t('legalInformation.content4')} <br></br> {t('legalInformation.content5')}
           <br />
           <br /> {t('legalInformation.webmaster')} <br />
           {t('legalInformation.webmasterEmail')}

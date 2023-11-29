@@ -34,6 +34,8 @@ export default async function ProductSection({
         )}
       >
         <Image
+          placeholder="blur"
+          blurDataURL={src}
           width={300}
           height={300}
           className="drop-shadow-light absolute -top-[16rem] left-1/2 -translate-x-1/2 transform "
@@ -65,7 +67,7 @@ export default async function ProductSection({
 
           <a href={link} className="absolute -bottom-[9rem]">
             <Button
-              className={`shadow-info-medium-light  border border-info60 duration-medium hover:scale-110`}
+              className={`border  border-info60 shadow-info-medium-light duration-medium hover:scale-110`}
               size="small"
               rounded="small"
               type="submit"

@@ -78,7 +78,7 @@ export default function MobileFooter({
         </Button>
       </div>
       <ul
-        className={`body flex h-sub-large flex-wrap items-start  ${
+        className={`body flex h-sub-large flex-wrap items-center ${
           isActive === 'legal' ? 'justify-center gap-small' : 'justify-between gap-extra-small'
         }`}
       >

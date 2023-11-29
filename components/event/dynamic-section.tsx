@@ -35,8 +35,6 @@ const DynamicSection: React.FC<DynamicSectionProps> = ({
   const today = new Date();
   const isOlder = dateTime > today;
 
-  console.log(dateTime.toDateString(), today.toDateString());
-
   return (
     <motion.section
       className={cn(
@@ -50,6 +48,8 @@ const DynamicSection: React.FC<DynamicSectionProps> = ({
     >
       <div className={cn('relative  h-[200px] w-full ')}>
         <Image
+          blurDataURL={imageSrc}
+          placeholder="blur"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           fill
           className="object-cover"

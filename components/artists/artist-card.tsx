@@ -18,12 +18,19 @@ export default function ArtistCard({ artist, socials, artistSrc, className }: Ar
   return (
     <div
       className={cn(
-        'slideInFromLeft bg-black95 shadow-medium-light flex h-fit w-fit flex-col justify-between gap-medium overflow-hidden rounded-small pb-medium',
+        'slideInFromLeft flex h-fit w-fit flex-col justify-between gap-medium overflow-hidden rounded-small bg-black95 pb-medium shadow-medium-light',
         className
       )}
     >
       <div className="relative h-[30rem] w-full ">
-        <Image className="l object-cover" fill src={artistSrc} alt={`morsure picture`}></Image>
+        <Image
+          placeholder="blur"
+          blurDataURL={artistSrc}
+          className="l object-cover"
+          fill
+          src={artistSrc}
+          alt={`morsure picture`}
+        ></Image>
       </div>
       <div className="mx-small flex flex-col gap-medium text-white tablet:w-[40rem]">
         <H1 className="font-extralight" textType={'heading--large'}>
