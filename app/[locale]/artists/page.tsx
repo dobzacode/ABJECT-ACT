@@ -13,14 +13,17 @@ export async function generateMetadata() {
 export default async function HomePage({ params: { locale } }: { params: { locale: string } }) {
   unstable_setRequestLocale(locale);
   return (
-    <main className="h-screen overflow-x-hidden">
+    <main
+      className="relative flex h-full
+    min-h-screen w-screen flex-col overflow-x-hidden"
+    >
       <MovingSection
         alt="Morsure"
         imageSrc="/asset/artist/morsure.jpg"
         comingFrom="left"
         link="/artists/morsure"
         title="MORSURE"
-        className="h-1/3"
+        className="h-[33rem]"
         imageCSS="object-[10%,40%]"
       ></MovingSection>
       <div className="w-full border-2 border-black" />
@@ -30,7 +33,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
         comingFrom="right"
         link="/artists/blacklarsen"
         title="BLACK LARSEN"
-        className="h-1/3"
+        className="h-[33rem]"
         imageCSS="object-[10%,30%]"
       ></MovingSection>
       <div className="w-full border-2 border-black" />
@@ -40,7 +43,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
         comingFrom="left"
         link="/artists/spore"
         title="SPORE"
-        className="h-1/3"
+        className="h-[33rem]"
         imageCSS=" object-[25%,35%]"
       ></MovingSection>
       <div className="w-full border-2 border-black" />
@@ -50,7 +53,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
         comingFrom="right"
         link="/artists/krauss"
         title="KRAUSS"
-        className="h-1/3"
+        className="h-[33rem]"
         imageCSS=" object-[25%,35%]"
       ></MovingSection>
     </main>

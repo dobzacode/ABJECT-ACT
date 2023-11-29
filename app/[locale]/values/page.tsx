@@ -18,7 +18,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
   const tContent = await getTranslations('values');
 
   return (
-    <main className="relative flex h-screen flex-col items-center gap-sub-extra-large overflow-x-hidden px-small py-extra-large tablet:px-0">
+    <main className="relative flex h-full min-h-screen flex-col items-center gap-sub-extra-large overflow-x-hidden px-small py-extra-large tablet:px-0">
       <section className="relative flex flex-col ">
         <H1
           textType={'heading--extra-large'}

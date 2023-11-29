@@ -1,8 +1,8 @@
 'use client';
 
-import { cn } from 'lib/utils';
+import { cn, dynamicBlurDataUrl } from 'lib/utils';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
@@ -15,9 +15,32 @@ interface ImageSliderProps {
   imageFolder: string;
 }
 
+interface imageProps {
+  original: string;
+  originalAlt: string;
+  thumbnail: string;
+  description: string;
+  blurHash: string;
+}
+
 const ImageSlider: React.FC<ImageSliderProps> = ({ imageFolder }) => {
   const [lightboxIsOpen, setLightboxIsOpen] = useState<boolean>(false);
   const [currentImage, setCurrentImage] = useState<number>(0);
+  const [images, setImages] = useState<imageProps[] | null>(null);
+
+  useEffect(() => {
+    const defineImg = async () => {
+      const images = Array.from({ length: 10 }, async (_, i) => ({
+        original: `${imageFolder}/pic${i + 1}.jpg`,
+        originalAlt: `pic${i + 1}`,
+        thumbnail: `${imageFolder}/pic${i + 1}.jpg`,
+        description: `Photo ${i + 1}`,
+        blurHash: await dynamicBlurDataUrl(`${imageFolder}/pic${i + 1}.jpg`)
+      }));
+      setImages(await Promise.all(images));
+    };
+    defineImg();
+  }, [imageFolder]);
 
   const openLightbox = (index: number) => {
     setCurrentImage(index);
@@ -29,12 +52,21 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ imageFolder }) => {
     setLightboxIsOpen(false);
   };
 
-  const images = Array.from({ length: 10 }, (_, i) => ({
-    original: `${imageFolder}/pic${i + 1}.jpg`,
-    originalAlt: `pic${i + 1}`,
-    thumbnail: `${imageFolder}/pic${i + 1}.jpg`,
-    description: `Photo ${i + 1}`
-  }));
+  const settings = {
+    infinite: true,
+    arrows: false,
+    speed: 2000,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    swipeToSlide: true,
+    autoplaySpeed: 3000
+  };
+
+  if (!images)
+    return (
+      <div className="relative z-40 flex h-[30rem]   w-[20rem] animate-pulse mobile-large:h-[40rem]"></div>
+    );
 
   const slides = images.map((item) => ({
     src: item.original,
@@ -48,17 +80,6 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ imageFolder }) => {
       { src: item.original, width: 3840, height: 2560 }
     ]
   }));
-
-  const settings = {
-    infinite: true,
-    arrows: false,
-    speed: 2000,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    swipeToSlide: true,
-    autoplaySpeed: 3000
-  };
 
   return (
     <>
@@ -74,7 +95,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ imageFolder }) => {
           >
             <Image
               placeholder="blur"
-              blurDataURL={image.thumbnail}
+              blurDataURL={image.blurHash}
               className={cn('object-cover ')}
               fill
               src={image.thumbnail}
