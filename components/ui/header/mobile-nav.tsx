@@ -163,7 +163,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
               href="/"
               src={'/asset/aa_logo_white.png'}
               intent={intent}
-              className=" relative z-[100]"
+              className={cn(' relative z-[100]', triggerClass ? 'grow-animation' : '')}
             ></Logo>
           </div>
 
@@ -178,7 +178,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
               modalOffset()
             )}
           >
-            <ul className={'flex w-fit flex-col justify-center '}>
+            <ul className={'absolute  flex w-fit translate-y-1/4 flex-col  justify-center'}>
               {navLinks.map((link, i) => {
                 return (
                   <NavLink
