@@ -178,7 +178,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
               modalOffset()
             )}
           >
-            <ul className={'absolute  flex w-fit translate-y-1/4 flex-col  justify-center'}>
+            <ul className={'absolute  flex w-fit translate-y-large flex-col  justify-center'}>
               {navLinks.map((link, i) => {
                 return (
                   <NavLink
