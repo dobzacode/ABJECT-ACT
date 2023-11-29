@@ -34,15 +34,30 @@ export default async function HomePage({ params: { locale } }: { params: { local
           </P>
         </div>
       </section>
-      <DynamicSection direction="left" title={'LGBTQ+ FRIENDLY'}>
+      <DynamicSection
+        src="/asset/additional-icon/bandcamp-button-circle-whiteblack-128.png"
+        alt="LGBTQ+ "
+        direction="left"
+        title={'LGBTQ+ FRIENDLY'}
+      >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
         labore et dolore magna aliqua.
       </DynamicSection>
-      <DynamicSection direction="right" title={tContent('risk-reduction').toUpperCase()}>
+      <DynamicSection
+        src="/asset/additional-icon/bandcamp-button-circle-whiteblack-128.png"
+        alt="Risk reduction"
+        direction="right"
+        title={tContent('risk-reduction').toUpperCase()}
+      >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
         labore et dolore magna aliqua.
       </DynamicSection>
-      <DynamicSection direction="left" title={'SAFE PLACE'}>
+      <DynamicSection
+        src="/asset/additional-icon/bandcamp-button-circle-whiteblack-128.png"
+        alt="Safe place"
+        direction="left"
+        title={'SAFE PLACE'}
+      >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
         labore et dolore magna aliqua.
       </DynamicSection>

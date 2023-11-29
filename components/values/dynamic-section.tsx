@@ -1,7 +1,7 @@
 import H2 from 'components/ui/text/h2';
 import P from 'components/ui/text/p';
 
-import { cn } from 'lib/utils';
+import { cn, dynamicBlurDataUrl } from 'lib/utils';
 import Image from 'next/image';
 import React from 'react';
 
@@ -10,14 +10,19 @@ export interface DynamicSectionProps {
   direction: 'right' | 'left';
   style?: React.CSSProperties;
   children: string;
+  src: string;
+  alt: string;
 }
 
-const DynamicSection: React.FC<DynamicSectionProps> = ({
+export default async function DynamicSection({
   title,
   direction,
   children,
+  src,
+  alt,
   ...props
-}) => {
+}: DynamicSectionProps) {
+  const blurHash = await dynamicBlurDataUrl(src);
   return (
     <section
       className={cn(
@@ -27,7 +32,7 @@ const DynamicSection: React.FC<DynamicSectionProps> = ({
     >
       <div
         className={cn(
-          'absolute  -top-sub-large  z-10 h-[128px]   w-[128px] transform',
+          'absolute  -top-sub-large  z-10 h-[128px]   w-[128px] transform overflow-hidden rounded-full',
           direction === 'left'
             ? 'slideInFromLeft transition-delay-1000 -left-[0.5rem]'
             : 'slideInFromRight transition-delay-1000 -right-[0.5rem]'
@@ -35,12 +40,12 @@ const DynamicSection: React.FC<DynamicSectionProps> = ({
       >
         <Image
           placeholder="blur"
-          blurDataURL="/asset/additional-icon/bandcamp-button-circle-whiteblack-128.png"
+          blurDataURL={blurHash}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           fill
           className="object-contain"
-          src="/asset/additional-icon/bandcamp-button-circle-whiteblack-128.png"
-          alt="LGBTQ+ logo"
+          src={src}
+          alt={`${alt} image`}
         ></Image>
       </div>
       <div
@@ -60,6 +65,4 @@ const DynamicSection: React.FC<DynamicSectionProps> = ({
       </div>
     </section>
   );
-};
-
-export default DynamicSection;
+}

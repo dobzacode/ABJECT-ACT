@@ -1,7 +1,7 @@
 import Icon from '@mdi/react';
 import { H1 } from 'components/ui/text/h1';
 import P from 'components/ui/text/p';
-import { cn } from 'lib/utils';
+import { cn, dynamicBlurDataUrl } from 'lib/utils';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -14,7 +14,13 @@ interface ArtistCardProps {
   className?: string;
 }
 
-export default function ArtistCard({ artist, socials, artistSrc, className }: ArtistCardProps) {
+export default async function ArtistCard({
+  artist,
+  socials,
+  artistSrc,
+  className
+}: ArtistCardProps) {
+  const blurHash = await dynamicBlurDataUrl(artistSrc);
   return (
     <div
       className={cn(
@@ -25,7 +31,7 @@ export default function ArtistCard({ artist, socials, artistSrc, className }: Ar
       <div className="relative h-[30rem] w-full ">
         <Image
           placeholder="blur"
-          blurDataURL={artistSrc}
+          blurDataURL={blurHash}
           className="l object-cover"
           fill
           src={artistSrc}

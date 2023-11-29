@@ -1,7 +1,7 @@
 import Button from 'components/ui/button/button';
 import H2 from 'components/ui/text/h2';
 import P from 'components/ui/text/p';
-import { cn } from 'lib/utils';
+import { cn, dynamicBlurDataUrl } from 'lib/utils';
 import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 
@@ -25,6 +25,8 @@ export default async function ProductSection({
   link
 }: ProductSectionProps) {
   const t = await getTranslations('shop');
+  const blurHash = await dynamicBlurDataUrl(src);
+
   return (
     <section>
       <div
@@ -35,7 +37,7 @@ export default async function ProductSection({
       >
         <Image
           placeholder="blur"
-          blurDataURL={src}
+          blurDataURL={blurHash}
           width={300}
           height={300}
           className="drop-shadow-light absolute -top-[16rem] left-1/2 -translate-x-1/2 transform "

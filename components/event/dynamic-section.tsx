@@ -6,10 +6,10 @@ import P from 'components/ui/text/p';
 import { mdiCalendarMonth, mdiMapMarker } from '@mdi/js';
 import Icon from '@mdi/react';
 import { motion } from 'framer-motion';
-import { cn } from 'lib/utils';
+import { cn, dynamicBlurDataUrl } from 'lib/utils';
 import { useFormatter } from 'next-intl';
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 export interface DynamicSectionProps {
   title: string;
@@ -30,10 +30,20 @@ const DynamicSection: React.FC<DynamicSectionProps> = ({
   place,
   ...props
 }) => {
+  const [blurHash, setBlurHash] = useState<string | undefined>(undefined);
   const format = useFormatter();
   const dateTime = new Date(date);
   const today = new Date();
   const isOlder = dateTime > today;
+
+  useEffect(() => {
+    const getBlurHash = async () => {
+      const blurHash = await dynamicBlurDataUrl(imageSrc);
+      setBlurHash(blurHash);
+    };
+
+    getBlurHash();
+  });
 
   return (
     <motion.section
@@ -47,15 +57,17 @@ const DynamicSection: React.FC<DynamicSectionProps> = ({
       {...props}
     >
       <div className={cn('relative  h-[200px] w-full ')}>
-        <Image
-          blurDataURL={imageSrc}
-          placeholder="blur"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          fill
-          className="object-cover"
-          src={imageSrc}
-          alt={`${title} picture`}
-        ></Image>
+        {blurHash && (
+          <Image
+            blurDataURL={blurHash}
+            placeholder="blur"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            fill
+            className="object-cover"
+            src={imageSrc}
+            alt={`${title} picture`}
+          ></Image>
+        )}
       </div>
       <div className={cn(' flex flex-col gap-medium p-medium')}>
         <H2 className="font-extralight" textType={'heading--large'}>
