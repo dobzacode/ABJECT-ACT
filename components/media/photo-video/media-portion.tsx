@@ -43,7 +43,7 @@ export default function MediaPortion({ videoSrc, imageFolder }: MediaPortionProp
 
       {mediaType === 'photo' ? <ImageSlider imageFolder={imageFolder}></ImageSlider> : null}
       {mediaType === 'video' ? (
-        <div className="flex h-[40rem] w-full justify-center">
+        <div className="flex  h-[30rem] w-full justify-center mobile-large:h-[40rem]">
           <VideoPlayer sources={[{ src: videoSrc, type: 'video/mp4' }]}></VideoPlayer>
         </div>
       ) : null}

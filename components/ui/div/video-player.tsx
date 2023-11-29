@@ -35,7 +35,10 @@ const VideoPlayer: FunctionComponent<VideoPlayerProps> = ({ sources, className }
   }, [sources]);
 
   return (
-    <div className="relative h-full w-full cursor-pointer rounded-small " data-vjs-player>
+    <div
+      className="relative h-[30rem] w-full cursor-pointer rounded-small mobile-large:h-full "
+      data-vjs-player
+    >
       <video
         ref={videoNode}
         className={cn(

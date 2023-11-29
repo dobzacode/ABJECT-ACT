@@ -44,10 +44,7 @@ export const pathnames = {
 
   '/contact': '/contact',
 
-  '/event': {
-    en: '/event',
-    fr: '/concert'
-  },
+  '/event': '/event',
 
   '/label': 'label',
 

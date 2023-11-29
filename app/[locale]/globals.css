@@ -240,8 +240,14 @@ input[type='search']:focus {
 }
 
 .video-js {
-  height: 40rem !important;
+  height: 30rem !important;
   width: 100%;
+}
+
+@media (min-width: 500px) {
+  .video-js {
+    height: 40rem !important;
+  }
 }
 
 .slick-dots li button::before {

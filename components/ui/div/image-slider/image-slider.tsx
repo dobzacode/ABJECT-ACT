@@ -62,11 +62,11 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ imageFolder }) => {
 
   return (
     <>
-      <Slider {...settings} className={cn(' h-[40rem] cursor-pointer ')}>
+      <Slider {...settings} className={cn(' h-[30rem] cursor-pointer mobile-large:h-[40rem] ')}>
         {images.map((image, index) => (
           <div
             key={index}
-            className="relative z-40 flex h-[40rem]   w-[20rem] "
+            className="relative z-40 flex h-[30rem]   w-[20rem] mobile-large:h-[40rem] "
             onClick={() => {
               console.log(lightboxIsOpen);
               openLightbox(index);

@@ -1,25 +1,10 @@
 import { pathnames } from 'navigation';
+import { MetadataRoute } from 'next';
 
-// Define your SitemapFile type based on your requirements
-type SitemapFile = {
-  url: string;
-  lastModified: string;
-  changeFrequency:
-    | 'monthly'
-    | 'always'
-    | 'hourly'
-    | 'daily'
-    | 'weekly'
-    | 'yearly'
-    | 'never'
-    | undefined;
-  priority: number | undefined;
-};
-
-export default function sitemap(): SitemapFile[] {
+export default function sitemap(): MetadataRoute.Sitemap {
   const URL = process.env.SITE_URL;
 
-  const routes: SitemapFile[] = Object.entries(pathnames).flatMap(([, value]) => {
+  const routes = Object.entries(pathnames).flatMap(([key, value]) => {
     // If the value is a string, it means it's a direct mapping
     if (typeof value === 'string') {
       return [
@@ -36,7 +21,7 @@ export default function sitemap(): SitemapFile[] {
     if (typeof value === 'object') {
       const languageEntries = Object.entries(value);
       return languageEntries.map(([lang, path]) => ({
-        url: `${URL}${path[lang as keyof typeof path]}`,
+        url: `${URL}${path[lang]}`,
         lastModified: new Date().toISOString(),
         changeFrequency: 'monthly',
         priority: 0.8
