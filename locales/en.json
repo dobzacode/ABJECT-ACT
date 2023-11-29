@@ -304,12 +304,20 @@
       "description": "Explore the Abject Act universe through our online shop."
     },
     "values": {
-      "title": "Values",
+      "title": "Our Values",
       "description": "Explore the foundations of Abject Act on our dedicated values page. Discover the principles guiding our commitment, from integrity to innovation. We believe in the power of music to inspire change and foster inclusion. Immerse yourself in our core values and join us in creating a community united by a shared passion for music and conviction."
     },
     "landing": {
       "title": "Abject Act",
       "description": "Discover the sonic universe of Abject Act. Immerse yourself in a musical experience, explore our captivating events, browse our visual gallery, and explore our shop for exclusive merch. Join us in our commitment to strong values."
     }
+  },
+  "not-found": {
+    "content": "The page you are looking for does not exist. Please return to the home page.",
+    "button": "Go back to home page"
+  },
+  "error": {
+    "content": "Something went wrong. Please try again later.",
+    "button": "Go back to home page"
   }
 }

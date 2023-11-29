@@ -1,19 +1,31 @@
 'use client';
 
-export default function Error({ reset }: { reset: () => void }) {
+import { buttonVariants } from 'components/ui/button/button';
+import H2 from 'components/ui/text/h2';
+import P from 'components/ui/text/p';
+import { Link } from 'navigation';
+import { useTranslations } from 'next-intl';
+import { useEffect } from 'react';
+
+export default function Error({ error }: { error: Error & { digest?: string } }) {
+  useEffect(() => {
+    console.error(error);
+  }, [error]);
+
+  const t = useTranslations('error');
+
   return (
-    <div className="mx-auto my-4 flex max-w-xl flex-col rounded-lg border border-neutral-200 bg-white p-8 dark:border-neutral-800 dark:bg-black md:p-12">
-      <h2 className="text-xl font-bold">Oh no!</h2>
-      <p className="my-2">
-        There was an issue with our storefront. This could be a temporary issue, please try your
-        action again.
-      </p>
-      <button
-        className="mx-auto mt-4 flex w-full items-center justify-center rounded-full bg-blue-600 p-4 tracking-wide text-white hover:opacity-90"
-        onClick={() => reset()}
+    <section className="relative z-50 flex h-screen w-screen flex-col items-center justify-center gap-medium px-small text-black5">
+      <H2 textType="heading--extra-large">500</H2>
+      <P textType="body" className="max-w-[400px] text-center">
+        {t('content')}{' '}
+      </P>
+      <Link
+        className={buttonVariants({ size: 'small', rounded: 'small', intent: 'pastelNeutral' })}
+        href="/"
       >
-        Try Again
-      </button>
-    </div>
+        {t('button').toUpperCase()}
+      </Link>
+    </section>
   );
 }

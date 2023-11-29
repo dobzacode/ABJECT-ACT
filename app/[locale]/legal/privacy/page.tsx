@@ -3,12 +3,14 @@ import H2 from 'components/ui/text/h2';
 import P from 'components/ui/text/p';
 import { getTranslations } from 'next-intl/server';
 
-export const metadata = {
-  description: 'High-performance ecommerce store built with Next.js, Vercel, and Shopify.',
-  openGraph: {
-    type: 'website'
-  }
-};
+export async function generateMetadata() {
+  const t = await getTranslations('metadata.privacy');
+
+  return {
+    title: t('title'),
+    description: t('description')
+  };
+}
 
 export default async function HomePage() {
   const t = await getTranslations('privacy');

@@ -25,11 +25,7 @@ export default function ContactSection({ isJoinUs = false }: { isJoinUs?: boolea
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  useEffect(() => {
-    if (isJoinUs) return;
-
-    router.replace(`${pathname}?type=${selectedOption.toLowerCase().replace(/ /g, '-')}`);
-  }, [selectedOption, pathname, router, isJoinUs]);
+  useEffect(() => {}, [selectedOption, pathname, router, isJoinUs]);
 
   return (
     <>

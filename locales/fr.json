@@ -295,12 +295,20 @@
       "description": "Découvrez l'univers Abject Act à travers notre boutique en ligne "
     },
     "values": {
-      "title": "Valeurs",
+      "title": "Nos valeurs",
       "description": "xplorez les fondements d'Abject Act à travers notre page dédiée aux valeurs. Découvrez les principes qui guident notre engagement, de l'intégrité à l'innovation. Nous croyons en la puissance de la musique pour inspirer le changement et favoriser l'inclusion. Plongez dans nos valeurs fondamentales et rejoignez-nous dans la création d'une communauté unie par la passion musicale et la conviction partagée."
     },
     "landing": {
       "title": "Abject Act",
       "description": "Découvrez l'univers sonore d'Abject Act. Plongez dans une expérience musicale immersive, explorez nos événements captivants, parcourez notre galerie visuelle, et explorez notre boutique pour du merch exclusif. Rejoignez-nous dans notre engagement pour des valeurs fortes. "
     }
+  },
+  "not-found": {
+    "content": "La page que vous recherchez n'existe pas. Veuillez vérifier l'URL ou revenir à la page d'accueil.",
+    "button": "Retour à la page d'accueil"
+  },
+  "error": {
+    "content": "Une erreur est survenue, veuillez réessayer plus tard.",
+    "button": "Retour à la page d'accueil"
   }
 }

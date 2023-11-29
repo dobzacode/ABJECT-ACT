@@ -3,6 +3,8 @@ import { createLocalizedPathnamesNavigation, Pathnames } from 'next-intl/navigat
 export const locales = ['en', 'fr'] as const;
 
 export const pathnames = {
+  '/': '/',
+
   '/about': {
     en: '/about',
     fr: '/a-propos'

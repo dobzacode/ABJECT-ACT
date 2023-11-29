@@ -3,12 +3,14 @@ import { H1 } from 'components/ui/text/h1';
 import { getTranslations } from 'next-intl/server';
 import { v4 } from 'uuid';
 
-export const metadata = {
-  description: 'High-performance ecommerce store built with Next.js, Vercel, and Shopify.',
-  openGraph: {
-    type: 'website'
-  }
-};
+export async function generateMetadata() {
+  const t = await getTranslations('metadata.shop');
+
+  return {
+    title: t('title'),
+    description: t('description')
+  };
+}
 
 const productArr = [
   {
