@@ -5,21 +5,12 @@ export const locales = ['en', 'fr'] as const;
 export const pathnames = {
   '/': '/',
 
-  '/about': {
-    en: '/about',
-    fr: '/a-propos'
-  },
   '/about/abject-act': { en: '/about/abject-act', fr: '/a-propos/abject-act' },
   '/about/join-us': {
     en: '/about/join-us',
     fr: '/a-propos/rejoins-nous'
   },
   '/about/newsletter': { en: '/about/newsletter', fr: '/a-propos/newsletter' },
-
-  '/about/partnership': {
-    en: '/about/partnership',
-    fr: '/a-propos/partenariat'
-  },
 
   '/artists': {
     en: '/artists',
@@ -48,7 +39,6 @@ export const pathnames = {
 
   '/label': 'label',
 
-  '/legal': 'legal',
   '/legal/informations': '/legal/informations',
 
   '/legal/privacy': {
