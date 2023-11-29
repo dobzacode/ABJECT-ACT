@@ -10,6 +10,10 @@ const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
   ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
   : 'http://localhost:3000';
 
+export async function generateStaticParams() {
+  return [{ lang: 'en' }, { lang: 'fr' }];
+}
+
 export default async function RootLayout({
   children,
   params: { locale }
