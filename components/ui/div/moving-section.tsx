@@ -1,4 +1,4 @@
-import { cn } from 'lib/utils';
+import { cn, dynamicBlurDataUrl } from 'lib/utils';
 import Image from 'next/image';
 import { HTMLProps } from 'react';
 import CustomLink from '../header/custom-link';
@@ -12,7 +12,7 @@ interface MovingSectionProps extends HTMLProps<HTMLDivElement> {
   imageCSS?: string;
 }
 
-export default function MovingSection({
+export default async function MovingSection({
   imageSrc,
   title,
   alt,
@@ -21,6 +21,8 @@ export default function MovingSection({
   className,
   imageCSS
 }: MovingSectionProps) {
+  const blurHash = await dynamicBlurDataUrl(imageSrc);
+
   const comingFromAnimationBlock = () => {
     switch (comingFrom) {
       case 'top':
@@ -64,7 +66,7 @@ export default function MovingSection({
           )}
           sizes="(max-width: 768px) 50vw, 100vw"
           placeholder="blur"
-          blurDataURL={imageSrc}
+          blurDataURL={blurHash}
           fill
           priority={true}
           src={imageSrc}
