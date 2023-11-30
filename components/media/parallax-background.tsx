@@ -1,13 +1,25 @@
 'use client';
 
-import { cn } from 'lib/utils';
+import { cn, dynamicBlurDataUrl } from 'lib/utils';
 import Image from 'next/image';
-import { Ref } from 'react';
+import { Ref, useEffect, useState } from 'react';
 import { ParallaxProvider, useParallax } from 'react-scroll-parallax';
 
 function TempComp({ src }: { src: string }) {
+  const [blurSrc, setBlurSrc] = useState<string>(
+    'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=='
+  );
+
   const parallax = useParallax({
     translateY: [0, -30]
+  });
+
+  useEffect(() => {
+    const fetchBlurData = async () => {
+      const blurImg = await dynamicBlurDataUrl(src);
+      setBlurSrc(blurImg);
+    };
+    fetchBlurData();
   });
 
   return (
@@ -17,7 +29,7 @@ function TempComp({ src }: { src: string }) {
         alt={''}
         className={cn('object-cover object-top')}
         placeholder="blur"
-        blurDataURL={src}
+        blurDataURL={blurSrc}
         fill
         priority={true}
         src={src}

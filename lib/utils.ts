@@ -38,7 +38,7 @@ export async function dynamicBlurDataUrl(url: string) {
       </filter>
 
       <image preserveAspectRatio='none' filter='url(#b)' x='0' y='0' height='100%' width='100%' 
-      href='data:image/avif;base64,${base64str}' />
+      href='data:image/png;base64,${base64str}' />
     </svg>
   `;
 

@@ -31,7 +31,7 @@ export default async function ProductSection({
     <section>
       <div
         className={cn(
-          ' slideInFromBottom relative flex h-fit w-fit flex-col items-center justify-center gap-medium rounded-small bg-black95 pb-large pt-[20rem] shadow-medium-light max-mobile-medium:mx-small',
+          ' slideInFromBottom relative flex h-fit w-fit flex-col items-center justify-center  gap-medium rounded-small bg-black95 pb-large pt-[20rem] shadow-medium-light max-mobile-medium:mx-small',
           className
         )}
       >
