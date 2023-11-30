@@ -37,7 +37,7 @@ export const pathnames = {
 
   '/event': '/event',
 
-  '/label': 'label',
+  '/label': '/label',
 
   '/legal/informations': '/legal/informations',
 

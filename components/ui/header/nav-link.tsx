@@ -174,8 +174,11 @@ const NavLink: FC<NavLinkProps> = React.forwardRef<HTMLLIElement, NavLinkProps>(
               if (!linkRefWithoutVariants.current) return;
               const href = linkRefWithoutVariants.current.getAttribute('href');
 
+              console.log(href, pathname);
+
               if (pathname === href) return;
               document.querySelector('main')?.classList.add('hidden-div');
+
               setTimeout(() => {
                 router.push(href as string);
               }, 600);

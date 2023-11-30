@@ -34,13 +34,6 @@ export default function MobileFooter({ currentNavStyle, intent, customSetter }: 
     }
   }, [pathname, t]);
 
-  console.log(
-    t('legal')
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .toLowerCase()
-  );
-
   return (
     <div className="flex flex-col gap-small">
       <div className="flex justify-between">
@@ -65,7 +58,7 @@ export default function MobileFooter({ currentNavStyle, intent, customSetter }: 
       </div>
       <ul
         className={`body flex h-sub-large flex-wrap items-center ${
-          isActive === 'legal' ? 'justify-center gap-small' : 'justify-between gap-extra-small'
+          isActive === 'legal' ? 'justify-center gap-medium' : 'justify-between gap-extra-small'
         }`}
       >
         {isActive === 'about us' &&

@@ -93,7 +93,6 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
   const pathname = usePathname();
 
   useEffect(() => {
-    console.log('xd');
     setTriggerClass(true);
 
     const timeoutId = setTimeout(() => {
