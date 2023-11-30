@@ -44,7 +44,7 @@ export default function AssaultBlock({}) {
   return (
     <div
       className={cn(
-        ' mt-large flex min-h-screen w-full max-w-5xl flex-col items-center gap-large overflow-x-hidden px-extra-small  text-secondary5  mobile-large:px-medium  laptop:max-w-[100rem] laptop:px-small'
+        ' flex min-h-screen w-full max-w-5xl flex-col items-center gap-large overflow-x-hidden px-extra-small  text-secondary5  mobile-large:px-medium  laptop:max-w-[100rem] laptop:px-small'
       )}
     >
       {eventArr.map(({ imageFolder, videoSrc, title, direction }, index: number) => {
