@@ -200,3 +200,33 @@ export async function verifyCaptchaAction(token: string) {
     return false;
   }
 }
+
+export async function generateOpenGraphImage(route: string) {
+  console.log(route);
+  const url = `https://abject-act.vercel.app${route}`;
+
+  console.log(
+    `https://opengraph.io/api/1.1/site/${url}?app_id=${process.env.OPENGRAPH_IO_KEY?.toString()}`
+  );
+
+  try {
+    const response = await fetch(
+      `https://opengraph.io/api/1.1/screenshot/${encodeURIComponent(url)}?accept_lang=auto&app_id=${
+        process.env.OPENGRAPH_IO_KEY
+      }`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+    );
+
+    const data = await response.json();
+    console.log(data.screenshotUrl);
+    // Utilisez ogImageUrl dans votre balise OpenGraph
+    return data.screenshotUrl;
+  } catch (error) {
+    console.error("Erreur lors de la génération de l'image OpenGraph :", error);
+  }
+}

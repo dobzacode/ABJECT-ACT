@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "../../../.."
+		},
+		{
+			"path": "../../../../../../with-tailwindcss"
+		},
+		{
+			"path": "../../../../../../disnuts"
+		},
+		{
+			"path": "../../../../../../../lesmursontdesoreilles"
+		}
+	],
+	"settings": {
+		"typescript.tsdk": "node_modules/typescript/lib",
+		"typescript.enablePromptUseWorkspaceTsdk": true
+	}
+}

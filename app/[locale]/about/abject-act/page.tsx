@@ -1,11 +1,20 @@
+import { generateOpenGraphImage } from 'app/_action';
 import { H1 } from 'components/ui/text/h1';
 import P from 'components/ui/text/p';
-import { unstable_setRequestLocale } from 'next-intl/server';
+import { getLocale, unstable_setRequestLocale } from 'next-intl/server';
 
-export const metadata = {
-  title: 'Abject Act',
-  description: 'Lorem ipsum'
-};
+export async function generateMetadata() {
+  const locale = await getLocale();
+  return {
+    title: 'Abject Act',
+    description: 'lorem ipsum',
+    openGraph: {
+      images: await generateOpenGraphImage(
+        locale !== '/en' ? '/a-propos/abject-act' : `${locale}/about/abject-act`
+      )
+    }
+  };
+}
 
 export default async function HomePage({ params: { locale } }: { params: { locale: string } }) {
   unstable_setRequestLocale(locale);
