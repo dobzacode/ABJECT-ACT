@@ -2,9 +2,10 @@ import Icon from '@mdi/react';
 import { H1 } from 'components/ui/text/h1';
 import P from 'components/ui/text/p';
 import { cn, dynamicBlurDataUrl } from 'lib/utils';
+import { Link } from 'navigation';
 
 import Image from 'next/image';
-import Link from 'next/link';
+
 import { v4 } from 'uuid';
 
 interface ArtistCardProps {
@@ -12,32 +13,36 @@ interface ArtistCardProps {
   artistSrc: string;
   socials: { link: string; mdiPath: string }[];
   className?: string;
+  isArtistPage?: boolean;
 }
 
 export default async function ArtistCard({
   artist,
   socials,
   artistSrc,
-  className
+  className,
+  isArtistPage
 }: ArtistCardProps) {
   const blurHash = await dynamicBlurDataUrl(artistSrc);
   return (
     <div
       className={cn(
-        'slideInFromLeft -z-10 flex h-fit w-fit flex-col justify-between gap-medium overflow-hidden rounded-small bg-black95 pb-medium shadow-medium-light',
+        'slideInFromLeft z-10 flex h-fit w-fit flex-col justify-between gap-medium overflow-hidden rounded-small bg-black95 pb-medium shadow-medium-light',
         className
       )}
     >
-      <div className="relative h-[30rem] w-full ">
-        <Image
-          placeholder="blur"
-          blurDataURL={blurHash}
-          className="l object-cover"
-          fill
-          src={artistSrc}
-          alt={`morsure picture`}
-        ></Image>
-      </div>
+      <Link href={`/artists/${artist.toLowerCase().replace(/\s/g, '')}`}>
+        <div className="relative h-[30rem] w-full ">
+          <Image
+            placeholder="blur"
+            blurDataURL={blurHash}
+            className="l object-cover"
+            fill
+            src={artistSrc}
+            alt={`morsure picture`}
+          ></Image>
+        </div>
+      </Link>
       <div className="mx-small flex flex-col gap-medium text-white tablet:w-[40rem]">
         <H1 className="font-extralight" textType={'heading--large'}>
           {artist}
