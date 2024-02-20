@@ -24,7 +24,7 @@ export default async function ArtistCard({
   return (
     <div
       className={cn(
-        'slideInFromLeft flex h-fit w-fit flex-col justify-between gap-medium overflow-hidden rounded-small bg-black95 pb-medium shadow-medium-light',
+        'slideInFromLeft -z-10 flex h-fit w-fit flex-col justify-between gap-medium overflow-hidden rounded-small bg-black95 pb-medium shadow-medium-light',
         className
       )}
     >
