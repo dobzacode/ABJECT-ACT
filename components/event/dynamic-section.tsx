@@ -48,12 +48,12 @@ const DynamicSection: React.FC<DynamicSectionProps> = ({
   return (
     <motion.section
       className={cn(
-        'relative flex h-fit w-full max-w-[600px] flex-col overflow-x-hidden  rounded-small bg-black95   text-black5 shadow-medium-light  ',
+        'relative flex h-fit w-full max-w-[600px] flex-col overflow-x-hidden rounded-small bg-black95    text-black5 shadow-medium-light  ',
         isOlder ? 'opacity-100' : 'opacity-20 grayscale'
       )}
       initial={{ opacity: 0, translateX: direction === 'left' ? '-10%' : '10%' }}
       whileInView={{ opacity: 1, translateX: 0, transition: { type: 'spring' } }}
-      viewport={{ margin: '-50% 0px -20% 0px' }}
+      viewport={{ margin: '-50% 0px -30% 0px' }}
       {...props}
     >
       <div className={cn('relative  h-[200px] w-full ')}>

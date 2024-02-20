@@ -26,7 +26,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
   unstable_setRequestLocale(locale);
 
   return (
-    <main className="relative flex h-screen flex-col items-center justify-center gap-sub-large overflow-hidden pt-extra-large">
+    <main className="relative flex h-screen flex-col items-center justify-center gap-sub-large overflow-hidden py-extra-large tablet:pb-extra-large tablet:pt-[22rem]">
       {productArr.map((product) => {
         return (
           <ProductSection

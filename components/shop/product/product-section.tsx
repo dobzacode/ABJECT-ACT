@@ -28,7 +28,7 @@ export default async function ProductSection({
   const blurHash = await dynamicBlurDataUrl(src);
 
   return (
-    <section>
+    <section className="py-extra-large tablet:pb-extra-large tablet:pt-[22rem]">
       <div
         className={cn(
           ' slideInFromBottom relative flex h-fit w-fit flex-col items-center justify-center  gap-medium rounded-small bg-black95 pb-large pt-[20rem] shadow-medium-light max-mobile-medium:mx-small',

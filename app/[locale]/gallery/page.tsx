@@ -16,7 +16,7 @@ export default async function GalleryPage({ params: { locale } }: { params: { lo
   return (
     <main
       className=" relative flex h-full
-     min-h-screen w-screen flex-col items-center justify-center overflow-x-hidden py-extra-large"
+     min-h-screen w-screen flex-col items-center justify-center overflow-x-hidden py-extra-large tablet:pb-extra-large tablet:pt-[22rem]"
     >
       <ContentSection></ContentSection>
     </main>
