@@ -1,6 +1,5 @@
 import { Header } from 'components/ui/header/header';
 
-import CookieConsent from 'components/ui/div/cookie-consent';
 import { NextIntlClientProvider } from 'next-intl';
 import { unstable_setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -41,7 +40,6 @@ export default async function RootLayout({
             className="overlay  absolute  w-full max-w-full px-sub-large pt-[40px] tablet:px-large tablet:pt-large"
           ></Header>
           {children}
-          <CookieConsent />
         </NextIntlClientProvider>
       </body>
     </html>
