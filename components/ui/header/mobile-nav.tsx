@@ -62,7 +62,7 @@ const navLinksVariant: Variants = {
     transition: {
       type: 'spring',
       stiffness: 100,
-      damping: 10,
+      damping: 20,
       delay: i * 0.115
     }
   }),
@@ -76,8 +76,8 @@ const footerBlocksVariant: Variants = {
     transition: {
       type: 'spring',
       stiffness: 100,
-      damping: 15,
-      delay: 1.2 + i * 0.4
+      damping: 20,
+      delay: 0.8 + i * 0.2
     }
   }),
   exit: { opacity: 0, transition: { duration: 1 } }

@@ -17,7 +17,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
   const t = await getTranslations('navigation.primaryNavigation');
 
   return (
-    <main className="relative flex h-screen flex-col items-center gap-sub-large overflow-hidden px-small pt-extra-large">
+    <main className="relative flex h-screen flex-col items-center gap-sub-large overflow-hidden px-small py-extra-large tablet:pb-extra-large tablet:pt-[22rem]">
       <H1
         textType={'heading--extra-large'}
         className="slideInFromTop relative z-10 text-center text-black5 max-mobile-large:text-heading-large max-mobile-large:leading-heading-large tablet:mt-small"
