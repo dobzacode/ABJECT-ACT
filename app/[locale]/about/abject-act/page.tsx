@@ -19,7 +19,7 @@ export async function generateMetadata() {
 export default async function HomePage({ params: { locale } }: { params: { locale: string } }) {
   unstable_setRequestLocale(locale);
   return (
-    <main className="relative flex h-screen flex-col items-center gap-sub-large overflow-hidden py-extra-large tablet:pb-extra-large tablet:pt-[22rem]">
+    <main className="relative flex h-screen flex-col items-center gap-sub-large overflow-hidden py-extra-large tablet:pb-extra-large ">
       <H1
         textType={'heading--extra-large'}
         className="slideInFromRight relative z-10 text-center text-black5 max-mobile-large:text-heading-large max-mobile-large:leading-heading-large tablet:mt-small"

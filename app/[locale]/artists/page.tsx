@@ -14,7 +14,7 @@ export async function generateMetadata() {
 export default async function HomePage({ params: { locale } }: { params: { locale: string } }) {
   unstable_setRequestLocale(locale);
   return (
-    <main className="relative flex h-screen  items-center justify-center gap-sub-large overflow-hidden py-extra-large tablet:pb-extra-large tablet:pt-[22rem] ">
+    <main className=" relative flex  min-h-screen flex-wrap items-center justify-center justify-items-center gap-sub-large overflow-hidden px-medium py-extra-large tablet:pb-extra-large tablet:pt-[22rem]">
       <ArtistCard
         className=""
         artistSrc="/asset/artist/morsure.jpg"

@@ -2,7 +2,6 @@ import Icon from '@mdi/react';
 import { H1 } from 'components/ui/text/h1';
 import P from 'components/ui/text/p';
 import { cn, dynamicBlurDataUrl } from 'lib/utils';
-import { Link } from 'navigation';
 
 import Image from 'next/image';
 
@@ -20,18 +19,17 @@ export default async function ArtistCard({
   artist,
   socials,
   artistSrc,
-  className,
-  isArtistPage
+  className
 }: ArtistCardProps) {
   const blurHash = await dynamicBlurDataUrl(artistSrc);
   return (
     <div
       className={cn(
-        'slideInFromLeft z-10 flex h-fit w-fit flex-col justify-between gap-medium overflow-hidden rounded-small bg-black95 pb-medium shadow-medium-light',
+        'slideInFromLeft z-10 flex h-fit w-fit  flex-col justify-between gap-medium overflow-hidden rounded-small bg-black95 pb-medium shadow-medium-light laptop:w-fit ',
         className
       )}
     >
-      <Link href={`/artists/${artist.toLowerCase().replace(/\s/g, '')}`}>
+      <div>
         <div className="relative h-[30rem] w-full ">
           <Image
             placeholder="blur"
@@ -42,7 +40,7 @@ export default async function ArtistCard({
             alt={`morsure picture`}
           ></Image>
         </div>
-      </Link>
+      </div>
       <div className="mx-small flex flex-col gap-medium text-white tablet:w-[40rem]">
         <H1 className="font-extralight" textType={'heading--large'}>
           {artist}
@@ -53,7 +51,7 @@ export default async function ArtistCard({
           ullamco laboris
         </P>
 
-        <div className="flex flex-wrap gap-small">
+        <div className="flex flex-wrap gap-small [&>*:hover]:scale-110 [&>*]:duration-300">
           {socials?.map(({ link, mdiPath }) => {
             switch (mdiPath) {
               case 'mdiEmail':
@@ -64,20 +62,20 @@ export default async function ArtistCard({
                 );
               case 'bandcamp':
                 return (
-                  <Link key={v4()} href={link} className="flex items-center">
+                  <a key={v4()} href={link} className="flex items-center">
                     <Image
                       alt="bandcamp icon"
                       width={24}
                       height={24}
                       src={'/asset/additional-icon/bandcamp-button-circle-whiteblack-32.png'}
                     ></Image>
-                  </Link>
+                  </a>
                 );
               default:
                 return (
-                  <Link key={v4()} href={link}>
+                  <a key={v4()} href={link}>
                     <Icon path={mdiPath} size={1.5} color="white"></Icon>
-                  </Link>
+                  </a>
                 );
             }
           })}
