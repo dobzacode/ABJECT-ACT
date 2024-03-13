@@ -50,7 +50,7 @@ export default function ContactBlock({
       >
         Contact
       </H3>
-      <ul className="body flex gap-extra-small  mobile-medium:gap-small mobile-large:gap-medium">
+      <ul className="body flex gap-extra-small  mobile-medium:gap-small mobile-large:gap-5">
         {socialLinks.map((socialLink) => (
           <NavLink
             key={v4()}
@@ -61,7 +61,7 @@ export default function ContactBlock({
           >
             <SocialIcon
               className=""
-              size={1.6}
+              size={1.3}
               href={socialLink.href}
               mdiPath={socialLink.mdiPath}
             ></SocialIcon>

@@ -16,10 +16,11 @@ export default function AssaultBlock({}) {
 
   const eventArr = [
     {
-      imageFolder: '/asset/event/media/pulsar-lulu',
+      imageFolder: '/asset/event/media/assault-macka',
       videoSrc: '/asset/background/video/1089037097-preview.mp4',
-      title: 'Assault w/ LULU, Resonance',
-      direction: 'left'
+      title: 'Abject Act : Assault w/ Ma Čka, Ombrar, Morsure, Spore, Krauss',
+      direction: 'left',
+      pictureAmount: 127
     },
     {
       imageFolder: '/asset/event/media/pulsar-lulu',
@@ -47,9 +48,10 @@ export default function AssaultBlock({}) {
         ' flex min-h-screen w-full max-w-5xl flex-col items-center gap-large overflow-x-hidden px-extra-small  text-secondary5  mobile-large:px-medium  laptop:max-w-[100rem] laptop:px-small'
       )}
     >
-      {eventArr.map(({ imageFolder, videoSrc, title, direction }, index: number) => {
+      {eventArr.map(({ imageFolder, videoSrc, title, direction, pictureAmount }, index: number) => {
         return (
           <EventSection
+            pictureAmount={pictureAmount}
             index={index}
             eventArr={eventArr.length}
             imageFolder={imageFolder}

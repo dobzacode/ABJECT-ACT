@@ -14,7 +14,7 @@ interface MediaPortionProps
     'title' | 'direction' | 'scrollYProgress' | 'index' | 'eventArr'
   > {}
 
-export default function MediaPortion({ videoSrc, imageFolder }: MediaPortionProps) {
+export default function MediaPortion({ videoSrc, imageFolder, pictureAmount }: MediaPortionProps) {
   const [mediaType, setMediaType] = useState<'photo' | 'video'>('photo');
   const isBiggerThanLaptop = useBetterMediaQuery('(min-width: 1024px)');
 
@@ -41,7 +41,9 @@ export default function MediaPortion({ videoSrc, imageFolder }: MediaPortionProp
         </button>
       </div>
 
-      {mediaType === 'photo' ? <ImageSlider imageFolder={imageFolder}></ImageSlider> : null}
+      {mediaType === 'photo' ? (
+        <ImageSlider pictureAmount={pictureAmount} imageFolder={imageFolder}></ImageSlider>
+      ) : null}
       {mediaType === 'video' ? (
         <div className="flex  h-[30rem] w-full justify-center mobile-large:h-[40rem]">
           <VideoPlayer sources={[{ src: videoSrc, type: 'video/mp4' }]}></VideoPlayer>

@@ -13,6 +13,7 @@ import NextJsImage from './nextjs-image';
 
 interface ImageSliderProps {
   imageFolder: string;
+  pictureAmount?: number;
 }
 
 interface imageProps {
@@ -23,14 +24,14 @@ interface imageProps {
   blurHash: string;
 }
 
-const ImageSlider: React.FC<ImageSliderProps> = ({ imageFolder }) => {
+const ImageSlider: React.FC<ImageSliderProps> = ({ imageFolder, pictureAmount }) => {
   const [lightboxIsOpen, setLightboxIsOpen] = useState<boolean>(false);
   const [currentImage, setCurrentImage] = useState<number>(0);
   const [images, setImages] = useState<imageProps[] | null>(null);
 
   useEffect(() => {
     const defineImg = async () => {
-      const images = Array.from({ length: 10 }, async (_, i) => ({
+      const images = Array.from({ length: pictureAmount ? pictureAmount : 10 }, async (_, i) => ({
         original: `${imageFolder}/pic${i + 1}.jpg`,
         originalAlt: `pic${i + 1}`,
         thumbnail: `${imageFolder}/pic${i + 1}.jpg`,
@@ -40,7 +41,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ imageFolder }) => {
       setImages(await Promise.all(images));
     };
     defineImg();
-  }, [imageFolder]);
+  }, [imageFolder, pictureAmount]);
 
   const openLightbox = (index: number) => {
     setCurrentImage(index);
@@ -55,7 +56,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ imageFolder }) => {
   const settings = {
     infinite: true,
     arrows: false,
-    speed: 2000,
+    speed: 3000,
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
@@ -102,6 +103,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ imageFolder }) => {
               blurDataURL={image.blurHash}
               className={cn('object-cover ')}
               fill
+              sizes="600px"
               src={image.thumbnail}
               alt={image.description}
             ></Image>

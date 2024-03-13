@@ -14,6 +14,7 @@ export interface EventSectionProps {
   imageFolder: string;
   direction: 'right' | 'left';
   style?: React.CSSProperties;
+  pictureAmount?: number;
 }
 
 const EventSection: React.FC<EventSectionProps> = ({
@@ -22,7 +23,7 @@ const EventSection: React.FC<EventSectionProps> = ({
   imageFolder,
   direction,
   index,
-
+  pictureAmount,
   eventArr,
   ...props
 }) => {
@@ -41,7 +42,11 @@ const EventSection: React.FC<EventSectionProps> = ({
           {title}
         </H2>
       </div>
-      <MediaPortion videoSrc={videoSrc} imageFolder={imageFolder}></MediaPortion>
+      <MediaPortion
+        pictureAmount={pictureAmount}
+        videoSrc={videoSrc}
+        imageFolder={imageFolder}
+      ></MediaPortion>
     </motion.section>
   );
 };
