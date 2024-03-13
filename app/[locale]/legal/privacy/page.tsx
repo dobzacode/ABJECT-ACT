@@ -30,15 +30,11 @@ export default async function HomePage({ params: { locale } }: { params: { local
         </H2>
         <P textType={'body'}>{t('objectives.listInfo')}</P>
         <ol className=" body flex flex-col gap-extra-small pl-small">
-          {[
-            'objectives.list.1',
-            'objectives.list.2',
-            'objectives.list.3',
-            'objectives.list.4',
-            'objectives.list.5'
-          ].map((item) => {
-            return <li key={item}>- {t(item)}</li>;
-          })}
+          {['objectives.list.1', 'objectives.list.2', 'objectives.list.3', 'objectives.list.4'].map(
+            (item) => {
+              return <li key={item}>- {t(item)}</li>;
+            }
+          )}
         </ol>
         <P textType={'body'}>{t('objectives.additionalInfo')}</P>
       </div>
@@ -88,15 +84,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
           })}
         </ol>
       </div>
-      <div className="flex flex-col gap-sub-medium">
-        <H2 textType="heading--sub-large" className="font-thin">
-          {t('automaticDataCollection.heading')}
-        </H2>
-        <P textType={'body'}>{t('automaticDataCollection.content')}</P>
-        <ol className=" body flex flex-col gap-extra-small pl-small">
-          <li>{t('automaticDataCollection.list')}</li>
-        </ol>
-      </div>
+
       <div className="flex flex-col gap-sub-medium">
         <H2 textType="heading--sub-large" className="font-thin">
           {t('nonAutomaticDataCollection.heading')}
@@ -120,14 +108,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
         <H2 textType="heading--sub-large" className="font-thin">
           {t('dataUsage.heading')}
         </H2>
-        <P textType={'body'}>
-          {t('dataUsage.automaticDataUsage')}
-          <br></br>
-          <br></br> {t('dataUsage.automaticDataUsage2')}
-        </P>
-        <ol className=" body flex flex-col gap-extra-small pl-small">
-          <li>{t('dataUsage.automaticDataUsageList')}</li>
-        </ol>
+
         <P textType={'body'}>{t('dataUsage.nonAutomaticDataUsage')}</P>
         <ol className=" body flex flex-col gap-extra-small pl-small">
           <li>{t('dataUsage.nonAutomaticDataUsageList')}</li>
@@ -210,28 +191,12 @@ export default async function HomePage({ params: { locale } }: { params: { local
         </H2>
         <P textType={'body'}>{t('modifyDeleteData.content')}</P>
         <ol className=" body flex flex-col gap-extra-small pl-small">
-          {['modifyDeleteData.list.1', 'modifyDeleteData.list.2', 'modifyDeleteData.list.3'].map(
-            (item) => {
-              return <li key={item}>{t(item)}</li>;
-            }
-          )}
+          {['modifyDeleteData.list.1', 'modifyDeleteData.list.2'].map((item) => {
+            return <li key={item}>{t(item)}</li>;
+          })}
         </ol>
       </div>
-      <div className="flex flex-col gap-sub-medium">
-        <H2 textType="heading--sub-large" className="font-thin">
-          {t('cookiePolicy.heading')}
-        </H2>
-        <P textType={'body'}>
-          {t('cookiePolicy.content')}
-          <br></br>
-          <br></br>
-          {t('cookiePolicy.content2')}
-        </P>
-        <ol className=" body flex flex-col gap-extra-small pl-small">
-          <li>- {t('cookiePolicy.list')}</li>
-        </ol>
-        <P textType={'body'}>{t('cookiePolicy.additionalInfo')}</P>
-      </div>
+
       <div className="flex flex-col gap-sub-medium">
         <H2 textType="heading--sub-large" className="font-thin">
           {t('changes.heading')}
@@ -246,8 +211,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
           {t('contact.content')}
           <br />
           <br />
-          {t('contact.contactInfo.1')}
-          <br />
+
           {t('contact.contactInfo.2')}
           <br />
           {t('contact.contactInfo.3')}
