@@ -20,7 +20,7 @@ export default function AssaultBlock({}) {
       videoSrc: '/asset/background/video/1089037097-preview.mp4',
       title: 'Abject Act : Assault w/ Ma Čka, Ombrar, Morsure, Spore, Krauss',
       direction: 'left',
-      pictureAmount: 127
+      pictureAmount: 128
     },
     {
       imageFolder: '/asset/event/media/pulsar-lulu',

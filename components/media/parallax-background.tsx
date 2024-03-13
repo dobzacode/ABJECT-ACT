@@ -11,7 +11,8 @@ function TempComp({ src }: { src: string }) {
   );
 
   const parallax = useParallax({
-    translateY: [0, -30]
+    translateY: [0, 30],
+    easing: 'easeInOut'
   });
 
   useEffect(() => {
@@ -23,11 +24,11 @@ function TempComp({ src }: { src: string }) {
   });
 
   return (
-    <div className="fixed top-0 h-full w-screen">
+    <div className="absolute -top-[100px] h-[3000px] w-screen overflow-hidden">
       <Image
         ref={parallax.ref as Ref<HTMLImageElement>}
         alt={''}
-        className={cn('object-cover object-top')}
+        className={cn(' ')}
         placeholder="blur"
         blurDataURL={blurSrc}
         fill
