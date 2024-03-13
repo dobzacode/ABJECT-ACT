@@ -70,7 +70,7 @@ const DynamicSection: React.FC<DynamicSectionProps> = ({
         )}
       </div>
       <div className={cn(' flex flex-col gap-medium p-medium')}>
-        <H2 className="font-extralight" textType={'heading--large'}>
+        <H2 className="font-extralight" textType={'heading--sub-large'}>
           {title}
         </H2>
         <div className="flex flex-col gap-extra-small">

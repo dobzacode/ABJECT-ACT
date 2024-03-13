@@ -1,8 +1,5 @@
 import { mdiEmail, mdiFacebook, mdiInstagram, mdiSoundcloud, mdiSpotify } from '@mdi/js';
 import ArtistCard from 'components/artists/artist-card';
-import NextEventCard from 'components/artists/next-event-card';
-import PastEventCard from 'components/artists/past-event-card';
-import LastReleaseCard from 'components/artists/release-card';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
 export async function generateMetadata() {
@@ -17,9 +14,9 @@ export default async function HomePage({ params: { locale } }: { params: { local
   unstable_setRequestLocale(locale);
   return (
     <>
-      <section className=" relative flex h-fit flex-col gap-medium max-[630px]:grid-cols-2 mobile-large:grid   min-[630px]:mb-[400px] tablet:grid-cols-none tablet:grid-rows-none">
+      <section className=" relative flex h-fit flex-col gap-medium  ">
         <ArtistCard
-          className="max-[630px]:col-span-2 max-mobile-large:w-full min-[630px]:row-span-2 min-[630px]:w-[112%] tablet:w-auto"
+          className=" w-auto "
           artistSrc="/asset/artist/morsure.jpg"
           artist="Morsure"
           socials={[
@@ -35,7 +32,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
           ]}
         ></ArtistCard>
 
-        <NextEventCard
+        {/* <NextEventCard
           className="max-mobile-large:w-full"
           eventList={[
             {
@@ -89,7 +86,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
             { link: 'https://soundcloud.com/morsureofc/morsure-mind-surge' },
             { link: 'https://soundcloud.com/morsureofc/kozlov-x-morsure-2auvage-1' }
           ]}
-        ></LastReleaseCard>
+        ></LastReleaseCard> */}
       </section>
     </>
   );

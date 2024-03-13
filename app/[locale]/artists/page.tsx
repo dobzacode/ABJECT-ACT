@@ -14,7 +14,7 @@ export async function generateMetadata() {
 export default async function HomePage({ params: { locale } }: { params: { locale: string } }) {
   unstable_setRequestLocale(locale);
   return (
-    <main className=" relative flex  min-h-screen flex-wrap items-center justify-center justify-items-center gap-sub-large overflow-hidden px-medium py-extra-large tablet:pb-extra-large tablet:pt-[22rem]">
+    <main className="  relative  flex min-h-screen flex-wrap items-center justify-center justify-items-center gap-sub-large overflow-hidden px-medium py-extra-large tablet:pb-extra-large tablet:pt-[22rem]">
       <ArtistCard
         className=""
         artistSrc="/asset/artist/morsure.jpg"
@@ -32,6 +32,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
           { mdiPath: 'bandcamp', link: 'https://morsureofc.bandcamp.com/' }
         ]}
       ></ArtistCard>
+
       <ArtistCard
         className=""
         artistSrc="/asset/artist/black_larsen.jpg"
@@ -44,6 +45,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
           { mdiPath: mdiSoundcloud, link: 'https://soundcloud.com/black_larsen' }
         ]}
       ></ArtistCard>
+
       <ArtistCard
         className=""
         artistSrc="/asset/artist/spore.jpg"

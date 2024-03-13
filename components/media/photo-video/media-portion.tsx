@@ -29,7 +29,7 @@ export default function MediaPortion({ videoSrc, imageFolder }: MediaPortionProp
             mediaType === 'photo' ? 'opacity-100' : 'opacity-20'
           } duration-medium hover:opacity-100`}
         >
-          <Icon color="white" path={mdiImageMultiple} size={2} />
+          <Icon color="white" path={mdiImageMultiple} size={1.5} />
         </button>
         <button
           onClick={() => setMediaType('video')}
@@ -37,7 +37,7 @@ export default function MediaPortion({ videoSrc, imageFolder }: MediaPortionProp
             mediaType === 'video' ? 'opacity-100' : 'opacity-20'
           } duration-medium hover:opacity-100`}
         >
-          <Icon color="white" path={mdiCamera} size={2} />
+          <Icon color="white" path={mdiCamera} size={1.5} />
         </button>
       </div>
 

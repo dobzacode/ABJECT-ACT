@@ -1,8 +1,5 @@
 import { mdiFacebook, mdiInstagram, mdiSoundcloud, mdiSpotify } from '@mdi/js';
 import ArtistCard from 'components/artists/artist-card';
-import NextEventCard from 'components/artists/next-event-card';
-import PastEventCard from 'components/artists/past-event-card';
-import LastReleaseCard from 'components/artists/release-card';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
 export async function generateMetadata() {
@@ -35,7 +32,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
           ]}
         ></ArtistCard>
 
-        <NextEventCard
+        {/* <NextEventCard
           className="max-mobile-large:w-full"
           eventList={[
             {
@@ -93,7 +90,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
               link: 'https://soundcloud.com/berylliumproject/24-june-33?in=krausssss/sets/releases'
             }
           ]}
-        ></LastReleaseCard>
+        ></LastReleaseCard> */}
       </section>
     </>
   );

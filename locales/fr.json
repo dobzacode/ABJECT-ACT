@@ -1,4 +1,7 @@
 {
+  "more": {
+    "text": "Voir plus"
+  },
   "navigation": {
     "primaryNavigation": {
       "event": "evenements",

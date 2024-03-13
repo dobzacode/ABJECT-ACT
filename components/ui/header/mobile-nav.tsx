@@ -173,7 +173,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
           <nav
             ref={navRef as any}
             className={cn(
-              ' relative z-40 h-full w-fit self-start pt-medium mobile-large:pt-large tablet:pt-0',
+              ' relative z-40 h-full w-fit self-start pt-medium mobile-large:pt-large tablet:pt-large',
               modalOffset()
             )}
           >

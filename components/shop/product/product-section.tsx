@@ -46,7 +46,7 @@ export default async function ProductSection({
         ></Image>
 
         <div className="relative mx-small flex flex-col items-center gap-medium text-white mobile-medium:w-[30rem]">
-          <H2 className="font-extralight" textType={'heading--large'}>
+          <H2 className="font-extralight" textType={'heading--sub-large'}>
             {name}
           </H2>
           <P intent="white" textType={'body'} className="px-small text-center font-extralight">

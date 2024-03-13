@@ -111,6 +111,7 @@ interface NavLinkProps extends LinkProps, VariantProps<typeof linkVariants> {
   isPrimaryNav?: boolean;
   customSetter?: Function;
   param?: string;
+  liClass?: string;
 }
 
 const NavLink: FC<NavLinkProps> = React.forwardRef<HTMLLIElement, NavLinkProps>(
@@ -131,6 +132,7 @@ const NavLink: FC<NavLinkProps> = React.forwardRef<HTMLLIElement, NavLinkProps>(
       customSetter,
       isPrimaryNav,
       param,
+      liClass,
       ...props
     }: NavLinkProps,
     ref
@@ -153,7 +155,7 @@ const NavLink: FC<NavLinkProps> = React.forwardRef<HTMLLIElement, NavLinkProps>(
 
     if (!variants || isMobile)
       return (
-        <li ref={ref}>
+        <li ref={ref} className={`list-none ${liClass}`}>
           <Link
             ref={linkRefWithoutVariants}
             className={cn(
