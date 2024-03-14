@@ -1,6 +1,7 @@
 import { H1 } from 'components/ui/text/h1';
 import P from 'components/ui/text/p';
 import DynamicSection from 'components/values/dynamic-section';
+import { dynamicBlurDataUrl } from 'lib/utils';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import Image from 'next/image';
 
@@ -28,6 +29,8 @@ export default async function HomePage({ params: { locale } }: { params: { local
   const t = await getTranslations('navigation.primaryNavigation');
   const tContent = await getTranslations('values');
 
+  const blurHash = await dynamicBlurDataUrl('/asset/background/value-bg.webp');
+
   return (
     <main className="relative flex h-full min-h-screen flex-col items-center gap-sub-extra-large overflow-x-hidden px-small py-extra-large tablet:px-0 tablet:pb-extra-large ">
       <div className=" fixed top-0 -z-20 h-screen w-screen overflow-hidden saturate-50">
@@ -38,6 +41,8 @@ export default async function HomePage({ params: { locale } }: { params: { local
           className="object-cover"
           priority={true}
           quality={100}
+          blurDataURL={blurHash}
+          placeholder={'blur'}
           src={'/asset/background/value-bg.webp'}
         ></Image>
       </div>
