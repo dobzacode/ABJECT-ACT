@@ -1,16 +1,22 @@
-import { generateOpenGraphImage } from 'app/_action';
 import VideoBackground from 'components/ui/div/background-video';
-import { getLocale, getTranslations, unstable_setRequestLocale } from 'next-intl/server';
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
 export async function generateMetadata() {
   const t = await getTranslations('metadata.landing');
-  const locale = await getLocale();
 
   return {
     title: t('title'),
     description: t('description'),
-    openGraph: {
-      images: await generateOpenGraphImage(locale !== '/en' ? '' : locale)
+
+    opengraph: {
+      title: t('title'),
+      description: t('description'),
+      images: 'url/opengraph-image.jpg'
+    },
+    twitter: {
+      title: t('title'),
+      description: t('description'),
+      images: 'url/twitter-image.jpg'
     }
   };
 }

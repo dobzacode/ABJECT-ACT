@@ -34,7 +34,7 @@ export default async function ArtistSnippet({
           alt={`morsure picture`}
         ></Image>
 
-        <div className="gap flex h-full w-full flex-col items-center justify-center gap-small opacity-0 duration-medium after:absolute after:left-0 after:top-0 after:h-full after:w-full after:bg-black after:opacity-0 after:duration-medium group-hover:opacity-100 group-hover:after:opacity-0">
+        <div className="gap flex h-full w-full flex-col items-center justify-center gap-small opacity-0 duration-medium after:absolute after:left-0 after:top-0 after:h-full after:w-full after:bg-black after:opacity-0 after:duration-medium group-hover:opacity-100 group-hover:after:opacity-40">
           <H1
             className=" z-10 text-center font-extralight text-white  duration-medium"
             textType={'heading--large'}

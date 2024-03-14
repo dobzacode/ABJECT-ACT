@@ -6,7 +6,17 @@ export async function generateMetadata() {
   const t = await getTranslations('metadata.spore');
   return {
     title: t('title'),
-    description: t('description')
+    description: t('description'),
+    opengraph: {
+      title: t('title'),
+      description: t('description'),
+      images: 'url/opengraph-image.jpg'
+    },
+    twitter: {
+      title: t('title'),
+      description: t('description'),
+      images: 'url/twitter-image.jpg'
+    }
   };
 }
 
