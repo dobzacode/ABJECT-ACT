@@ -43,6 +43,7 @@ export default async function GalleryPage({ params: { locale } }: { params: { lo
           src={'/asset/background/galery-bg.webp'}
           blurDataURL={blurHash}
           placeholder={'blur'}
+          unoptimized
         ></Image>
       </div>
       <ContentSection></ContentSection>

@@ -41,6 +41,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
           priority={true}
           quality={100}
           src={'/asset/background/event-bg.webp'}
+          unoptimized
         ></Image>
       </div>
       <ContentSection></ContentSection>

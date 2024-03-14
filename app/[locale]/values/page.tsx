@@ -44,6 +44,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
           blurDataURL={blurHash}
           placeholder={'blur'}
           src={'/asset/background/value-bg.webp'}
+          unoptimized
         ></Image>
       </div>
       <section className="relative flex flex-col ">
