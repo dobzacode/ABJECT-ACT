@@ -90,7 +90,8 @@ const Input: FC<InputProps> = forwardRef<HTMLInputElement, InputProps>(
                 inputVariants({
                   className,
                   intent
-                })
+                }),
+                'bg-opacity-60'
               )}
               ref={ref}
               loader={loader}
@@ -108,7 +109,8 @@ const Input: FC<InputProps> = forwardRef<HTMLInputElement, InputProps>(
                 inputVariants({
                   className,
                   intent
-                })
+                }),
+                'bg-opacity-60'
               )}
               onChange={onChange as ChangeEventHandler<HTMLInputElement>}
               type={type}
@@ -148,7 +150,8 @@ const Input: FC<InputProps> = forwardRef<HTMLInputElement, InputProps>(
                 inputVariants({
                   className,
                   intent
-                })
+                }),
+                'bg-opacity-60'
               )}
               onChange={onChange as ChangeEventHandler<HTMLTextAreaElement>}
               {...props}

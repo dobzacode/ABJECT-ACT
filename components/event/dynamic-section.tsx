@@ -48,7 +48,7 @@ const DynamicSection: React.FC<DynamicSectionProps> = ({
   return (
     <motion.section
       className={cn(
-        'relative flex h-fit w-full max-w-[600px] flex-col overflow-x-hidden rounded-small bg-black95    text-black5 shadow-medium-light  ',
+        ' relative flex h-fit w-full max-w-[600px] flex-col overflow-x-hidden rounded-small    text-black5   ',
         isOlder ? 'opacity-100' : 'opacity-20 grayscale'
       )}
       initial={{ opacity: 0, translateX: direction === 'left' ? '-10%' : '10%' }}
@@ -56,7 +56,7 @@ const DynamicSection: React.FC<DynamicSectionProps> = ({
       viewport={{ margin: '-50% 0px -30% 0px' }}
       {...props}
     >
-      <div className={cn('relative  h-[200px] w-full ')}>
+      <div className={cn('relative  h-[300px] w-full bg-black bg-opacity-40')}>
         {blurHash && (
           <Image
             blurDataURL={blurHash}
@@ -69,7 +69,7 @@ const DynamicSection: React.FC<DynamicSectionProps> = ({
           ></Image>
         )}
       </div>
-      <div className={cn(' flex flex-col gap-medium p-medium')}>
+      <div className={cn(' transparent-card flex flex-col gap-medium p-medium')}>
         <H2 className="font-extralight" textType={'heading--sub-large'}>
           {title}
         </H2>

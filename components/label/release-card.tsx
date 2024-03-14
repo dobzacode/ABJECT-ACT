@@ -21,7 +21,7 @@ export default async function ReleaseCard({
   return (
     <section
       className={cn(
-        'relative mx-small flex  h-fit w-fit  justify-end   gap-medium  overflow-hidden rounded-small bg-black95  text-black5 shadow-medium-light mobile-large:mx-0 laptop:gap-sub-large',
+        'transparent-card relative mx-small  flex h-fit  w-fit   justify-end  gap-medium overflow-hidden rounded-small text-black5  mobile-large:mx-0 laptop:gap-sub-large',
         direction === 'left'
           ? 'slideInFromLeft transition-delay-1000 '
           : 'slideInFromRight transition-delay-1000'

@@ -50,7 +50,7 @@ export default async function DynamicSection({
       </div>
       <div
         className={cn(
-          ' flex flex-col gap-medium rounded-small bg-black95 p-medium  shadow-medium-light',
+          ' transparent-card flex flex-col gap-medium  rounded-small p-medium  ',
           direction === 'left'
             ? 'slideInFromRight ml-large pl-large'
             : 'slideInFromLeft mr-large pr-large'

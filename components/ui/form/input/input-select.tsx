@@ -20,20 +20,20 @@ const InputSelect: FC<SelectProps> = forwardRef<HTMLInputElement, SelectProps>(
           <select
             className={cn(
               className,
-              'body placeholder:body cursor-pointer rounded-lg  px-extra-small py-[1.1rem] '
+              'body placeholder:body cursor-pointer rounded-lg  px-extra-small py-[1.1rem] focus-visible:outline-[1px] '
             )}
             name={props.id}
             aria-label={props.id}
             {...props}
           >
             {placeholder && (
-              <option value="" className="" disabled hidden>
+              <option value="" className="focus:outline-none" disabled hidden>
                 {placeholder}
               </option>
             )}
             {choices.map((choice) => {
               return (
-                <option key={uuidv4()} value={choice}>
+                <option className="cursor-pointer " key={uuidv4()} value={choice}>
                   {choice}
                 </option>
               );

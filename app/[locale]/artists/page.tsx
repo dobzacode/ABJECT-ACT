@@ -1,6 +1,7 @@
 import { mdiEmail, mdiFacebook, mdiInstagram, mdiSoundcloud, mdiSpotify } from '@mdi/js';
 import ArtistCard from 'components/artists/artist-card';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
+import Image from 'next/image';
 
 export async function generateMetadata() {
   const t = await getTranslations('metadata.artists');
@@ -15,6 +16,17 @@ export default async function HomePage({ params: { locale } }: { params: { local
   unstable_setRequestLocale(locale);
   return (
     <main className="  relative  flex min-h-screen flex-wrap items-center justify-center justify-items-center gap-sub-large overflow-hidden px-medium py-extra-large tablet:pb-extra-large tablet:pt-[22rem]">
+      <div className=" fixed top-0 -z-20 h-screen w-screen overflow-hidden saturate-50">
+        <Image
+          sizes={'100vw'}
+          fill
+          alt={''}
+          className="object-cover"
+          priority={true}
+          quality={100}
+          src={'/asset/background/artists-bg.webp'}
+        ></Image>
+      </div>
       <ArtistCard
         className=""
         artistSrc="/asset/artist/morsure.jpg"

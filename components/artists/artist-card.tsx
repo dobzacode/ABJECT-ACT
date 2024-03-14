@@ -30,7 +30,7 @@ export default async function ArtistCard({
   return (
     <div
       className={cn(
-        'slideInFromLeft group group z-10 flex h-fit w-fit flex-col justify-between gap-sub-medium overflow-hidden rounded-small bg-black95 pb-medium shadow-medium-light laptop:w-fit ',
+        'slideInFromLeft transparent-card group group z-10 flex h-fit w-fit flex-col justify-between gap-sub-medium overflow-hidden rounded-small  pb-medium laptop:w-fit ',
         className
       )}
     >

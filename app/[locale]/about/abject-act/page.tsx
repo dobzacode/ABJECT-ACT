@@ -2,6 +2,7 @@ import { generateOpenGraphImage } from 'app/_action';
 import { H1 } from 'components/ui/text/h1';
 import P from 'components/ui/text/p';
 import { getLocale, unstable_setRequestLocale } from 'next-intl/server';
+import Image from 'next/image';
 
 export async function generateMetadata() {
   const locale = await getLocale();
@@ -20,6 +21,17 @@ export default async function HomePage({ params: { locale } }: { params: { local
   unstable_setRequestLocale(locale);
   return (
     <main className="relative flex h-screen flex-col items-center gap-sub-large overflow-hidden py-extra-large tablet:pb-extra-large ">
+      <div className=" fixed top-0 -z-20 h-screen w-screen overflow-hidden saturate-50">
+        <Image
+          sizes={'100vw'}
+          fill
+          alt={''}
+          className="object-cover"
+          priority={true}
+          quality={100}
+          src={'/asset/background/abjectact-bg.webp'}
+        ></Image>
+      </div>
       <H1
         textType={'heading--extra-large'}
         className="slideInFromRight relative z-10 text-center text-black5 max-mobile-large:text-heading-large max-mobile-large:leading-heading-large tablet:mt-small"
