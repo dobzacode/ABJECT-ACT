@@ -170,13 +170,26 @@ html {
 
 .overlay::before {
   content: '';
-  position: fixed;
+  position: absolute;
   top: -64px;
   right: 0;
   left: -64px;
   z-index: 30;
   height: 300px;
   background: linear-gradient(to bottom, black, transparent);
+  pointer-events: none;
+  width: full;
+}
+
+.overlay::after {
+  content: '';
+  position: absolute;
+  bottom: -64px;
+  right: 0;
+  left: -64px;
+  z-index: 30;
+  height: full;
+  background: linear-gradient(to top, black, transparent);
   pointer-events: none;
   width: full;
 }
