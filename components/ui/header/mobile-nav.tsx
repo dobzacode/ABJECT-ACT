@@ -43,7 +43,7 @@ const navLinks = [
   { href: '/event', name: 'event' },
   { href: '/artists', name: 'artists' },
   { href: '/values', name: 'values' },
-  { href: '/shop', name: 'shop' },
+
   { href: '/contact', name: 'contact' },
   { href: '/gallery', name: 'gallery' },
   { href: '/label', name: 'label' }

@@ -1,5 +1,5 @@
 import { mdiEmail, mdiFacebook, mdiInstagram, mdiSoundcloud, mdiSpotify } from '@mdi/js';
-import ArtistCard from 'components/artists/artist-card';
+import ArtistSnippet from 'components/artists/artist-snippet';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import Image from 'next/image';
 
@@ -27,11 +27,9 @@ export default async function HomePage({ params: { locale } }: { params: { local
           src={'/asset/background/artists-bg.webp'}
         ></Image>
       </div>
-      <ArtistCard
-        className=""
+      <ArtistSnippet
         artistSrc="/asset/artist/morsure.jpg"
         artist="Morsure"
-        isArtistPage={true}
         socials={[
           { mdiPath: mdiInstagram, link: 'https://www.instagram.com/morsure_music/' },
           { mdiPath: mdiFacebook, link: 'https://www.facebook.com/morsuremusic/' },
@@ -43,26 +41,22 @@ export default async function HomePage({ params: { locale } }: { params: { local
           },
           { mdiPath: 'bandcamp', link: 'https://morsureofc.bandcamp.com/' }
         ]}
-      ></ArtistCard>
+      ></ArtistSnippet>
 
-      <ArtistCard
-        className=""
+      <ArtistSnippet
         artistSrc="/asset/artist/black_larsen.jpg"
         artist="Black Larsen"
-        isArtistPage={true}
         socials={[
           { mdiPath: mdiInstagram, link: 'https://www.instagram.com/black_larsen/' },
           { mdiPath: mdiFacebook, link: 'https://www.facebook.com/black.larsen.abject/' },
           { mdiPath: mdiEmail, link: 'mailto:blacklarsen.contact@gmail.com' },
           { mdiPath: mdiSoundcloud, link: 'https://soundcloud.com/black_larsen' }
         ]}
-      ></ArtistCard>
+      ></ArtistSnippet>
 
-      <ArtistCard
-        className=""
+      <ArtistSnippet
         artistSrc="/asset/artist/spore.jpg"
         artist="Spore"
-        isArtistPage={true}
         socials={[
           { mdiPath: mdiInstagram, link: 'https://www.instagram.com/spore.abject/' },
           { mdiPath: mdiFacebook, link: 'https://www.facebook.com/Spore.Abject' },
@@ -73,12 +67,10 @@ export default async function HomePage({ params: { locale } }: { params: { local
             link: 'https://open.spotify.com/intl-fr/artist/4ikPhgKSlQLR1VQgQuqP5n'
           }
         ]}
-      ></ArtistCard>
-      <ArtistCard
-        className=""
+      ></ArtistSnippet>
+      <ArtistSnippet
         artistSrc="/asset/artist/krauss.jpg"
         artist="Krauss"
-        isArtistPage={true}
         socials={[
           { mdiPath: mdiInstagram, link: 'https://www.instagram.com/krauss_music/?hl=fr' },
           { mdiPath: mdiFacebook, link: 'https://www.facebook.com/krausstekno?fref=ts' },
@@ -90,7 +82,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
           },
           { mdiPath: 'bandcamp', link: 'https://technokrauss.bandcamp.com/' }
         ]}
-      ></ArtistCard>
+      ></ArtistSnippet>
     </main>
   );
 }
