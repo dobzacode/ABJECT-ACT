@@ -35,13 +35,13 @@ export default async function HomePage({ params: { locale } }: { params: { local
           blurDataURL={blurHash}
           placeholder={'blur'}
           sizes={'100vw'}
-          fill
           alt={''}
           className="object-cover"
           priority={true}
           quality={100}
           src={'/asset/background/event-bg.webp'}
-          unoptimized
+          width={1920}
+          height={1080}
         ></Image>
       </div>
       <ContentSection></ContentSection>

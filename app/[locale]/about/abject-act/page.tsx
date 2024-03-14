@@ -29,16 +29,16 @@ export default async function HomePage({ params: { locale } }: { params: { local
     <main className="relative flex h-screen flex-col items-center gap-sub-large overflow-hidden py-extra-large tablet:pb-extra-large ">
       <div className=" fixed top-0 -z-20 h-screen w-screen overflow-hidden saturate-50">
         <Image
+          width={1920}
+          height={1080}
           blurDataURL={blurHash}
           placeholder={'blur'}
           sizes={'100vw'}
-          fill
           alt={''}
           className="object-cover"
           priority={true}
           quality={100}
           src={'/asset/background/abjectact-bg.webp'}
-          unoptimized
         ></Image>
       </div>
       <H1

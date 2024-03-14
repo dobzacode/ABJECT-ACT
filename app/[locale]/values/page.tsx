@@ -36,7 +36,6 @@ export default async function HomePage({ params: { locale } }: { params: { local
       <div className=" fixed top-0 -z-20 h-screen w-screen overflow-hidden saturate-50">
         <Image
           sizes={'100vw'}
-          fill
           alt={''}
           className="object-cover"
           priority={true}
@@ -44,7 +43,8 @@ export default async function HomePage({ params: { locale } }: { params: { local
           blurDataURL={blurHash}
           placeholder={'blur'}
           src={'/asset/background/value-bg.webp'}
-          unoptimized
+          width={1920}
+          height={1080}
         ></Image>
       </div>
       <section className="relative flex flex-col ">

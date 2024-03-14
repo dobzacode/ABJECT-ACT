@@ -35,7 +35,8 @@ export default async function GalleryPage({ params: { locale } }: { params: { lo
       <div className=" fixed top-0 h-screen w-screen overflow-hidden saturate-50">
         <Image
           sizes={'100vw'}
-          fill
+          width={1920}
+          height={1080}
           alt={''}
           className="object-cover"
           priority={true}
@@ -43,7 +44,6 @@ export default async function GalleryPage({ params: { locale } }: { params: { lo
           src={'/asset/background/galery-bg.webp'}
           blurDataURL={blurHash}
           placeholder={'blur'}
-          unoptimized
         ></Image>
       </div>
       <ContentSection></ContentSection>
