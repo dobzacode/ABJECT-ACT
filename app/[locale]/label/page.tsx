@@ -33,10 +33,10 @@ export default async function HomePage({ params: { locale } }: { params: { local
 
   return (
     <main className="relative flex min-h-screen flex-col items-center gap-large overflow-x-hidden px-small py-extra-large tablet:px-0 ">
-      <div className=" fixed top-0 -z-20 h-screen w-screen overflow-hidden saturate-50">
+      <div className=" fixed top-0 -z-20 h-[100vh] w-[100vw] overflow-hidden saturate-50">
         <Image
-          sizes={'100vw'}
           fill
+          sizes="100vw"
           alt={''}
           className="object-cover"
           priority={true}
@@ -44,6 +44,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
           src={'/asset/background/label-bg.webp'}
           blurDataURL={blurHash}
           placeholder={'blur'}
+          unoptimized
         ></Image>
       </div>
       <section className="relative flex flex-col ">
