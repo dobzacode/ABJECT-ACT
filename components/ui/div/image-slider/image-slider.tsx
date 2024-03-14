@@ -1,5 +1,6 @@
 'use client';
 
+import useBetterMediaQuery from 'components/hooks/use-better-media-query';
 import { cn, dynamicBlurDataUrl } from 'lib/utils';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
@@ -29,6 +30,8 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ imageFolder, pictureAmount })
   const [currentImage, setCurrentImage] = useState<number>(0);
   const [images, setImages] = useState<imageProps[] | null>(null);
 
+  const isMobile = useBetterMediaQuery('(max-width: 500px)');
+
   useEffect(() => {
     const defineImg = async () => {
       const images = Array.from({ length: pictureAmount ? pictureAmount : 10 }, async (_, i) => ({
@@ -55,13 +58,11 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ imageFolder, pictureAmount })
 
   const settings = {
     infinite: true,
-    arrows: false,
-    speed: 3000,
+    arrows: isMobile ? false : true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    autoplay: true,
-    swipeToSlide: true,
-    autoplaySpeed: 3000
+
+    swipeToSlide: true
   };
 
   if (!images)

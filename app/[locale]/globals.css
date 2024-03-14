@@ -482,3 +482,19 @@ input[type='search']:focus {
     transform: scale(1);
   }
 }
+
+.slick-next {
+  transform: scale(110%) !important;
+  right: 20px !important;
+}
+
+.slick-prev {
+  transform: scale(110%) !important;
+
+  left: 20px !important;
+}
+
+.slick-next::before,
+.slick-prev::before {
+  border-radius: 4px;
+}
