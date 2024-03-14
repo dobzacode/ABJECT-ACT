@@ -2,6 +2,7 @@ import ReleaseCard from 'components/label/release-card';
 import releases from 'components/label/release.json';
 import { H1 } from 'components/ui/text/h1';
 import P from 'components/ui/text/p';
+import { dynamicBlurDataUrl } from 'lib/utils';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import Image from 'next/image';
 import { v4 } from 'uuid';
@@ -27,6 +28,9 @@ export async function generateMetadata() {
 
 export default async function HomePage({ params: { locale } }: { params: { locale: string } }) {
   unstable_setRequestLocale(locale);
+
+  const blurHash = await dynamicBlurDataUrl('/asset/background/label-bg.webp');
+
   return (
     <main className="relative flex min-h-screen flex-col items-center gap-large overflow-x-hidden px-small py-extra-large tablet:px-0 ">
       <div className=" fixed top-0 -z-20 h-screen w-screen overflow-hidden saturate-50">
@@ -38,6 +42,8 @@ export default async function HomePage({ params: { locale } }: { params: { local
           priority={true}
           quality={100}
           src={'/asset/background/label-bg.webp'}
+          blurDataURL={blurHash}
+          placeholder={'blur'}
         ></Image>
       </div>
       <section className="relative flex flex-col ">

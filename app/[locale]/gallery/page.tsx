@@ -1,4 +1,5 @@
 import ContentSection from 'components/media/photo-video/content-section';
+import { dynamicBlurDataUrl } from 'lib/utils';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import Image from 'next/image';
 
@@ -24,6 +25,8 @@ export async function generateMetadata() {
 export default async function GalleryPage({ params: { locale } }: { params: { locale: string } }) {
   unstable_setRequestLocale(locale);
 
+  const blurHash = await dynamicBlurDataUrl('/asset/background/galery-bg.webp');
+
   return (
     <main
       className=" relative flex h-full
@@ -38,6 +41,8 @@ export default async function GalleryPage({ params: { locale } }: { params: { lo
           priority={true}
           quality={100}
           src={'/asset/background/galery-bg.webp'}
+          blurDataURL={blurHash}
+          placeholder={'blur'}
         ></Image>
       </div>
       <ContentSection></ContentSection>

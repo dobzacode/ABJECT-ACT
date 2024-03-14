@@ -1,5 +1,6 @@
 import { H1 } from 'components/ui/text/h1';
 import P from 'components/ui/text/p';
+import { dynamicBlurDataUrl } from 'lib/utils';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import Image from 'next/image';
 
@@ -23,10 +24,13 @@ export async function generateMetadata() {
 
 export default async function HomePage({ params: { locale } }: { params: { locale: string } }) {
   unstable_setRequestLocale(locale);
+  const blurHash = await dynamicBlurDataUrl('/asset/background/abjectact-bg.webp');
   return (
     <main className="relative flex h-screen flex-col items-center gap-sub-large overflow-hidden py-extra-large tablet:pb-extra-large ">
       <div className=" fixed top-0 -z-20 h-screen w-screen overflow-hidden saturate-50">
         <Image
+          blurDataURL={blurHash}
+          placeholder={'blur'}
           sizes={'100vw'}
           fill
           alt={''}

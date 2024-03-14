@@ -1,4 +1,5 @@
 import ContentSection from 'components/event/content-section';
+import { dynamicBlurDataUrl } from 'lib/utils';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import Image from 'next/image';
 
@@ -22,6 +23,8 @@ export async function generateMetadata() {
 }
 export default async function HomePage({ params: { locale } }: { params: { locale: string } }) {
   unstable_setRequestLocale(locale);
+  const blurHash = await dynamicBlurDataUrl('/asset/background/event-bg.webp');
+
   return (
     <main
       className=" relative flex h-full
@@ -29,6 +32,8 @@ export default async function HomePage({ params: { locale } }: { params: { local
     >
       <div className=" fixed top-0 -z-20 h-screen w-screen overflow-hidden saturate-50">
         <Image
+          blurDataURL={blurHash}
+          placeholder={'blur'}
           sizes={'100vw'}
           fill
           alt={''}
