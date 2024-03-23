@@ -58,7 +58,9 @@ export default function MobileFooter({ currentNavStyle, intent, customSetter }: 
       </div>
       <ul
         className={`body flex h-sub-large flex-wrap items-center ${
-          isActive === 'legal' ? 'justify-center gap-medium' : 'justify-between gap-extra-small'
+          isActive === 'legal' || 'about us'
+            ? 'justify-start gap-medium'
+            : 'justify-between gap-extra-small'
         }`}
       >
         {isActive === 'about us' &&
