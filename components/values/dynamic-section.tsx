@@ -12,6 +12,7 @@ export interface DynamicSectionProps {
   children: string;
   src: string;
   alt: string;
+  imgCss?: string;
 }
 
 export default async function DynamicSection({
@@ -20,6 +21,7 @@ export default async function DynamicSection({
   children,
   src,
   alt,
+  imgCss,
   ...props
 }: DynamicSectionProps) {
   const blurHash = await dynamicBlurDataUrl(src);
@@ -33,6 +35,7 @@ export default async function DynamicSection({
       <div
         className={cn(
           'absolute  -top-sub-large  z-10 h-[128px]   w-[128px] transform overflow-hidden rounded-full',
+          imgCss,
           direction === 'left'
             ? 'slideInFromLeft transition-delay-1000 -left-[0.5rem]'
             : 'slideInFromRight transition-delay-1000 -right-[0.5rem]'
@@ -43,7 +46,7 @@ export default async function DynamicSection({
           blurDataURL={blurHash}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           fill
-          className="object-contain"
+          className="object-cover"
           src={src}
           alt={`${alt} image`}
         ></Image>

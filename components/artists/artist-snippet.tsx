@@ -1,7 +1,7 @@
 import { mdiArrowRight } from '@mdi/js';
 import Icon from '@mdi/react';
 import NavLink from 'components/ui/header/nav-link';
-import { H1 } from 'components/ui/text/h1';
+import H2 from 'components/ui/text/h2';
 import { dynamicBlurDataUrl } from 'lib/utils';
 import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
@@ -35,12 +35,12 @@ export default async function ArtistSnippet({
         ></Image>
 
         <div className="gap flex h-full w-full flex-col items-center justify-center gap-small opacity-0 duration-medium after:absolute after:left-0 after:top-0 after:h-full after:w-full after:bg-black after:opacity-0 after:duration-medium group-hover:opacity-100 group-hover:after:opacity-40">
-          <H1
+          <H2
             className=" z-10 text-center font-extralight text-white  duration-medium"
             textType={'heading--large'}
           >
             {artist}
-          </H1>
+          </H2>
 
           <div className="relative z-[100] flex gap-extra-small [&>*:hover]:scale-110 [&>*]:duration-medium">
             {socials?.map(({ link, mdiPath }) => {
