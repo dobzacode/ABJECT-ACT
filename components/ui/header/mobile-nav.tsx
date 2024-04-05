@@ -93,6 +93,27 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
   const pathname = usePathname();
 
   useEffect(() => {
+    if (pathname === '/' || pathname === '/en') {
+      const handleScroll = (event) => {
+        // Vérifier si l'utilisateur fait défiler vers le bas avec la molette de la souris
+        if (event.deltaY > 0) {
+          // Ouvrir le menu en définissant showMenu sur true
+          return setShowMenu(true);
+        }
+        setShowMenu(false);
+      };
+
+      // Ajouter un écouteur d'événement de défilement de la souris à la fenêtre du navigateur
+      window.addEventListener('wheel', handleScroll);
+
+      // Nettoyer l'écouteur d'événement lors du démontage du composant
+      return () => {
+        window.removeEventListener('wheel', handleScroll);
+      };
+    }
+  }, [pathname]);
+
+  useEffect(() => {
     setTriggerClass(true);
 
     const timeoutId = setTimeout(() => {
