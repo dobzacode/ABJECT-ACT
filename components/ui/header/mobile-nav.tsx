@@ -150,7 +150,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1, transition: { duration: 1 } }}
                 exit={{ opacity: 0 }}
-                className="absolute left-small h-fit w-fit  laptop:left-large"
+                className="absolute left-small h-fit w-fit  max-mobile-large:scale-75 laptop:left-large"
                 onClick={() => setShowMenu(true)}
               >
                 <Icon
@@ -165,19 +165,23 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
                 initial={{ opacity: 0, rotate: 360 }}
                 animate={{ opacity: 1, rotate: 0, transition: { duration: 1, ease: 'easeOut' } }}
                 exit={{ opacity: 0, transition: { duration: 0.4 } }}
-                className="absolute left-small h-fit w-fit  laptop:left-large"
+                className="absolute left-small h-fit w-fit  max-mobile-large:scale-75 laptop:left-large"
                 onClick={() => setShowMenu(false)}
               >
                 <Icon
                   path={mdiClose}
-                  className=" text-white duration-fast hover:scale-105"
+                  className=" text-white duration-fast hover:scale-105 max-mobile-large:scale-75 max-mobile-large:hover:scale-[80%]"
                   size={2.5}
                 ></Icon>
               </motion.button>
             )}
           </AnimatePresence>
 
-          <div className={'fadeIn absolute  left-1/2 -translate-x-1/2 transform'}>
+          <div
+            className={
+              'fadeIn absolute left-1/2  -translate-x-1/2 transform max-mobile-large:scale-75'
+            }
+          >
             <Logo
               customSetter={() => setShowMenu(false)}
               href="/"
