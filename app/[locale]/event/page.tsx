@@ -36,7 +36,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
           placeholder={'blur'}
           sizes={'100vw'}
           alt={''}
-          className="object-cover"
+          className="object-cover object-center min-[1920px]:h-screen min-[1920px]:w-screen"
           priority={true}
           quality={100}
           src={'/asset/background/event-bg.webp'}

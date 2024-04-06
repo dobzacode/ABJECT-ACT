@@ -40,7 +40,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
           width={1920}
           height={1080}
           alt={''}
-          className="object-cover"
+          className="object-cover object-center min-[1920px]:h-screen min-[1920px]:w-screen"
           priority={true}
           quality={100}
           src={'/asset/background/joinus-bg.webp'}

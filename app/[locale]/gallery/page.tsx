@@ -32,13 +32,13 @@ export default async function GalleryPage({ params: { locale } }: { params: { lo
       className=" relative flex h-full
      min-h-screen w-screen flex-col items-center justify-center overflow-x-hidden py-extra-large tablet:pb-extra-large tablet:pt-[22rem]"
     >
-      <div className=" fixed top-0 h-screen w-screen overflow-hidden saturate-50">
+      <div className=" fixed top-0 h-screen w-screen overflow-hidden saturate-50 ">
         <Image
           sizes={'100vw'}
           width={1920}
           height={1080}
           alt={''}
-          className="object-cover"
+          className="object-cover object-center min-[1920px]:h-screen min-[1920px]:w-screen"
           priority={true}
           quality={100}
           src={'/asset/background/galery-bg.webp'}
