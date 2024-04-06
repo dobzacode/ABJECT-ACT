@@ -94,7 +94,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
 
   useEffect(() => {
     if (pathname === '/' || pathname === '/en') {
-      const handleScroll = (event) => {
+      const handleScroll = (event: WheelEvent) => {
         // Vérifier si l'utilisateur fait défiler vers le bas avec la molette de la souris
         if (event.deltaY > 0) {
           // Ouvrir le menu en définissant showMenu sur true

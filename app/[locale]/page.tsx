@@ -25,7 +25,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
   unstable_setRequestLocale(locale);
   return (
     <main>
-      <VideoBackground src={'/asset/background/video/1089037097-preview.mp4'}></VideoBackground>
+      <VideoBackground src={'/asset/background/video/bg-video.mp4'}></VideoBackground>
     </main>
   );
 }
