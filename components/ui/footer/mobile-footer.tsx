@@ -1,3 +1,4 @@
+import { cn } from 'lib/utils';
 import { useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -7,6 +8,7 @@ import NavLink from '../header/nav-link';
 import { FooterBlockProps, aboutUsLinks } from './about-us-block';
 import { socialLinks } from './contact-block';
 import { legalLinks } from './legal-block';
+import SocialIcon from './social-icon';
 
 export default function MobileFooter({ currentNavStyle, intent, customSetter }: FooterBlockProps) {
   const [isActive, setIsActive] = useState<'contact' | 'about us' | 'legal'>('about us');
@@ -57,11 +59,11 @@ export default function MobileFooter({ currentNavStyle, intent, customSetter }: 
         </Button>
       </div>
       <ul
-        className={`body flex h-sub-large flex-wrap items-center ${
-          isActive === 'legal' || 'about us'
-            ? 'justify-start gap-medium'
-            : 'justify-between gap-extra-small'
-        }`}
+        className={cn(
+          `body flex h-sub-large flex-wrap  items-center 
+          `,
+          isActive === 'legal' || isActive === 'about us' ? ' gap-medium' : 'gap-extra-small'
+        )}
       >
         {isActive === 'about us' &&
           aboutUsLinks.map((link) => {
@@ -95,12 +97,16 @@ export default function MobileFooter({ currentNavStyle, intent, customSetter }: 
             <NavLink
               key={v4()}
               hover={true}
-              customSetter={customSetter}
               intent={intent}
               currentNavStyle={currentNavStyle}
               href={socialLink.href}
             >
-              {socialLink.name}
+              <SocialIcon
+                className=""
+                size={1.3}
+                href={socialLink.href}
+                mdiPath={socialLink.mdiPath}
+              ></SocialIcon>
             </NavLink>
           ))}
         {isActive === 'legal' &&
