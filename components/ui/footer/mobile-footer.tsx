@@ -35,7 +35,7 @@ export default function MobileFooter({ currentNavStyle, intent, customSetter }: 
   }, [pathname, t]);
 
   return (
-    <div className="flex flex-col gap-small">
+    <div className="flex flex-col gap-extra-small">
       <div className="flex justify-between">
         <Button
           onClick={() => setIsActive('about us')}
