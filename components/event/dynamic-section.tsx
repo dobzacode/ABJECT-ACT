@@ -48,7 +48,7 @@ const DynamicSection: React.FC<DynamicSectionProps> = ({
   return (
     <motion.section
       className={cn(
-        ' relative flex h-fit w-full max-w-[600px] flex-col overflow-x-hidden rounded-small    text-black5   ',
+        ' relative flex h-fit w-full max-w-[700px] flex-col overflow-x-hidden rounded-small    text-black5   ',
         isOlder ? 'opacity-100' : 'opacity-20 grayscale'
       )}
       initial={{ opacity: 0, translateX: direction === 'left' ? '-10%' : '10%' }}
@@ -56,14 +56,16 @@ const DynamicSection: React.FC<DynamicSectionProps> = ({
       viewport={{ margin: '-50% 0px -30% 0px' }}
       {...props}
     >
-      <div className={cn('relative  h-[300px] w-full bg-black bg-opacity-40')}>
+      <div
+        className={cn('relative h-[170px]  w-full bg-black bg-opacity-40 mobile-large:h-[300px]')}
+      >
         {blurHash && (
           <Image
             blurDataURL={blurHash}
             placeholder="blur"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
             fill
-            className="object-cover"
+            className="object-cover object-center"
             src={imageSrc}
             alt={`${title} picture`}
           ></Image>
