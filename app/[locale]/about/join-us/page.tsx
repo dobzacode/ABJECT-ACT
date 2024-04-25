@@ -4,6 +4,7 @@ import { H1 } from 'components/ui/text/h1';
 import { dynamicBlurDataUrl } from 'lib/utils';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import Image from 'next/image';
+import { Suspense } from 'react';
 
 export async function generateMetadata() {
   const t = await getTranslations('metadata.join-us');
@@ -53,7 +54,9 @@ export default async function HomePage({ params: { locale } }: { params: { local
         {t('join us')}
       </H1>
       <RecaptchaProvider>
-        <ContactSection isJoinUs={true}></ContactSection>
+        <Suspense>
+          <ContactSection isJoinUs={true}></ContactSection>
+        </Suspense>
       </RecaptchaProvider>
     </main>
   );

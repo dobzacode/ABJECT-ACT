@@ -3,6 +3,7 @@ import RecaptchaProvider from 'components/providers/recaptcha-provider';
 import { dynamicBlurDataUrl } from 'lib/utils';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import Image from 'next/image';
+import { Suspense } from 'react';
 
 export async function generateMetadata() {
   const t = await getTranslations('metadata.contact');
@@ -46,7 +47,9 @@ export default async function HomePage({ params: { locale } }: { params: { local
       </div>
 
       <RecaptchaProvider>
-        <ContactSection></ContactSection>
+        <Suspense>
+          <ContactSection></ContactSection>
+        </Suspense>
       </RecaptchaProvider>
     </main>
   );
