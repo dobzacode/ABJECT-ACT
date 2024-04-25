@@ -31,9 +31,9 @@ const EventSection: React.FC<EventSectionProps> = ({
     <motion.section
       initial={{ opacity: 0, translateX: direction === 'left' ? '-10%' : '10%' }}
       whileInView={{ opacity: 1, translateX: 0, transition: { type: 'spring' } }}
-      viewport={{ margin: '-50% 0px -20% 0px' }}
+      viewport={{ margin: '-50% 0px -30% 0px' }}
       className={cn(
-        'relative flex h-[50rem] w-full flex-col gap-large overflow-hidden rounded-small border border-black border-opacity-40 bg-black95 bg-opacity-60  pt-sub-large  backdrop-blur-sm    mobile-large:h-full laptop:w-10/12 laptop:gap-large  '
+        'relative flex h-[50rem] w-full flex-col gap-medium overflow-hidden rounded-small border border-black border-opacity-40 bg-black95 bg-opacity-60  pt-medium  backdrop-blur-sm    mobile-large:h-full laptop:w-10/12  '
       )}
       {...props}
     >
@@ -42,11 +42,7 @@ const EventSection: React.FC<EventSectionProps> = ({
           {title}
         </H2>
       </div>
-      <MediaPortion
-        pictureAmount={pictureAmount}
-        videoSrc={videoSrc}
-        imageFolder={imageFolder}
-      ></MediaPortion>
+      <MediaPortion pictureAmount={pictureAmount} imageFolder={imageFolder}></MediaPortion>
     </motion.section>
   );
 };

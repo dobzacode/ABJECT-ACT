@@ -84,21 +84,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
           }
         ]}
       ></ArtistSnippet>
-      <ArtistSnippet
-        artistSrc="/asset/artist/krauss.jpg"
-        artist="Krauss"
-        socials={[
-          { mdiPath: mdiInstagram, link: 'https://www.instagram.com/krauss_music/?hl=fr' },
-          { mdiPath: mdiFacebook, link: 'https://www.facebook.com/krausstekno?fref=ts' },
-
-          { mdiPath: mdiSoundcloud, link: 'https://soundcloud.com/krausssss' },
-          {
-            mdiPath: mdiSpotify,
-            link: 'https://open.spotify.com/intl-fr/artist/2yW301v7rO5F5TWplXjanF'
-          },
-          { mdiPath: 'bandcamp', link: 'https://technokrauss.bandcamp.com/' }
-        ]}
-      ></ArtistSnippet>
+     
     </main>
   );
 }

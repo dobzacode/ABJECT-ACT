@@ -53,7 +53,7 @@ const DynamicSection: React.FC<DynamicSectionProps> = ({
       )}
       initial={{ opacity: 0, translateX: direction === 'left' ? '-10%' : '10%' }}
       whileInView={{ opacity: 1, translateX: 0, transition: { type: 'spring' } }}
-      viewport={{ margin: '-50% 0px -30% 0px' }}
+      viewport={{ margin: '-50% 0px -34% 0px' }}
       {...props}
     >
       <div
