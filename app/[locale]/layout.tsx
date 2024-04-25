@@ -1,7 +1,7 @@
 import { Header } from 'components/ui/header/header';
 
 import { NextIntlClientProvider } from 'next-intl';
-import { unstable_setRequestLocale } from 'next-intl/server';
+import { getLocale, unstable_setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { ReactNode } from 'react';
 import './globals.css';
@@ -9,6 +9,15 @@ import './globals.css';
 export function generateStaticParams() {
   return [{ locale: 'en' }, { locale: 'fr' }];
 }
+
+export const generateMetadata = async () => {
+  const locale = await getLocale();
+  return {
+    metadataBase: new URL(
+      `${locale === 'en' ? 'https://abjectact.com/en' : 'https://abjectact.com'} `
+    )
+  };
+};
 
 export default async function RootLayout({
   children,
