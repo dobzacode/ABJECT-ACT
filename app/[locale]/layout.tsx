@@ -1,5 +1,3 @@
-import { Header } from 'components/ui/header/header';
-
 import AlertBanner from 'components/sanity/alert-banner';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, unstable_setRequestLocale } from 'next-intl/server';
@@ -47,14 +45,7 @@ export default async function RootLayout({
       <body className="relative h-full  w-full overflow-x-hidden bg-black ">
         {draftMode().isEnabled && <AlertBanner />}
 
-        <NextIntlClientProvider messages={messages}>
-          <Header
-            size={'medium'}
-            textColor={'white'}
-            className="overlay  absolute  w-full max-w-full px-sub-large pt-[40px] tablet:px-large tablet:pt-large"
-          ></Header>
-          {children}
-        </NextIntlClientProvider>
+        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
         {draftMode().isEnabled && <VisualEditing />}
       </body>
     </html>
