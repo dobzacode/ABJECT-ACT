@@ -6,7 +6,7 @@ export default async function MediaPortion({ event }: { event: Event }) {
   const imagesWithUrl = event.imageGallery
     ? await Promise.all(
         event.imageGallery.map(async (image: Image) => {
-          image.url = await urlForImage(image).width(1920).height(1080).dpr(2).quality(80).url();
+          image.url = await urlForImage(image).width(1920).height(1080).dpr(2).quality(100).url();
 
           image.blurSrc = urlForImage(image).width(20).quality(20).url();
           return image;
