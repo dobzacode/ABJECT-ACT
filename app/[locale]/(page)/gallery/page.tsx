@@ -28,6 +28,8 @@ export async function generateMetadata() {
 }
 
 export default async function GalleryPage({ params: { locale } }: { params: { locale: string } }) {
+  unstable_setRequestLocale(locale);
+
   const events = await sanityFetch<EventsQueryResponse>({
     query: EVENTS_QUERY,
     stega: draftMode().isEnabled,
@@ -37,7 +39,6 @@ export default async function GalleryPage({ params: { locale } }: { params: { lo
   if (!events) {
     return notFound();
   }
-  unstable_setRequestLocale(locale);
 
   const sortedEvents = events.sort((a: Event, b: Event) => {
     return Date.parse(a.date) - Date.parse(b.date);
