@@ -1,15 +1,25 @@
 import { defineField, defineType } from 'sanity';
 
 export default defineType({
-  name: 'revueScouteAffiche',
-  title: 'Affiches de la Revue Scoute',
+  name: 'event',
+  title: 'Event',
   type: 'document',
-
   fields: [
+    defineField({
+      name: 'titre',
+      title: 'Titre',
+      type: 'string',
+
+      validation: (Rule) =>
+        Rule.max(100)
+          .required()
+          .warning(`Le titre de l'événément ne doit pas dépasser 100 caractères`)
+    }),
     defineField({
       name: 'imageGallery',
       title: "Galerie d'image",
       type: 'array',
+
       of: [
         {
           type: 'image',
@@ -30,10 +40,12 @@ export default defineType({
 
   preview: {
     select: {
+      title: 'titre',
       media: 'imageGallery.0'
     },
     prepare(selection) {
-      return { ...selection };
+      const { title } = selection;
+      return { ...selection, subtitle: title };
     }
   }
 });
