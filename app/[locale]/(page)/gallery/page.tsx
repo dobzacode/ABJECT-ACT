@@ -4,8 +4,9 @@ import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import { draftMode } from 'next/headers';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { sanityFetch } from 'sanity/lib/fetch';
-import { EVENTS_QUERY, Event, EventsQueryResponse } from 'sanity/lib/queries';
+import { sanityFetch } from '../../../../sanity/lib/fetch';
+
+import { EVENTS_QUERY, Event, EventsQueryResponse } from '../../../../sanity/lib/queries';
 
 export async function generateMetadata() {
   const t = await getTranslations('metadata.gallery');
@@ -38,6 +39,10 @@ export default async function GalleryPage({ params: { locale } }: { params: { lo
   }
   unstable_setRequestLocale(locale);
 
+  const sortedEvents = events.sort((a: Event, b: Event) => {
+    return Date.parse(a.date) - Date.parse(b.date);
+  });
+
   const blurHash = await dynamicBlurDataUrl('/asset/background/galery-bg.webp');
 
   return (
@@ -59,7 +64,7 @@ export default async function GalleryPage({ params: { locale } }: { params: { lo
           placeholder={'blur'}
         ></Image>
       </div>
-      {events.map((event: Event, index: number) => {
+      {sortedEvents.map((event: Event, index: number) => {
         return (
           <EventSection
             direction={index % 2 === 0 ? 'left' : 'right'}

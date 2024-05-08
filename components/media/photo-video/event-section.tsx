@@ -1,5 +1,3 @@
-'use client';
-
 import H2 from 'components/ui/text/h2';
 import React from 'react';
 import { Event } from 'sanity/lib/queries';

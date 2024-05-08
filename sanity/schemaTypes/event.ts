@@ -13,7 +13,7 @@ export default defineType({
       validation: (Rule) =>
         Rule.max(100)
           .required()
-          .warning(`Le titre de l'événément ne doit pas dépasser 100 caractères`)
+          .warning(`Le titre de l'événément ne doit Eventpas dépasser 100 caractères`)
     }),
     defineField({
       name: 'date',

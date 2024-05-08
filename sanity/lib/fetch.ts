@@ -1,8 +1,8 @@
 import type { ClientPerspective, QueryParams } from 'next-sanity';
 import { draftMode } from 'next/headers';
 
-import { client } from '@/sanity/lib/client';
-import { token } from '@/sanity/lib/token';
+import { client } from './client';
+import { token } from './token';
 
 export async function sanityFetch<QueryResponse>({
   query,

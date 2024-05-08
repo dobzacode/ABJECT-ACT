@@ -1,7 +1,6 @@
 import ImageSlider from 'components/ui/div/image-slider/image-slider';
-
-import { Event, Image } from 'sanity/lib/queries';
-import { urlForImage } from 'sanity/lib/utils';
+import { Event, Image } from '../../../sanity/lib/queries';
+import { urlForImage } from '../../../sanity/lib/utils';
 
 export default async function MediaPortion({ event }: { event: Event }) {
   const imagesWithUrl = event.imageGallery
