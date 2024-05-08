@@ -8,6 +8,7 @@ module.exports = withNextIntl({
   eslint: {
     ignoreDuringBuilds: true
   },
+  experimental: { taint: true },
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
