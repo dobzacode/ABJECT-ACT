@@ -27,7 +27,7 @@
   }
 
   .body {
-    @apply text-body font-light leading-[2rem] tracking-[0.15em];
+    @apply text-body font-light leading-[1.25rem] tracking-[0.09375em];
   }
 
   .caption {
@@ -168,7 +168,7 @@
 }
 
 html {
-  font-size: 62.5%;
+  font-size: 100%;
   font-family: oswald;
 }
 

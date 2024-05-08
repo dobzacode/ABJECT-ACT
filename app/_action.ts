@@ -2,6 +2,7 @@
 
 import { google } from 'googleapis';
 import { getLocale, getTranslations } from 'next-intl/server';
+import { draftMode } from 'next/headers';
 
 export async function joinUsAction(formData: FormData) {
   const locale = await getLocale();
@@ -229,4 +230,12 @@ export async function generateOpenGraphImage(route: string) {
   } catch (error) {
     console.error("Erreur lors de la génération de l'image OpenGraph :", error);
   }
+}
+
+export async function disableDraftMode() {
+  await Promise.allSettled([
+    draftMode().disable(),
+
+    new Promise((resolve) => setTimeout(resolve, 1000))
+  ]);
 }

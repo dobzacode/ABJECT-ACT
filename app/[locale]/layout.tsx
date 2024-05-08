@@ -1,7 +1,10 @@
 import { Header } from 'components/ui/header/header';
 
+import AlertBanner from 'components/sanity/alert-banner';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, unstable_setRequestLocale } from 'next-intl/server';
+import { VisualEditing } from 'next-sanity';
+import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
 import { ReactNode } from 'react';
 import './globals.css';
@@ -42,6 +45,8 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body className="relative h-full  w-full overflow-x-hidden bg-black ">
+        {draftMode().isEnabled && <AlertBanner />}
+
         <NextIntlClientProvider messages={messages}>
           <Header
             size={'medium'}
@@ -50,6 +55,7 @@ export default async function RootLayout({
           ></Header>
           {children}
         </NextIntlClientProvider>
+        {draftMode().isEnabled && <VisualEditing />}
       </body>
     </html>
   );

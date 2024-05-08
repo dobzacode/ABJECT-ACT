@@ -2,14 +2,14 @@
 
 const plugin = require('tailwindcss/plugin');
 
-const HEADING_EXTRA_LARGE_SIZE = '12.8rem';
-const HEADING_SUB_EXTRA_LARGE_SIZE = '9.6rem';
-const HEADING_LARGE_SIZE = '6.4rem';
-const HEADING_SUBLARGE_SIZE = '4.8rem';
-const HEADING_SIZE = '3.2rem';
-const SUBHEADING_SIZE = '2.4rem';
-const BODY_SIZE = '1.6rem';
-const CAPTION_SIZE = '1.2rem';
+const HEADING_EXTRA_LARGE_SIZE = '8rem';
+const HEADING_SUB_EXTRA_LARGE_SIZE = '6rem';
+const HEADING_LARGE_SIZE = '4rem';
+const HEADING_SUBLARGE_SIZE = '3rem';
+const HEADING_SIZE = '2rem';
+const SUBHEADING_SIZE = '1.5rem';
+const BODY_SIZE = '1rem';
+const CAPTION_SIZE = '0.75rem';
 
 const LIGHTNESS_FACTOR = '20%';
 const SATURATION_FACTOR = 30;
