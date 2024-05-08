@@ -31,7 +31,7 @@ export default function ContactSection({ isJoinUs = false }: { isJoinUs?: boolea
     <>
       <section
         className={cn(
-          ' slideInFromBottom transparent-card mx-small flex w-full flex-col gap-small rounded-small p-small  text-black5  mobile-large:mx-0 mobile-large:w-2/3 tablet:w-fit'
+          ' slideInFromBottom transparent-card mx-small flex w-full flex-col gap-extra-small rounded-small p-small  text-black5  mobile-large:mx-0 mobile-large:w-2/3 tablet:w-fit'
         )}
       >
         {!isJoinUs ? (

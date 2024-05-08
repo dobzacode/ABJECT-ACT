@@ -32,7 +32,7 @@ export default function GenericForm({
         <SubmitButton isEmail={isEmail}></SubmitButton>
       </form>
       {t && (
-        <P className={`caption  ${isEmail ? 'text-center' : 'text-start'}`}>
+        <P className={`caption pt-small ${isEmail ? 'text-center' : 'text-start'}`}>
           {t('formPhrase.1')}
           <a className="text-info50" href="https://policies.google.com/privacy">
             {t('formPhrase.2')}

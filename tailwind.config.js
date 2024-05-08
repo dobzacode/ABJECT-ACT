@@ -277,18 +277,18 @@ module.exports = {
         large: HEADING_LARGE_SIZE,
         'sub-large': HEADING_SIZE,
         medium: SUBHEADING_SIZE,
-        'sub-medium': parseFloat(SUBHEADING_SIZE) - 0.4 + 'rem',
+        'sub-medium': parseFloat(SUBHEADING_SIZE) - 0.25 + 'rem',
         small: BODY_SIZE,
-        'extra-small': parseFloat(SUBHEADING_SIZE) - 1.6 + 'rem'
+        'extra-small': parseFloat(SUBHEADING_SIZE) - 1 + 'rem'
       },
       borderRadius: {
         'extra-large': HEADING_EXTRA_LARGE_SIZE,
         large: HEADING_LARGE_SIZE,
         'sub-large': HEADING_SIZE,
         medium: SUBHEADING_SIZE,
-        'sub-medium': parseFloat(SUBHEADING_SIZE) - 0.4 + 'rem',
-        small: parseFloat(SUBHEADING_SIZE) - 0.8 + 'rem',
-        'extra-small': parseFloat(SUBHEADING_SIZE) - 1.6 + 'rem'
+        'sub-medium': parseFloat(SUBHEADING_SIZE) - 0.25 + 'rem',
+        small: parseFloat(SUBHEADING_SIZE) - 0.5 + 'rem',
+        'extra-small': parseFloat(SUBHEADING_SIZE) - 1 + 'rem'
       },
       boxShadow: {
         'small-light': mediumShadow('0deg 0% 20%'),

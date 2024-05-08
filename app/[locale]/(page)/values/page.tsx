@@ -50,11 +50,11 @@ export default async function HomePage({ params: { locale } }: { params: { local
       <section className="relative flex flex-col ">
         <H1
           textType={'heading--extra-large'}
-          className="slideInFromTop relative z-10 -mb-[4rem] text-center text-black5 max-mobile-large:text-heading-sub-extra-large  tablet:-mb-large tablet:mt-small"
+          className="slideInFromTop relative z-10 -mb-[2.5rem] text-center text-black5 max-mobile-large:text-heading-sub-extra-large  tablet:-mb-large tablet:mt-small"
         >
           {t('values').toUpperCase()}
         </H1>
-        <div className="slideInFromBottom transparent-card flex h-fit w-fit max-w-[600px] flex-col justify-between gap-medium overflow-hidden rounded-small  p-medium pt-[6rem]  text-center text-black5  tablet:pt-[8rem]">
+        <div className="slideInFromBottom transparent-card flex h-fit w-fit max-w-[600px] flex-col justify-between gap-medium overflow-hidden rounded-small  p-medium pt-[3.75rem]  text-center text-black5  tablet:pt-[5rem]">
           <P intent="white" textType={'body'} className="pr-small font-extralight">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud

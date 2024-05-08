@@ -14,7 +14,7 @@ export function SubmitButton({ isEmail = false }: { isEmail?: boolean }) {
 
   return (
     <Button
-      className={`relative border-b-2 border-info10 `}
+      className={`relative mt-small border-b-2 border-info10`}
       size="small"
       rounded="small"
       type="submit"

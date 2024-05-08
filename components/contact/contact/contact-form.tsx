@@ -34,7 +34,7 @@ export default function ContactForm({
   const tForm = useTranslations('form');
 
   return (
-    <GenericForm classname="flex flex-col gap-small w-full" action={formAction}>
+    <GenericForm classname="flex flex-col gap-extra-small w-full" action={formAction}>
       {state && (
         <P
           textType={'body'}
@@ -43,7 +43,7 @@ export default function ContactForm({
           {state}
         </P>
       )}
-      <div className="flex w-full flex-col justify-between  gap-small mobile-large:flex-row">
+      <div className="flex w-full flex-col justify-between  gap-extra-small mobile-large:flex-row">
         <Input
           intent="black"
           className="mobile-large:w-1/2"

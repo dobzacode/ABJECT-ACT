@@ -139,6 +139,16 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
     }
   };
 
+  useEffect(() => {
+    if (showMenu) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      setTimeout(() => {
+        document.body.style.overflow = '';
+      }, 500);
+    }
+  }, [showMenu]);
+
   return (
     <>
       <header className={cn(className)}>
@@ -156,7 +166,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
                 <Icon
                   path={mdiMenu}
                   className=" text-white duration-fast hover:scale-105"
-                  size={2.5}
+                  size={1.5625}
                 ></Icon>
               </motion.button>
             ) : (
@@ -171,7 +181,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
                 <Icon
                   path={mdiClose}
                   className=" text-white duration-fast hover:scale-105 max-mobile-large:scale-75 max-mobile-large:hover:scale-[80%]"
-                  size={2.5}
+                  size={1.5625}
                 ></Icon>
               </motion.button>
             )}

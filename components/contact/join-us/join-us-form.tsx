@@ -34,7 +34,7 @@ export default function JoinUsForm({
   const tForm = useTranslations('form');
 
   return (
-    <GenericForm classname="flex flex-col gap-small w-full" action={formAction}>
+    <GenericForm classname="flex flex-col gap-extra-small w-full" action={formAction}>
       {state && (
         <P
           textType={'body'}

@@ -20,7 +20,7 @@ const InputSelect: FC<SelectProps> = forwardRef<HTMLInputElement, SelectProps>(
           <select
             className={cn(
               className,
-              'body placeholder:body cursor-pointer rounded-lg  px-extra-small py-[1.1rem] focus-visible:outline-[1px] '
+              'body placeholder:body cursor-pointer rounded-lg  px-extra-small py-[0.67rem] focus-visible:outline-[1px] '
             )}
             name={props.id}
             aria-label={props.id}

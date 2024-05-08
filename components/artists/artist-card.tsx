@@ -38,7 +38,7 @@ export default async function ArtistCard({
         <div
           className={cn(
             'relative  w-full ',
-            isArtistPage ? 'h-[30rem]' : 'h-[25rem] mobile-large:h-[30rem]'
+            isArtistPage ? 'h-[18.75rem]' : 'h-[15.625rem] mobile-large:h-[18.75rem]'
           )}
         >
           <Image
@@ -54,7 +54,7 @@ export default async function ArtistCard({
       <div
         className={cn(
           'mx-small flex flex-col gap-sub-medium text-white ',
-          isArtistPage ? 'w-[30rem] tablet:w-[40rem]' : 'w-[30rem] mobile-large:w-[40rem]'
+          isArtistPage ? 'w-[18.75rem] tablet:w-[25rem]' : 'w-[18.75rem] mobile-large:w-[25rem]'
         )}
       >
         <H1 className="font-extralight" textType={'heading--sub-large'}>
@@ -69,13 +69,13 @@ export default async function ArtistCard({
         )}
 
         <div className="flex flex-col justify-between gap-small tablet:flex-row tablet:items-center ">
-          <div className="flex flex-wrap gap-5 [&>*:hover]:scale-110 [&>*]:duration-300">
+          <div className="flex flex-wrap gap-3 [&>*:hover]:scale-110 [&>*]:duration-300">
             {socials?.map(({ link, mdiPath }) => {
               switch (mdiPath) {
                 case 'mdiEmail':
                   return (
                     <a key={v4()} href={link} className="relative z-40">
-                      <Icon path={mdiPath} size={1.5} color="white"></Icon>
+                      <Icon path={mdiPath} size={0.9375} color="white"></Icon>
                     </a>
                   );
                 case 'bandcamp':
@@ -92,7 +92,7 @@ export default async function ArtistCard({
                 default:
                   return (
                     <a key={v4()} href={link} className="relative z-40">
-                      <Icon path={mdiPath} size={1.3} color="white"></Icon>
+                      <Icon path={mdiPath} size={0.8125} color="white"></Icon>
                     </a>
                   );
               }
@@ -105,7 +105,7 @@ export default async function ArtistCard({
                 className="items-center gap-2 duration-medium hover:scale-105 group-hover:opacity-100 tablet:flex laptop:opacity-0"
               >
                 {' '}
-                <Icon path={mdiPlus} size={1.3} color="white"></Icon>
+                <Icon path={mdiPlus} size={0.8125} color="white"></Icon>
               </NavLink>
             )}
           </div>
@@ -117,7 +117,7 @@ export default async function ArtistCard({
               className="items-center gap-2 duration-medium hover:scale-105 group-hover:opacity-100 tablet:flex laptop:opacity-0"
             >
               <p className="body">{t('text')}</p>
-              <Icon className="pt-1" path={mdiArrowRight} size={1.3} color="white"></Icon>
+              <Icon className="pt-1" path={mdiArrowRight} size={0.8125} color="white"></Icon>
             </NavLink>
           )}
         </div>

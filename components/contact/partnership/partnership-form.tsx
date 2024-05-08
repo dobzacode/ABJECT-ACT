@@ -35,7 +35,7 @@ export default function PartnershipForm({
   }
 
   return (
-    <GenericForm classname="flex flex-col gap-small w-full" action={formAction}>
+    <GenericForm classname="flex flex-col gap-extra-small w-full" action={formAction}>
       {state && (
         <P
           textType={'body'}

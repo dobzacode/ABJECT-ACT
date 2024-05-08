@@ -18,13 +18,16 @@ export default async function ArtistSnippet({
 }) {
   const blurHash = await dynamicBlurDataUrl(artistSrc);
   const t = await getTranslations('more');
+
+  console.log(artist);
+
   return (
     <div
       className={
         'slideInFromLeft transparent-card group z-10 flex h-fit w-fit cursor-pointer  flex-col items-center  justify-center gap-medium overflow-hidden rounded-small  bg-black95 duration-medium  laptop:w-fit'
       }
     >
-      <div className="relative aspect-[4/5] h-[45rem]  ">
+      <div className="relative aspect-[4/5] h-[28.125rem]  ">
         <Image
           placeholder="blur"
           blurDataURL={blurHash}
@@ -65,7 +68,7 @@ export default async function ArtistSnippet({
                 default:
                   return (
                     <a key={v4()} href={link} className="relative z-40">
-                      <Icon path={mdiPath} size={1.3} color="white"></Icon>
+                      <Icon path={mdiPath} size={0.8125} color="white"></Icon>
                     </a>
                   );
               }
@@ -73,12 +76,12 @@ export default async function ArtistSnippet({
           </div>
           <NavLink
             isPrimaryNav={false}
-            href={`/artists/${artist.toLowerCase()}`}
+            href={`/artists/${artist.toLowerCase().replace(' ', '')}`}
             liClass={' '}
-            className="absolute right-small top-small z-40 flex items-center gap-2 text-white duration-medium hover:scale-105"
+            className="absolute right-small top-small z-40 flex items-center gap-1 text-white duration-medium hover:scale-105"
           >
             <p className="body">{t('text')}</p>
-            <Icon className="pt-1" path={mdiArrowRight} size={1.3} color="white"></Icon>
+            <Icon className="pt-1" path={mdiArrowRight} size={0.8125} color="white"></Icon>
           </NavLink>
         </div>
       </div>

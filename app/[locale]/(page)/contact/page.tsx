@@ -30,7 +30,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
   const blurHash = await dynamicBlurDataUrl('/asset/background/contact-bg.webp');
 
   return (
-    <main className=" relative flex h-screen flex-col items-center gap-sub-large overflow-hidden px-small py-extra-large tablet:pb-extra-large tablet:pt-[22rem]">
+    <main className=" relative flex h-screen flex-col items-center gap-sub-large overflow-hidden px-small py-extra-large tablet:pb-extra-large tablet:pt-[13.75rem]">
       <div className=" fixed top-0 -z-20 h-screen w-screen overflow-hidden saturate-50">
         <Image
           blurDataURL={blurHash}

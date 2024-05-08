@@ -28,7 +28,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
 
   const blurHash = await dynamicBlurDataUrl('/asset/background/artists-bg.webp');
   return (
-    <main className="  relative  flex min-h-screen flex-wrap items-center justify-center justify-items-center gap-large overflow-hidden px-medium py-extra-large tablet:gap-sub-large tablet:pb-extra-large tablet:pt-[22rem]">
+    <main className="  relative  flex min-h-screen flex-wrap items-center justify-center justify-items-center gap-large overflow-hidden px-medium py-extra-large tablet:gap-sub-large tablet:pb-extra-large tablet:pt-[13.75rem]">
       <div className=" fixed top-0 -z-20 h-screen w-screen overflow-hidden saturate-50">
         <Image
           blurDataURL={blurHash}
@@ -84,7 +84,6 @@ export default async function HomePage({ params: { locale } }: { params: { local
           }
         ]}
       ></ArtistSnippet>
-     
     </main>
   );
 }
