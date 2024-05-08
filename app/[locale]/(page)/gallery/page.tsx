@@ -44,9 +44,9 @@ export default async function GalleryPage({ params: { locale } }: { params: { lo
     return Date.parse(a.date) - Date.parse(b.date);
   });
 
-  console.log(sortedEvents);
-
   const blurHash = await dynamicBlurDataUrl('/asset/background/galery-bg.webp');
+
+  console.log(sortedEvents[0]?.imageGallery[0]?.asset);
 
   return (
     <main
