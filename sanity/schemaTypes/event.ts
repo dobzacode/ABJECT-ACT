@@ -16,10 +16,15 @@ export default defineType({
           .warning(`Le titre de l'événément ne doit pas dépasser 100 caractères`)
     }),
     defineField({
+      name: 'date',
+      title: 'Date',
+      type: 'date',
+      validation: (Rule) => Rule.required().warning(`La date de l'événement est requise`)
+    }),
+    defineField({
       name: 'imageGallery',
       title: "Galerie d'image",
       type: 'array',
-
       of: [
         {
           type: 'image',

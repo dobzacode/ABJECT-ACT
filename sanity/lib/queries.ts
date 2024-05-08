@@ -6,6 +6,7 @@ export interface Event {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
+  date: string;
   titre: string;
   imageGallery: Image[];
 }
