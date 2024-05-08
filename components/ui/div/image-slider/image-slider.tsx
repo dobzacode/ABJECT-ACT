@@ -1,10 +1,11 @@
 'use client';
 
 import useBetterMediaQuery from 'components/hooks/use-better-media-query';
-import { cn, dynamicBlurDataUrl } from 'lib/utils';
+import { cn } from 'lib/utils';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Slider from 'react-slick';
+import { Image as SanityImg } from 'sanity/lib/queries';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import Lightbox from 'yet-another-react-lightbox';
@@ -12,39 +13,15 @@ import Zoom from 'yet-another-react-lightbox/plugins/zoom';
 import 'yet-another-react-lightbox/styles.css';
 import NextJsImage from './nextjs-image';
 
-interface ImageSliderProps {
-  imageFolder: string;
-  pictureAmount?: number;
+interface ImageProps {
+  images: SanityImg[];
 }
 
-interface imageProps {
-  original: string;
-  originalAlt: string;
-  thumbnail: string;
-  description: string;
-  blurHash: string;
-}
-
-const ImageSlider: React.FC<ImageSliderProps> = ({ imageFolder, pictureAmount }) => {
+export default function ImageSlider({ images }: ImageProps) {
   const [lightboxIsOpen, setLightboxIsOpen] = useState<boolean>(false);
   const [currentImage, setCurrentImage] = useState<number>(0);
-  const [images, setImages] = useState<imageProps[] | null>(null);
 
   const isMobile = useBetterMediaQuery('(max-width: 500px)');
-
-  useEffect(() => {
-    const defineImg = async () => {
-      const images = Array.from({ length: pictureAmount ? pictureAmount : 10 }, async (_, i) => ({
-        original: `${imageFolder}/pic${i + 1}.jpg`,
-        originalAlt: `pic${i + 1}`,
-        thumbnail: `${imageFolder}/pic${i + 1}.jpg`,
-        description: `Photo ${i + 1}`,
-        blurHash: await dynamicBlurDataUrl(`${imageFolder}/pic${i + 1}.jpg`)
-      }));
-      setImages(await Promise.all(images));
-    };
-    defineImg();
-  }, [imageFolder, pictureAmount]);
 
   const openLightbox = (index: number) => {
     setCurrentImage(index);
@@ -75,15 +52,15 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ imageFolder, pictureAmount })
     );
 
   const slides = images.map((item) => ({
-    src: item.original,
+    src: item.url,
     width: 3840,
     height: 2560,
     srcSet: [
-      { src: item.original, width: 320, height: 213 },
-      { src: item.original, width: 640, height: 426 },
-      { src: item.original, width: 1200, height: 800 },
-      { src: item.original, width: 2048, height: 1365 },
-      { src: item.original, width: 3840, height: 2560 }
+      { src: item.url, width: 320, height: 213 },
+      { src: item.url, width: 640, height: 426 },
+      { src: item.url, width: 1200, height: 800 },
+      { src: item.url, width: 2048, height: 1365 },
+      { src: item.url, width: 3840, height: 2560 }
     ]
   }));
 
@@ -101,12 +78,12 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ imageFolder, pictureAmount })
           >
             <Image
               placeholder="blur"
-              blurDataURL={image.blurHash}
+              blurDataURL={image.blurSrc}
               className={cn('object-cover ')}
               fill
               sizes="600px"
-              src={image.thumbnail}
-              alt={image.description}
+              src={image.url}
+              alt={image.alt ? image.alt : `Image ${index + 1}`}
             ></Image>
           </div>
         ))}
@@ -122,6 +99,4 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ imageFolder, pictureAmount })
       />
     </>
   );
-};
-
-export default ImageSlider;
+}

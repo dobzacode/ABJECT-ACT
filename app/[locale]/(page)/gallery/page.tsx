@@ -1,7 +1,11 @@
-import ContentSection from 'components/media/photo-video/content-section';
+import EventSection from 'components/media/photo-video/event-section';
 import { dynamicBlurDataUrl } from 'lib/utils';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
+import { draftMode } from 'next/headers';
 import Image from 'next/image';
+import { notFound } from 'next/navigation';
+import { sanityFetch } from 'sanity/lib/fetch';
+import { EVENTS_QUERY, Event, EventsQueryResponse } from 'sanity/lib/queries';
 
 export async function generateMetadata() {
   const t = await getTranslations('metadata.gallery');
@@ -23,6 +27,15 @@ export async function generateMetadata() {
 }
 
 export default async function GalleryPage({ params: { locale } }: { params: { locale: string } }) {
+  const events = await sanityFetch<EventsQueryResponse>({
+    query: EVENTS_QUERY,
+    stega: draftMode().isEnabled,
+    perspective: draftMode().isEnabled ? 'previewDrafts' : 'published'
+  });
+
+  if (!events) {
+    return notFound();
+  }
   unstable_setRequestLocale(locale);
 
   const blurHash = await dynamicBlurDataUrl('/asset/background/galery-bg.webp');
@@ -46,7 +59,17 @@ export default async function GalleryPage({ params: { locale } }: { params: { lo
           placeholder={'blur'}
         ></Image>
       </div>
-      <ContentSection></ContentSection>
+      {events.map((event: Event, index: number) => {
+        return (
+          <EventSection
+            direction={index % 2 === 0 ? 'left' : 'right'}
+            index={index}
+            event={event}
+            title={event.titre}
+            key={`${event.titre}-${index}`}
+          ></EventSection>
+        );
+      })}
     </main>
   );
 }

@@ -1,13 +1,21 @@
 import ImageSlider from 'components/ui/div/image-slider/image-slider';
 
-import { EventSectionProps } from './event-section';
+import { Event, Image } from 'sanity/lib/queries';
+import { urlForImage } from 'sanity/lib/utils';
 
-interface MediaPortionProps
-  extends Omit<
-    EventSectionProps,
-    'title' | 'direction' | 'scrollYProgress' | 'index' | 'eventArr' | 'videoSrc'
-  > {}
+export default async function MediaPortion({ event }: { event: Event }) {
+  const imagesWithUrl = event.imageGallery
+    ? await Promise.all(
+        event.imageGallery.map(async (image: Image) => {
+          image.url = await urlForImage(image).width(1920).height(1080).dpr(2).quality(80).url();
 
-export default function MediaPortion({ imageFolder, pictureAmount }: MediaPortionProps) {
-  return <ImageSlider pictureAmount={pictureAmount} imageFolder={imageFolder}></ImageSlider>;
+          image.blurSrc = urlForImage(image).width(20).quality(20).url();
+          return image;
+        })
+      )
+    : null;
+
+  if (!imagesWithUrl) return null;
+
+  return <ImageSlider images={imagesWithUrl}></ImageSlider>;
 }
