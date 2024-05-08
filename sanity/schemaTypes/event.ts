@@ -29,7 +29,6 @@ export default defineType({
       of: [
         {
           type: 'image',
-
           options: {
             metadata: ['blurhash', 'lqip'],
             hotspot: true

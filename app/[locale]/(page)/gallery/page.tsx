@@ -46,12 +46,12 @@ export default async function GalleryPage({ params: { locale } }: { params: { lo
 
   const blurHash = await dynamicBlurDataUrl('/asset/background/galery-bg.webp');
 
-  console.log(sortedEvents[0]?.imageGallery[0]?.asset);
+  console.table(sortedEvents[1]?.imageGallery[0].asset);
 
   return (
     <main
       className=" relative flex h-full
-     min-h-screen w-screen flex-col items-center justify-center overflow-x-hidden px-small py-extra-large tablet:pb-extra-large tablet:pt-[9rem]"
+     min-h-screen w-screen flex-col items-center justify-center gap-large overflow-x-hidden px-small py-extra-large tablet:pb-extra-large tablet:pt-[9rem]"
     >
       <div className=" fixed top-0 h-screen w-screen overflow-hidden saturate-50 ">
         <Image
