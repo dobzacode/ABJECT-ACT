@@ -19,6 +19,7 @@ export default defineType({
       name: 'date',
       title: 'Date',
       type: 'date',
+      options: { dateFormat: 'YYYY-DD-MM' },
       validation: (Rule) => Rule.required().warning(`La date de l'événement est requise`)
     }),
     defineField({

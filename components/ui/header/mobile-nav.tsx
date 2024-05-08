@@ -217,7 +217,7 @@ const MobileNav: FC<NavProps> = ({ className, linkSize, intent, size }: NavProps
                 return (
                   <NavLink
                     isPrimaryNav={true}
-                    className="max-tablet:text-[5rem] max-tablet:leading-[5rem] "
+                    className="max-tablet:text-[3.125rem] max-tablet:leading-[3.125rem] "
                     customSetter={() => {
                       setShowMenu(false);
                     }}

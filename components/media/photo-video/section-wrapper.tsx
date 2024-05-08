@@ -15,7 +15,7 @@ export default function SectionWrapper({ children, direction, ...props }: Sectio
       whileInView={{ opacity: 1, translateX: 0, transition: { type: 'spring' } }}
       viewport={{ margin: '-50% 0px -30% 0px' }}
       className={cn(
-        'relative flex h-[50rem] w-full flex-col gap-medium overflow-hidden rounded-small border border-black border-opacity-40 bg-black95 bg-opacity-60  pt-medium  backdrop-blur-sm    mobile-large:h-full laptop:w-10/12  '
+        'relative flex h-[31.25rem] w-full flex-col gap-medium overflow-hidden rounded-small border border-black border-opacity-40 bg-black95 bg-opacity-60   pt-medium  backdrop-blur-sm    mobile-large:h-full laptop:w-1/2  '
       )}
       {...props}
     >

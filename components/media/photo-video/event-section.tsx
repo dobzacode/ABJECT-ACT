@@ -22,7 +22,7 @@ const EventSection: React.FC<EventSectionProps> = ({
   return (
     <SectionWrapper direction={direction} {...props}>
       <div className="mx-medium flex justify-between ">
-        <H2 className="font-extralight" textType={'heading--sub-large'}>
+        <H2 className="font-extralight text-white" textType={'heading--sub-large'}>
           {title}
         </H2>
       </div>

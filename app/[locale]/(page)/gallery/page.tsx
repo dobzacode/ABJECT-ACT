@@ -44,12 +44,14 @@ export default async function GalleryPage({ params: { locale } }: { params: { lo
     return Date.parse(a.date) - Date.parse(b.date);
   });
 
+  console.log(sortedEvents);
+
   const blurHash = await dynamicBlurDataUrl('/asset/background/galery-bg.webp');
 
   return (
     <main
       className=" relative flex h-full
-     min-h-screen w-screen flex-col items-center justify-center overflow-x-hidden py-extra-large tablet:pb-extra-large tablet:pt-[13.75rem]"
+     min-h-screen w-screen flex-col items-center justify-center overflow-x-hidden px-small py-extra-large tablet:pb-extra-large tablet:pt-[9rem]"
     >
       <div className=" fixed top-0 h-screen w-screen overflow-hidden saturate-50 ">
         <Image

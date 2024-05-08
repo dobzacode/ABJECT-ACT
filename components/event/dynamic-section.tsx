@@ -1,15 +1,13 @@
-'use client';
-
 import H2 from 'components/ui/text/h2';
 import P from 'components/ui/text/p';
 
 import { mdiCalendarMonth, mdiMapMarker } from '@mdi/js';
 import Icon from '@mdi/react';
-import { motion } from 'framer-motion';
 import { cn, dynamicBlurDataUrl } from 'lib/utils';
-import { useFormatter } from 'next-intl';
+import { getFormatter } from 'next-intl/server';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import SectionWrapper from './section-wrapper';
 
 export interface DynamicSectionProps {
   title: string;
@@ -21,41 +19,21 @@ export interface DynamicSectionProps {
   index: number;
 }
 
-const DynamicSection: React.FC<DynamicSectionProps> = ({
+export default async function DynamicSection({
   title,
   direction,
   date,
   imageSrc,
-  index,
-  place,
-  ...props
-}) => {
-  const [blurHash, setBlurHash] = useState<string | undefined>(undefined);
-  const format = useFormatter();
+  place
+}: DynamicSectionProps) {
+  const blurHash = await dynamicBlurDataUrl(imageSrc);
+  const format = await getFormatter();
   const dateTime = new Date(date);
   const today = new Date();
   const isOlder = dateTime > today;
 
-  useEffect(() => {
-    const getBlurHash = async () => {
-      const blurHash = await dynamicBlurDataUrl(imageSrc);
-      setBlurHash(blurHash);
-    };
-
-    getBlurHash();
-  });
-
   return (
-    <motion.section
-      className={cn(
-        ' relative flex h-fit w-full max-w-[700px] flex-col overflow-x-hidden rounded-small    text-black5   ',
-        isOlder ? 'opacity-100' : 'opacity-20 grayscale'
-      )}
-      initial={{ opacity: 0, translateX: direction === 'left' ? '-10%' : '10%' }}
-      whileInView={{ opacity: 1, translateX: 0, transition: { type: 'spring' } }}
-      viewport={{ margin: '-50% 0px -34% 0px' }}
-      {...props}
-    >
+    <SectionWrapper direction={direction} isOlder={isOlder}>
       <div
         className={cn('relative h-[170px]  w-full bg-black bg-opacity-40 mobile-large:h-[300px]')}
       >
@@ -77,7 +55,7 @@ const DynamicSection: React.FC<DynamicSectionProps> = ({
         </H2>
         <div className="flex flex-col gap-extra-small">
           <div className="flex items-center gap-extra-small">
-            <Icon path={mdiCalendarMonth} size={1.4} className="text-black5" />
+            <Icon path={mdiCalendarMonth} size={0.875} className="text-black5" />
             <P intent="white" textType={'body'} className="font-extralight">
               {format.dateTime(dateTime, {
                 year: 'numeric',
@@ -88,15 +66,13 @@ const DynamicSection: React.FC<DynamicSectionProps> = ({
             </P>
           </div>
           <div className="flex items-center gap-extra-small">
-            <Icon path={mdiMapMarker} size={1.4} className="text-black5" />
+            <Icon path={mdiMapMarker} size={0.875} className="text-black5" />
             <P intent="white" textType={'body'} className="font-extralight">
               {place}
             </P>
           </div>
         </div>
       </div>
-    </motion.section>
+    </SectionWrapper>
   );
-};
-
-export default DynamicSection;
+}

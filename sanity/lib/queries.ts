@@ -19,6 +19,6 @@ export interface Image {
   blurSrc: string;
 }
 
-export const EVENTS_QUERY = groq`*[_type == "evenement"]`;
+export const EVENTS_QUERY = groq`*[_type == "event"]`;
 
 export type EventsQueryResponse = Event[] | null;

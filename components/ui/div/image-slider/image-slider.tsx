@@ -66,11 +66,11 @@ export default function ImageSlider({ images }: ImageProps) {
 
   return (
     <>
-      <Slider {...settings} className={cn(' h-[30rem] cursor-pointer mobile-large:h-[40rem] ')}>
+      <Slider {...settings} className={cn(' h-[18.75rem]  cursor-pointer mobile-large:h-[25rem] ')}>
         {images.map((image, index) => (
           <div
             key={index}
-            className="relative z-40 flex h-[30rem]  w-[20rem] border-r border-black  border-opacity-40 mobile-large:h-[40rem] "
+            className="relative z-40 flex h-[18.75rem]  w-[12.5rem] border-r border-black  border-opacity-40 mobile-large:h-[25rem] "
             onClick={() => {
               console.log(lightboxIsOpen);
               openLightbox(index);
@@ -81,7 +81,7 @@ export default function ImageSlider({ images }: ImageProps) {
               blurDataURL={image.blurSrc}
               className={cn('object-cover ')}
               fill
-              sizes="600px"
+              sizes={'500px'}
               src={image.url}
               alt={image.alt ? image.alt : `Image ${index + 1}`}
             ></Image>

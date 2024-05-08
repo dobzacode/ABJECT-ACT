@@ -16,7 +16,8 @@ module.exports = withNextIntl({
         protocol: 'https',
         hostname: 'cdn.shopify.com',
         pathname: '/s/files/**'
-      }
+      },
+      { protocol: 'https', hostname: 'cdn.sanity.io' }
     ]
   }
 });

@@ -1,4 +1,3 @@
-import { v4 } from 'uuid';
 import DynamicSection from './dynamic-section';
 
 const eventArr = [
@@ -66,7 +65,7 @@ export default function ContentSection({}) {
           <DynamicSection
             index={index}
             direction={index % 2 == 0 ? 'left' : 'right'}
-            key={v4()}
+            key={`${index}-${title}`}
             title={title}
             imageSrc={imageSrc}
             place={place}
