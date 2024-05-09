@@ -81,7 +81,7 @@ export default function ImageSlider({ images }: ImageProps) {
               blurDataURL={image.blurSrc}
               className={cn('object-cover ')}
               fill
-              sizes={'500px'}
+              sizes={'(max-width: 500px) 80vw, 50vw'}
               src={image.url}
               alt={image.alt ? image.alt : `Image ${index + 1}`}
             ></Image>
