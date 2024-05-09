@@ -1,7 +1,6 @@
 'use client';
 
 import { VariantProps, cva } from 'class-variance-authority';
-import useBetterMediaQuery from 'components/hooks/use-better-media-query';
 import { Variants, motion } from 'framer-motion';
 import { cn } from 'lib/utils';
 import { Link } from 'navigation';
@@ -151,9 +150,7 @@ const NavLink: FC<NavLinkProps> = React.forwardRef<HTMLLIElement, NavLinkProps>(
     const linkRef = useRef() as React.MutableRefObject<HTMLAnchorElement | null>;
     const linkRefWithoutVariants = useRef() as React.MutableRefObject<HTMLAnchorElement | null>;
 
-    const isMobile = useBetterMediaQuery('(max-width: 500px)');
-
-    if (!variants || isMobile)
+    if (!variants)
       return (
         <li ref={ref} className={`list-none ${liClass}`}>
           <Link

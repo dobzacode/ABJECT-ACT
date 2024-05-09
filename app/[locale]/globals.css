@@ -376,11 +376,13 @@ input[type='search']:focus {
 .slick-prev {
   left: 8px !important;
   z-index: 50 !important;
+  transform: scale(1);
 }
 
 .slick-next {
   right: 8px !important;
   z-index: 50 !important;
+  transform: scale(1);
 }
 
 .fadeIn {
@@ -484,12 +486,12 @@ input[type='search']:focus {
 }
 
 .slick-next {
-  transform: scale(110%) !important;
+  transform: scale(140%) !important;
   right: 20px !important;
 }
 
 .slick-prev {
-  transform: scale(110%) !important;
+  transform: scale(140%) !important;
 
   left: 20px !important;
 }

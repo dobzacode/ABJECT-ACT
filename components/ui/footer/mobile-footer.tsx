@@ -103,7 +103,7 @@ export default function MobileFooter({ currentNavStyle, intent, customSetter }: 
             >
               <SocialIcon
                 className=""
-                size={1.3}
+                size={0.8125}
                 href={socialLink.href}
                 mdiPath={socialLink.mdiPath}
               ></SocialIcon>

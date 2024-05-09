@@ -49,7 +49,7 @@ export default async function GalleryPage({ params: { locale } }: { params: { lo
   return (
     <main
       className=" relative flex h-full
-     min-h-screen w-screen flex-col items-center justify-center gap-large overflow-x-hidden px-small py-extra-large tablet:pb-extra-large tablet:pt-[13.75rem]"
+     min-h-screen w-screen flex-col items-center justify-center gap-extra-large overflow-x-hidden px-small py-extra-large tablet:pb-extra-large tablet:pt-[13.75rem]"
     >
       <div className=" fixed top-0 h-screen w-screen overflow-hidden saturate-50 ">
         <Image
