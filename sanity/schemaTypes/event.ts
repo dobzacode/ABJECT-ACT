@@ -31,7 +31,7 @@ export default defineType({
           type: 'image',
           options: {
             metadata: ['blurhash', 'lqip'],
-            hotspot: true
+            hotspot: false
           },
           fields: [
             {
