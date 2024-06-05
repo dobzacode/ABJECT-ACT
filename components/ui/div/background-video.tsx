@@ -9,6 +9,7 @@ export default function VideoBackground({ src }: { src: string }) {
         animate={{ opacity: 1, transition: { duration: 1 } }}
         autoPlay
         muted
+        playsInline
         loop
         className="h-full w-full object-cover opacity-0"
       >
