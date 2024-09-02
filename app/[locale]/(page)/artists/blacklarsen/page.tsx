@@ -1,6 +1,7 @@
 import { mdiEmail, mdiFacebook, mdiInstagram, mdiSoundcloud } from '@mdi/js';
 import ArtistCard from 'components/artists/artist-card';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
+import ARTISTPIC from '/public/asset/artist/black_larsen.jpg';
 
 export async function generateMetadata() {
   const t = await getTranslations('metadata.blacklarsen');
@@ -28,7 +29,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
       <section className=" relative flex h-fit flex-col gap-medium max-[630px]:grid-cols-2 mobile-large:grid   min-[630px]:mb-[400px] tablet:grid-cols-none tablet:grid-rows-none ">
         <ArtistCard
           className="max-[630px]:col-span-2 max-mobile-large:w-full min-[630px]:row-span-2 min-[630px]:w-[112%] tablet:w-auto"
-          artistSrc="/asset/artist/black_larsen.jpg"
+          artistSrc={ARTISTPIC}
           artist="Black Larsen"
           socials={[
             { mdiPath: mdiInstagram, link: 'https://www.instagram.com/black_larsen/' },

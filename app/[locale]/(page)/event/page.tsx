@@ -1,7 +1,7 @@
 import ContentSection from 'components/event/content-section';
-import { dynamicBlurDataUrl } from 'lib/utils';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import Image from 'next/image';
+import BACKGROUNDPIC from '/public/asset/background/event-bg.webp';
 
 export async function generateMetadata() {
   const t = await getTranslations('metadata.event');
@@ -23,7 +23,6 @@ export async function generateMetadata() {
 }
 export default async function HomePage({ params: { locale } }: { params: { locale: string } }) {
   unstable_setRequestLocale(locale);
-  const blurHash = await dynamicBlurDataUrl('/asset/background/event-bg.webp');
 
   return (
     <main
@@ -32,14 +31,13 @@ export default async function HomePage({ params: { locale } }: { params: { local
     >
       <div className=" fixed top-0 -z-20 h-screen w-screen overflow-hidden saturate-50">
         <Image
-          blurDataURL={blurHash}
           placeholder={'blur'}
           sizes={'100vw'}
           alt={''}
           className="object-cover object-center min-[1920px]:h-screen min-[1920px]:w-screen"
           priority={true}
           quality={100}
-          src={'/asset/background/event-bg.webp'}
+          src={BACKGROUNDPIC}
           width={1920}
           height={1080}
         ></Image>

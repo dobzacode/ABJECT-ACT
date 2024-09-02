@@ -1,8 +1,8 @@
 import H2 from 'components/ui/text/h2';
 import P from 'components/ui/text/p';
 
-import { cn, dynamicBlurDataUrl } from 'lib/utils';
-import Image from 'next/image';
+import { cn } from 'lib/utils';
+import Image, { StaticImageData } from 'next/image';
 import React from 'react';
 
 export interface DynamicSectionProps {
@@ -10,7 +10,7 @@ export interface DynamicSectionProps {
   direction: 'right' | 'left';
   style?: React.CSSProperties;
   children: string;
-  src: string;
+  src: StaticImageData;
   alt: string;
   imgCss?: string;
 }
@@ -24,7 +24,6 @@ export default async function DynamicSection({
   imgCss,
   ...props
 }: DynamicSectionProps) {
-  const blurHash = await dynamicBlurDataUrl(src);
   return (
     <section
       className={cn(
@@ -43,7 +42,6 @@ export default async function DynamicSection({
       >
         <Image
           placeholder="blur"
-          blurDataURL={blurHash}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           fill
           className="object-cover"

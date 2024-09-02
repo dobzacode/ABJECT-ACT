@@ -1,11 +1,20 @@
 import ReleaseCard from 'components/label/release-card';
-import releases from 'components/label/release.json';
+
 import { H1 } from 'components/ui/text/h1';
 import P from 'components/ui/text/p';
-import { dynamicBlurDataUrl } from 'lib/utils';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import { v4 } from 'uuid';
+import BACKGROUNDPIC from '/public/asset/background/label-bg.webp';
+import VA002PIC from '/public/asset/label/va1.jpg';
+
+const RELEASES: { link: string; pictureSrc: StaticImageData; name: string }[] = [
+  {
+    link: 'https://abjectact.bandcamp.com/album/vandalism-va001',
+    pictureSrc: VA002PIC,
+    name: 'VA002'
+  }
+];
 
 export async function generateMetadata() {
   const t = await getTranslations('metadata.label');
@@ -28,8 +37,7 @@ export async function generateMetadata() {
 
 export default async function HomePage({ params: { locale } }: { params: { locale: string } }) {
   unstable_setRequestLocale(locale);
-
-  const blurHash = await dynamicBlurDataUrl('/asset/background/label-bg.webp');
+  const t = await getTranslations('label');
 
   return (
     <main className="relative flex min-h-screen flex-col items-center gap-large overflow-x-hidden px-small py-extra-large tablet:px-0 ">
@@ -42,8 +50,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
           className="object-cover object-center min-[1920px]:h-screen min-[1920px]:w-screen"
           priority={true}
           quality={100}
-          src={'/asset/background/label-bg.webp'}
-          blurDataURL={blurHash}
+          src={BACKGROUNDPIC}
           placeholder={'blur'}
         ></Image>
       </div>
@@ -54,11 +61,10 @@ export default async function HomePage({ params: { locale } }: { params: { local
         >
           LABEL
         </H1>
-        <div className="slideInFromBottom transparent-card flex h-fit w-fit max-w-[600px] flex-col justify-between gap-medium overflow-hidden rounded-small  p-medium pt-[6rem]  text-center text-black5  tablet:pt-[8rem]">
+        <div className="slideInFromBottom transparent-card flex h-fit w-fit max-w-[600px] flex-col justify-between gap-medium overflow-hidden rounded-small  p-medium pt-[6rem]  text-center text-black5  tablet:pt-[6rem]">
           <P intent="white" textType={'body'} className="pr-small font-extralight">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris
+            {t('description')}
+            <br /> <br /> {t('description2')}
           </P>
         </div>
       </section>
@@ -66,7 +72,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
         className="flex max-w-[1100px] flex-wrap items-center justify-center
       gap-large px-small"
       >
-        {releases.map(({ link, pictureSrc, name }, index) => {
+        {RELEASES.map(({ link, pictureSrc, name }, index) => {
           return (
             <ReleaseCard
               key={v4()}

@@ -1,8 +1,11 @@
 import { mdiEmail, mdiFacebook, mdiInstagram, mdiSoundcloud, mdiSpotify } from '@mdi/js';
 import ArtistSnippet from 'components/artists/artist-snippet';
-import { dynamicBlurDataUrl } from 'lib/utils';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import Image from 'next/image';
+import BLANKARPIC from '/public/asset/artist/black_larsen.jpg';
+import MORSUREPIC from '/public/asset/artist/morsure.jpg';
+import SPOREPIC from '/public/asset/artist/spore.jpg';
+import BACKGROUNDPIC from '/public/asset/background/artists-bg.webp';
 
 export async function generateMetadata() {
   const t = await getTranslations('metadata.artists');
@@ -26,25 +29,23 @@ export async function generateMetadata() {
 export default async function HomePage({ params: { locale } }: { params: { locale: string } }) {
   unstable_setRequestLocale(locale);
 
-  const blurHash = await dynamicBlurDataUrl('/asset/background/artists-bg.webp');
   return (
     <main className="  relative  flex min-h-screen flex-wrap items-center justify-center justify-items-center gap-large overflow-hidden px-medium py-extra-large tablet:gap-sub-large tablet:pb-extra-large tablet:pt-[13.75rem]">
-      <div className=" fixed top-0 -z-20 h-screen w-screen overflow-hidden saturate-50">
+      <div className=" fixed bottom-0 top-0 -z-20 h-screen w-screen overflow-hidden saturate-50">
         <Image
-          blurDataURL={blurHash}
           placeholder={'blur'}
           sizes={'100vw'}
           alt={''}
           className="object-cover object-center min-[1920px]:h-screen min-[1920px]:w-screen"
           priority={true}
           quality={100}
-          src={'/asset/background/artists-bg.webp'}
+          src={BACKGROUNDPIC}
           width={1920}
           height={1080}
         ></Image>
       </div>
       <ArtistSnippet
-        artistSrc="/asset/artist/morsure.jpg"
+        artistSrc={MORSUREPIC}
         artist="Morsure"
         socials={[
           { mdiPath: mdiInstagram, link: 'https://www.instagram.com/morsure_music/' },
@@ -60,7 +61,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
       ></ArtistSnippet>
 
       <ArtistSnippet
-        artistSrc="/asset/artist/black_larsen.jpg"
+        artistSrc={BLANKARPIC}
         artist="Black Larsen"
         socials={[
           { mdiPath: mdiInstagram, link: 'https://www.instagram.com/black_larsen/' },
@@ -71,7 +72,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
       ></ArtistSnippet>
 
       <ArtistSnippet
-        artistSrc="/asset/artist/spore.jpg"
+        artistSrc={SPOREPIC}
         artist="Spore"
         socials={[
           { mdiPath: mdiInstagram, link: 'https://www.instagram.com/spore.abject/' },

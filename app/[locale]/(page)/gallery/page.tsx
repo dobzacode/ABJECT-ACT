@@ -1,10 +1,10 @@
 import EventSection from 'components/media/photo-video/event-section';
-import { dynamicBlurDataUrl } from 'lib/utils';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import { draftMode } from 'next/headers';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { sanityFetch } from '../../../../sanity/lib/fetch';
+import BACKGROUNDPIC from '/public/asset/background/galery-bg.webp';
 
 import { EVENTS_QUERY, Event, EventsQueryResponse } from '../../../../sanity/lib/queries';
 
@@ -44,8 +44,6 @@ export default async function GalleryPage({ params: { locale } }: { params: { lo
     return Date.parse(a.date) - Date.parse(b.date);
   });
 
-  const blurHash = await dynamicBlurDataUrl('/asset/background/galery-bg.webp');
-
   return (
     <main
       className=" relative flex h-full
@@ -60,8 +58,7 @@ export default async function GalleryPage({ params: { locale } }: { params: { lo
           className="object-cover object-center min-[1920px]:h-screen min-[1920px]:w-screen"
           priority={true}
           quality={100}
-          src={'/asset/background/galery-bg.webp'}
-          blurDataURL={blurHash}
+          src={BACKGROUNDPIC}
           placeholder={'blur'}
         ></Image>
       </div>

@@ -1,6 +1,7 @@
 import { mdiEmail, mdiFacebook, mdiInstagram, mdiSoundcloud, mdiSpotify } from '@mdi/js';
 import ArtistCard from 'components/artists/artist-card';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
+import ARTISTPIC from '/public/asset/artist/morsure.jpg';
 
 export async function generateMetadata() {
   const t = await getTranslations('metadata.morsure');
@@ -27,7 +28,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
       <section className=" relative flex h-fit flex-col gap-medium  ">
         <ArtistCard
           className=" w-auto "
-          artistSrc="/asset/artist/morsure.jpg"
+          artistSrc={ARTISTPIC}
           artist="Morsure"
           socials={[
             { mdiPath: mdiInstagram, link: 'https://www.instagram.com/morsure_music/' },

@@ -3,16 +3,16 @@ import Icon from '@mdi/react';
 import NavLink from 'components/ui/header/nav-link';
 import { H1 } from 'components/ui/text/h1';
 import P from 'components/ui/text/p';
-import { cn, dynamicBlurDataUrl } from 'lib/utils';
+import { cn } from 'lib/utils';
 import { getTranslations } from 'next-intl/server';
 
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 
 import { v4 } from 'uuid';
 
 interface ArtistCardProps {
   artist: 'Morsure' | 'Spore' | 'Krauss' | 'Black Larsen';
-  artistSrc: string;
+  artistSrc: StaticImageData;
   socials: { link: string; mdiPath: string }[];
   className?: string;
   isArtistPage?: boolean;
@@ -25,7 +25,6 @@ export default async function ArtistCard({
   className,
   isArtistPage
 }: ArtistCardProps) {
-  const blurHash = await dynamicBlurDataUrl(artistSrc);
   const t = await getTranslations('more');
   return (
     <div
@@ -43,7 +42,6 @@ export default async function ArtistCard({
         >
           <Image
             placeholder="blur"
-            blurDataURL={blurHash}
             className="object-cover"
             fill
             src={artistSrc}

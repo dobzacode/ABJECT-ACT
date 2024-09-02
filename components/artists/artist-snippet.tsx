@@ -2,9 +2,8 @@ import { mdiArrowRight } from '@mdi/js';
 import Icon from '@mdi/react';
 import NavLink from 'components/ui/header/nav-link';
 import H2 from 'components/ui/text/h2';
-import { dynamicBlurDataUrl } from 'lib/utils';
 import { getTranslations } from 'next-intl/server';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import { v4 } from 'uuid';
 
 export default async function ArtistSnippet({
@@ -12,11 +11,10 @@ export default async function ArtistSnippet({
   artist,
   socials
 }: {
-  artistSrc: string;
+  artistSrc: StaticImageData;
   artist: string;
   socials: { link: string; mdiPath: string }[];
 }) {
-  const blurHash = await dynamicBlurDataUrl(artistSrc);
   const t = await getTranslations('more');
 
   console.log(artist);
@@ -30,7 +28,6 @@ export default async function ArtistSnippet({
       <div className="relative aspect-[4/5] h-[28.125rem]  ">
         <Image
           placeholder="blur"
-          blurDataURL={blurHash}
           className="object-cover duration-medium group-hover:blur-[2px] group-hover:saturate-50"
           fill
           src={artistSrc}

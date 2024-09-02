@@ -43,6 +43,10 @@
       "5": "s'y appliquent."
     }
   },
+  "label": {
+    "description": "Sombre, puissant et mélodique, tel est notre univers.",
+    "description2": "Notre collectif vise à promouvoir la scène underground à travers des événements, des podcasts et des productions."
+  },
   "shop": {
     "order": "ACHETER MAINTENANT"
   },

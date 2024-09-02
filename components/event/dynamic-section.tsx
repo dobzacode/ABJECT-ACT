@@ -3,9 +3,9 @@ import P from 'components/ui/text/p';
 
 import { mdiCalendarMonth, mdiMapMarker } from '@mdi/js';
 import Icon from '@mdi/react';
-import { cn, dynamicBlurDataUrl } from 'lib/utils';
+import { cn } from 'lib/utils';
 import { getFormatter } from 'next-intl/server';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import React from 'react';
 import SectionWrapper from './section-wrapper';
 
@@ -15,7 +15,7 @@ export interface DynamicSectionProps {
   style?: React.CSSProperties;
   date: string;
   place: string;
-  imageSrc: string;
+  imageSrc: StaticImageData;
   index: number;
 }
 
@@ -26,7 +26,6 @@ export default async function DynamicSection({
   imageSrc,
   place
 }: DynamicSectionProps) {
-  const blurHash = await dynamicBlurDataUrl(imageSrc);
   const format = await getFormatter();
   const dateTime = new Date(date);
   const today = new Date();
@@ -37,17 +36,14 @@ export default async function DynamicSection({
       <div
         className={cn('relative h-[170px]  w-full bg-black bg-opacity-40 mobile-large:h-[300px]')}
       >
-        {blurHash && (
-          <Image
-            blurDataURL={blurHash}
-            placeholder="blur"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
-            fill
-            className="object-cover object-center"
-            src={imageSrc}
-            alt={`${title} picture`}
-          ></Image>
-        )}
+        <Image
+          placeholder="blur"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
+          fill
+          className="object-cover object-center"
+          src={imageSrc}
+          alt={`${title} picture`}
+        ></Image>
       </div>
       <div className={cn(' transparent-card flex flex-col gap-medium p-medium')}>
         <H2 className="font-extralight" textType={'heading--sub-large'}>

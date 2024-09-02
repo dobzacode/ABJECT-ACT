@@ -1,10 +1,10 @@
 import ContactSection from 'components/contact/contact-section';
 import RecaptchaProvider from 'components/providers/recaptcha-provider';
 import { H1 } from 'components/ui/text/h1';
-import { dynamicBlurDataUrl } from 'lib/utils';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import Image from 'next/image';
 import { Suspense } from 'react';
+import BACKGROUNDPIC from '/public/asset/background/joinus-bg.webp';
 
 export async function generateMetadata() {
   const t = await getTranslations('metadata.join-us');
@@ -29,13 +29,10 @@ export default async function HomePage({ params: { locale } }: { params: { local
   unstable_setRequestLocale(locale);
   const t = await getTranslations('navigation.primaryNavigation');
 
-  const blurHash = await dynamicBlurDataUrl('/asset/background/joinus-bg.webp');
-
   return (
     <main className="relative flex h-screen flex-col items-center gap-sub-large overflow-hidden px-small py-extra-large tablet:pb-extra-large ">
       <div className=" fixed top-0 -z-20 h-screen w-screen overflow-hidden saturate-50">
         <Image
-          blurDataURL={blurHash}
           placeholder={'blur'}
           sizes={'100vw'}
           width={1920}
@@ -44,7 +41,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
           className="object-cover object-center min-[1920px]:h-screen min-[1920px]:w-screen"
           priority={true}
           quality={100}
-          src={'/asset/background/joinus-bg.webp'}
+          src={BACKGROUNDPIC}
         ></Image>
       </div>
       <H1

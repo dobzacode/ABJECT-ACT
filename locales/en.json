@@ -220,7 +220,10 @@
       "content4": "The abjectact.com website complies with the GDPR."
     }
   },
-
+  "label": {
+    "description": "Dark, powerful and melodious such is our universe.",
+    "description2": "Our collective aims to promote the underground scene through events, podcasts and productions."
+  },
   "newsletter": {
     "heading": "Subscribe to our Newsletter!",
     "content": "To not miss any of our events and stay updated on the latest from our label."

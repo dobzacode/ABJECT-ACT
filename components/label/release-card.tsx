@@ -1,11 +1,11 @@
 import P from 'components/ui/text/p';
-import { cn, dynamicBlurDataUrl } from 'lib/utils';
-import Image from 'next/image';
+import { cn } from 'lib/utils';
+import Image, { StaticImageData } from 'next/image';
 
 export interface ReleaseCardProps {
   direction: 'right' | 'left';
   link: string;
-  pictureSrc: string;
+  pictureSrc: StaticImageData;
   name: string;
 }
 
@@ -16,8 +16,6 @@ export default async function ReleaseCard({
   name,
   ...props
 }: ReleaseCardProps) {
-  const blurHash = await dynamicBlurDataUrl(pictureSrc);
-
   return (
     <section
       className={cn(
@@ -43,7 +41,6 @@ export default async function ReleaseCard({
       >
         <Image
           placeholder="blur"
-          blurDataURL={blurHash}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           fill
           className="object-cover"
