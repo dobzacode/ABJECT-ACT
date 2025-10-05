@@ -1,6 +1,6 @@
 import { groq } from 'next-sanity';
 
-export interface Event {
+export interface EventGallery {
   _id: string;
   _type: string;
   _createdAt: string;
@@ -19,6 +19,34 @@ export interface Image {
   blurSrc: string;
 }
 
-export const EVENTS_QUERY = groq`*[_type == "event"]`;
+export interface EventItem {
+  _id: string;
+  _type: string;
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  date: string;
+  titre: string;
+  lieu: string;
+  image: Image;
+}
 
-export type EventsQueryResponse = Event[] | null;
+export const GALLERY_EVENTS_QUERY = groq`*[_type == "event"]`;
+export type GalleryEventsQueryResponse = EventGallery[] | null;
+
+export const EVENTS_LIST_QUERY = groq`*[_type == "eventDate"]`;
+export type EventsListQueryResponse = EventItem[] | null;
+
+export interface LabelItem {
+  _id: string;
+  _type: string;
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  link: string;
+  name: string;
+  picture: Image;
+}
+
+export const LABELS_QUERY = groq`*[_type == "label"]`;
+export type LabelsQueryResponse = LabelItem[] | null;

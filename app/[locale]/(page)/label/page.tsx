@@ -3,18 +3,11 @@ import ReleaseCard from 'components/label/release-card';
 import { H1 } from 'components/ui/text/h1';
 import P from 'components/ui/text/p';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
-import Image, { StaticImageData } from 'next/image';
-import { v4 } from 'uuid';
+import Image from 'next/image';
+import { sanityFetch } from '../../../../sanity/lib/fetch';
+import { LABELS_QUERY, LabelItem } from '../../../../sanity/lib/queries';
+import { urlForImage } from '../../../../sanity/lib/utils';
 import BACKGROUNDPIC from '/public/asset/background/label-bg.webp';
-import VA002PIC from '/public/asset/label/va1.jpg';
-
-const RELEASES: { link: string; pictureSrc: StaticImageData; name: string }[] = [
-  {
-    link: 'https://abjectact.bandcamp.com/album/vandalism-va001',
-    pictureSrc: VA002PIC,
-    name: 'VA002'
-  }
-];
 
 export async function generateMetadata() {
   const t = await getTranslations('metadata.label');
@@ -38,6 +31,18 @@ export async function generateMetadata() {
 export default async function HomePage({ params: { locale } }: { params: { locale: string } }) {
   unstable_setRequestLocale(locale);
   const t = await getTranslations('label');
+  const labels = await sanityFetch<LabelItem[]>({ query: LABELS_QUERY });
+  const viewModel = labels
+    ? await Promise.all(
+        labels.map(async (item) => ({
+          link: item.link,
+          pictureSrc: item.picture?.asset
+            ? urlForImage(item.picture).width(1024).height(1024).dpr(2).quality(100).url()
+            : '',
+          name: item.name
+        }))
+      )
+    : [];
 
   return (
     <main className="relative flex min-h-screen flex-col items-center gap-large overflow-x-hidden px-small py-extra-large tablet:px-0 ">
@@ -72,10 +77,10 @@ export default async function HomePage({ params: { locale } }: { params: { local
         className="flex max-w-[1100px] flex-wrap items-center justify-center
       gap-large px-small"
       >
-        {RELEASES.map(({ link, pictureSrc, name }, index) => {
+        {viewModel.map(({ link, pictureSrc, name }, index) => {
           return (
             <ReleaseCard
-              key={v4()}
+              key={`${name}-${index}`}
               pictureSrc={pictureSrc}
               name={name}
               link={link}

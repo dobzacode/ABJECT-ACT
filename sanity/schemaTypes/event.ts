@@ -1,58 +1,55 @@
 import { defineField, defineType } from 'sanity';
 
 export default defineType({
-  name: 'event',
-  title: 'Event',
+  name: 'eventDate',
+  title: 'Événement',
   type: 'document',
   fields: [
     defineField({
       name: 'titre',
       title: 'Titre',
       type: 'string',
-
-      validation: (Rule) =>
-        Rule.max(100)
-          .required()
-          .warning(`Le titre de l'événément ne doit Eventpas dépasser 100 caractères`)
+      validation: (Rule) => Rule.max(120).required()
+    }),
+    defineField({
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+      options: { hotspot: true, metadata: ['blurhash', 'lqip'] },
+      fields: [{ name: 'alt', title: 'Texte alternatif', type: 'string' }],
+      validation: (Rule) => Rule.required()
+    }),
+    defineField({
+      name: 'lieu',
+      title: 'Lieu',
+      type: 'string',
+      validation: (Rule) => Rule.required()
     }),
     defineField({
       name: 'date',
       title: 'Date',
       type: 'date',
-      options: { dateFormat: 'YYYY-DD-MM' },
-      validation: (Rule) => Rule.required().warning(`La date de l'événement est requise`)
-    }),
-    defineField({
-      name: 'imageGallery',
-      title: "Galerie d'image",
-      type: 'array',
-      of: [
-        {
-          type: 'image',
-          options: {
-            metadata: ['blurhash', 'lqip'],
-            hotspot: false
-          },
-          fields: [
-            {
-              name: 'alt',
-              type: 'string',
-              title: 'Texte alternatif'
-            }
-          ]
-        }
-      ]
+      options: { dateFormat: 'YYYY-MM-DD' },
+      validation: (Rule) => Rule.required()
     })
   ],
-
-  preview: {
-    select: {
-      title: 'titre',
-      media: 'imageGallery.0'
+  orderings: [
+    {
+      title: 'Date (plus récent)',
+      name: 'dateDesc',
+      by: [{ field: 'date', direction: 'desc' }]
     },
+    {
+      title: 'Date (plus ancien)',
+      name: 'dateAsc',
+      by: [{ field: 'date', direction: 'asc' }]
+    }
+  ],
+  preview: {
+    select: { title: 'titre', media: 'image', subtitle: 'date' },
     prepare(selection) {
-      const { title } = selection;
-      return { ...selection, subtitle: title };
+      const { subtitle } = selection as { title: string; subtitle: string };
+      return { ...selection, subtitle: subtitle };
     }
   }
 });

@@ -1,6 +1,11 @@
-import ContentSection from 'components/event/content-section';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import Image from 'next/image';
+
+import DynamicSection from 'components/event/dynamic-section';
+import { sanityFetch } from '../../../../sanity/lib/fetch';
+
+import { EventItem, EVENTS_LIST_QUERY } from '../../../../sanity/lib/queries';
+import { urlForImage } from '../../../../sanity/lib/utils';
 import BACKGROUNDPIC from '/public/asset/background/event-bg.webp';
 
 export async function generateMetadata() {
@@ -24,6 +29,23 @@ export async function generateMetadata() {
 export default async function HomePage({ params: { locale } }: { params: { locale: string } }) {
   unstable_setRequestLocale(locale);
 
+  const events = await sanityFetch<EventItem[]>({ query: EVENTS_LIST_QUERY });
+  if (!events) return null;
+
+  const sortedEvents = events.sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
+
+  const viewModel = await Promise.all(
+    sortedEvents.map(async (event) => {
+      const imageUrl = event.image?.asset ? urlForImage(event.image).dpr(2).quality(100).url() : '';
+      return {
+        title: event.titre,
+        imageSrc: imageUrl,
+        place: event.lieu,
+        date: event.date
+      };
+    })
+  );
+
   return (
     <main
       className=" relative flex h-full
@@ -42,7 +64,17 @@ export default async function HomePage({ params: { locale } }: { params: { local
           height={1080}
         ></Image>
       </div>
-      <ContentSection></ContentSection>
+      {viewModel.map(({ title, imageSrc, place, date }, index) => (
+        <DynamicSection
+          index={index}
+          direction={index % 2 == 0 ? 'left' : 'right'}
+          key={`${index}-${title}`}
+          title={title}
+          imageSrc={imageSrc}
+          place={place}
+          date={date}
+        ></DynamicSection>
+      ))}
     </main>
   );
 }

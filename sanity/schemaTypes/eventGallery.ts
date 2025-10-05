@@ -1,0 +1,54 @@
+import { defineField, defineType } from 'sanity';
+
+export default defineType({
+  name: 'event',
+  title: 'Galerie Événements',
+  type: 'document',
+  fields: [
+    defineField({
+      name: 'titre',
+      title: 'Titre',
+      type: 'string',
+      validation: (Rule) =>
+        Rule.max(100).required().warning('Le titre ne doit pas dépasser 100 caractères')
+    }),
+    defineField({
+      name: 'date',
+      title: 'Date',
+      type: 'date',
+      options: { dateFormat: 'YYYY-DD-MM' },
+      validation: (Rule) => Rule.required().warning("La date de l'événement est requise")
+    }),
+    defineField({
+      name: 'imageGallery',
+      title: "Galerie d'image",
+      type: 'array',
+      of: [
+        {
+          type: 'image',
+          options: {
+            metadata: ['blurhash', 'lqip'],
+            hotspot: false
+          },
+          fields: [
+            {
+              name: 'alt',
+              type: 'string',
+              title: 'Texte alternatif'
+            }
+          ]
+        }
+      ]
+    })
+  ],
+  preview: {
+    select: {
+      title: 'titre',
+      media: 'imageGallery.0'
+    },
+    prepare(selection) {
+      const { title } = selection as { title: string };
+      return { ...selection, subtitle: title };
+    }
+  }
+});

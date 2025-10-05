@@ -5,7 +5,7 @@ import { mdiCalendarMonth, mdiMapMarker } from '@mdi/js';
 import Icon from '@mdi/react';
 import { cn } from 'lib/utils';
 import { getFormatter } from 'next-intl/server';
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import React from 'react';
 import SectionWrapper from './section-wrapper';
 
@@ -15,7 +15,7 @@ export interface DynamicSectionProps {
   style?: React.CSSProperties;
   date: string;
   place: string;
-  imageSrc: StaticImageData;
+  imageSrc: string;
   index: number;
 }
 
@@ -34,10 +34,9 @@ export default async function DynamicSection({
   return (
     <SectionWrapper direction={direction} isOlder={isOlder}>
       <div
-        className={cn('relative h-[170px]  w-full bg-black bg-opacity-40 mobile-large:h-[300px]')}
+        className={cn('relative h-[170px]  w-full bg-black bg-opacity-40 mobile-large:h-[300px] ')}
       >
         <Image
-          placeholder="blur"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
           fill
           className="object-cover object-center"

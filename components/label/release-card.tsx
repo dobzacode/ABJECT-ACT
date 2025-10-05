@@ -1,11 +1,11 @@
 import P from 'components/ui/text/p';
 import { cn } from 'lib/utils';
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 
 export interface ReleaseCardProps {
   direction: 'right' | 'left';
   link: string;
-  pictureSrc: StaticImageData;
+  pictureSrc: string;
   name: string;
 }
 
@@ -40,7 +40,6 @@ export default async function ReleaseCard({
         )}
       >
         <Image
-          placeholder="blur"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           fill
           className="object-cover"

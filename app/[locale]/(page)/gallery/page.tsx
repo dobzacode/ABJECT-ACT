@@ -6,7 +6,11 @@ import { notFound } from 'next/navigation';
 import { sanityFetch } from '../../../../sanity/lib/fetch';
 import BACKGROUNDPIC from '/public/asset/background/galery-bg.webp';
 
-import { EVENTS_QUERY, Event, EventsQueryResponse } from '../../../../sanity/lib/queries';
+import {
+  EventGallery,
+  GALLERY_EVENTS_QUERY,
+  GalleryEventsQueryResponse
+} from '../../../../sanity/lib/queries';
 
 export async function generateMetadata() {
   const t = await getTranslations('metadata.gallery');
@@ -30,8 +34,8 @@ export async function generateMetadata() {
 export default async function GalleryPage({ params: { locale } }: { params: { locale: string } }) {
   unstable_setRequestLocale(locale);
 
-  const events = await sanityFetch<EventsQueryResponse>({
-    query: EVENTS_QUERY,
+  const events = await sanityFetch<GalleryEventsQueryResponse>({
+    query: GALLERY_EVENTS_QUERY,
     stega: draftMode().isEnabled,
     perspective: draftMode().isEnabled ? 'previewDrafts' : 'published'
   });
@@ -40,7 +44,7 @@ export default async function GalleryPage({ params: { locale } }: { params: { lo
     return notFound();
   }
 
-  const sortedEvents = events.sort((a: Event, b: Event) => {
+  const sortedEvents = events.sort((a: EventGallery, b: EventGallery) => {
     return Date.parse(a.date) - Date.parse(b.date);
   });
 
@@ -62,7 +66,7 @@ export default async function GalleryPage({ params: { locale } }: { params: { lo
           placeholder={'blur'}
         ></Image>
       </div>
-      {sortedEvents.map((event: Event, index: number) => {
+      {sortedEvents.map((event: EventGallery, index: number) => {
         return (
           <EventSection
             direction={index % 2 === 0 ? 'left' : 'right'}
